@@ -13,7 +13,7 @@ public class JDBCUtil {
 //			Class.forName("oracle.jdbc.driver.OracleDriver");
 //			return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "spring", "spring");
 			Class.forName("com.mysql.jdbc.Driver");
-			return DriverManager.getConnection("jdbc:mysql://104.199.197.101:3306/balpoomdb?useUnicode=true&characterEncoding=utf8", 
+			return DriverManager.getConnection("jdbc:mysql://35.201.224.60:3306/balpoomdb?useUnicode=true&characterEncoding=utf8", 
 					"balpoom", "balpoom");
 		} catch (Exception e) {
 			e.printStackTrace();
