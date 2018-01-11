@@ -1,0 +1,86 @@
+*{
+  height: 100%;
+  width:100%;
+  margin: 0;
+  padding: 0;
+  
+}
+
+.wrapper {
+	padding: 50px;
+	width: 1200px;
+	border: 2px solid black;;
+	height: 3000px;
+}
+.title{
+  width:100%;
+  height:auto;
+  font-size:20px;
+  font-weight: bold;  
+}
+table{
+  width:100%;
+  height:auto;  
+}
+td:first-child{
+  width:15%;
+  text-align: center;
+}
+td{
+  padding: 3px;
+  border-bottom: 1px solid purple;
+  height:30px;
+  
+}
+#orderer_name{
+  width:20%;
+}
+.search_address{
+  width:100px;
+  height:auto;
+}
+.addressInput{
+  margin:3px;
+  height:30px;
+}
+.orderer_info{  
+  height:200px;
+}
+.delivery_Info{
+  height:400px;
+}
+.product_info{
+  width:100%;
+  height:300px;
+}
+.product_table td{
+  width:auto;
+  text-align: center;  
+}
+.payment_info{
+  height:300px;
+  width:70%;
+  
+  float:left;
+}
+.payment_table{
+  
+  height:auto;
+  
+}
+
+.select_payment{
+    width:13px;
+    height: 13px;
+}
+.last_Payment{
+  margin-left: 20px;
+  
+  width:25%;
+  height:300px;
+  float:left;
+}
+h2{
+  height:auto;
+  text-align: center;
+}
