@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.balpoom.member.MemberService;
 import com.balpoom.member.MemberVO;
-import com.balpoom.member.Impl.MemberDAO;
 
 @Controller
 public class MemberController {
