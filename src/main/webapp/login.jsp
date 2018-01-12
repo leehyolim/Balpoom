@@ -21,8 +21,6 @@ body .container {
   width: 700px;
   height: 500px;
   margin: 80px auto 0;
-
-
 }
 body .container .login_header {
   float: left;
@@ -276,8 +274,8 @@ body .container .content .signup-cont {
 						                    <label for="remember">Remember me</label>
 						                    <div class="submit-wrap">
                                     <input type="submit" value="로그인" class="submit"><br><br>
-                                      <a href="#" class="more">아이디 / 비밀번호를 잊으셨나요?</a>
-                                      <a href="agreePage.html" class="more">아직 발품의 회원이 아니신가요?</a>
+                                      <a href="searchIDPW.jsp" class="more">아이디 / 비밀번호를 잊으셨나요?</a>
+                                      <a href="agreePage.jsp" class="more">아직 발품의 회원이 아니신가요?</a>
                                 </div>
                                 <div class="sign_up">
 

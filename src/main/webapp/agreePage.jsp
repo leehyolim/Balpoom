@@ -164,7 +164,7 @@
 
             }else{
 
-                alert("약관에 모두 동의해주세요")
+                alert("약관에 모두 동의해주세요");
                 return false;
             }
     </script>
@@ -174,7 +174,7 @@
 <body>
 	<section class="container">
         <article class="half">
-            <form method="post" action="#">
+            <form method="post" action="registerForm.jsp">
             <h1>BALPOOM</h1>
                 <div class="tabs"></div>
                     <br>
@@ -470,7 +470,7 @@
     </div>
     <div>
         <br><br><input class = "submit" type = "submit" value="AGREE" onclick="checkForm()">
-        <input class = "cancel" type = "button" value="CANCEL">
+        <a href="index.jsp"><input class = "cancel" type = "button" value="CANCEL"></a>
 
 
     </div>

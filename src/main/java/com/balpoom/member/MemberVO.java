@@ -4,18 +4,32 @@ package com.balpoom.member;
 public class MemberVO {
 
 	private int m_no;
+	private String m_name;
 	private String m_id;
 	private String m_password;
-	private String m_name;
+	private int m_address_postcode;
+	private String m_address_primary;
+	private String m_address_detail;
+	private String m_email_id;
+	private String m_email_domain;
+	private int m_cellphone1;
+	private int m_cellphone2;
+	private int m_cellphone3;
+	private int m_phoneNum1;
+	private int m_phoneNum2;
+	private int m_phoneNum3;
 	private String m_birth;
-	private String m_cellphone;
-	private String m_phone;
-	private String m_address;
 	public int getM_no() {
 		return m_no;
 	}
 	public void setM_no(int m_no) {
 		this.m_no = m_no;
+	}
+	public String getM_name() {
+		return m_name;
+	}
+	public void setM_name(String m_name) {
+		this.m_name = m_name;
 	}
 	public String getM_id() {
 		return m_id;
@@ -29,11 +43,71 @@ public class MemberVO {
 	public void setM_password(String m_password) {
 		this.m_password = m_password;
 	}
-	public String getM_name() {
-		return m_name;
+	public int getM_address_postcode() {
+		return m_address_postcode;
 	}
-	public void setM_name(String m_name) {
-		this.m_name = m_name;
+	public void setM_address_postcode(int m_address_postcode) {
+		this.m_address_postcode = m_address_postcode;
+	}
+	public String getM_address_primary() {
+		return m_address_primary;
+	}
+	public void setM_address_primary(String m_address_primary) {
+		this.m_address_primary = m_address_primary;
+	}
+	public String getM_address_detail() {
+		return m_address_detail;
+	}
+	public void setM_address_detail(String m_address_detail) {
+		this.m_address_detail = m_address_detail;
+	}
+	public String getM_email_id() {
+		return m_email_id;
+	}
+	public void setM_email_id(String m_email_id) {
+		this.m_email_id = m_email_id;
+	}
+	public String getM_email_domain() {
+		return m_email_domain;
+	}
+	public void setM_email_domain(String m_email_domain) {
+		this.m_email_domain = m_email_domain;
+	}
+	public int getM_cellphone1() {
+		return m_cellphone1;
+	}
+	public void setM_cellphone1(int m_cellphone1) {
+		this.m_cellphone1 = m_cellphone1;
+	}
+	public int getM_cellphone2() {
+		return m_cellphone2;
+	}
+	public void setM_cellphone2(int m_cellphone2) {
+		this.m_cellphone2 = m_cellphone2;
+	}
+	public int getM_cellphone3() {
+		return m_cellphone3;
+	}
+	public void setM_cellphone3(int m_cellphone3) {
+		this.m_cellphone3 = m_cellphone3;
+	}
+	public int getM_phoneNum1() {
+		return m_phoneNum1;
+	}
+	public void setM_phoneNum1(int m_phoneNum1) {
+		this.m_phoneNum1 = m_phoneNum1;
+	}
+	public int getM_phoneNum2() {
+		return m_phoneNum2;
+	}
+	public void setM_phoneNum2(int m_phoneNum2) {
+		this.m_phoneNum2 = m_phoneNum2;
+	}
+	public int getM_phoneNum3() {
+		return m_phoneNum3;
+	}
+	public void setM_phoneNum3(int m_phoneNum3) {
+		this.m_phoneNum3 = m_phoneNum3;
 	}
 	public String getM_birth() {
 		return m_birth;
@@ -41,30 +115,17 @@ public class MemberVO {
 	public void setM_birth(String m_birth) {
 		this.m_birth = m_birth;
 	}
-	public String getM_cellphone() {
-		return m_cellphone;
-	}
-	public void setM_cellphone(String m_cellphone) {
-		this.m_cellphone = m_cellphone;
-	}
-	public String getM_phone() {
-		return m_phone;
-	}
-	public void setM_phone(String m_phone) {
-		this.m_phone = m_phone;
-	}
-	public String getM_address() {
-		return m_address;
-	}
-	public void setM_address(String m_address) {
-		this.m_address = m_address;
-	}
 	@Override
 	public String toString() {
-		return "MemberVO [m_no=" + m_no + ", m_id=" + m_id + ", m_password=" + m_password + ", m_name=" + m_name
-				+ ", m_birth=" + m_birth + ", m_cellphone=" + m_cellphone + ", m_phone=" + m_phone + ", m_address="
-				+ m_address + "]";
+		return "MemberVO [m_no=" + m_no + ", m_name=" + m_name + ", m_id=" + m_id + ", m_password=" + m_password
+				+ ", m_address_postcode=" + m_address_postcode + ", m_address_primary=" + m_address_primary
+				+ ", m_address_detail=" + m_address_detail + ", m_email_id=" + m_email_id + ", m_email_domain="
+				+ m_email_domain + ", m_cellphone1=" + m_cellphone1 + ", m_cellphone2=" + m_cellphone2
+				+ ", m_cellphone3=" + m_cellphone3 + ", m_phoneNum1=" + m_phoneNum1 + ", m_phoneNum2=" + m_phoneNum2
+				+ ", m_phoneNum3=" + m_phoneNum3 + ", m_birth=" + m_birth + "]";
 	}
+	
+	
 	
 	
 }

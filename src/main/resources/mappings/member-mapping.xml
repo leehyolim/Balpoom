@@ -6,8 +6,15 @@
 
 
 	<insert id="insertMember">
-		insert into member(m_id,m_password,m_name,m_birth,m_cellphone,m_phone,m_address) 
-		values( #{m_id}, #{m_password}, #{m_name}, #{m_birth}, #{m_cellphone}, #{m_phone}, #{m_address});
+		insert into member(m_name,m_id,m_password,m_address_postcode
+		,m_address_primary,m_address_detail,m_email_id,
+		m_email_domain,m_cellphone1,m_cellphone2,m_cellphone3,
+		m_phoneNum1,m_phoneNum2,m_phoneNum3,m_birth) 
+		values( #{m_name}, #{m_id}, #{m_password}, #{m_address_postcode},
+		 #{m_address_primary}, #{m_address_detail}, #{m_email_id},
+		 #{m_email_domain},#{m_cellphone1},#{m_cellphone2},
+		 #{m_cellphone3},#{m_phoneNum1},#{m_phoneNum2},#{m_phoneNum3},
+		 #{m_birth});
 	</insert>
 	
 	<select id="getMember" resultType="member">

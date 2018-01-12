@@ -1,0 +1,100 @@
+@CHARSET "UTF-8";
+	#wrapper{
+		margin: auto;
+		width: 1205px;
+		border:1px solid red;
+		height: 800px;
+	}
+	#pro_img_area{
+		float:left;
+		width: 550px;
+		height: 800px;
+		border: 1px solid black;
+		
+	}
+	#pro_main_img{
+		margin: auto;
+		margin-top:50px;
+		width: 300px;
+		height: auto;
+		border: 1px solid blue;
+	}
+	#pro_main_img img{
+		width: 100%;
+	}
+	#pro_small_img{
+		margin: auto;
+		margin-top:50px;
+		width: 300px;
+		height: auto;
+		border: 1px solid yellow;
+	}
+	.pro_small_img{
+		width: 50px;
+		height: auto;
+		display: inline-block;
+	}
+	.pro_small_img img{
+		width: 100%;
+	}
+	#pro_explain_area{
+		float:left;
+		width:650px;
+		height: 800px;
+		border: 1px solid black;
+	}
+	.pro_explain{
+		border:1px solid green;
+		width: 100%;
+	}
+	#pro_explain_1{
+		height: 60px;
+	}
+	#pro_explain_2{
+		height: 210px;
+	}
+	#pro_explain_3{
+		height: 160px;
+	}
+	#pro_explain_4{
+		height: 150px;
+	}
+	#pro_explain_5{
+		height: 70px;
+	}
+	#pro_explain_6{
+		height: 60px;
+	}
+	#pro_explain_6 button {
+		width: 300px;
+		height: 60px;
+	}
+	.form-control{
+		height: 40px;
+	}
+	
+	.navbar{
+		clear: both;
+	}
+	#wrapper2{
+		margin:auto;
+		width: 1205px;
+		border:1px solid red;
+		height: 1500px;
+	}
+	
+	#pro_detail_img{
+		float: left;
+		width: 900px;
+		height: 1500px;
+		border:1px solid red;
+	}
+	
+	#pro_detail_follow{
+		float: left;
+		width: 300px;
+		height: 1500px;
+		border:1px solid red;
+	}
+	
+	
