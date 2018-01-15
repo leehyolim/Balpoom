@@ -33,26 +33,26 @@ function fnMove(seq){
     $('#btn_move4').css('background','#f9f9f9');
     curPosition = 1;
   }else if(seq==2){
-    position = 1406;
+    position = 1205;
     $('#btn_move1').css('background','#f9f9f9');
     $('#btn_move2').css('background','#6f6f6f');
     $('#btn_move3').css('background','#f9f9f9');
     $('#btn_move4').css('background','#f9f9f9');
     curPosition = 2;
   }else if(seq==3){
-    position = 2811;
+    position = 2411;
     $('#btn_move1').css('background','#f9f9f9');
     $('#btn_move2').css('background','#f9f9f9');
     $('#btn_move3').css('background','#6f6f6f');
     $('#btn_move4').css('background','#f9f9f9');
     curPosition = 3;
   }else if(seq==4){
-    position = 4216;
+    position = 3616;
     $('#btn_move1').css('background','#f9f9f9');
     $('#btn_move2').css('background','#f9f9f9');
     $('#btn_move3').css('background','#f9f9f9');
     $('#btn_move4').css('background','#6f6f6f');
     curPosition = 4;
   }
-   $('#second').animate({scrollLeft : position}, 400);
+   $('#best_pro_div').animate({scrollLeft : position}, 400);
 }

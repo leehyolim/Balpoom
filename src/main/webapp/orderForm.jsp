@@ -5,7 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Order Page</title>
-<link rel="stylesheet" type="text/css" href="./css/orderFormCss.css">
+<link rel="stylesheet" type="text/css"
+	href="./css/orderFormCss.css?ver=1">
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-1.8.1.min.js"></script>
 <script type="text/javascript">
@@ -45,163 +46,161 @@
 
 </head>
 <body>
-	<jsp:include page="./header/header.jsp"></jsp:include>
-	<center>
-		<div class="wrapper">
-			<div class="orderer_info">
-				<p class="title">주문자 정보</p>
-				<table class="orderer InfoTable">
-					<tr>
-						<td>주문자 이름 <b style="color: red">*</b>
-						</td>
 
-						<td><input type="text" id="orderer_name"
-							name="order_user_name" style="height: 100%;"></td>
-					</tr>
+	<div class="wraper">
+		<jsp:include page="header.jsp"></jsp:include>
+		<br> <br> <br> <br>
+		<form method="get" action="orderSuccess.jsp">
+			<div class="orderDiv">
+				<div class="orderer_info">
+					<p class="title">주문자 정보</p>
+					<table class="orderer InfoTable">
+						<tr>
+							<td>주문자 이름 <b style="color: red">*</b>
+							</td>
+							<td><input type="text" id="orderer_name"
+								name="order_user_name" style="height: 100%;"></td>
+						</tr>
+						<tr>
+							<td>이메일 <b style="color: red">*</b>
+							</td>
+							<td><input type="text" name="str_email01" id="str_email01"
+								style="width: 100px"> @ <input type="text"
+								name="str_email02" id="str_email02" style="width: 100px;"
+								value="naver.com"> <select
+								style="width: 100px; margin-right: 10px" name="selectEmail"
+								id="selectEmail">
+									<option value="1" selected>직접입력</option>
+									<option value="naver.com">naver.com</option>
+									<option value="hanmail.net">hanmail.net</option>
+									<option value="hotmail.com">hotmail.com</option>
+									<option value="nate.com">nate.com</option>
+									<option value="gmail.com">gmail.com</option>
+									<option value="paran.com">paran.com</option>
+							</select></td>
+						</tr>
+						<tr>
+							<td>연락처 <b style="color: red">*</b>
+							</td>
+							<td><input type="text"
+								style="text-align: center; width: 80px;" id="cellphone1"name="cellphone1">
+								 - <input type="text"style="text-align: center; width: 80px;" id="cellphone2"name="cellphone2"> 
+								 - <input type="text" style="text-align: center; width: 80px;" id="cellphone3" name="cellphone3">
+							</td>
+						</tr>
+					</table>
+				</div>
+				<br>
+				<div class="delivery_Info">
+					<p class="title">배송정보</p>
+					<table class="delivery InfoTable">
+						<tr>
+							<td>수령자 주소 <b style="color: red">*</b>
+							</td>
+							<td><input type="text" style="width: 100px"
+								class="addressInput" id="postCode">
+								<button onclick="sample2_execDaumPostcode()"
+									class="search_address">주소 찾기</button> <br> <input
+								type="text" style="width: 300px" class="addressInput"
+								id="baseAddress"> 기본 주소 <br> <input type="text"
+								style="width: 300px" class="addressInput"> 상세 주소 <br>
+							</td>
+						</tr>
+						<tr>
+							<td>수령자 성함 <b style="color: red">*</b>
+							</td>
+							<td><input type="text" id="orderer_name"
+								name="order_user_name"></td>
+						</tr>
+						<tr>
+							<td>수령자 휴대폰 <b style="color: red">*</b>
+							</td>
+							<td><input type="text"
+								style="text-align: center; width: 80px;" id="cellphone1">
+								- <input type="text" style="text-align: center; width: 80px;"
+								id="cellphone2"> - <input type="text"
+								style="text-align: center; width: 80px;" id="cellphone3">
+							</td>
+						</tr>
+						<tr>
+							<td>배송시 요청사항</td>
+							<td><textarea style="width: 100%; height: 100px;"
+									placeholder="이곳은 배송기사님이 보시는란입니다. 주문관련 문의는 게시판을 이용해주세요"></textarea>
+							</td>
+						</tr>
+					</table>
+				</div>
 
-					<tr>
-						<td>이메일 <b style="color: red">*</b>
-						</td>
-						<td><input type="text" name="str_email01" id="str_email01"
-							style="width: 100px"> @ <input type="text"
-							name="str_email02" id="str_email02" style="width: 100px;"
-							disabled value="naver.com"> <select
-							style="width: 100px; margin-right: 10px" name="selectEmail"
-							id="selectEmail">
-								<option value="1">직접입력</option>
-								<option value="naver.com" selected>naver.com</option>
-								<option value="hanmail.net">hanmail.net</option>
-								<option value="hotmail.com">hotmail.com</option>
-								<option value="nate.com">nate.com</option>
-								<option value="yahoo.co.kr">yahoo.co.kr</option>
-								<option value="empas.com">empas.com</option>
-								<option value="dreamwiz.com">dreamwiz.com</option>
-								<option value="freechal.com">freechal.com</option>
-								<option value="lycos.co.kr">lycos.co.kr</option>
-								<option value="korea.com">korea.com</option>
-								<option value="gmail.com">gmail.com</option>
-								<option value="hanmir.com">hanmir.com</option>
-								<option value="paran.com">paran.com</option>
-						</select></td>
-					</tr>
-					<tr>
-						<td>연락처 <b style="color: red">*</b>
-						</td>
-						<td><input type="text"
-							style="text-align: center; width: 80px;" id="cellphone1"
-							name="cellphone1"> - <input type="text"
-							style="text-align: center; width: 80px;" id="cellphone2"
-							name="cellphone2"> - <input type="text"
-							style="text-align: center; width: 80px;" id="cellphone3"
-							name="cellphone3"></td>
-					</tr>
-				</table>
-			</div>
-			<br>
-			<div class="delivery_Info">
-				<p class="title">배송정보</p>
-				<table class="delivery InfoTable">
-					<tr>
-						<td>수령자 주소 <b style="color: red">*</b>
-						</td>
-						<td><input type="text" style="width: 100px"
-							class="addressInput" id="postCode">
-							<button onclick="sample2_execDaumPostcode()"
-								class="search_address">주소 찾기</button> <br> <input
-							type="text" style="width: 300px" class="addressInput"
-							id="baseAddress"> 기본 주소 <br> <input type="text"
-							style="width: 300px" class="addressInput"> 상세 주소 <br>
-						</td>
-					</tr>
-					<tr>
-						<td>수령자 성함 <b style="color: red">*</b>
-						</td>
-						<td><input type="text" id="name" name="order_user_name">
-						</td>
-					</tr>
-					<tr>
-						<td>수령자 휴대폰 <b style="color: red">*</b>
-						</td>
-						<td><input type="text"
-							style="text-align: center; width: 80px;" id="cellphone1">
-							- <input type="text" style="text-align: center; width: 80px;"
-							id="cellphone2"> - <input type="text"
-							style="text-align: center; width: 80px;" id="cellphone3">
-						</td>
-					</tr>
-					<tr>
-						<td>배송시 요청사항</td>
-						<td><textarea style="width: 100%; height: 100px;"
-								placeholder="이곳은 배송기사님이 보시는란입니다. 주문관련 문의는 게시판을 이용해주세요"></textarea>
-
-						</td>
-					</tr>
-				</table>
-			</div>
-
-			<br>
-			<div class="product_info">
-				<p class="title">주문 품목 확인</p>
-				<table class="product_table">
-					<tr>
-						<td colspan="2">주문상품</td>
-						<td>수량</td>
-						<td>상품 금액</td>
-						<td>할인</td>
-						<td>할인가격</td>
-						<td>적립금</td>
-					</tr>
-					<tr>
-						<td><img src="#" width="100%"></td>
-						<td>
-							<div class="product_name" style="width: 60%; float: left;">---
-								상품명이 들어갈 곳 ---</div>
-						</td>
-						<td class="product_amount">3</td>
-						<td class="product_price">10000원</td>
-						<td class="discount">-</td>
-						<td class="discount_price">10000원</td>
-						<td>100</td>
-					</tr>
-					<tr>
-						<td colspan="7" class="payment_amount"
-							style="text-align: right; font-size: 20px;">총 결제 금액 : 10000원</td>
-					</tr>
-				</table>
-			</div>
-			<br>
-			<div class="payment_info">
-				<p class="title">결제 정보 입력</p>
-				<table class="payment_table">
-					<tr>
-						<td rowspan="2">일반 결제</td>
-						<td>
-							<div id="radioArea">
-								<input type="radio" name="select_payment" class="select_payment"
-									value="카카오페이"><label>카카오페이</label> <input type="radio"
-									name="select_payment" class="select_payment" value="신용카드"><label>신용카드</label>
-								<input type="radio" name="select_payment" class="select_payment"
-									value="실시간계좌이체"><label>실시간 계좌이체</label> <input
-									type="radio" name="select_payment" class="select_payment"
-									value="무통장"><label>무통장입금</label>
-							</div>
-						</td>
-					</tr>
-					<tr style="height: 100px;">
-						<td id="changeTextArea">
-							<p id="changeKakao">kakaopay결제</p>
-							<p id="changeMu">무통장 결제</p>
-							<p id="changeSi">실시간 계좌이체</p>
-							<p id="changeSin">신용카드</p>
-						</td>
-					</tr>
-				</table>
-			</div>
-			<div class="last_Payment">
-				<h2>최종금액</h2>
-			</div>
+				<br>
+				<div class="product_info">
+					<p class="title">주문 품목 확인</p>
+					<table class="product_table">
+						<tr>
+							<td colspan="2">주문상품</td>
+							<td>수량</td>
+							<td>상품 금액</td>
+							<td>할인</td>
+							<td>할인가격</td>
+							<td>적립금</td>
+						</tr>
+						<tr>
+							<td><img src="#" width="100%"></td>
+							<td>
+								<div class="product_name" style="width: 60%; float: left;">---
+									상품명이 들어갈 곳 ---</div>
+							</td>
+							<td class="product_amount">3</td>
+							<td class="product_price">10000원</td>
+							<td class="discount">-</td>
+							<td class="discount_price">10000원</td>
+							<td>100</td>
+						</tr>
+						<tr>
+							<td colspan="7" class="payment_amount"
+								style="text-align: right; font-size: 20px;">총 결제 금액 :
+								10000원</td>
+						</tr>
+					</table>
+				</div>
+				<div class="payment_info">
+					<p class="title">결제 정보 입력</p>
+					<table class="payment_table">
+						<tr>
+							<td rowspan="2">일반 결제</td>
+							<td>
+								<div id="radioArea">
+									<input type="radio" name="select_payment"
+										class="select_payment" value="카카오페이"><label>카카오페이</label>
+									<input type="radio" name="select_payment"
+										class="select_payment" value="신용카드"><label>신용카드</label>
+									<input type="radio" name="select_payment"
+										class="select_payment" value="실시간계좌이체"><label>실시간
+										계좌이체</label> <input type="radio" name="select_payment"
+										class="select_payment" value="무통장"><label>무통장입금</label>
+								</div>
+							</td>
+						</tr>
+						<tr style="height: 100px;">
+							<td id="changeTextArea">
+								<p id="changeKakao">kakaopay결제</p>
+								<p id="changeMu">무통장 결제</p>
+								<p id="changeSi">실시간 계좌이체</p>
+								<p id="changeSin">신용카드</p>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="last_Payment">
+					<button type="submit">
+						<img class="img_btn" src="./img/paybutton.png">
+					</button>
+				</div>
+		</form>
 		</div>
-	</center>
+		<jsp:include page="footer.jsp"></jsp:include>
+	</div>
+
+	
 
 
 
@@ -236,7 +235,7 @@
 		<img
 			src="//t1.daumcdn.net/localimg/localimages/07/postcode/320/close.png"
 			id="btnCloseLayer"
-			style="cursor: pointer; position: absolute; right: -3px; top: -3px; z-index: 1"
+			style="cursor: pointer; position: absolute; right: -3px; top: -3px; z-index: 1; width: 5%; height: auto;"
 			onclick="closeDaumPostcode()" alt="닫기 버튼">
 	</div>
 
@@ -282,7 +281,7 @@
 
 					// iframe을 넣은 element를 안보이게 한다.
 					// (autoClose:false 기능을 이용한다면, 아래 코드를 제거해야 화면에서 사라지지 않는다.)
-					element_layer.style.display = 'none';
+					closeDaumPostcode();
 				},
 				width : '100%',
 				height : '100%',
@@ -315,10 +314,5 @@
 					+ 'px';
 		}
 	</script>
-
-
-
 </body>
-
-
 </html>

@@ -19,7 +19,7 @@ public class MemberController {
 	@RequestMapping("/registerMember.do")
 	public String insertMember(MemberVO vo) {
 		memberService.insertMember(vo);
-		return "result.jsp";
+		return "signConfirm.jsp";
 	}
 	
 	@RequestMapping("/login.do")
