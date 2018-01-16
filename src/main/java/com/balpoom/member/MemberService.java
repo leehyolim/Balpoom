@@ -10,4 +10,6 @@ public interface MemberService {
 	public void updateMember(MemberVO vo);
 	
 	public void deleteMember(MemberVO vo);
+	
+	public void verifyMember(MemberVO vo);
 }

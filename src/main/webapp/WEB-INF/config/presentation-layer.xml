@@ -16,5 +16,23 @@
 	</bean>	
 	<!-- annotation 기반 예외처리 -->
 	<mvc:annotation-driven></mvc:annotation-driven>
+	
+	<!-- 메일보내기 -->
+   <bean id="mailSender" class = "org.springframework.mail.javamail.JavaMailSenderImpl">
+      <property name="host" value="smtp.gmail.com" />
+      <property name="port" value="587" />
+      <property name="username" value="ndgndg91" />
+      <property name="password" value="zx234ZX234" />
+      
+      <property name="javaMailProperties">
+         <props>
+               <prop key="mail.transport.protocol">smtp</prop>
+               <prop key="mail.smtp.auth">true</prop>
+               <prop key="mail.smtp.starttls.enable">true</prop>
+               <prop key="mail.debug">true</prop>
+         </props>
+      </property>
+    </bean>
+
 </beans>
 

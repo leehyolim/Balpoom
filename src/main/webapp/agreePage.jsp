@@ -2063,8 +2063,8 @@ body .container .tabs {
 			<br>
 			<br>
 			<input class="submit" type="submit" value="AGREE"
-				onclick="checkForm()"> <input class="cancel" type="button"
-				value="CANCEL">
+				onclick="checkForm()"> <a href="javascript:history.back()"><input class="cancel" type="button"
+				value="CANCEL"></a>
 
 
 		</div>

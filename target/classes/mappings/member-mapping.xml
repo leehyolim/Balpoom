@@ -21,4 +21,8 @@
 		select * from member
 		where m_id=#{m_id} and m_password=#{m_password}
 	</select>
+	
+	<update id="verifyMember">
+		update member set m_verify='y' where m_email_id=#{m_email_id} and m_email_domain=#{m_email_domain}
+	</update>
 </mapper>

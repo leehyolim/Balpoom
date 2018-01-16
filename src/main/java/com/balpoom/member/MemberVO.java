@@ -19,6 +19,14 @@ public class MemberVO {
 	private int m_phoneNum2;
 	private int m_phoneNum3;
 	private String m_birth;
+	private char m_verify;
+	
+	public char getM_verify() {
+		return m_verify;
+	}
+	public void setM_verify(char m_verify) {
+		this.m_verify = m_verify;
+	}
 	public int getM_no() {
 		return m_no;
 	}
@@ -122,8 +130,9 @@ public class MemberVO {
 				+ ", m_address_detail=" + m_address_detail + ", m_email_id=" + m_email_id + ", m_email_domain="
 				+ m_email_domain + ", m_cellphone1=" + m_cellphone1 + ", m_cellphone2=" + m_cellphone2
 				+ ", m_cellphone3=" + m_cellphone3 + ", m_phoneNum1=" + m_phoneNum1 + ", m_phoneNum2=" + m_phoneNum2
-				+ ", m_phoneNum3=" + m_phoneNum3 + ", m_birth=" + m_birth + "]";
+				+ ", m_phoneNum3=" + m_phoneNum3 + ", m_birth=" + m_birth + ", m_verify=" + m_verify + "]";
 	}
+
 	
 	
 	

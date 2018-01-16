@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-no : ${userNo}<br>
-id : ${userId } <br>
-name : ${userName} 님 ㅎㅇ
+no : ${authMember.m_no}<br>
+id : ${authMember.m_id } <br>
+name : ${authMember.m_name} 님 ㅎㅇ
 </body>
 </html>

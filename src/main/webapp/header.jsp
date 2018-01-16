@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -36,14 +37,28 @@
 					<a href="main.jsp"><img src="./img/logo_.jpg" /></a>
 				</div>
 			</center>
+			<c:if test="${ empty authMember }">
 			<div id="header_header-my">
 				<a href="login.jsp" class="header_member">로그인</a>
 			</div>
 			<div id="header_header-my2">
 				<a href="agreePage.jsp" class="header_member">회원가입</a>
 			</div>
+			</c:if>
+			<c:if test="${! empty authMember }">
+			<div id="header_header-my">
+				<a href="" class="header_member">${authMember.m_id}</a>
+			</div>
+			<div id="header_header-my2">
+				<a href="logout.do" class="header_member">로그아웃</a>
+			</div>
+			</c:if>
 		</div>
-		<br><br><br><br><br><br><br><br>
+		<br>
+		<c:if test="${! empty authMember }">
+		${authMember.m_name }님 환영합니다!
+		</c:if>
+		<br><br><br><br><br><br><br>
 		<div id="header_navbar">
 			<center>
 				<div id="header_outer" class="header_menu">

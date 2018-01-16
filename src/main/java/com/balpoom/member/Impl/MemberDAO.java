@@ -24,6 +24,11 @@ public class MemberDAO {
 		System.out.println("---> mybatis로 getMember() 기능 처리");
 		return (MemberVO) mybatis.selectOne("MemberDAO.getMember",vo);
 	}
+	
+	public void verifyMember(MemberVO vo){
+		System.out.println("---> mybatis로 verifyMember() 기능처리");
+		mybatis.update("MemberDAO.verifyMember",vo);
+	}
 
 		
 }

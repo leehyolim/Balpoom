@@ -15,10 +15,10 @@
 <br><br><br><br><br><br><br><br><br>
     <div id="scBoxes">
         <p class="scMessage1">인증메일을 전송하였습니다.</p>
-        <p class="scMessage2">인증메일을 확인하시면 됩니다.</p>
+        <p class="scMessage2">인증메일의 링크를 누르면 회원가입이 완료됩니다.</p>
         
         
-            <a><div class="scBtn" style=" cursor: pointer;"><p class="scBtnText">로그인 하기</p></div></a>
+            
             
         
     </div>

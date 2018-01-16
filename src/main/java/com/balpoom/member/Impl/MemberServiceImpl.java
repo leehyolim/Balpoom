@@ -31,4 +31,9 @@ public class MemberServiceImpl implements MemberService{
 	public void deleteMember(MemberVO vo) {
 		
 	}
+
+	@Override
+	public void verifyMember(MemberVO vo) {
+		memberDAO.verifyMember(vo);
+	}
 }
