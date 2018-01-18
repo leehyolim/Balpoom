@@ -12,4 +12,6 @@ public interface MemberService {
 	public void deleteMember(MemberVO vo);
 	
 	public void verifyMember(MemberVO vo);
+	
+	public int checkDuplicate(MemberVO vo);
 }

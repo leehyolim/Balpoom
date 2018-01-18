@@ -36,4 +36,10 @@ public class MemberServiceImpl implements MemberService{
 	public void verifyMember(MemberVO vo) {
 		memberDAO.verifyMember(vo);
 	}
+
+	@Override
+	public int checkDuplicate(MemberVO vo) {
+		int rowcount = memberDAO.checkDuplicate(vo);
+		return rowcount;
+	}
 }

@@ -5,196 +5,218 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <style>
-        * {
-            height: 100%;
-            width: 100%;
-            margin: 0px;
-            padding: 0px;
+* {
+	height: 100%;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
 
-        }
+.wraper {
+	width: 1200px;
+	height: auto;
+	padding: 10px;
+	margin: auto;
+}
 
-        .wraper {
-            width: 1200px;
-            height: auto;
-            padding: 10px;
-            margin: auto;
-        }
+.title>b {
+	font-size: 23px;
+}
 
-        .title>b {
-            font-size: 23px;
-        }
+label {
+	font-size: 10px;
+}
 
-        label {
-            font-size: 10px;
-        }
+td:first-child {
+	width: 25%;
+}
 
-        td:first-child {
-            width: 25%;
-        }
+td {
+	/* border:1px red solid; */
+	padding-top: 5px;
+}
 
-        td {
-            /* border:1px red solid; */
-            padding-top: 5px;
-            
-        }
+input {
+	height: 25px;
+	text-align: center;
+	width: 150px;
+}
 
-        input {
-            height: 25px;
-            text-align: center;
-            width: 150px;
+.address {
+	width: 388px;
+	text-align: left;
+}
 
-        }
+.email_Id {
+	width: 100px;
+}
 
-        .address {
-            width: 388px;
-            text-align: left;
-            
-        }
+select {
+	height: 28px;
+	padding: 3px;
+}
 
-        .email_Id {
-            width: 100px;
-        }
+.phoneNum {
+	width: 100px;
+}
 
-        select {
-            height: 28px;
-            padding: 3px;
-        }
+table {
+	width: 600px;
+}
 
-        .phoneNum {
-            width: 100px;
-        }
+button {
+	width: 100px;
+	height: 40px;
+	float: right;
+	margin-left: 10px;
+}
 
-        table {
-            width: 600px;
-        }
-        button{
-            width:100px;
-            height:40px;
-            float:right;
-            margin-left: 10px;
-        }
-        .search_address{
-            width:20%;
-        }
-
-
-    </style>
+.search_address {
+	width: 20%;
+}
+</style>
+<script type="text/javascript">
+        var duplicate = false;
+    $(document).ready(function(){
+        $('#checkbtn').on('click', function(){
+        	//alert($('#m_id').val());
+            $.ajax({
+                type: 'POST',
+                url: '/biz/duplicate.do',
+                data: {
+                    "m_id" : $('#m_id').val()
+                },
+                success: function(data){
+                    if($.trim(data) == 0){
+                        //$('#checkMsg').html('<p style="color:blue;width:100px;">사용가능</p>');
+                        alert("사용 가능한 아이디 입니다!");
+                        duplicate = true;
+                    }
+                    else{
+                        //$('#checkMsg').html('<p style="color:red;width:100px;">사용불가능</p>');
+                        alert("사용 불가능한 아이디 입니다!");
+                        duplicate = false;
+                    }
+                }
+            });    //end ajax    
+        });    //end on    
+    });
+    function beforeSubmit(){
+		if(duplicate == false){
+			alert("아이디 중복확인을 해주세요!");
+			return false;
+		}else if(duplicate == true){
+			location.replace("./signConfirm.jsp");
+			return true;
+		}
+    }
+    </script>
 </head>
 
 <body>
-    <div class="wraper">
-        <form action="registerMember.do" method="post">
-            <div class="title">
+	<div class="wraper">
+		<form action="registerMember.do" method="post"
+			onsubmit="return beforeSubmit()">
+			<div class="title"></div>
+			<table class="registerForm">
+				<tr>
+					<th class="title" colspan="2"><b>회원가입 정보입력</b> <label>회원가입시
+							필요한 정보를 입력하세요</label></th>
+				</tr>
+				<tr>
+					<td>이름</td>
+					<td><input type="text" name="m_name" required></td>
+				</tr>
+				<tr>
+					<td>아이디</td>
+					<td><input type="text" name="m_id" id="m_id" required>
+						<label>공백 없는 영문, 숫자 포함 6-20자</label></td>
+					<td><a href="duplicate.do" id="checkbtn"><button>중복확인</button></a>
+					</td>
+					<!--<td id="checkMsg">
+                    </td>-->
+				</tr>
+				<tr>
+					<td>비밀번호</td>
+					<td><input type="password" name="m_password" required>
+						<label>공백 없는 영문, 숫자 포함 6-20자</label></td>
+				</tr>
+				<tr>
+					<td>비밀번호 확인</td>
+					<td><input type="password" required> <label>비밀번호
+							확인을 위해 한번 더 입력하세요</label> <span></span></td>
+				</tr>
+				<tr>
+					<td rowspan="3">주소</td>
+					<td><input type="text" id="sample2_postcode"
+						placeholder="우편번호" name="m_address_postcode" readonly required>
+						<input type="button" onclick="sample2_execDaumPostcode()"
+						value="우편번호 찾기"><br></td>
+				</tr>
+				<tr>
+					<td><input type="text" name="m_address_primary"
+						id="sample2_address" class="address" placeholder="기본주소" readonly>
+					</td>
+				</tr>
+				<tr>
+					<td><input type="text" name="m_address_detail" class="address"
+						placeholder="상세주소" required></td>
+				</tr>
+				<tr>
+					<td>이메일</td>
+					<td><input type="text" name="m_email_id" class="email_Id"
+						required> @ <input type="text" name="m_email_domain"
+						class="email_Domain" required> <select
+						style="width: 100px; margin-right: 10px" name="selectEmail"
+						id="selectEmail">
+							<option value="1" selected>직접입력</option>
+							<option value="naver.com">naver.com</option>
+							<option value="hanmail.net">hanmail.net</option>
+							<option value="hotmail.com">hotmail.com</option>
+							<option value="nate.com">nate.com</option>
+							<option value="dreamwiz.com">dreamwiz.com</option>
+							<option value="gmail.com">gmail.com</option>
+							<option value="paran.com">paran.com</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td>휴대폰번호</td>
+					<td><input type="text" name="m_cellphone1" class="phoneNum"
+						required> - <input type="text" name="m_cellphone2"
+						class="phoneNum" required> - <input type="text"
+						name="m_cellphone3" class="phoneNum" required></td>
+				</tr>
+				<tr>
+					<td>전화번호</td>
+					<td><input type="text" name="m_phoneNum1" class="phoneNum">
+						- <input type="text" name="m_phoneNum2" class="phoneNum">
+						- <input type="text" name="m_phoneNum3" class="phoneNum">
+					</td>
+				</tr>
+				<tr>
+					<td>생년월일</td>
+					<td><input type="text" name="m_birth" placeholder="yyyy-mm-dd"
+						required></td>
+				</tr>
+				<tr>
+					<td colspan="2" style="margin: auto;">
+						<button class="submit">가입하기</button> <a
+						href="javascript:history.go(-2)"><button type="button"
+								class="cancel">취 소</button></a>
 
-            </div>
-            <table class="registerForm">
-                <tr>
-                    <th class="title" colspan="2">
-                        <b>회원가입 정보입력</b>
-                        <label>회원가입시 필요한 정보를 입력하세요</label>
-                    </th>
-                </tr>
-                <tr>
-                    <td>이름</td>
-                    <td>
-                        <input type="text" name="m_name" required>
-                    </td>
-                </tr>
-                <tr>
-                    <td>아이디</td>
-                    <td>
-                        <input type="text" name="m_id" required>
-                        <label>공백 없는 영문, 숫자 포함 6-20자</label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>비밀번호</td>
-                    <td>
-                        <input type="password" name="m_password" required>
-                        <label>공백 없는 영문, 숫자 포함 6-20자</label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>비밀번호 확인</td>
-                    <td>
-                        <input type="password" required>
-                        <label>비밀번호 확인을 위해 한번 더 입력하세요</label>
-                        <span></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td rowspan="3">주소</td>
-                    <td>
-                            <input type="text" id="sample2_postcode" placeholder="우편번호" name="m_address_postcode" readonly required>
-                            <input type="button" onclick="sample2_execDaumPostcode()" value="우편번호 찾기"><br>
-                            
-                        
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                            <input type="text" name="m_address_primary" id="sample2_address" class="address" placeholder="기본주소" readonly>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="text" name="m_address_detail" class="address" placeholder="상세주소" required>
-                    </td>
-                </tr>
-                <tr>
-                    <td>이메일</td>
-                    <td>
-                        <input type="text" name="m_email_id" class="email_Id" required> @
-                        <input type="text" name="m_email_domain" class="email_Domain" required>
-                        <select style="width: 100px; margin-right: 10px" name="selectEmail" id="selectEmail">
-                            <option value="1" selected>직접입력</option>
-                            <option value="naver.com">naver.com</option>
-                            <option value="hanmail.net">hanmail.net</option>
-                            <option value="hotmail.com">hotmail.com</option>
-                            <option value="nate.com">nate.com</option>							
-                            <option value="dreamwiz.com">dreamwiz.com</option>
-                            <option value="gmail.com">gmail.com</option>                            
-                            <option value="paran.com">paran.com</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>휴대폰번호</td>
-                    <td>
-                        <input type="text" name="m_cellphone1" class="phoneNum" required> -
-                        <input type="text" name="m_cellphone2" class="phoneNum" required> -
-                        <input type="text" name="m_cellphone3" class="phoneNum" required>
-                    </td>
-                </tr>
-                <tr>
-                    <td>전화번호</td>
-                    <td>
-                        <input type="text" name="m_phoneNum1" class="phoneNum" > -
-                        <input type="text" name="m_phoneNum2" class="phoneNum" > -
-                        <input type="text" name="m_phoneNum3" class="phoneNum" >
-                    </td>
-                </tr>
-                <tr>
-                    <td>생년월일</td>
-                    <td>
-                        <input type="text" name="m_birth" placeholder="yyyy-mm-dd" required>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2" style="margin:auto;">
-                        <button class="submit">가입하기</button>
-                        <button type="button" class="cancel">취 소</button>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
 
-                    </td>
-                </tr>
-            </table>
-        </form>
-    </div>
-
-    <!-- 이메일 입력방식 : 직접입력 -->
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script type="text/javascript">
+	<!-- 이메일 입력방식 : 직접입력 -->
+	<script type="text/javascript"
+		src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript">
         //이메일 입력방식 선택 
         $('#selectEmail').change(function () {
             $("#selectEmail option:selected").each(function () {
@@ -213,13 +235,18 @@
 
 
 
-<!-- iOS에서는 position:fixed 버그가 있음, 적용하는 사이트에 맞게 position:absolute 등을 이용하여 top,left값 조정 필요 -->
-<div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch;">
-<img src="//t1.daumcdn.net/localimg/localimages/07/postcode/320/close.png"id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1; width:5%;height:auto;" onclick="closeDaumPostcode()" alt="닫기 버튼">
-</div>
+	<!-- iOS에서는 position:fixed 버그가 있음, 적용하는 사이트에 맞게 position:absolute 등을 이용하여 top,left값 조정 필요 -->
+	<div id="layer"
+		style="display: none; position: fixed; overflow: hidden; z-index: 1; -webkit-overflow-scrolling: touch;">
+		<img
+			src="//t1.daumcdn.net/localimg/localimages/07/postcode/320/close.png"
+			id="btnCloseLayer"
+			style="cursor: pointer; position: absolute; right: -3px; top: -3px; z-index: 1; width: 5%; height: auto;"
+			onclick="closeDaumPostcode()" alt="닫기 버튼">
+	</div>
 
-<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<script>
+	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+	<script>
     // 우편번호 찾기 화면을 넣을 element
     var element_layer = document.getElementById('layer');
 

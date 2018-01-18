@@ -5,8 +5,12 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.balpoom.member.MemberVO" alias="member"></typeAlias>
+		<typeAlias type="com.balpoom.notice.NoticeVO" alias="notice"/>
+		<typeAlias type="com.balpoom.board_inquery.BoardVO" alias="board"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mappings/member-mapping.xml" />
+		<mapper resource="mappings/notice-mapping.xml"/>
+		<mapper resource="mappings/board_inquery-mapping.xml"/>
 	</mappers>
 </configuration>

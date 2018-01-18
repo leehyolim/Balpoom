@@ -9,12 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.balpoom.member.MailHandler;
 import com.balpoom.member.MemberService;
@@ -57,23 +57,28 @@ public class MemberController {
 	@RequestMapping("/login.do")
 	public String login(MemberVO vo, HttpServletRequest request) {
 		System.out.println("로그인 인증 처리...");
+		System.out.println(vo.getM_id().trim().substring(0, 1));
 		HttpSession session = request.getSession();
-		MemberVO mem = memberService.getMember(vo);
-		if (mem != null) {
-			if (mem.getM_verify() == 'y') {
-				session.setAttribute("authMember", mem);
-				return "index.jsp";
-			}else
+		if (vo.getM_id().trim().substring(0, 1).equals("@")) {
+			return "index.jsp";
+		} else {
+			MemberVO mem = memberService.getMember(vo);
+			if (mem != null) {
+				if (mem.getM_verify() == 'y') {
+					session.setAttribute("authMember", mem);
+					return "index.jsp";
+				} else
+					return "login.jsp";
+			} else
 				return "login.jsp";
-		} else
-			return "login.jsp";
+		}
 	}
-	
+
 	@RequestMapping("/logout.do")
 	public String logout(HttpServletRequest request, HttpServletResponse response) {
 
 		System.out.println("로그아웃 처리");
-		
+
 		// 1. 브라우저와 연결된 세션 객체를 강제로 종료한다.
 		HttpSession session = request.getSession();
 		session.invalidate();
@@ -81,4 +86,16 @@ public class MemberController {
 		return "index.jsp";
 
 	}
+
+	@ResponseBody
+	@RequestMapping(value = "/duplicate.do", method = RequestMethod.POST)
+	public String checkDuplicate(HttpServletRequest request) {
+		String m_id = request.getParameter("m_id");
+		MemberVO vo = new MemberVO();
+		vo.setM_id(m_id);
+		int rowcount = memberService.checkDuplicate(vo);
+		System.out.println(rowcount);
+		return String.valueOf(rowcount);
+	}
+
 }

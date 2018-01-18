@@ -29,6 +29,11 @@ public class MemberDAO {
 		System.out.println("---> mybatis로 verifyMember() 기능처리");
 		mybatis.update("MemberDAO.verifyMember",vo);
 	}
+	
+	public int checkDuplicate(MemberVO vo){
+		System.out.println("---> mybatis로 checkDuplicate() 기능처리");
+		return mybatis.selectList("MemberDAO.checkDuplicate",vo).size();
+	}
 
 		
 }

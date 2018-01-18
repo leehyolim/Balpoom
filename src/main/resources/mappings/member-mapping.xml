@@ -25,4 +25,11 @@
 	<update id="verifyMember">
 		update member set m_verify='y' where m_email_id=#{m_email_id} and m_email_domain=#{m_email_domain}
 	</update>
+	
+	<select id="checkDuplicate" resultType="member">
+		<![CDATA[
+			SELECT * FROM member
+			WHERE m_id =#{m_id}
+		]]>
+	</select>
 </mapper>

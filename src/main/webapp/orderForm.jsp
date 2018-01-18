@@ -99,7 +99,7 @@
 							</td>
 							<td><input type="text" style="width: 100px"
 								class="addressInput" id="postCode">
-								<button onclick="sample2_execDaumPostcode()"
+								<button onclick="sample2_execDaumPostcode()" type="button"
 									class="search_address">주소 찾기</button> <br> <input
 								type="text" style="width: 300px" class="addressInput"
 								id="baseAddress"> 기본 주소 <br> <input type="text"
