@@ -1,11 +1,11 @@
-package com.balpoom.board_inquery;
+package com.balpoom.inquery;
 
 import java.util.Date;
 
 
 
 
-public class BoardVO {
+public class InqueryVO {
 	
 		private int inqu_no;
 		private String inqu_title;
@@ -15,10 +15,7 @@ public class BoardVO {
 		private String searchCondition;
 		private String searchKeyword;
 		private int m_no;
-		private int p_no;
-		
-		
-		
+		private int p_no;		
 
 		public int getInqu_no() {
 			return inqu_no;
@@ -77,7 +74,7 @@ public class BoardVO {
 		
 		@Override
 		public String toString() {
-			return "BoardVO [inqu_no=" + inqu_no + ", inqu_title=" + inqu_title +", m_no=" +
+			return "InqueryVO [inqu_no=" + inqu_no + ", inqu_title=" + inqu_title +", m_no=" +
 					m_no + ", inqu_content=" + inqu_content + ", inqu_reg=" + inqu_reg +
 					", inqu_cnt=" + inqu_cnt + "]";
 		}

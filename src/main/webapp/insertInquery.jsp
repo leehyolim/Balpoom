@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,26 +17,26 @@
 	<br>
 	<div id="insertBoard_wrapper">
 		<p class="insertBoard_Title">상품 문의</p>
-		<form action="updateBoard.do" method="post">
+		<form action="insertInquery.do" method="post">
 			<table>
 				<tr>
 					<td class="td1">제목</td>
-					<td class="td1"><input type="text" name="inqu_title" class="inpt" value="${board.inqu_title}">
+					<td class="td1"><input type="text" name="inqu_title" class="inpt">
 					</td>
 				</tr>
  				<tr>
 					<td>작성자</td>
-					<td><input type="text" name="m_no" class="writerbox" value="${board.inqu_no }"></td>
+					<td><input type="text" name="m_no" class="writerbox"></td>
 				</tr>
 
 				<tr>
 					<td colspan="2" class="boardContent"><textarea name="inqu_content"
-							class="content_inpt" rows="10" cols="30" >${board.inqu_content}</textarea></td>
+							class="content_inpt" rows="10" cols="30"></textarea></td>
 				</tr>
 				
 			</table>
 			<button type="submit" class="submit_btn" style="cursor: pointer">작성</button>
-			<a href="getBoardList.do">두두두</a>
+			<a href="getInqueryList.do">두두두</a>
 		</form>
 
 	</div>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="InqueryDAO">
+	
+	<insert id="insertInquery">
+		INSERT INTO board_inquery(inqu_title,m_no, inqu_content) 
+		VALUES (#{inqu_title},#{m_no}, #{inqu_content})
+	</insert>
+	
+	<update id="updateInquery">
+		<![CDATA[
+			UPDATE board_inquery SET
+				inqu_title = #{inqu_title}, 
+				inqu_content = #{inqu_content} 
+			WHERE inqu_no = #{inqu_no}
+		]]>
+	</update>
+	
+	<delete id="deleteInquery">
+		<![CDATA[
+			DELETE FROM board_inquery 
+			WHERE inqu_no = #{inqu_no}
+		]]>
+	</delete>
+	
+	<select id="getInquery" resultType="Inquery">
+		<![CDATA[
+			SELECT * FROM board_inquery	WHERE inqu_no = #{inqu_no}
+		]]>
+	</select>
+	
+	<select id="getInqueryList" resultType="Inquery">
+		SELECT * 
+		FROM board_inquery 
+		WHERE inqu_title LIKE '%'||#{searchKeyword}||'%' 
+		ORDER BY inqu_no DESC
+	</select>
+	
+	<update id="updateCnt"> 
+
+		UPDATE board_inquery set inqu_cnt = inqu_cnt + 1 where inqu_no = #{inqu_no}
+
+	</update>
+</mapper>

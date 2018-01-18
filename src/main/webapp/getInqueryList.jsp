@@ -17,7 +17,7 @@
     <br><br><br>
     <div id="productInquiryBoard_wrapper">
         <p class="pibTitle" >상품 문의하기</p>
-        <form action="getBoardList.do" method="post">
+        <form action="getInqueryList.do" method="post">
         <div class="selectDiv">
           
                     <select id="selectBox" name="searchCondition">
@@ -30,7 +30,7 @@
             
         </div>
     
-        <a href="insertBoard_Inquiry.jsp"><p class="inquiryBtn" style="cursor: pointer">문의하기</p></a>
+        <a href="insertInquery.jsp"><p class="inquiryBtn" style="cursor: pointer">문의하기</p></a>
         
         
         <table>
@@ -42,14 +42,14 @@
                 <th>조회수</th>
             </tr>
             
-       <c:forEach items="${boardList}" var="board">
+       <c:forEach items="${InqueryList}" var="Inquery">
             
             <tr>
-                <td>${board.inqu_no}</td>
-                <td><a href="getBoard.do?inqu_no=${board.inqu_no}">${board.inqu_title}<img src="./img/lock.png"></a></td>
-                <td>${board.m_no}</td>
-                <td>${board.inqu_reg}</td>
-                <td>${board.inqu_cnt}</td>
+                <td>${Inquery.inqu_no}</td>
+                <td><a href="getInquery.do?inqu_no=${Inquery.inqu_no}">${Inquery.inqu_title}<img src="./img/lock.png"></a></td>
+                <td>${Inquery.m_no}</td>
+                <td>${Inquery.inqu_reg}</td>
+                <td>${Inquery.inqu_cnt}</td>
             </tr>
        </c:forEach>     
             

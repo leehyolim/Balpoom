@@ -2,14 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="BoardDAO">
+<mapper namespace="InqueryDAO">
 	
-	<insert id="insertBoard">
+	<insert id="insertInquery">
 		INSERT INTO board_inquery(inqu_title,m_no, inqu_content) 
 		VALUES (#{inqu_title},#{m_no}, #{inqu_content})
 	</insert>
 	
-	<update id="updateBoard">
+	<update id="updateInquery">
 		<![CDATA[
 			UPDATE board_inquery SET
 				inqu_title = #{inqu_title}, 
@@ -18,29 +18,20 @@
 		]]>
 	</update>
 	
-	<delete id="deleteBoard">
+	<delete id="deleteInquery">
 		<![CDATA[
 			DELETE FROM board_inquery 
 			WHERE inqu_no = #{inqu_no}
 		]]>
 	</delete>
-	<select id="getUpdateBoard" resultType="board">
+	
+	<select id="getInquery" resultType="Inquery">
 		<![CDATA[
-			SELECT * 
-			FROM board_inquery 
-			WHERE inqu_no = #{inqu_no}
+			SELECT * FROM board_inquery	WHERE inqu_no = #{inqu_no}
 		]]>
 	</select>
 	
-	<select id="getBoard" resultType="board">
-		<![CDATA[
-			SELECT inqu_title,inqu_no,inqu_content 
-			FROM board_inquery 
-			WHERE inqu_no = #{inqu_no}
-		]]>
-	</select>
-	
-	<select id="getBoardList" resultType="board">
+	<select id="getInqueryList" resultType="Inquery">
 		SELECT * 
 		FROM board_inquery 
 		WHERE inqu_title LIKE '%'||#{searchKeyword}||'%' 
