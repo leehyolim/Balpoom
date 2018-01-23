@@ -15,7 +15,9 @@ public class InqueryVO {
 		private String searchCondition;
 		private String searchKeyword;
 		private int m_no;
-		private int p_no;		
+		private int p_no;
+		private String m_name;
+		private String m_id;
 
 		public int getInqu_no() {
 			return inqu_no;
@@ -71,12 +73,24 @@ public class InqueryVO {
 		public void setP_no(int p_no) {
 			this.p_no = p_no;
 		}
-		
+		public String getM_name() {
+			return m_name;
+		}
+		public void setM_name(String m_name) {
+			this.m_name = m_name;
+		}
+		public String getM_id() {
+			return m_id;
+		}
+		public void setM_id(String m_id) {
+			this.m_id = m_id;
+		}
 		@Override
 		public String toString() {
-			return "InqueryVO [inqu_no=" + inqu_no + ", inqu_title=" + inqu_title +", m_no=" +
-					m_no + ", inqu_content=" + inqu_content + ", inqu_reg=" + inqu_reg +
-					", inqu_cnt=" + inqu_cnt + "]";
+			return "InqueryVO [inqu_no=" + inqu_no + ", inqu_title=" + inqu_title + ", inqu_reg=" + inqu_reg
+					+ ", inqu_cnt=" + inqu_cnt + ", inqu_content=" + inqu_content + ", searchCondition="
+					+ searchCondition + ", searchKeyword=" + searchKeyword + ", m_no=" + m_no + ", p_no=" + p_no
+					+ ", m_name=" + m_name + ", m_id=" + m_id + "]";
 		}
-		
+
 }

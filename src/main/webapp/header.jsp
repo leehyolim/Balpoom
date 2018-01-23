@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="./css/master_header.css?ver=1">
+<link rel="stylesheet" href="./css/master_header.css?ver=3">
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 
 <title>BalPoom</title>

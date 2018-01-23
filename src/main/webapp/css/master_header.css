@@ -66,6 +66,7 @@
   z-index: 15;
   position: fixed;
   top: 50%;
+  left:0;
   background: black;
   color: darkgray;
   width: 80px;

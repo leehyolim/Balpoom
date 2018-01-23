@@ -26,7 +26,9 @@
 				</tr>
  				<tr>
 					<td>작성자</td>
-					<td><input type="text" name="m_no" class="writerbox"></td>
+					<td><input type="text" name="m_name" class="writerbox" value="${authMember.m_name }" readOnly>
+						<input type="hidden" name="m_no" value="${authMember.m_no }"> 
+					</td>
 				</tr>
 
 				<tr>

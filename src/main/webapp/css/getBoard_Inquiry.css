@@ -62,3 +62,67 @@ tr td:nth-child(2) {
     margin-top: 20px;
     display:inline-block;
 }
+.insert_reply{
+	width:97.5%;
+	height:80px;
+	padding:10px;
+}
+.reply_place{
+	width:97.5%;
+	height:80px;
+	padding:10px;
+	border-bottom: 1px solid rgb(211, 211, 211);
+}
+.reply_content{
+	width:83%;
+	height:100%;
+	float: left;
+	margin-left:20px;
+}
+
+.btnReply{
+	width:10%;
+	background-color: white;
+	height:100%;
+	float: left;
+	margin-left: 18px;
+	margin-top:0;
+	padding:0;
+}
+#reply_content{
+	width:73%;
+	height:67px;
+	
+	float:left;
+}
+.writer_name{
+	width:13.5%;
+	height:67px;
+	float: left;
+	text-align: center;
+	
+}
+.content_P{
+	width:100%;
+	height:67px;
+	border:1px solid rgb(211, 211, 211);
+	padding:1px;
+	margin-left: 5px;
+}
+#button_place{
+	width:10%;
+	height:67px;
+	float:left;
+	
+}
+.replyBtn{
+	width:100%;
+	background-color: white;
+	border: 1px solid rgb(211, 211, 211);
+	height:45%;
+	margin-left: 25px;
+	margin-top:0;
+	padding:0;
+	margin-bottom: 8px;
+	cursor: pointer;
+}

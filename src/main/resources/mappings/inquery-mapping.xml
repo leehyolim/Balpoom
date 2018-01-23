@@ -26,14 +26,12 @@
 	</delete>
 	
 	<select id="getInquery" resultType="Inquery">
-		<![CDATA[
-			SELECT * FROM board_inquery	WHERE inqu_no = #{inqu_no}
-		]]>
+select * from (select bo.inqu_no, bo.inqu_title, bo.inqu_cnt, bo.inqu_content, bo.m_no, bo.p_no, me.m_name,m_id from board_inquery bo, member me where bo.m_no = me.m_no) sub where sub.inqu_no = #{inqu_no}
 	</select>
 	
 	<select id="getInqueryList" resultType="Inquery">
 		SELECT * 
-		FROM board_inquery 
+		FROM (select bo.inqu_no, bo.inqu_title, bo.inqu_cnt, bo.inqu_content, bo.inqu_reg, bo.m_no, bo.p_no, me.m_name,m_id from board_inquery bo, member me where bo.m_no = me.m_no) sub
 		WHERE inqu_title LIKE '%'||#{searchKeyword}||'%' 
 		ORDER BY inqu_no DESC
 	</select>

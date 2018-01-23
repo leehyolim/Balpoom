@@ -31,10 +31,10 @@
 						id="selectBtn" type="submit" value="검색" style="cursor: pointer">
 
 				</div>
-				
+				<c:if test="${ ! empty authMember }">
 					<a href="insertInquery.jsp"><p class="inquiryBtn"
 							style="cursor: pointer">문의하기</p></a>
-				
+				</c:if>
 
 				<table>
 					<tr>
@@ -51,7 +51,7 @@
 							<td>${Inquery.inqu_no}</td>
 			
 							<td><a href="getInquery.do?inqu_no=${Inquery.inqu_no}">${Inquery.inqu_title}<img src="./img/lock.png"></a></td>
-							<td>${Inquery.m_no}</td>
+							<td>${Inquery.m_name}</td>
 							<td>${Inquery.inqu_reg}</td>
 							<td>${Inquery.inqu_cnt}</td>
 						</tr>
