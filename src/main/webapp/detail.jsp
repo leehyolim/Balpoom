@@ -1,12 +1,6 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@page import="java.sql.PreparedStatement"%>
-<%@page import="java.sql.SQLException"%>
-<%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.PreparedStatement"%>
-<%@page import="java.sql.Connection"%>
 <html>
 <head>
 
@@ -57,40 +51,12 @@
 		</div>
 		<div id="pro_explain_2" class="pro_explain" style="height:200px;">
 			<tr>
-				<%
-					Class.forName("com.mysql.jdbc.Driver");
-					Connection conn= null;
-					PreparedStatement pstmt = null;
-					ResultSet rs = null;
-					
-					try{
-						String jdbcDriver = "jdbc:mysql://localhost:3306/product?useUnicode=true&characterEncoding=utf8";
-						String dbUser = "root";
-						String dbPwd = "root";
-						
-						conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPwd);
-						
-						pstmt = conn.prepareStatement("select * from productt");
-						
-						rs = pstmt.executeQuery();
-						
-						while(rs.next()){
-											
-				%>					
-						<td><%=rs.getString("pro_name") %> </td><br>
+				
+						<td></td><br>
 						<td>배송비 : 25000원</td><br>
-						<td><%=rs.getString("pro_price") %></td>
+						<td></td>
 						<td></td>				
-				<%
-						}
-					}catch(SQLException se){
-						se.printStackTrace();
-					}finally{
-						if(rs!=null) rs.close();
-						if(pstmt!=null) pstmt.close();
-						if(conn!=null) conn.close();
-					}
-				%>
+
 			</tr>			
 		</div>
 		<div id="pro_explain_3" class="pro_explain">수량 :
