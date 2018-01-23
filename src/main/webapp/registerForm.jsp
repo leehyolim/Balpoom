@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <script
@@ -109,10 +110,30 @@ button {
 			alert("아이디 중복확인을 해주세요!");
 			return false;
 		}else if(duplicate == true){
-			location.replace("./signConfirm.jsp");
-			return true;
+			if($('font[name=check]').text() =="암호일치"){
+				location.replace("./signConfirm.jsp");
+				return true;
+			}else{
+				alert("암호가 일치하지 않습니다! 확인해주세요!")
+				return false;
+			}
 		}
     }
+    $(function(){
+    	  $('#pass').keyup(function(){
+    	   $('font[name=check]').text('');
+    	  }); //#user_pass.keyup
+
+    	  $('#pass_ck').keyup(function(){
+    	   if($('#pass').val()!=$('#pass_ck').val()){
+    	    $('font[name=check]').text('');
+    	    $('font[name=check]').html("암호일치X");
+    	   }else{
+    	    $('font[name=check]').text('');
+    	    $('font[name=check]').html("암호일치");
+    	   }
+    	  }); //#chpass.keyup
+    	 });
     </script>
 </head>
 
@@ -141,13 +162,14 @@ button {
 				</tr>
 				<tr>
 					<td>비밀번호</td>
-					<td><input type="password" name="m_password" required>
+					<td><input type="password" name="m_password" id="pass" required>
 						<label>공백 없는 영문, 숫자 포함 6-20자</label></td>
 				</tr>
 				<tr>
 					<td>비밀번호 확인</td>
-					<td><input type="password" required> <label>비밀번호
-							확인을 위해 한번 더 입력하세요</label> <span></span></td>
+					<td><input type="password" id="pass_ck" required>
+						<label>비밀번호 확인을 위해 한번 더 입력하세요</label> <span></span></td>
+					<td><font name="check" size="2" color="red"></font> </td>
 				</tr>
 				<tr>
 					<td rowspan="3">주소</td>

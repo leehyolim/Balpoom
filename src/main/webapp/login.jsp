@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>login</title>
 <style rel="stylesheet">
@@ -257,6 +259,16 @@ body .container .content .signup-cont {
 </style>
 </head>
 <body>
+	<c:if test="${notVerify }">
+	<script>
+		alert("이메일 인증이 되지 않았습니다! 이메일을 확인하시고 인증해주시기 바랍니다!");
+	</script>
+	</c:if>
+	<c:if test="${notExist }">
+	<script>
+		alert("아이디나 비밀번호가 일치하지 않습니다!");
+	</script>
+	</c:if>
 <section class="container">
 		    <article class="login_header">
               <h1>로그인</h1>
@@ -287,6 +299,7 @@ body .container .content .signup-cont {
 		    </article>
 		    <div class="login_header bg"></div>
 	</section>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </body>
 </html>

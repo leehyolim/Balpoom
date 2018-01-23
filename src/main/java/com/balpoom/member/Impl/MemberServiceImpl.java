@@ -24,7 +24,7 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public void updateMember(MemberVO vo) {
-		
+		memberDAO.updateMember(vo);
 	}
 
 	@Override
@@ -42,4 +42,15 @@ public class MemberServiceImpl implements MemberService{
 		int rowcount = memberDAO.checkDuplicate(vo);
 		return rowcount;
 	}
+
+	@Override
+	public MemberVO searchID(MemberVO vo) {
+		return memberDAO.searchID(vo);
+	}
+
+	@Override
+	public void updatePW(MemberVO vo) {
+		memberDAO.updatePW(vo);
+	}
+
 }

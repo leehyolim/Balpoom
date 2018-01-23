@@ -14,4 +14,8 @@ public interface MemberService {
 	public void verifyMember(MemberVO vo);
 	
 	public int checkDuplicate(MemberVO vo);
+	
+	public MemberVO searchID(MemberVO vo);
+	
+	public void updatePW(MemberVO vo);
 }

@@ -7,15 +7,15 @@ public class MemberVO {
 	private String m_name;
 	private String m_id;
 	private String m_password;
-	private int m_address_postcode;
+	private String m_address_postcode;
 	private String m_address_primary;
 	private String m_address_detail;
 	private String m_email_id;
 	private String m_email_domain;
-	private int m_cellphone1;
+	private String m_cellphone1;
 	private int m_cellphone2;
 	private int m_cellphone3;
-	private int m_phoneNum1;
+	private String m_phoneNum1;
 	private int m_phoneNum2;
 	private int m_phoneNum3;
 	private String m_birth;
@@ -51,10 +51,10 @@ public class MemberVO {
 	public void setM_password(String m_password) {
 		this.m_password = m_password;
 	}
-	public int getM_address_postcode() {
+	public String getM_address_postcode() {
 		return m_address_postcode;
 	}
-	public void setM_address_postcode(int m_address_postcode) {
+	public void setM_address_postcode(String m_address_postcode) {
 		this.m_address_postcode = m_address_postcode;
 	}
 	public String getM_address_primary() {
@@ -81,10 +81,10 @@ public class MemberVO {
 	public void setM_email_domain(String m_email_domain) {
 		this.m_email_domain = m_email_domain;
 	}
-	public int getM_cellphone1() {
+	public String getM_cellphone1() {
 		return m_cellphone1;
 	}
-	public void setM_cellphone1(int m_cellphone1) {
+	public void setM_cellphone1(String m_cellphone1) {
 		this.m_cellphone1 = m_cellphone1;
 	}
 	public int getM_cellphone2() {
@@ -99,10 +99,10 @@ public class MemberVO {
 	public void setM_cellphone3(int m_cellphone3) {
 		this.m_cellphone3 = m_cellphone3;
 	}
-	public int getM_phoneNum1() {
+	public String getM_phoneNum1() {
 		return m_phoneNum1;
 	}
-	public void setM_phoneNum1(int m_phoneNum1) {
+	public void setM_phoneNum1(String m_phoneNum1) {
 		this.m_phoneNum1 = m_phoneNum1;
 	}
 	public int getM_phoneNum2() {

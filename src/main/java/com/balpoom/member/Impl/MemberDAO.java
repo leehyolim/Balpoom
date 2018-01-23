@@ -34,6 +34,21 @@ public class MemberDAO {
 		System.out.println("---> mybatis로 checkDuplicate() 기능처리");
 		return mybatis.selectList("MemberDAO.checkDuplicate",vo).size();
 	}
+	
+	public void updateMember(MemberVO vo){
+		System.out.println("---> mybatis로 updateMember() 기능처리");
+		mybatis.update("MemberDAO.updateMember",vo);
+	}
+	
+	public MemberVO searchID(MemberVO vo){
+		System.out.println("---> mybatis로 searchID() 기능 처리");
+		return (MemberVO) mybatis.selectOne("MemberDAO.searchID",vo);
+	}
+	
+	public void updatePW(MemberVO vo){
+		System.out.println("---> mybatis로 searchID() 기능 처리");
+		mybatis.update("MemberDAO.updatePW",vo);
+	}
 
 		
 }
