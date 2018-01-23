@@ -1,58 +1,163 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%-- <%@page import="domain.Basket"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="domain.User"%> --%>
+<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" href="./css/master_basket.css">
+<link rel="stylesheet" href="./css/basket.css?ver=1">
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="./js/jquery.innerfade_basket.js"></script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>장바구니</title>
-<script src="./js/innerfade1.js"></script>
-<%-- <% ArrayList<Basket> baskets = (ArrayList<Basket>) request.getAttribute("baskets");%>
-    <% User user = (User) request.getAttribute("user");%>
-    <% session.setAttribute("user", user);%> --%>
+
 </head>
 <body>
-	<div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <select id="choice">
-    <option selected>Outer</option>
-    <option >Top</option>
-    <option >Bottom</option>
-  </select><br>
-  <form action="#" id="fitple-form">
-  </form>
+
+
+<div id="basket">
+	<jsp:include page="header.jsp"/>	
+	
+	<div id="bkTitle">
+		<p id="bktext1">BALPOOM</p> <p id="bktext2">CART</p>
+		
+		<hr id="t">
+		
+		<!-- <div id="bkTilte2">
+			<p id="t1">|</p><p id="text3">ITEMS IN YOUR CART</p>
+		</div> -->
+	</div>
+	
+	<div class="cart_list_table">
+		<table width="100%" border="1" cellpadding="0" cellspacing="0">
+			<thead>
+				<tr>
+					<th scope="col" style="width: 5%; height: 26px ">
+					<div class="check_div">
+						<input type="checkbox" class="checker">
+					</div>
+					</th>
+					<th scope="col" style="width: 50%">
+						<span>상품</span>
+					</th>
+					<th scope="col" style="width: 10%">
+						<span>수량</span>
+					</th>
+					<th scope="col" style="width: 14%">
+						<span>가격</span>
+					</th>
+					<th scope="col" style="width: 13%">
+						<span>배송정보</span>
+					</th>
+				</tr>
+			</thead>
+			
+			<tbody style="border-left-color: white; border-right-color: white;">
+				<tr>
+					<td colspan="5">
+						<p class="text_font">장바구니에 담겨있는 상품이 없습니다.</p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<div class="layout">
+		<input id="ch2" type="checkbox">
+		<div id="tx_btn_bor">
+			<button class="tx_btn">삭제</button>
+		</div>
+	</div>
+	<hr id="hr2">
+	
+	<div class="pay_section">
+		<div class="lt_article">
+			<div class="benerfit">
+				<strong>구매 후 추가혜택</strong>
+				<dl>
+					<dt class="ng_a_scope1">상품명 작성하면</dt>
+					<dd class="ng_a_scope2">Balpoom Point</dd>
+					<dt class="ng_b_scope1">포토상품평 작성하면</dt>
+					<dd class="ng_b_scope2">최대 Balpoom Point 200 P</dd>
+					<dt class="ng_c_scope1">상품평 작성 제휴포인트 추가혜택</dt>
+					<dd class="ng_c_scope2">Balpoom VIP회원</dd>
+				</dl>
+			</div>
+		</div>
+		
+		<div class="paylist">
+			<div class="total_bx">
+				<h4 class="cp_title">
+					<span>결제 예정금액</span>
+				</h4>
+				<ul class="bs_list">
+					<li>
+						<dl>
+							<dt>상품가격</dt>
+							<dd>
+								<span class="number">0</span>
+								<span class="won">원</span>
+							</dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt>할인 가격</dt>
+							<dd>
+								<span class="number">0</span>
+								<span class="won">원</span>
+							</dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt>배송비</dt>
+							<dd>
+								<span class="number">0</span>
+								<span class="won">원</span>
+							</dd>
+						</dl>
+						
+					</li>
+				</ul>
+				<dl class="result_list">
+					<dd>
+						<span class="rs_number">0</span>
+						<span class="rs_won">원</span>
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div class="order_btn">
+		<button class="im_btn">주문결제</button>
+	</div>
+	
+	
+	
+	<%-- <div id="basketlist">
+	
+		<form action="getBasketList.do" method="post">
+			<c:forEach items="${basketList}" var="basket">
+						<tr>
+				             <td>${basket.c_no}</td>
+				             <td>${basket.m_no}</td>
+				             <td>${basket.p_no}</td>
+				             <td>${basket.c_cnt}</td>
+				             <td>${basket.c_total}</td>
+				      	</tr>
+			</c:forEach>
+		</form>
+	</div> --%>
+	 <jsp:include page="footer.jsp"/>	
+	
 </div>
 
-<div id="header">
-  <center><div id="logo">
-    <a href="index.html"><img src="./img/logo_.jpg"/></a>
-  </div></center>
-   
-   
-</div>
-<div id="navbar">
-  <center>
-    <div id="outer" class="menu">
-          <b>Outer</b><br>---<br>Coat&amp;Jackek
-    </div>
-    <div id="top" class="menu">
-       <b>Top</b><br>---<br>Shirt&amp;Hoodie
-    </div>
-    <div id="bottom" class="menu">
-       <b>Bottom</b><br>---<br>Jean&amp;Slacks
-    </div>
-    <div id="shoes" class="menu">
-        <b>Shoes</b><br>---<br>Dress&amp;Running
-    </div>
-</center>
-</div>
-<br><br>
+
+
+
 
 <%-- <!--
 <h2>안녕하세요, <%= user.getUsername()%> 님 ^^</h2>
@@ -82,61 +187,7 @@
         <% }%>
     </table>
 --> --%>
-    <a href="orderForm.jsp">주문하기</a>
 
-    <h1>장바구니_JSP구현</h1>
-	
-    <div id=footer>
-    <div id=fotterMenu>
-        <div id=ft01>
-                <p id=cc>CUSTOMER CENTER</p>
-                <p id=no>02 - 2231 - 2774</p>
-                <p class=time>open hour / mon - fri <b>pm1:00 - pm5:00</b></p>
-                <p class=time>closed / sat . sun . red day off</p>
-
-        </div>
-        <div id=ft02>
-
-                <h6 id=bank>BANK ACCOUNT</h6>
-                <p>농협 301-0146-7487-51</p>
-                <p>국민 409101-01-247389</p>
-                <p>우리 1005-302-511811</p>
-                <p>예금주 : 발품(이효림)</p>
-
-        </div>
-        <div id=ft03>
-            <h6 id=sns>SNS</h6>
-            <p>페이스북, 인스타그램, 네이버 블로그,  </p>
-            <p>네이버 모두에서 발품의 다양한 상품을 </p>
-            <p>확인해보세요. 아이콘을 누르시면 바로 </p>
-            <p>이동할 수 있어요!</p>
-
-        </div>
-        <div id=ft04>
-
-
-        <p id=notice>NOTICE</p>
-        <p>새로운 상품의 출시를 알려드립니다.</p>
-        <p>새로운 상품의 출시를 알려드립니다.</p>
-        <p>새로운 상품의 출시를 알려드립니다.</p>
-        <p>새로운 상품의 출시를 알려드립니다.</p>
-        <p>새로운 상품의 출시를 알려드립니다.</p>
-        <p>새로운 상품의 출시를 알려드립니다.</p>
-        
-        </div>
-        <div id=ft05>
-        <pre>
-            상호명: 발품 (BalPoom) | 대표: 이효림 | 개인정보관리책임자: 이효림 | 전화: 02-123-1234 | 이메일: balpoom@balpoom.co.kr
-
-            주소: 서울특별시 마포구 신촌로 176 (대흥동) | 사업자등록번호: 743-19-00394 | 통신판매: 제2017-서울마포-0687호
-
-                            ⓒ 2017. balpoom all rights reserved.
-        </pre>
-    </div>
-    </div>
-</div>
-
-<!--<script src="./js/sticky1.js"></script>-->
-<script src="./js/bestProd_basket.js"></script>
+<!-- <a href="orderForm.jsp">주문하기</a> -->
 </body>
 </html>
