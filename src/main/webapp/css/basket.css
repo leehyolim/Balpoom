@@ -9,7 +9,7 @@
 
 #basket{
 	 width: 1200px;
- 	 height: 1800px;
+ 	 height: auto;
 	 margin: auto;
 	 position:relative;
 }
@@ -106,12 +106,11 @@
 	margin-left: 10px;
 	
 }
-
 .cart_list_table{
 	border-color: black;
 	
 	width: 1160px;
-	height: 200px;
+	height: auto;
 	
 	margin-top: 30px;
 	margin-bottom: 15px;
@@ -127,7 +126,7 @@
 	font-weight: lighter;
 }
 .cart_list_table table thead tr th > span{
-	font-size: 11px;
+	font-size: 14px;
 }
 .cart_list_table table{
 	border: none;
@@ -142,8 +141,11 @@
 	
 	border-bottom: solid 1px;
 	border-color: silver;
+	height: 150px;
 	
 }
+
+
 
 .text_font{
 	width: 500px;
@@ -170,6 +172,7 @@
 	width: 100px;
 	height: 30px;
 	margin-left: 10px;
+	position: relative;
 }
 
 #ch2{
@@ -179,7 +182,7 @@
 }
 
 #tx_btn_bor{
-	background-color: lightgrey;
+	background-color: darkgray;
 	width: 35px;
 	height: 25px;
 	
@@ -187,23 +190,33 @@
 	text-align: center;
 	float: left;
 	
-	margin-left: 5px;
-	margin-top: -3px;
+	/* margin-left: 5px;
+	margin-top: 10px; */
+	/* margin: auto; */
+}
+
+.delete_btn{
+	display:block;
+	text-decoration: none; 
+	color: white;
+	font-size: 12px;
+	margin-top: 2px;
 }
 
 .tx_btn{
 	border:solid 1px;
-	border-color: darkgray;
+	border-color: black;
 	outline: none;
-	background: #E7E7E7;
+	background: black;
 	font-size: 11px;
 	font-weight: lighter;
+	margin: auto;
+	
 }
 
 #tx_btn_bor:hover{
-	background-color: black;
+	background-color: red;
 	color: white;
-	
 }
 
 #hr2{
@@ -347,20 +360,21 @@
 	
 }
 .result_list > dd{
-	height: 60px;
-	width: 80px;
+	height: 30px;
+	width: 300px;
 	float: right;
-	margin-top: 8px;
+	/* margin-top: 8px; */
+	margin: auto;
 }
 
 .result_list dd .rs_number{
 	font-size: 40px;
 	font-weight: bold;
 	color: red;
-	margin-left: 16px;
+	margin: auto;
 }
 .result_list dd .rs_won{
-	margin-right:15px;
+/* 	margin-right:15px; */
 	color: red;
 }
 
@@ -448,7 +462,14 @@
     top: 50%;
     width: 0;
   }
-
+  
+.footer{
+	margin:auto;
+	width: 1200px;
+	height: 370px;
+	position: relative;
+	
+}
 /* #basketlist{
 	border: solid 1px;
 	border-color: red; 

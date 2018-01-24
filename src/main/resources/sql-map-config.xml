@@ -8,6 +8,7 @@
 		<typeAlias type="com.balpoom.notice.NoticeVO" alias="notice"/>
 		<typeAlias type="com.balpoom.inquery.InqueryVO" alias="Inquery"/>
 		<typeAlias type="com.balpoom.inquery_reply.Inquery_replyVO" alias="Inquery_reply"/>
+		<typeAlias type="com.balpoom.cart.BasketVO" alias="basket"/>
 		
 	</typeAliases>
 	<mappers>
@@ -15,5 +16,6 @@
 		<mapper resource="mappings/notice-mapping.xml"/>
 		<mapper resource="mappings/inquery-mapping.xml"/>
 		<mapper resource="mappings/inquery_reply-mapping.xml"/>
+		<mapper resource="mappings/basket-mapping.xml"/>
 	</mappers>
 </configuration>

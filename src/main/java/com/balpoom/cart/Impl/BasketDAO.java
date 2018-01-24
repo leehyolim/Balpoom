@@ -25,6 +25,7 @@ public class BasketDAO {
 	//장바구니 삭제
 	public void deleteBasket(BasketVO vo) {
 		System.out.println("---> mybtis로 deleteBasket() 기능 처리");
+		mybatis.delete("BasketDAO.deleteBasket", vo);
 		
 	}
 	

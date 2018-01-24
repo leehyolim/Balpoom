@@ -11,7 +11,13 @@
 		
 	</delete> -->
 	
-	<select id="getBasketList" resultType="Basket">
-		SELECT * FROM cart
+	<delete id="deleteBasket">
+		DELETE FROM	cart WHERE c_no = #{c_no}
+	</delete>
+	
+	
+	<select id="getBasketList" resultType="basket">
+		select c_no, m_no, p_name, c_cnt, p_price from cart,product 
+		where cart.p_no = product.p_no and cart.m_no = #{m_no};
 	</select>
 </mapper>

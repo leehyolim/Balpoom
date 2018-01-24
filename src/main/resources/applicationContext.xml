@@ -12,6 +12,7 @@
 	<context:component-scan base-package="com.balpoom.notice"></context:component-scan>
 	<context:component-scan base-package="com.balpoom.inquery"></context:component-scan>
 	<context:component-scan base-package="com.balpoom.inquery_reply"></context:component-scan>
+	<context:component-scan base-package="com.balpoom.cart"></context:component-scan>
 	<!-- DataSource 설정 -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>

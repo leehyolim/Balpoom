@@ -7,12 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>마이페이지</title>
-    <link rel="stylesheet" href="./css/mypage.css?ver=4">
-    <style type="text/css">
-    	#header_small_navbar{
-    		margin-top: 40px;
-    	}
-    </style>
+    <link rel="stylesheet" href="./css/mypage.css?ver=6">
 </head>
 <body>
 
@@ -42,10 +37,12 @@ ${authMember.m_name }님의 회원등급은 <font color="#848484"><b>새내기</
                 <p class="mpBoxTitle">ORDER</p>
                 <p class="mpBoxText">주문 내역 / 배송 현황</p>
             </div>
+            <a href="getBasketList.do">
             <div class="mpBox" onMouseOver="this.style.backgroundColor='#FAFAFA'; "onMouseOut="this.style.backgroundColor='#FFFFFF'" style=" cursor: pointer;">
                 <p class="mpBoxTitle">CART</p>
                 <p class="mpBoxText">장바구니 상품 조회</p>
             </div>
+            </a>
             <div class="mpBox" onMouseOver="this.style.backgroundColor='#FAFAFA'; "onMouseOut="this.style.backgroundColor='#FFFFFF'" style=" cursor: pointer;">
                 <p class="mpBoxTitle">MY BOARD</p>
                 <p class="mpBoxText">게시물 관리</p>

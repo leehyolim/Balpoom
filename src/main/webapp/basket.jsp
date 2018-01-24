@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" href="./css/basket.css?ver=1">
+<link rel="stylesheet" href="./css/basket.css?ver=2">
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="./js/jquery.innerfade_basket.js"></script>
 
@@ -13,7 +13,6 @@
 
 </head>
 <body>
-
 
 <div id="basket">
 	<jsp:include page="header.jsp"/>	
@@ -28,15 +27,13 @@
 		</div> -->
 	</div>
 	
+	
+	<form action="getBasketList.do" method="post">
+	
 	<div class="cart_list_table">
 		<table width="100%" border="1" cellpadding="0" cellspacing="0">
-			<thead>
+			<thead style="height: 150px;">
 				<tr>
-					<th scope="col" style="width: 5%; height: 26px ">
-					<div class="check_div">
-						<input type="checkbox" class="checker">
-					</div>
-					</th>
 					<th scope="col" style="width: 50%">
 						<span>상품</span>
 					</th>
@@ -49,25 +46,83 @@
 					<th scope="col" style="width: 13%">
 						<span>배송정보</span>
 					</th>
+					<th scope="col" style="width: 5%">
+						
+					</th>
 				</tr>
 			</thead>
 			
+			
 			<tbody style="border-left-color: white; border-right-color: white;">
-				<tr>
-					<td colspan="5">
-						<p class="text_font">장바구니에 담겨있는 상품이 없습니다.</p>
-					</td>
-				</tr>
-			</tbody>
+			
+				<c:choose>
+					<c:when test="${basketListsize == 0 }">
+						<tr>
+							<td colspan="5">
+								<p class="text_font">장바구니에 담겨있는 상품이 없습니다.</p>
+							</td>
+						</tr>
+					</c:when>
+					
+					<c:when test="${basketListsize != 0 }">
+						<c:forEach items="${basketList}" var="basket">
+							<tr>
+								<td align="center" scope="row" style="width: 50%;height: 50px">${basket.p_name}</td>
+								<td align="center" scope="row" style="width: 10%;height: 50px">${basket.c_cnt}개</td>
+								<td align="center" scope="row" style="width: 14%;height: 50px">${basket.p_price}원</td>
+								<td align="center" scope="row" style="width: 13%;height: 50px">
+									<c:choose>
+										<c:when test="${basket.p_price >= 35000}">무료</c:when>
+										<c:when test="${basket.p_price < 35000}">2500원</c:when>
+									</c:choose>
+								</td>
+										
+								<td align="center" scope="row" style="width: 5%;height: 50px">
+								<div id="tx_btn_bor">
+									<a class="delete_btn" href="deleteBasket.do?c_no=${basket.c_no}">삭제</a>
+								</div>
+								</td>
+							</tr>
+						</c:forEach>
+					</c:when>
+				</c:choose>
+				<%-- <c:forEach items="${basketList}" var="basket">
+						<c:choose>
+							
+							<c:when test="${basket == null}">
+								<!-- <tr>
+									<td colspan="5">
+										<p class="text_font">장바구니에 담겨있는 상품이 없습니다.</p>
+									</td>
+								</tr> -->
+							</c:when>
+							
+							<c:when test="${basket.c_no != null}">
+								<tr>
+									<td align="center" scope="row" style="width: 50%;height: 50px">${basket.p_name}</td>
+									<td align="center" scope="row" style="width: 10%;height: 50px">${basket.c_cnt}개</td>
+									<td align="center" scope="row" style="width: 14%;height: 50px">${basket.p_price}원</td>
+									<td align="center" scope="row" style="width: 13%;height: 50px">
+										<c:choose>
+											<c:when test="${basket.p_price >= 35000}">무료</c:when>
+											<c:when test="${basket.p_price < 35000}">2500원</c:when>
+										</c:choose>
+									</td>
+									
+									<td align="center" scope="row" style="width: 5%;height: 50px">
+									<div id="tx_btn_bor">
+										<a class="delete_btn" href="deleteBasket.do?c_no=${basket.c_no}">삭제</a>
+									</div>
+									</td>
+								</tr>
+								
+							</c:when>
+						</c:choose>
+					</c:forEach> --%>
+				</tbody>
 		</table>
 	</div>
 	
-	<div class="layout">
-		<input id="ch2" type="checkbox">
-		<div id="tx_btn_bor">
-			<button class="tx_btn">삭제</button>
-		</div>
-	</div>
 	<hr id="hr2">
 	
 	<div class="pay_section">
@@ -95,7 +150,19 @@
 						<dl>
 							<dt>상품가격</dt>
 							<dd>
-								<span class="number">0</span>
+								<span class="number">
+									<c:set var="p_sum" value="0"/>
+									<c:if test="${basketListsize == 0 }">
+										${p_sum}
+									</c:if>
+									
+									<c:if test="${basketListsize != 0 }">
+										<c:forEach items="${basketList}" var="basket">
+											<c:set var="p_sum" value="${p_sum + (basket.p_price*basket.c_cnt)}"/>
+										</c:forEach>${p_sum}
+									
+									</c:if>
+								</span>
 								<span class="won">원</span>
 							</dd>
 						</dl>
@@ -104,7 +171,16 @@
 						<dl>
 							<dt>할인 가격</dt>
 							<dd>
-								<span class="number">0</span>
+								<span class="number">
+									<c:set var="sel_price" value="0"/>
+									<c:if test="${basketListsize == 0 }">
+										${sel_price}
+									</c:if>
+									<c:if test="${basketListsize != 0 }">
+										<c:set var="sel_price" value="2000"/>
+										${sel_price}								
+									</c:if>
+								</span>
 								<span class="won">원</span>
 							</dd>
 						</dl>
@@ -113,7 +189,24 @@
 						<dl>
 							<dt>배송비</dt>
 							<dd>
-								<span class="number">0</span>
+								<span class="number">
+									<c:set var="delivery_fee" value="0"/>
+									<c:if test="${basketListsize == 0 }">
+										${delivery_fee}
+									</c:if>
+									
+									<c:if test="${basketListsize != 0 }">
+										<c:choose>
+											<c:when test="${p_sum >= 40000}">
+												${delivery_fee}
+											</c:when>
+											
+											<c:when test="${p_sum < 40000}">
+												<c:set var="delivery_fee" value="2500"/>${delivery_fee}
+											</c:when>
+										</c:choose>
+									</c:if>
+								</span>
 								<span class="won">원</span>
 							</dd>
 						</dl>
@@ -122,7 +215,19 @@
 				</ul>
 				<dl class="result_list">
 					<dd>
-						<span class="rs_number">0</span>
+						<span class="rs_number">
+							<c:set var="rs_price" value="${p_sum - sel_price + delivery_fee}"/>
+							<c:choose>
+								<c:when test="${rs_price >= 0}">
+									${rs_price}
+								</c:when>
+								
+								<c:when test="${rs_price < 0}">
+									<c:set var="rs_price" value="0"/>${rs_price}
+								</c:when>
+							</c:choose>
+							
+						</span>
 						<span class="rs_won">원</span>
 					</dd>
 				</dl>
@@ -130,33 +235,18 @@
 		</div>
 	</div>
 	
+	</form>
+	
 	
 	<div class="order_btn">
 		<button class="im_btn">주문결제</button>
 	</div>
 	
-	
-	
-	<%-- <div id="basketlist">
-	
-		<form action="getBasketList.do" method="post">
-			<c:forEach items="${basketList}" var="basket">
-						<tr>
-				             <td>${basket.c_no}</td>
-				             <td>${basket.m_no}</td>
-				             <td>${basket.p_no}</td>
-				             <td>${basket.c_cnt}</td>
-				             <td>${basket.c_total}</td>
-				      	</tr>
-			</c:forEach>
-		</form>
-	</div> --%>
-	 <jsp:include page="footer.jsp"/>	
-	
 </div>
 
-
-
+<div class="footer">
+	 <jsp:include page="footer.jsp"/>
+</div>
 
 
 <%-- <!--
@@ -188,6 +278,5 @@
     </table>
 --> --%>
 
-<!-- <a href="orderForm.jsp">주문하기</a> -->
 </body>
 </html>

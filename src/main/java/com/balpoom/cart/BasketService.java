@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.balpoom.notice.NoticeVO;
+
 @Service("basketService")
 public interface BasketService {
 	
