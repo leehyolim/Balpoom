@@ -4,11 +4,17 @@
 
  <mapper namespace="OrderDAO">
 	<insert id="addOrder">
-		insert into orders(p_identifier,m_no,sender_name,sender_email_id,sender_email_domain,sender_cellphone1,sender_cellphone2,sender_cellphone3,
+		insert into orders(p_total_identifier,m_no,sender_name,sender_email_id,sender_email_domain,sender_cellphone1,sender_cellphone2,sender_cellphone3,
 		receiver_address_postcode,receiver_address_primary,receiver_address_detail,receiver_name,receiver_cellphone1,receiver_cellphone2,receiver_cellphone3,
 		receiver_requirement,payment_type)
-		values(#{p_identifier},#{m_no},#{sender_name},#{sender_email_id},#{sender_email_domain},#{sender_cellphone1},#{sender_cellphone2},#{sender_cellphone3},
+		values(#{p_total_identifier},#{m_no},#{sender_name},#{sender_email_id},#{sender_email_domain},#{sender_cellphone1},#{sender_cellphone2},#{sender_cellphone3},
 		#{receiver_address_postcode},#{receiver_address_primary},#{receiver_address_detail},#{receiver_name},#{receiver_cellphone1},#{receiver_cellphone2},#{receiver_cellphone3},
 		#{receiver_requirement},#{payment_type})
 	</insert>
+	
+	<!-- <update id="order_rs_cart_del">
+		update cart set validity = 2 where validity = 1;
+	</update> -->
+	<!-- insert into tablename set
+	컬럼네임 = 넣을값 -->
 </mapper>

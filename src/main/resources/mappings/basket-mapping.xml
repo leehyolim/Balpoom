@@ -13,6 +13,11 @@
 	<select id="getBasketList" resultType="basket">
 		select c_no,m_no,p_name,c_cnt,p_price,cart.p_identifier from cart,product
 		where cart.p_identifier = product.p_identifier
-		and cart.m_no = #{m_no};
+		and validity = 1 and cart.m_no = #{m_no};
 	</select>
+	
+	<update id="order_rs_cart_del">
+		update cart set validity = 2 where validity = 1;
+	</update>
+	
 </mapper>

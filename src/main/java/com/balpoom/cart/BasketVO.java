@@ -7,7 +7,7 @@ public class BasketVO {
 	private int c_cnt;
 	private int p_price;
 	private String p_identifier;
-	
+	private int validity;
 	
 	
 	public String getP_identifier() {
@@ -46,6 +46,14 @@ public class BasketVO {
 	public void setP_price(int p_price) {
 		this.p_price = p_price;
 	}
+	
+	public int getValidity() {
+		return validity;
+	}
+	public void setValidity(int validity) {
+		this.validity = validity;
+	}
+	
 	@Override
 	public String toString() {
 		return "BasketVO [c_no=" + c_no + ", m_no=" + m_no + ", p_name=" + p_name + ", c_cnt=" + c_cnt + ", p_price="

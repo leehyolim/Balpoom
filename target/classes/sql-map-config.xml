@@ -11,6 +11,7 @@
 		<typeAlias type="com.balpoom.cart.BasketVO" alias="basket"/>
 		<typeAlias type="com.balpoom.seller.SellerVO" alias="seller"/>
 		<typeAlias type="com.balpoom.product.ProductVO" alias="product"/>
+		<typeAlias type="com.balpoom.product.OverallProductVO" alias="overall"/>
 		<typeAlias type="com.balpoom.order.OrderVO" alias="order"/>
 		
 	</typeAliases>

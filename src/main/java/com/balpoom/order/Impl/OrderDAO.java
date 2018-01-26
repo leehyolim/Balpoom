@@ -13,6 +13,6 @@ public class OrderDAO {
 	
 	public void addOrder(OrderVO vo) {
 		mybatis.insert("OrderDAO.addOrder",vo);
-		
 	}
+	
 }

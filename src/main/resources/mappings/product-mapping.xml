@@ -15,4 +15,15 @@
 	<select id="getProductS" resultType="product">
 		select p_size from product where r_no=#{r_no} group by p_size;
 	</select>
+	
+	<select id="getOveralls" resultType="overall">
+		select distinct p_name,p_price,s.s_busi_name,p_type,p_type_detail from product p,  seller s
+		where p.s_no=s.s_no and p_type=#{p_type};
+	</select>
+	
+	<select id="getOverallsDetails" resultType="overall">
+		select distinct p_name,p_price,s.s_busi_name,p_type,p_type_detail from product p,  seller s
+		where p.s_no=s.s_no and p_type=#{p_type} and p_type_detail=#{p_type_detail};
+	</select>
+
 </mapper>

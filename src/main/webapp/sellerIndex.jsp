@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
@@ -18,8 +19,10 @@
         <div class="sellerIndex_header">
             <img class="sellerheaderimg" src="./img/sellerpageLogo1.png"><p class="headerTitle1">판매자센터</p>
             
+            <c:if test="${! empty authSeller }">
             <a href="logout.do"><p class="seller_logoutBtn">로그아웃</p></a>
             <p class="seller_headerText1">${authSeller.s_name }님 환영합니다</p>
+            </c:if>
         </div>
         <div class="tab">
                 <p class="tablinks" onclick="openPage(event, 'Home')" id="defaultOpen" style="border-top-left-radius: 4px;">판매자센터 홈</p>

@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.balpoom.product.OverallProductVO;
 import com.balpoom.product.ProductVO;
 
 @Repository
@@ -34,10 +35,16 @@ public class ProductDAO {
 		
 		return mybatis.selectList("ProductDAO.getProductS",pvo);
 	}
-//	public void updateProduct(ProductVO vo){
-//		
-//		System.out.println("상품 수정");
-//		mybatis.update("ProductDAO.updateProduct", vo);
-//	}
-//	
+	
+	public List<OverallProductVO> getOveralls(OverallProductVO vo){
+		System.out.println(vo.getP_type()+"들 가져오기");
+		return mybatis.selectList("ProductDAO.getOveralls",vo);
+	}
+	
+	public List<OverallProductVO> getOverallsDetails(OverallProductVO vo){
+		System.out.println(vo.getP_type_detail()+"들 가져오기");
+		return mybatis.selectList("ProductDAO.getOverallsDetails",vo);
+	}
+	
+
 }

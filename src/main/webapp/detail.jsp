@@ -207,7 +207,7 @@
 
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>   
-<script src="./js/sticky_detail.js"></script>
+<script src="./js/sticky_detail.js?ver=1"></script>
 <script src="./js/sticky-kit.min.js"></script>
 <div id = "followBox">
 

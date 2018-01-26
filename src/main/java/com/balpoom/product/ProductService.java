@@ -11,4 +11,8 @@ public interface ProductService {
 	ProductVO getProductGB(ProductVO pvo);
 	List<ProductVO> getProductC(ProductVO pvo);
 	List<ProductVO> getProductS(ProductVO pvo);
+	
+	List<OverallProductVO> getOveralls(OverallProductVO vo);
+	List<OverallProductVO> getOverallsDetails(OverallProductVO vo);
+
 }

@@ -10,7 +10,7 @@ var navbar=navbarHeight.offsetHeight;
  //headerHeight.style.height=screen.height-navbar;
 
 $(document).ready(function(){
-	if(window.pageYOffset > wrapper)
+	if(window.pageYOffset > 800)
 	{
 		navbarHeight.style.position="fixed";
 		navbarHeight.style.top="0px";

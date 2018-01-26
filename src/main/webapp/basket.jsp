@@ -237,6 +237,7 @@
 	
 	</form>
 	
+	<input type="hidden" name="rs_price" value="${rs_price}">
 	<form action="orderForm.do" method="post">
 	<div class="order_btn">
 		<button class="im_btn">주문결제</button>

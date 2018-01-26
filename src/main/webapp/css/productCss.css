@@ -6,11 +6,13 @@
 }
 #wrapper{
         width: 1200px;
-        height: 3800px;
+        height:2700px;
         margin: auto;
         padding-top: 30px;
+        position: relative;
         
     }
+
     #clear{
         clear: both;
     }
@@ -114,7 +116,7 @@
     }
     #list{
         width: 1200px;
-        height: 3150px;
+        height: 1650px;
        
         
     }
@@ -143,7 +145,7 @@
     }
     #product{
         width: 1200px;
-        height: 3000px;
+        height: auto;
         
     }
     #outer{

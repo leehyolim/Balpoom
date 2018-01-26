@@ -5,7 +5,7 @@ import java.util.Date;
 public class OrderVO {
 	private int o_no;
 	private Date o_date;
-	private String p_identifier;
+	private String p_total_identifier;
 	private int m_no;
 	private String sender_name;
 	private String sender_email_id;
@@ -35,11 +35,12 @@ public class OrderVO {
 	public void setO_date(Date o_date) {
 		this.o_date = o_date;
 	}
-	public String getP_identifier() {
-		return p_identifier;
+	
+	public String getP_total_identifier() {
+		return p_total_identifier;
 	}
-	public void setP_identifier(String p_identifier) {
-		this.p_identifier = p_identifier;
+	public void setP_total_identifier(String p_total_identifier) {
+		this.p_total_identifier = p_total_identifier;
 	}
 	public int getM_no() {
 		return m_no;
@@ -140,7 +141,7 @@ public class OrderVO {
 	
 	@Override
 	public String toString() {
-		return "OrderVO [o_no=" + o_no + ", o_date=" + o_date + ", p_identifier=" + p_identifier + ", m_no=" + m_no
+		return "OrderVO [o_no=" + o_no + ", o_date=" + o_date + ", p_total_identifier=" + p_total_identifier + ", m_no=" + m_no
 				+ ", sender_name=" + sender_name + ", sender_email_id=" + sender_email_id + ", sender_email_domain="
 				+ sender_email_domain + ", sender_cellphone1=" + sender_cellphone1 + ", sender_cellphone2="
 				+ sender_cellphone2 + ", sender_cellphone3=" + sender_cellphone3 + ", receiver_address_postcode="

@@ -27,5 +27,10 @@ public class BasketServiceImpl implements BasketService{
 	@Override
 	public List<BasketVO> getBasketList(BasketVO vo) {
 		return basketDAO.getBasketList(vo);
+	}
+
+	@Override
+	public void order_rs_cart_del(BasketVO vo) {
+		basketDAO.order_rs_cart_del(vo);
 	}	
 }

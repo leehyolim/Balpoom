@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.balpoom.cart.BasketService;
 import com.balpoom.cart.BasketVO;
 import com.balpoom.order.OrderService;
 import com.balpoom.order.OrderVO;
@@ -20,9 +20,11 @@ public class OrderController {
 	
 	@Autowired
 	private OrderService orderService;
+	@Autowired
+	private BasketService basketService;
 	
 	@RequestMapping("/addOrder.do")
-	public String addOrder(OrderVO vo, Model model) {
+	public String addOrder(BasketVO vo1, OrderVO vo, Model model) {
 		if(vo.getSender_name() == null || vo.getSender_name().equals("")) {
 			throw new NullPointerException("주문자 이름을 입력하세요.");
 		}
@@ -46,16 +48,9 @@ public class OrderController {
 			throw new NullPointerException("받는 사람의 연락처를 입력하세요.");
 		}
 		
+		basketService.order_rs_cart_del(vo1);
 		orderService.addOrder(vo);
+		
 		return "orderSuccess.jsp";
 	}
-	
-	/*@RequestMapping("/orderForm.do")
-	public String basketlist(@RequestParam(value="basketList",required=false)String list, Model model) {
-		model.addAttribute("basketList",list);
-		
-		System.out.println("결제 : " + list);
-		
-		return "orderForm.jsp";
-	}*/
 }

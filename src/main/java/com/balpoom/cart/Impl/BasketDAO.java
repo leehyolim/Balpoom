@@ -26,7 +26,6 @@ public class BasketDAO {
 	public void deleteBasket(BasketVO vo) {
 		System.out.println("---> mybtis로 deleteBasket() 기능 처리");
 		mybatis.delete("BasketDAO.deleteBasket", vo);
-		
 	}
 	
 	//장바구니 조회
@@ -34,5 +33,11 @@ public class BasketDAO {
 		
 		System.out.println("---> mybatis로 getBasket() 기능 처리");
 		return mybatis.selectList("BasketDAO.getBasketList",vo);
+	}
+	
+	//주문 후 장바구니 내역 삭제
+	public void order_rs_cart_del(BasketVO vo) {
+		System.out.println("---> mybtis로 order_rs_cart_del() 기능 처리");
+		mybatis.update("BasketDAO.order_rs_cart_del", vo);
 	}
 }

@@ -163,7 +163,7 @@
 						<tr>
 							<td colspan="7" class="payment_amount"
 								style="text-align: right; font-size: 20px;">총 결제 금액 :
-								10000원</td>
+								 <%= request.getParameter("rs_price") %>원</td>
 						</tr>
 					</table>
 				</div>
@@ -196,40 +196,28 @@
 						</tr>
 					</table>
 				</div>
-				<%-- <input type="hidden" name="p_identifier" value="#{p_identifier}"> --%>
+				<input type="hidden" name="m_no" value="${authMember.m_no}"> <!-- 삭제x m_no값이 항상 필요 -->
 				
-				<div class="last_Payment">
-					<%-- <button type="submit">
-						<c:forEach items="${basketList}" var="basket">
-							<input type="hidden" name="p_identifier" value="#{basket.p_identifier}">
-							<input type="hidden" name="m_no" value="${authMember.m_no}">
-						</c:forEach>
-							<!-- <div class="last_Payment">
-								<button type="submit">
-									<img class="img_btn" src="./img/paybutton.png">
-								</button>
-							</div> -->
-							<img class="img_btn" src="./img/paybutton.png">
-					</button> --%>
+				<c:forEach items="${basketList}" var="basket">
+					<c:set var="p_total_identifier" value="${p_total_identifier} ${basket.p_identifier}"/>
+				</c:forEach>
+				
+				<input type="hidden" name="p_total_identifier" value="${p_total_identifier}">
+				
 					<div class="last_Payment">
-								<button> <!-- type="submit" -->
-									<img class="img_btn" src="./img/paybutton.png">
-								</button>
-							</div>
-				</div>
+						<button type="submit">
+							<img class="img_btn" src="./img/paybutton.png">
+						</button>
+					</div>
 		</form>
 		</div>
+		
+		
+		
 		<jsp:include page="footer.jsp"></jsp:include>
-	</div>
-
-	
-
-
-
-
-
-
-
+		
+		
+		
 
 	<!-- 이메일 입력방식 : 직접입력 -->
 	<script type="text/javascript"

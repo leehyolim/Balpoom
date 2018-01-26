@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.balpoom.product.OverallProductVO;
 import com.balpoom.product.ProductService;
 import com.balpoom.product.ProductVO;
 
@@ -26,14 +27,25 @@ public class ProductServiceImpl implements ProductService{
 
 	@Override
 	public List<ProductVO> getProductC(ProductVO pvo) {
-		// TODO Auto-generated method stub
 		return productDAO.getProductC(pvo);
 	}
 
 	@Override
 	public List<ProductVO> getProductS(ProductVO pvo) {
-		// TODO Auto-generated method stub
 		return productDAO.getProductS(pvo);
 	}
+
+	@Override
+	public List<OverallProductVO> getOveralls(OverallProductVO vo) {
+		return productDAO.getOveralls(vo);
+	}
+
+	@Override
+	public List<OverallProductVO> getOverallsDetails(OverallProductVO vo) {
+		return productDAO.getOverallsDetails(vo);
+	}
+
+
+
 	
 }

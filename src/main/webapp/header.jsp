@@ -55,39 +55,80 @@
 		</div>
 		<div id="header_navbar">
 			<center>
+				<a href="getOveralls.do?p_type=Outer">
 				<div id="header_outer" class="header_menu">
 					<b>Outer</b><br>---<br>Coat&amp;Jackek
 				</div>
+				</a>
+				<a href="getOveralls.do?p_type=Top">
 				<div id="header_top" class="header_menu">
 					<b>Top</b><br>---<br>Shirt&amp;Hoodie
 				</div>
+				</a>
+				<a href="getOveralls.do?p_type=Bottom">
 				<div id="header_bottom" class="header_menu">
 					<b>Bottom</b><br>---<br>Jean&amp;Slacks
 				</div>
+				</a>
+				<a href="getOveralls.do?p_type=Shoes">
 				<div id="header_shoes" class="header_menu">
 					<b>Shoes</b><br>---<br>Dress&amp;Running
 				</div>
+				</a>
 			</center>
 		</div>
 	</div>
 	<div id="header_submenu"class="submenu" style="height: 40px">
 		<ul style="height: 40px">
-		 	<li style="height: 40px" class="sub_Outer"><a href="" style="padding:10px 135px;">Coat</a></li>
- 			<li style="height: 40px" class="sub_Outer"><a href="" style="padding:10px 135px;">Jacket</a></li>
- 			<li style="height: 40px" class="sub_Outer"><a href="">Bubble</a></li>
- 			<li style="height: 40px" class="sub_Outer"><a href="" style="padding:10px 115px;">AndSoOn</a></li>
- 			<li style="height: 40px" class="sub_Top"><a href="" style="padding:10px 135px;">TShirt</a></li>
- 			<li style="height: 40px" class="sub_Top"><a href="" style="padding:10px 135px;">Shirt</a></li>
- 			<li style="height: 40px" class="sub_Top"><a href="">Hoody</a></li>
- 			<li style="height: 40px" class="sub_Top"><a href="" style="padding:10px 115px;">AndSoOn</a></li>
- 			<li style="height: 40px" class="sub_Bottom"><a href="" style="padding:10px 135px;">Jeans</a></li>
- 			<li style="height: 40px" class="sub_Bottom"><a href="">Slacks</a></li>
- 			<li style="height: 40px" class="sub_Bottom"><a href="">Cotton</a></li>
- 			<li style="height: 40px" class="sub_Bottom"><a href="" style="padding:10px 120px;">Training</a></li>
- 			<li style="height: 40px" class="sub_Shoes"><a href="">Running</a></li>
- 			<li style="height: 40px" class="sub_Shoes"><a href="">Sneakers</a></li>
- 			<li style="height: 40px" class="sub_Shoes"><a href="">Sports</a></li>
- 			<li style="height: 40px" class="sub_Shoes"><a href="" style="padding:10px 125px;">Classic</a></li>
+		
+		 	<li style="height: 40px" class="sub_Outer">
+		 	<a href="getOverallsDetails.do?p_type=Outer&p_type_detail=Coat" style="padding:10px 135px;">
+		 	Coat</a></li>
+ 			<li style="height: 40px" class="sub_Outer">
+ 			<a href="getOverallsDetails.do?p_type=Outer&p_type_detail=Jacket" style="padding:10px 135px;">
+ 			Jacket</a></li>
+ 			<li style="height: 40px" class="sub_Outer">
+ 			<a href="getOverallsDetails.do?p_type=Outer&p_type_detail=Bubble">
+ 			Bubble</a></li>
+ 			<li style="height: 40px" class="sub_Outer">
+ 			<a href="getOverallsDetails.do?p_type=Outer&p_type_detail=AndSoOn" style="padding:10px 115px;">
+ 			AndSoOn</a></li>
+ 			<li style="height: 40px" class="sub_Top">
+ 			<a href="getOverallsDetails.do?p_type=Top&p_type_detail=TShirt" style="padding:10px 135px;">
+ 			TShirt</a></li>
+ 			<li style="height: 40px" class="sub_Top">
+ 			<a href="getOverallsDetails.do?p_type=Top&p_type_detail=Shirt" style="padding:10px 135px;">
+ 			Shirt</a></li>
+ 			<li style="height: 40px" class="sub_Top">
+ 			<a href="getOverallsDetails.do?p_type=Top&p_type_detail=Hoody">
+ 			Hoody</a></li>
+ 			<li style="height: 40px" class="sub_Top">
+ 			<a href="getOverallsDetails.do?p_type=Top&p_type_detail=AndSoOn" style="padding:10px 115px;">
+ 			AndSoOn</a></li>
+ 			<li style="height: 40px" class="sub_Bottom">
+ 			<a href="getOverallsDetails.do?p_type=Bottom&p_type_detail=Jeans" style="padding:10px 135px;">
+ 			Jeans</a></li>
+ 			<li style="height: 40px" class="sub_Bottom">
+ 			<a href="getOverallsDetails.do?p_type=Bottom&p_type_detail=Slacks">
+ 			Slacks</a></li>
+ 			<li style="height: 40px" class="sub_Bottom">
+ 			<a href="getOverallsDetails.do?p_type=Bottom&p_type_detail=Cotton">
+ 			Cotton</a></li>
+ 			<li style="height: 40px" class="sub_Bottom">
+ 			<a href="getOverallsDetails.do?p_type=Bottom&p_type_detail=Training" style="padding:10px 120px;">
+ 			Training</a></li>
+ 			<li style="height: 40px" class="sub_Shoes">
+ 			<a href="getOverallsDetails.do?p_type=Shoes&p_type_detail=Running">
+ 			Running</a></li>
+ 			<li style="height: 40px" class="sub_Shoes">
+ 			<a href="getOverallsDetails.do?p_type=Shoes&p_type_detail=Sneakers">
+ 			Sneakers</a></li>
+ 			<li style="height: 40px" class="sub_Shoes">
+ 			<a href="getOverallsDetails.do?p_type=Shoes&p_type_detail=Sports">
+ 			Sports</a></li>
+ 			<li style="height: 40px" class="sub_Shoes">
+ 			<a href="getOverallsDetails.do?p_type=Shoes&p_type_detail=Classic" style="padding:10px 125px;">
+ 			Classic</a></li>
 		</ul>
 	</div>
 

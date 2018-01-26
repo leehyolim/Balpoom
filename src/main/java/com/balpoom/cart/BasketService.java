@@ -13,6 +13,8 @@ public interface BasketService {
 	
 	void deleteBasket(BasketVO vo);
 	
+	void order_rs_cart_del(BasketVO vo);
+	
 	List<BasketVO> getBasketList(BasketVO vo);
 	
 }

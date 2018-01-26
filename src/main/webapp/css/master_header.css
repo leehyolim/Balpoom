@@ -125,6 +125,9 @@
   width: 100%;
   height:100px;
 }
+#header_navbar a{
+	text-decoration: none;
+}
 .header_menu{
   background: #f9f9f9;
   color: #header_d1d1d1;
@@ -162,6 +165,9 @@ center{
 }
 #header_submenu{
 	z-index: 30;
+}
+#header_submenu a{
+	text-decoration: none;
 }
 .submenu li{
 	display:none;
