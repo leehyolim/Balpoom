@@ -13,11 +13,11 @@ public class MemberVO {
 	private String m_email_id;
 	private String m_email_domain;
 	private String m_cellphone1;
-	private int m_cellphone2;
-	private int m_cellphone3;
+	private	String m_cellphone2;
+	private String m_cellphone3;
 	private String m_phoneNum1;
-	private int m_phoneNum2;
-	private int m_phoneNum3;
+	private String m_phoneNum2;
+	private String m_phoneNum3;
 	private String m_birth;
 	private char m_verify;
 	
@@ -87,16 +87,16 @@ public class MemberVO {
 	public void setM_cellphone1(String m_cellphone1) {
 		this.m_cellphone1 = m_cellphone1;
 	}
-	public int getM_cellphone2() {
+	public String getM_cellphone2() {
 		return m_cellphone2;
 	}
-	public void setM_cellphone2(int m_cellphone2) {
+	public void setM_cellphone2(String m_cellphone2) {
 		this.m_cellphone2 = m_cellphone2;
 	}
-	public int getM_cellphone3() {
+	public String getM_cellphone3() {
 		return m_cellphone3;
 	}
-	public void setM_cellphone3(int m_cellphone3) {
+	public void setM_cellphone3(String m_cellphone3) {
 		this.m_cellphone3 = m_cellphone3;
 	}
 	public String getM_phoneNum1() {
@@ -105,16 +105,16 @@ public class MemberVO {
 	public void setM_phoneNum1(String m_phoneNum1) {
 		this.m_phoneNum1 = m_phoneNum1;
 	}
-	public int getM_phoneNum2() {
+	public String getM_phoneNum2() {
 		return m_phoneNum2;
 	}
-	public void setM_phoneNum2(int m_phoneNum2) {
+	public void setM_phoneNum2(String m_phoneNum2) {
 		this.m_phoneNum2 = m_phoneNum2;
 	}
-	public int getM_phoneNum3() {
+	public String getM_phoneNum3() {
 		return m_phoneNum3;
 	}
-	public void setM_phoneNum3(int m_phoneNum3) {
+	public void setM_phoneNum3(String m_phoneNum3) {
 		this.m_phoneNum3 = m_phoneNum3;
 	}
 	public String getM_birth() {

@@ -8,6 +8,32 @@ public class NoticeVO {
 	private int notice_cnt;
 	private Date notice_reg;
 	private String notice_content;
+	private String reg_date;
+	private String searchCondition;
+	private String searchKeyword;
+	private int startRow;
+	private int size;
+	
+	
+	
+	public int getStartRow() {
+		return startRow;
+	}
+	public void setStartRow(int startRow) {
+		this.startRow = startRow;
+	}
+	public int getSize() {
+		return size;
+	}
+	public void setSize(int size) {
+		this.size = size;
+	}
+	public String getReg_date() {
+		return reg_date;
+	}
+	public void setReg_date(String reg_date) {
+		this.reg_date = reg_date;
+	}
 	public int getNotice_no() {
 		return notice_no;
 	}
@@ -38,12 +64,28 @@ public class NoticeVO {
 	public void setNotice_content(String notice_content) {
 		this.notice_content = notice_content;
 	}
-	
+	public String getSearchCondition() {
+		return searchCondition;
+	}
+	public void setSearchCondition(String searchCondition) {
+		this.searchCondition = searchCondition;
+	}
+	public String getSearchKeyword() {
+		return searchKeyword;
+	}
+	public void setSearchKeyword(String searchKeyword) {
+		this.searchKeyword = searchKeyword;
+	}
 	@Override
 	public String toString() {
 		return "NoticeVO [notice_no=" + notice_no + ", notice_title=" + notice_title + ", notice_cnt=" + notice_cnt
-				+ ", notice_reg=" + notice_reg + ", notice_content=" + notice_content + "]";
+				+ ", notice_reg=" + notice_reg + ", notice_content=" + notice_content + ", reg_date=" + reg_date
+				+ ", searchCondition=" + searchCondition + ", searchKeyword=" + searchKeyword + ", startRow=" + startRow
+				+ ", size=" + size + "]";
 	}
+	
+	
+
 	
 	
 }

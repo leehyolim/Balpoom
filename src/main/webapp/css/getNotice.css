@@ -5,10 +5,18 @@
     margin: 0;
     padding: 0;
 }
+.wraper {
+	min-height: 1500px;
+	width: 1200px;
+	position: relative;
+	margin: auto;
+	padding:0, 10px, 0px, 10px;
+}
 #getNotice_wrapper{
 	width: 870px;
     height: auto;
     margin: auto;
+    margin-top:100px;
    
 	
 }

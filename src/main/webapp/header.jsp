@@ -10,7 +10,7 @@
 
 <title>BalPoom</title>
 
-<script type="text/javascript" src="./js/fitple_header.js?ver=2"></script>
+<script type="text/javascript" src="./js/fitple_header.js?ver=3"></script>
 </head>
 <body>
 	<div class="header_wraper">
@@ -43,11 +43,13 @@
 					<li><a href="agreePage.jsp" class="header_member">회원가입</a></li>
 					<li style="width: 60px;"><a href="login.jsp"
 						class="header_member">로그인</a></li>
+					<li><a href="getNoticeList.do" class="header_member">공지사항</a></li>
 				</c:if>
 				<c:if test="${! empty authMember }">
 					<li><a href="mypage.do" class="header_member">MyPage</a></li>
 					<li style="width: 70px;"><a href="logout.do"
 						class="header_member">LogOut</a></li>
+					<li><a href="getNoticeList.do" class="header_member">공지사항</a></li>
 				</c:if>
 			</ul>
 		</div>
@@ -91,7 +93,7 @@
 
 
 
-	<script src="./js/sticky_header.js"></script>
+	<script src="./js/sticky_header.js?ver=1"></script>
 	<script src="./js/subMenu.js?ver=1"></script>
 	<script>
 		function openNav() {

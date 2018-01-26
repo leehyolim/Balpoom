@@ -6,7 +6,16 @@ public class BasketVO {
 	private String p_name;
 	private int c_cnt;
 	private int p_price;
+	private String p_identifier;
 	
+	
+	
+	public String getP_identifier() {
+		return p_identifier;
+	}
+	public void setP_identifier(String p_identifier) {
+		this.p_identifier = p_identifier;
+	}
 	public int getC_no() {
 		return c_no;
 	}
@@ -39,12 +48,9 @@ public class BasketVO {
 	}
 	@Override
 	public String toString() {
-		return "BasketVO [c_no="+c_no+
-						", m_no= "+m_no+
-						", p_name = "+p_name+
-						", c_cnt = "+c_cnt+
-						", p_price = "+p_price+
-						"]";
+		return "BasketVO [c_no=" + c_no + ", m_no=" + m_no + ", p_name=" + p_name + ", c_cnt=" + c_cnt + ", p_price="
+				+ p_price + ", p_identifier=" + p_identifier + "]";
 	}
+
     
 }

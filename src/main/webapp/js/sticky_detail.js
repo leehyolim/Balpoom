@@ -1,5 +1,5 @@
-var headerHeight=document.getElementById("navbar");
-var navbarHeight=document.getElementById("middle");
+var headerHeight=document.getElementById("wrapper2");
+var navbarHeight=document.getElementById("navbar");
 
 //console.log(navbarHeight.offsetHeight);
 var wrapper=headerHeight.offsetHeight;
@@ -10,13 +10,14 @@ var navbar=navbarHeight.offsetHeight;
  //headerHeight.style.height=screen.height-navbar;
 
 $(document).ready(function(){
-	if(window.pageYOffset > header)
+	if(window.pageYOffset > wrapper)
 	{
 		navbarHeight.style.position="fixed";
 		navbarHeight.style.top="0px";
 		navbarHeight.style.width="1205px";
 			
 	}
+	
 	else
 	{
 		navbarHeight.style.position="relative";
@@ -27,7 +28,10 @@ $(document).ready(function(){
 })
 window.addEventListener("scroll", stop);
 
-$('#pro_detail_follow').stick_in_parent({parent : '#followBox'});
+
+
+//$('#pro_detail_follow').stick_in_parent({parent : '#followBox'});
+
 
 //$(document).ready(function(){
 //    $('[data-toggle="tooltip"]').tooltip();   
@@ -163,13 +167,13 @@ $('#pro_detail_follow').stick_in_parent({parent : '#followBox'});
 		document.getElementById(divid2).style.display = ""; // 숨김
 		document.getElementById(divid3).style.display = "none"; // 숨김
 		document.getElementById(divid4).style.display = "none"; // 숨김
-		document.getElementById(fullbox1).style.height = ""; // 숨김
+		document.getElementById(fullbox1).style.height = "800px"; // 숨김
 	}else if(v=="3") {
 		document.getElementById(divid1).style.display = "none"; // 보여줌
 		document.getElementById(divid2).style.display = "none"; // 숨김
 		document.getElementById(divid3).style.display = ""; // 숨김
 		document.getElementById(divid4).style.display = "none"; // 숨김
-		document.getElementById(fullbox1).style.height = ""; // 숨김
+		document.getElementById(fullbox1).style.height = "800px"; // 숨김
 	}else if(v=="4"){
 		document.getElementById(divid1).style.display = "none"; // 보여줌
 		document.getElementById(divid2).style.display = "none"; // 숨김

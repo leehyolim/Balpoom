@@ -51,7 +51,7 @@
 							</div>
 							<div id=divText>
 								<p id="storeName">상호명</p>
-								<p id="productName">베이직 더플코트(네이비)</p>
+								<a href="getProduct.do?r_no=3"><p id="productName">베이직 더플코트(네이비)</p></a>
 								<p id="price">99,000원</p>
 							</div>
 						</div>
@@ -62,8 +62,8 @@
 							</div>
 							<div id=divText>
 								<p id="storeName">상호명</p>
-								<p id="productName">베이직 더플코트(네이비)</p>
-								<p id="price">99,000원</p>
+								<a href="getProduct.do?p_identifier=exname0레드0"><p id="productName">베이직 더플코트(블루)</p></a>
+								<p id="price">89,000원</p>
 							</div>
 						</div>
 						<div class="bestOuter">

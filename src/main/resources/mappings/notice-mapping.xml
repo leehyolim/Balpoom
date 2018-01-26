@@ -7,9 +7,25 @@
 	<select id="getNotice" resultType="notice">
 		SELECT notice_title, notice_content,notice_no,notice_reg,notice_cnt FROM notice	WHERE notice_no =#{notice_no}
 	</select>
+	
+	<select id="getCountTotalNotice" resultType="notice">
+		select * from notice order by notice_no desc
+	</select>	
 
 	<select id="getNoticeList" resultType="notice">
-		SELECT * FROM notice order by notice_no desc
+		SELECT * FROM notice order by notice_no desc limit #{startRow}, #{size}
+	</select>
+	
+	<select id="getNoticeListByTitle" resultType="notice">
+		SELECT * FROM notice 
+		where notice_title like  #{searchKeyword}
+		order by notice_no desc limit #{startRow}, #{size}
+	</select>
+	
+	<select id="getNoticeListByContent" resultType="notice">
+		SELECT * FROM notice 
+		where notice_content like #{searchKeyword}
+		order by notice_no desc limit #{startRow}, #{size}
 	</select>
 
 	<insert id="insertNotice">

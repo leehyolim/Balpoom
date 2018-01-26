@@ -19,7 +19,7 @@ function stop(){
 		navbarHeight.style.position="static";
 		submenu.style.position="static";
 		navbarHeight.style.top="0px";
-		submenu.style.top="0px";
+		submenu.style.top="0";
 	}
 }
 window.addEventListener("scroll", stop);

@@ -43,4 +43,20 @@ public class NoticeServiceImpl  implements NoticeService{
 		noticeDAO.updateCnt(vo);
 	}
 
+	@Override
+	public List<NoticeVO> getNoticeListByTitle(NoticeVO vo) {
+		return noticeDAO.getNoticeListByTitle(vo);
+	}
+
+	@Override
+	public List<NoticeVO> getNoticeListByContent(NoticeVO vo) {
+		return noticeDAO.getNoticeListByContent(vo);
+	}
+
+	@Override
+	public int getCountTotalNotice(NoticeVO vo) {
+		List<NoticeVO> total = noticeDAO.getCountTotalNotice(vo);
+		return total.size();
+	}
+
 }

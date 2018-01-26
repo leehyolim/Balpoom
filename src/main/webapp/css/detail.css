@@ -9,10 +9,11 @@
 	}
 	
 	#bigWrapper{
-		margin:auto;
+		
+		margin : auto;
 		width: 1205px;
-		height:3000px;
-		border: 5px double purple;
+		height:100%;
+		/*border: 5px double purple;*/
 		
 		position: relative;
 	}
@@ -26,18 +27,35 @@
 	}
 	
 	#footerWrapper{
-		border: 1px solid gray;
+		
 		width:1205px;
 		height:380px;
 		position: relative;
 		
 	}
 	
+	#storeName{
+	
+		height:60px;
+		
+		border-bottom: 2px inset gray;
+		
+		margin-top:15px;
+		
+	}
+	
+	#proPro{
+		
+		height:170px;		
+		border-bottom: 2px inset gray;
+		margin-top:10px;
+		
+	}
 	#wrapper {
 		
 		margin: auto;
 		width: 1205px;
-		border: 1px solid red;
+		/*border: 1px solid red;*/
 		height: 800px;
 	}
 	
@@ -86,43 +104,46 @@
 	}
 	
 	.pro_explain {
-		border: 1px solid green;
+		
 		width: 100%;
+		padding-bottom: 5px;
+		padding-top: 5px;
+		vertical-align: middle;
 	}
 	
 	#pro_explain_1 {
-		height: 60px;
+		
+		display:table;
+		height: 40px;
 	}
 	
 	#pro_explain_2 {
-		height: 80px;
+		
+		height: 170px;
 	}
 	
 	#pro_explain_3 {
-		height: 80px;
+		
+		height: 100px;
 	}
 	
 	#pro_explain_4 {
-		height: 120px;
-		
+		margin-top : 20px;
+		height: 170px;
 	}
 	
 	#pro_explain_5 {
-		height: 70px;
+		height: 60px ;
 	}
 	
 	#pro_explain_6 {
-		height: 60px;
+		height: 80px;
 		margin-top:40px;
-	}
-	
-	#pro_explain_6 button {
-		width: 200px;
-		height: 60px;
+		vertical-align: middle;
 	}
 	
 	.form-control {
-		height: 20px;
+		height: 30px;
 	}
 	
 	.navbar {
@@ -141,16 +162,12 @@
 	
 	.pro_detail_img {
 		
-		width: 800px;
-		height: 900px;
+		margin-right: auto;
+		margin-left : auto;
+		
 		border: 1px solid red;
 	}
 	
-	#followBox{
-		width:295px;
-		height: 100%;
-		float: left;
-	}
 	
 	#pro_detail_follow {
 	
@@ -164,15 +181,16 @@
 
 	#fullBox {
 		
+		vertical-align : middle;
 		float:left;
-		width: 900px;
+		width: 1205px;
 		height:100%; 
-		border: 1px solid blue;
+		/*border: 1px solid blue;*/
 		
 	}
 	
 	#pro_detail_inform{
-		width: 900px;
+		width: 1205px;
 		height:100%;
 	}
 			
@@ -181,20 +199,45 @@
 	}
 	
 	#pro_detail_change{
-		width: 900px;
+		width: 1205px;
 		height:100%;	
 	}
 	
 	#pro_detail_review{
-		width: 900px;
+		width: 1205px;
 		height:100%;
 	}
 	
 	#pro_detail_qna{
 	
-		width: 900px;
+		width: 1205px;
 		height:100%;
 	}
+	
+	.proBtn{
+		
+		margin : auto;
+		float : left;
+		font-size: 15px;
+		line-height: 42px;
+		display: block;
+		width: 200px;
+		height: 60px;
+		cursor: pointer;
+		vertical-align: middle;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		color: #263238;
+		border: 1px solid #263238;
+		background-color: white;
+		background: transparent;
+		-moz-border-radius: 2px;
+		-webkit-border-radius: 2px;
+		border-radius: 2px;
+		float: left;
+	}
+	
+	
 	
 	.nav_button {
 		font-size: 12px;

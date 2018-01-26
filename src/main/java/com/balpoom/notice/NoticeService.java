@@ -14,7 +14,13 @@ public interface NoticeService {
 
 	NoticeVO getNotice(NoticeVO vo);
 
+	int getCountTotalNotice(NoticeVO vo);
+	
 	List<NoticeVO> getNoticeList(NoticeVO vo);
+	
+	List<NoticeVO> getNoticeListByTitle(NoticeVO vo);
+	
+	List<NoticeVO> getNoticeListByContent(NoticeVO vo);
 	
 	void updateCnt(NoticeVO vo);
 }

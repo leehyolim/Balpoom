@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -16,7 +16,7 @@
 	<br>
 	<br>
 	<div id="insertBoard_wrapper">
-		<p class="insertBoard_Title">보드에따라 달라짐</p>
+		<p class="insertBoard_Title">공지사항 작성</p>
 		<form action="insertNotice.do" enctype="multipart/form-data"
 			method="post">
 			<table>
@@ -27,20 +27,20 @@
 				</tr>
 				<tr>
 					<td>작성자</td>
-					<td>작성자도 따로</td>
+					<td>관리자</td>
 				</tr>
 
 				<tr>
 					<td colspan="2" class="boardContent"><textarea name="notice_content"
 							class="content_inpt" rows="10" cols="30"></textarea></td>
 				</tr>
-				<tr>
+				<!--  <tr>
 					<td>이미지 청부</td>
 					<td><input type="file" name="img_upload" class="inputImg"></td>
-				</tr>
+				</tr>-->
 			</table>
 			<button type="submit" class="submit_btn">작성</button>
-			<a href="getNoticeList.do">두두두</a>
+			<a href="getNoticeList.do">목록</a>
 		</form>
 
 	</div>

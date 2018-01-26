@@ -65,7 +65,8 @@ public class MemberController {
 		ModelAndView mav = new ModelAndView();
 		HttpSession session = request.getSession();
 		if (vo.getM_id().trim().substring(0, 1).equals("@")) {
-			mav.setViewName("index.jsp");
+			mav.setViewName("sellerLogin.do");
+			mav.addObject(vo);
 			return mav;
 		} else {
 			MemberVO mem = memberService.getMember(vo);
@@ -172,9 +173,10 @@ public class MemberController {
 		memberService.updatePW(vo);
 		MailHandler sendMail = new MailHandler(mailSender);
 		sendMail.setSubject("[비밀번호 찾기]");
-		sendMail.setText(new StringBuffer().append("<h1>임시 비밀번호 발급</h1>").append("<b>임시 비밀번호 발급 : " + temp_pw + "</b><br>")
-				.append("<a href='http://localhost:8080/biz/index.jsp").append("' target='_blenk'>발품에서 로그인 하기</a>")
-				.toString());
+		sendMail.setText(
+				new StringBuffer().append("<h1>임시 비밀번호 발급</h1>").append("<b>임시 비밀번호 발급 : " + temp_pw + "</b><br>")
+						.append("<a href='http://localhost:8080/biz/index.jsp")
+						.append("' target='_blenk'>발품에서 로그인 하기</a>").toString());
 		sendMail.setFrom("balpoom@balpoom.com", "발품");
 		sendMail.setTo(vo.getM_email_id() + "@" + vo.getM_email_domain());
 		sendMail.send();

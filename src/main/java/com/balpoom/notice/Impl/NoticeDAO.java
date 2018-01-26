@@ -31,4 +31,16 @@ public class NoticeDAO {
 	public void updateCnt(NoticeVO vo){
 		mybatis.update("NoticeDAO.updateCnt",vo);
 	}
+	
+	public List<NoticeVO> getNoticeListByTitle(NoticeVO vo){
+		return mybatis.selectList("NoticeDAO.getNoticeListByTitle",vo);
+	}
+	
+	public List<NoticeVO> getNoticeListByContent(NoticeVO vo){
+		return mybatis.selectList("NoticeDAO.getNoticeListByContent",vo);
+	}
+	
+	public List<NoticeVO> getCountTotalNotice(NoticeVO vo){
+		return mybatis.selectList("NoticeDAO.getCountTotalNotice", vo);
+	}
 }

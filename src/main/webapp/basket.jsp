@@ -67,7 +67,7 @@
 					<c:when test="${basketListsize != 0 }">
 						<c:forEach items="${basketList}" var="basket">
 							<tr>
-								<td align="center" scope="row" style="width: 50%;height: 50px">${basket.p_name}</td>
+								<td align="center" scope="row" style="width: 50%;height: 50px">${basket.p_name} : ${basket.p_identifier }</td>
 								<td align="center" scope="row" style="width: 10%;height: 50px">${basket.c_cnt}개</td>
 								<td align="center" scope="row" style="width: 14%;height: 50px">${basket.p_price}원</td>
 								<td align="center" scope="row" style="width: 13%;height: 50px">
@@ -237,11 +237,11 @@
 	
 	</form>
 	
-	
+	<form action="orderForm.do" method="post">
 	<div class="order_btn">
 		<button class="im_btn">주문결제</button>
 	</div>
-	
+	</form>
 </div>
 
 <div class="footer">

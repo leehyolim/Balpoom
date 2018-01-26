@@ -46,4 +46,18 @@ public class BasketController {
 			return "basket.jsp";
 
 	}
+	
+	@RequestMapping("/orderForm.do")
+	   public String order_basket_list(HttpServletRequest request, Model model) {
+	      HttpSession session = request.getSession();
+	      MemberVO curLogin = (MemberVO)session.getAttribute("authMember");
+	      BasketVO vo = new BasketVO();
+	      vo.setM_no(curLogin.getM_no());
+	      
+	      System.out.println(curLogin.getM_no());
+	      
+	      model.addAttribute("basketList",basketService.getBasketList(vo));
+	      
+	      return "orderForm.jsp";
+	   }
 }

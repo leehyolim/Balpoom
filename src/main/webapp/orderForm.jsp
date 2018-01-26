@@ -1,5 +1,8 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -43,14 +46,12 @@
 	}
 </script>
 
-
 </head>
 <body>
-
 	<div class="wraper">
 		<jsp:include page="header.jsp"></jsp:include>
 		<br> <br> <br> <br>
-		<form method="get" action="orderSuccess.jsp">
+		<form method="post" action="addOrder.do">
 			<div class="orderDiv">
 				<div class="orderer_info">
 					<p class="title">주문자 정보</p>
@@ -58,16 +59,16 @@
 						<tr>
 							<td>주문자 이름 <b style="color: red">*</b>
 							</td>
-							<td><input type="text" id="orderer_name"
-								name="order_user_name" style="height: 100%;"></td>
+							<td><input value="${authMember.m_name }" type="text" id="orderer_name"
+								name="sender_name" style="height: 100%;"></td>
 						</tr>
 						<tr>
 							<td>이메일 <b style="color: red">*</b>
 							</td>
-							<td><input type="text" name="str_email01" id="str_email01"
+							<td><input value="${authMember.m_email_id}" type="text" name="sender_email_id" id="str_email01"
 								style="width: 100px"> @ <input type="text"
-								name="str_email02" id="str_email02" style="width: 100px;"
-								value="naver.com"> <select
+								name="sender_email_domain" id="str_email02" style="width: 100px;"
+								value="${authMember.m_email_domain }"> <select
 								style="width: 100px; margin-right: 10px" name="selectEmail"
 								id="selectEmail">
 									<option value="1" selected>직접입력</option>
@@ -82,10 +83,10 @@
 						<tr>
 							<td>연락처 <b style="color: red">*</b>
 							</td>
-							<td><input type="text"
-								style="text-align: center; width: 80px;" id="cellphone1"name="cellphone1">
-								 - <input type="text"style="text-align: center; width: 80px;" id="cellphone2"name="cellphone2"> 
-								 - <input type="text" style="text-align: center; width: 80px;" id="cellphone3" name="cellphone3">
+							<td><input value="${authMember.m_cellphone1 }" type="text"
+								style="text-align: center; width: 80px;" id="cellphone1"name="sender_cellphone1">
+								 - <input value="${authMember.m_cellphone2 }" type="text"style="text-align: center; width: 80px;" id="cellphone2"name="sender_cellphone2"> 
+								 - <input value="${authMember.m_cellphone3 }" type="text" style="text-align: center; width: 80px;" id="cellphone3" name="sender_cellphone3">
 							</td>
 						</tr>
 					</table>
@@ -98,33 +99,33 @@
 							<td>수령자 주소 <b style="color: red">*</b>
 							</td>
 							<td><input type="text" style="width: 100px"
-								class="addressInput" id="postCode">
+								class="addressInput" id="postCode" name="receiver_address_postcode">
 								<button onclick="sample2_execDaumPostcode()" type="button"
 									class="search_address">주소 찾기</button> <br> <input
 								type="text" style="width: 300px" class="addressInput"
-								id="baseAddress"> 기본 주소 <br> <input type="text"
-								style="width: 300px" class="addressInput"> 상세 주소 <br>
+								id="baseAddress" name="receiver_address_primary"> 기본 주소 <br> <input type="text"
+								style="width: 300px" class="addressInput" name="receiver_address_detail"> 상세 주소 <br>
 							</td>
 						</tr>
 						<tr>
 							<td>수령자 성함 <b style="color: red">*</b>
 							</td>
 							<td><input type="text" id="orderer_name"
-								name="order_user_name"></td>
+								name="receiver_name"></td>
 						</tr>
 						<tr>
 							<td>수령자 휴대폰 <b style="color: red">*</b>
 							</td>
 							<td><input type="text"
-								style="text-align: center; width: 80px;" id="cellphone1">
+								style="text-align: center; width: 80px;" id="cellphone1" name="receiver_cellphone1">
 								- <input type="text" style="text-align: center; width: 80px;"
-								id="cellphone2"> - <input type="text"
-								style="text-align: center; width: 80px;" id="cellphone3">
+								id="cellphone2" name="receiver_cellphone2"> - <input type="text"
+								style="text-align: center; width: 80px;" id="cellphone3" name="receiver_cellphone3">
 							</td>
 						</tr>
 						<tr>
 							<td>배송시 요청사항</td>
-							<td><textarea style="width: 100%; height: 100px;"
+							<td><textarea name="receiver_requirement" style="width: 100%; height: 100px;"
 									placeholder="이곳은 배송기사님이 보시는란입니다. 주문관련 문의는 게시판을 이용해주세요"></textarea>
 							</td>
 						</tr>
@@ -143,18 +144,22 @@
 							<td>할인가격</td>
 							<td>적립금</td>
 						</tr>
-						<tr>
-							<td><img src="#" width="100%"></td>
-							<td>
-								<div class="product_name" style="width: 60%; float: left;">---
-									상품명이 들어갈 곳 ---</div>
-							</td>
-							<td class="product_amount">3</td>
-							<td class="product_price">10000원</td>
-							<td class="discount">-</td>
-							<td class="discount_price">10000원</td>
-							<td>100</td>
-						</tr>
+				
+						<c:forEach items="${basketList}" var="basket">
+							<tr>
+								<td><img src="#" width="100%"></td>
+								<td>
+									<div class="product_name" style="width: 60%; float: left;">${basket.p_identifier}</div>
+								</td>
+								<td class="product_amount">${basket.c_cnt}<%-- <%=basket.getP_identifier() %> --%></td>
+								<td class="product_price">${basket.p_price}</td>
+								<td class="discount">-</td>
+								<td class="discount_price">10000원</td>
+								<td>100</td>
+							</tr>
+						</c:forEach>	
+						
+						
 						<tr>
 							<td colspan="7" class="payment_amount"
 								style="text-align: right; font-size: 20px;">총 결제 금액 :
@@ -169,13 +174,14 @@
 							<td rowspan="2">일반 결제</td>
 							<td>
 								<div id="radioArea">
-									<input type="radio" name="select_payment"
+									<input name="payment_type" type="radio" name="select_payment"
 										class="select_payment" value="카카오페이"><label>카카오페이</label>
-									<input type="radio" name="select_payment"
+									<input name="payment_type" type="radio" name="select_payment"
 										class="select_payment" value="신용카드"><label>신용카드</label>
-									<input type="radio" name="select_payment"
+									<input name="payment_type" type="radio" name="select_payment"
 										class="select_payment" value="실시간계좌이체"><label>실시간
-										계좌이체</label> <input type="radio" name="select_payment"
+										계좌이체</label> 
+										<input name="payment_type" type="radio" name="select_payment"
 										class="select_payment" value="무통장"><label>무통장입금</label>
 								</div>
 							</td>
@@ -190,10 +196,26 @@
 						</tr>
 					</table>
 				</div>
+				<%-- <input type="hidden" name="p_identifier" value="#{p_identifier}"> --%>
+				
 				<div class="last_Payment">
-					<button type="submit">
-						<img class="img_btn" src="./img/paybutton.png">
-					</button>
+					<%-- <button type="submit">
+						<c:forEach items="${basketList}" var="basket">
+							<input type="hidden" name="p_identifier" value="#{basket.p_identifier}">
+							<input type="hidden" name="m_no" value="${authMember.m_no}">
+						</c:forEach>
+							<!-- <div class="last_Payment">
+								<button type="submit">
+									<img class="img_btn" src="./img/paybutton.png">
+								</button>
+							</div> -->
+							<img class="img_btn" src="./img/paybutton.png">
+					</button> --%>
+					<div class="last_Payment">
+								<button> <!-- type="submit" -->
+									<img class="img_btn" src="./img/paybutton.png">
+								</button>
+							</div>
 				</div>
 		</form>
 		</div>
@@ -218,10 +240,10 @@
 			$("#selectEmail option:selected").each(function() {
 				if ($(this).val() == '1') { //직접입력일 경우 
 					$("#str_email02").val(''); //값 초기화 
-					$("#str_email02").attr("disabled", false); //활성화 
-				} else { //직접입력이 아닐경우 
+					$("#str_email02").attr("readonly", false); //활성화 
+				} else { //직접입력이 아닐경우
 					$("#str_email02").val($(this).text()); //선택값 입력 
-					$("#str_email02").attr("disabled", true); //비활성화 
+					$("#str_email02").attr("readonly", true); //비활성화 
 				}
 			});
 		});
