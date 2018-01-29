@@ -1,7 +1,8 @@
 package com.balpoom.view;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
+
+import javax.swing.JOptionPane;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,7 @@ import com.balpoom.cart.BasketVO;
 import com.balpoom.order.OrderService;
 import com.balpoom.order.OrderVO;
 
+
 @Controller
 @SessionAttributes("order")
 public class OrderController {
@@ -24,7 +26,7 @@ public class OrderController {
 	private BasketService basketService;
 	
 	@RequestMapping("/addOrder.do")
-	public String addOrder(BasketVO vo1, OrderVO vo, Model model) {
+	public String addOrder(BasketVO vo1, OrderVO vo, Model model) throws IOException {
 		if(vo.getSender_name() == null || vo.getSender_name().equals("")) {
 			throw new NullPointerException("주문자 이름을 입력하세요.");
 		}

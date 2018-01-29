@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.balpoom.product.OverallProductVO;
 import com.balpoom.product.ProductVO;
+import com.balpoom.product.RegisterVO;
 
 @Repository
 public class ProductDAO {
@@ -46,5 +47,16 @@ public class ProductDAO {
 		return mybatis.selectList("ProductDAO.getOverallsDetails",vo);
 	}
 	
+	public void insertProduct(ProductVO pvo){
+		mybatis.insert("ProductDAO.insertProduct",pvo);
+	}
+	
+	public void insertRegister(RegisterVO rvo){
+		mybatis.insert("ProductDAO.insertRegister",rvo);
+	}
+	
+	public RegisterVO getRegister(RegisterVO rvo){
+		return (RegisterVO)mybatis.selectOne("ProductDAO.getRegister",rvo);
+	}
 
 }

@@ -21,10 +21,6 @@
 		<p id="bktext1">BALPOOM</p> <p id="bktext2">CART</p>
 		
 		<hr id="t">
-		
-		<!-- <div id="bkTilte2">
-			<p id="t1">|</p><p id="text3">ITEMS IN YOUR CART</p>
-		</div> -->
 	</div>
 	
 	
@@ -67,7 +63,7 @@
 					<c:when test="${basketListsize != 0 }">
 						<c:forEach items="${basketList}" var="basket">
 							<tr>
-								<td align="center" scope="row" style="width: 50%;height: 50px">${basket.p_name} : ${basket.p_identifier }</td>
+								<td id="test" align="center" scope="row" style="width: 50%;height: 50px">${basket.p_name} : ${basket.p_identifier }</td>
 								<td align="center" scope="row" style="width: 10%;height: 50px">${basket.c_cnt}개</td>
 								<td align="center" scope="row" style="width: 14%;height: 50px">${basket.p_price}원</td>
 								<td align="center" scope="row" style="width: 13%;height: 50px">
@@ -86,39 +82,6 @@
 						</c:forEach>
 					</c:when>
 				</c:choose>
-				<%-- <c:forEach items="${basketList}" var="basket">
-						<c:choose>
-							
-							<c:when test="${basket == null}">
-								<!-- <tr>
-									<td colspan="5">
-										<p class="text_font">장바구니에 담겨있는 상품이 없습니다.</p>
-									</td>
-								</tr> -->
-							</c:when>
-							
-							<c:when test="${basket.c_no != null}">
-								<tr>
-									<td align="center" scope="row" style="width: 50%;height: 50px">${basket.p_name}</td>
-									<td align="center" scope="row" style="width: 10%;height: 50px">${basket.c_cnt}개</td>
-									<td align="center" scope="row" style="width: 14%;height: 50px">${basket.p_price}원</td>
-									<td align="center" scope="row" style="width: 13%;height: 50px">
-										<c:choose>
-											<c:when test="${basket.p_price >= 35000}">무료</c:when>
-											<c:when test="${basket.p_price < 35000}">2500원</c:when>
-										</c:choose>
-									</td>
-									
-									<td align="center" scope="row" style="width: 5%;height: 50px">
-									<div id="tx_btn_bor">
-										<a class="delete_btn" href="deleteBasket.do?c_no=${basket.c_no}">삭제</a>
-									</div>
-									</td>
-								</tr>
-								
-							</c:when>
-						</c:choose>
-					</c:forEach> --%>
 				</tbody>
 		</table>
 	</div>
@@ -237,10 +200,13 @@
 	
 	</form>
 	
-	<input type="hidden" name="rs_price" value="${rs_price}">
 	<form action="orderForm.do" method="post">
+	<input type="hidden" name="rs_price" value="${rs_price}">
+	<input type="hidden" name="sel_price" value="${sel_price}">
+	<input type="hidden" name="delivery_fee" value="${delivery_fee}">
+	
 	<div class="order_btn">
-		<button class="im_btn">주문결제</button>
+		<button class="im_btn" style="cursor:pointer;" onclick="test()">주문결제</button>
 	</div>
 	</form>
 </div>
@@ -249,35 +215,15 @@
 	 <jsp:include page="footer.jsp"/>
 </div>
 
+<script type="text/javascript">
+	function test() {
+		if($("#test").val() == null){
+			alert('장바구니에 상품이 없습니다.');
+			event.preventDefault();
+		}
+	}
+</script>
 
-<%-- <!--
-<h2>안녕하세요, <%= user.getUsername()%> 님 ^^</h2>
-    <table border="0px">
-        <tr>
-            <th width="200">장바구니 ID</th>
-            <th width="200">회원이름</th>
-            <th width="200">상품 ID</th>
-            <th width="200">갯수</th>
-        </tr>
-        <%
-            for (int i = 0; i < baskets.size(); i++) {
-                Basket basket = baskets.get(i);
-        %> 
-        <tr>
-            <td align="center"><%=basket.getBasketid()%></td>
-            <td align="center"><%=user.getUsername()%></td>
-            <td align="center"><%=basket.getProductid()%></td>
-            <td align="center"><%=basket.getNumbers()%></td>
-            <td align="center">
-            <form action="delete" method="post">
-                    <input type="hidden" name="basketid" value="<%=basket.getBasketid()%>">
-                    <input type="hidden" name="userid" value="<%=user.getUserid()%>">
-                    <input type="submit" value="취소">
-                </form></td>
-        </tr>
-        <% }%>
-    </table>
---> --%>
 
 </body>
 </html>

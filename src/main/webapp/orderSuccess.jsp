@@ -21,7 +21,7 @@
         <p class="osMessage2">주문이 성공적으로 접수되었습니다.</p>
         <p class="osMessage2">주문 처리는 근무일 기준으로 1~2일 가량 소요될 수 있습니다.</p>
         <div id="osBtnBox">
-            <a><div class="osBtn" style=" cursor: pointer;"><p class="osBtnText">메인으로 가기</p></div></a>
+            <a href="main.jsp"><div class="osBtn" style=" cursor: pointer;"><p class="osBtnText">메인으로 가기</p></div></a>
             <a><div class="osBtn" style=" cursor: pointer;"><p class="osBtnText">주문내역</p></div></a>
         </div>
     </div>

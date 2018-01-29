@@ -14,5 +14,9 @@ public interface ProductService {
 	
 	List<OverallProductVO> getOveralls(OverallProductVO vo);
 	List<OverallProductVO> getOverallsDetails(OverallProductVO vo);
+	
+	void insertProduct(ProductVO pvo);	
+	void insertRegister(RegisterVO rvo);
+	RegisterVO getRegister(RegisterVO rvo);
 
 }

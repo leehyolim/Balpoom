@@ -22,6 +22,8 @@ public class OrderVO {
 	private String receiver_cellphone3;
 	private String receiver_requirement;
 	private String payment_type;
+	private int total_price;
+	
 	
 	public int getO_no() {
 		return o_no;
@@ -139,6 +141,12 @@ public class OrderVO {
 		this.payment_type = payment_type;
 	}
 	
+	public int getTotal_price() {
+		return total_price;
+	}
+	public void setTotal_price(int total_price) {
+		this.total_price = total_price;
+	}
 	@Override
 	public String toString() {
 		return "OrderVO [o_no=" + o_no + ", o_date=" + o_date + ", p_total_identifier=" + p_total_identifier + ", m_no=" + m_no

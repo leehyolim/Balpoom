@@ -6,15 +6,10 @@
 	<insert id="addOrder">
 		insert into orders(p_total_identifier,m_no,sender_name,sender_email_id,sender_email_domain,sender_cellphone1,sender_cellphone2,sender_cellphone3,
 		receiver_address_postcode,receiver_address_primary,receiver_address_detail,receiver_name,receiver_cellphone1,receiver_cellphone2,receiver_cellphone3,
-		receiver_requirement,payment_type)
+		receiver_requirement,payment_type,total_price)
 		values(#{p_total_identifier},#{m_no},#{sender_name},#{sender_email_id},#{sender_email_domain},#{sender_cellphone1},#{sender_cellphone2},#{sender_cellphone3},
 		#{receiver_address_postcode},#{receiver_address_primary},#{receiver_address_detail},#{receiver_name},#{receiver_cellphone1},#{receiver_cellphone2},#{receiver_cellphone3},
-		#{receiver_requirement},#{payment_type})
+		#{receiver_requirement},#{payment_type},#{total_price})
 	</insert>
-	
-	<!-- <update id="order_rs_cart_del">
-		update cart set validity = 2 where validity = 1;
-	</update> -->
-	<!-- insert into tablename set
-	컬럼네임 = 넣을값 -->
+
 </mapper>

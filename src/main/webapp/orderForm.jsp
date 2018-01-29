@@ -1,6 +1,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -9,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Order Page</title>
 <link rel="stylesheet" type="text/css"
-	href="./css/orderFormCss.css?ver=1">
+	href="./css/orderFormCss.css?ver=2">
 <script type="text/javascript"
 	src="http://code.jquery.com/jquery-1.8.1.min.js"></script>
 <script type="text/javascript">
@@ -17,7 +18,7 @@
 		// DOM 생성 완료 시 화면 숨김 (파라미터로 전달되는 id는 제외)
 		hideExclude("changeKakao");
 		// radio change 이벤트
-		$("input[name=select_payment]").change(function() {
+		$("input[name=payment_type]").change(function() {
 			var radioValue = $(this).val();
 			if (radioValue == "카카오페이") {
 				hideExclude("changeKakao");
@@ -30,10 +31,10 @@
 			}
 		});
 
-		var checkCnt = $("input[name=select_payment]:checked").size();
+		var checkCnt = $("input[name=payment_type]:checked").size();
 		if (checkCnt == 0) {
 			// default radio 체크 (첫 번째)
-			$("input[name=select_payment]").eq(0).attr("checked", true);
+			$("input[name=payment_type]").eq(0).attr("checked", true);
 		}
 	});
 	// text area 숨김
@@ -101,10 +102,10 @@
 							<td><input type="text" style="width: 100px"
 								class="addressInput" id="postCode" name="receiver_address_postcode">
 								<button onclick="sample2_execDaumPostcode()" type="button"
-									class="search_address">주소 찾기</button> <br> <input
-								type="text" style="width: 300px" class="addressInput"
-								id="baseAddress" name="receiver_address_primary"> 기본 주소 <br> <input type="text"
-								style="width: 300px" class="addressInput" name="receiver_address_detail"> 상세 주소 <br>
+									class="search_address">주소 찾기</button> <br> 
+								<input type="text" style="width: 300px" class="addressInput"
+								id="baseAddress" name="receiver_address_primary"> 기본 주소 <br> 
+								<input type="text" style="width: 300px" class="addressInput" name="receiver_address_detail"> 상세 주소 <br>
 							</td>
 						</tr>
 						<tr>
@@ -140,8 +141,8 @@
 							<td colspan="2">주문상품</td>
 							<td>수량</td>
 							<td>상품 금액</td>
-							<td>할인</td>
-							<td>할인가격</td>
+							<!-- <td>할인</td>
+							<td>할인가격</td> -->
 							<td>적립금</td>
 						</tr>
 				
@@ -153,17 +154,32 @@
 								</td>
 								<td class="product_amount">${basket.c_cnt}<%-- <%=basket.getP_identifier() %> --%></td>
 								<td class="product_price">${basket.p_price}</td>
-								<td class="discount">-</td>
-								<td class="discount_price">10000원</td>
-								<td>100</td>
+								<!-- <td class="discount">-</td>
+								<td class="discount_price">10000원</td> -->
+								<fmt:parseNumber var="Amount_accumulated" value="${basket.p_price * 0.01}" integerOnly="true"/>
+								<td>${Amount_accumulated}</td>
 							</tr>
 						</c:forEach>	
 						
+						<tr>
+							<td colspan="7"
+							style="text-align: center; font-size: 20px; border-bottom: none;">할인 금액 : 
+								                                <%= request.getParameter("sel_price") %> 원
+							</td>
+						</tr>
+						
+						<tr>
+							<td colspan="7"
+							style="text-align: center; font-size: 20px; border-bottom: none;"> 배송비 : 
+								                           <%= request.getParameter("delivery_fee") %> 원
+							</td>
+						</tr>
 						
 						<tr>
 							<td colspan="7" class="payment_amount"
-								style="text-align: right; font-size: 20px;">총 결제 금액 :
-								 <%= request.getParameter("rs_price") %>원</td>
+								style="text-align: center; font-size: 20px; color: red;">총 결제 금액 :
+								                   <%= request.getParameter("rs_price") %> 원
+							</td>
 						</tr>
 					</table>
 				</div>
@@ -174,14 +190,14 @@
 							<td rowspan="2">일반 결제</td>
 							<td>
 								<div id="radioArea">
-									<input name="payment_type" type="radio" name="select_payment"
+									<input name="payment_type" type="radio"
 										class="select_payment" value="카카오페이"><label>카카오페이</label>
-									<input name="payment_type" type="radio" name="select_payment"
+									<input name="payment_type" type="radio"
 										class="select_payment" value="신용카드"><label>신용카드</label>
-									<input name="payment_type" type="radio" name="select_payment"
+									<input name="payment_type" type="radio"
 										class="select_payment" value="실시간계좌이체"><label>실시간
 										계좌이체</label> 
-										<input name="payment_type" type="radio" name="select_payment"
+										<input name="payment_type" type="radio"
 										class="select_payment" value="무통장"><label>무통장입금</label>
 								</div>
 							</td>
@@ -196,27 +212,35 @@
 						</tr>
 					</table>
 				</div>
-				<input type="hidden" name="m_no" value="${authMember.m_no}"> <!-- 삭제x m_no값이 항상 필요 -->
+				<input type="hidden" name="m_no" value="${authMember.m_no}"> <!-- 삭제하면 안됨 m_no값이 항상 필요 -->
 				
 				<c:forEach items="${basketList}" var="basket">
 					<c:set var="p_total_identifier" value="${p_total_identifier} ${basket.p_identifier}"/>
 				</c:forEach>
 				
 				<input type="hidden" name="p_total_identifier" value="${p_total_identifier}">
+				<input type="hidden" name="total_price" value="<%= request.getParameter("rs_price") %>">
 				
 					<div class="last_Payment">
-						<button type="submit">
-							<img class="img_btn" src="./img/paybutton.png">
+						<button type="submit"class="img_btn" onclick="pre_order_check()">주문결제
 						</button>
 					</div>
 		</form>
 		</div>
 		
-		
-		
 		<jsp:include page="footer.jsp"></jsp:include>
 		
-		
+		<script type="text/javascript">
+			function pre_order_check() {
+				if($("#orderer_name").val() == '' || $("#str_email01").val() == '' || $("#str_email02").val() == '' 
+					|| $("#cellphone1").val() == ''|| $("#cellphone2").val() == ''|| $("#cellphone3").val() == ''
+						|| $("#postCode").val() == ''|| $("#baseAddress").val() == ''|| $("#addressInput").val() == ''|| $("#orderer_name").val() == ''
+							|| $("#cellphone1").val() == ''|| $("#cellphone2").val() == ''|| $("#cellphone3").val() == ''){
+					alert('필수 사항들을 꼭 입력해주세요.');
+					event.preventDefault();
+				}
+			}
+		</script>	
 		
 
 	<!-- 이메일 입력방식 : 직접입력 -->
