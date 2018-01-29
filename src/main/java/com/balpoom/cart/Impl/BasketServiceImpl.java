@@ -32,5 +32,10 @@ public class BasketServiceImpl implements BasketService{
 	@Override
 	public void order_rs_cart_del(BasketVO vo) {
 		basketDAO.order_rs_cart_del(vo);
-	}	
+	}
+
+	@Override
+	public void best_rs_product_number(BasketVO vo) {
+		basketDAO.best_rs_product_number(vo);
+	}
 }

@@ -17,4 +17,6 @@ public interface BasketService {
 	
 	List<BasketVO> getBasketList(BasketVO vo);
 	
+	void best_rs_product_number(BasketVO vo);
+	
 }

@@ -7,7 +7,8 @@
 	<insert id="insertRegister">
 		insert into register set
 		r_reg = #{r_reg},
-		 p_common_name = #{p_common_name}
+		 p_common_name = #{p_common_name},
+		 s_no = #{s_no}
 	</insert>
 	
 	<select id="getRegister" resultType="register">

@@ -47,6 +47,11 @@ public class ProductDAO {
 		return mybatis.selectList("ProductDAO.getOverallsDetails",vo);
 	}
 	
+	public List<OverallProductVO> getBests(OverallProductVO vo){
+		System.out.println(vo.getP_type()+"들 가져오기");
+		return mybatis.selectList("ProductDAO.getBests",vo);
+	}
+	
 	public void insertProduct(ProductVO pvo){
 		mybatis.insert("ProductDAO.insertProduct",pvo);
 	}

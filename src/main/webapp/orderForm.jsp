@@ -214,6 +214,7 @@
 				</div>
 				<input type="hidden" name="m_no" value="${authMember.m_no}"> <!-- 삭제하면 안됨 m_no값이 항상 필요 -->
 				
+				
 				<c:forEach items="${basketList}" var="basket">
 					<c:set var="p_total_identifier" value="${p_total_identifier} ${basket.p_identifier}"/>
 				</c:forEach>

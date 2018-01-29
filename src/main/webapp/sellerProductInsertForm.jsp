@@ -134,7 +134,7 @@
 <div class="sellerProduct_wrapper">
     <div class="sellerProduct_header">
     <p class="sellerProduct_title1">상품등록_</p>
-    <p class="sellerProduct_titl2">자세한 상품등록 방법은 공지사항에서 확인해주세요</p>
+    <p class="sellerProduct_titl2">자세한 상품등록 방법은 공지사항에서 확인해주세요${authSeller.s_no }</p>
 </div>
 <div id="clear"></div>
     <form name="options" method="post" action="insertProduct.do" enctype="multipart/form-data">

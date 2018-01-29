@@ -14,6 +14,7 @@
 		<typeAlias type="com.balpoom.product.OverallProductVO" alias="overall"/>
 		<typeAlias type="com.balpoom.order.OrderVO" alias="order"/>
 		<typeAlias type="com.balpoom.product.RegisterVO" alias="register"/>
+		<typeAlias type="com.balpoom.review.ReviewVO" alias="Review"/>
 		
 	</typeAliases>
 	<mappers>
@@ -26,5 +27,6 @@
 		<mapper resource="mappings/product-mapping.xml"/>
 		<mapper resource="mappings/order-mapping.xml"/>
 		<mapper resource="mappings/register-mapping.xml"/>
+		<mapper resource="mappings/review-mapping.xml"/>
 	</mappers>
 </configuration>

@@ -51,6 +51,7 @@ tr td:nth-child(2) {
     height: 150px;
     padding-top: 15px;
     padding-bottom: 15px;
+    border-bottom: none;
 }
 .listbtn{
     width: 55px;
@@ -125,4 +126,16 @@ tr td:nth-child(2) {
 	padding:0;
 	margin-bottom: 8px;
 	cursor: pointer;
+}
+.boardImg img{
+	width: 150px;
+	height: 150px;
+	margin-top: 15px;
+	margin-bottom: 20px;
+}
+.inquno{
+	border: none;
+}
+.boardImg{
+	border-top: none;
 }

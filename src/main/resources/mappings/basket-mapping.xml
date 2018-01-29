@@ -20,4 +20,10 @@
 		update cart set validity = 2 where validity = 1;
 	</update>
 	
+	<update id="best_rs_product_number">
+		update register set order_cnt = order_cnt +1 where p_common_name in(
+		select distinct p_common_name from cart, product 
+		where product.p_identifier = cart.p_identifier and cart.validity = 1)
+	</update>
+	
 </mapper>

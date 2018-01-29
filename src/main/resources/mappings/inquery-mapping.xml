@@ -5,8 +5,8 @@
 <mapper namespace="InqueryDAO">
 	
 	<insert id="insertInquery">
-		INSERT INTO board_inquery(inqu_title,m_no, inqu_content) 
-		VALUES (#{inqu_title},#{m_no}, #{inqu_content})
+		INSERT INTO board_inquery(inqu_title,m_no, inqu_content, fileName_date) 
+		VALUES (#{inqu_title},#{m_no}, #{inqu_content}, #{fileName_date})
 	</insert>
 	
 	<update id="updateInquery">
@@ -26,12 +26,12 @@
 	</delete>
 	
 	<select id="getInquery" resultType="Inquery">
-select * from (select bo.inqu_no, bo.inqu_title, bo.inqu_cnt, bo.inqu_content, bo.m_no, bo.p_no, me.m_name,m_id from board_inquery bo, member me where bo.m_no = me.m_no) sub where sub.inqu_no = #{inqu_no}
+select * from (select bo.inqu_no, bo.inqu_title, bo.inqu_cnt, bo.inqu_content,bo.inqu_reg,bo.m_no, bo.r_no, me.m_name,m_id,bo.fileName_date from board_inquery bo, member me where bo.m_no = me.m_no) sub where sub.inqu_no = #{inqu_no}
 	</select>
 	
 	<select id="getInqueryList" resultType="Inquery">
 		SELECT * 
-		FROM (select bo.inqu_no, bo.inqu_title, bo.inqu_cnt, bo.inqu_content, bo.inqu_reg, bo.m_no, bo.p_no, me.m_name,m_id from board_inquery bo, member me where bo.m_no = me.m_no) sub
+		FROM (select bo.inqu_no, bo.inqu_title, bo.inqu_cnt, bo.inqu_content, bo.inqu_reg, bo.m_no, bo.r_no, me.m_name,m_id from board_inquery bo, member me where bo.m_no = me.m_no) sub
 		WHERE inqu_title LIKE '%'||#{searchKeyword}||'%' 
 		ORDER BY inqu_no DESC
 	</select>

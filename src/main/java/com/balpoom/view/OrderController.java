@@ -50,7 +50,8 @@ public class OrderController {
 			throw new NullPointerException("받는 사람의 연락처를 입력하세요.");
 		}
 		
-		basketService.order_rs_cart_del(vo1);
+		basketService.best_rs_product_number(vo1); // 인기 상품 카운트
+		basketService.order_rs_cart_del(vo1); // 주문후 장바구니에서 제거
 		orderService.addOrder(vo);
 		
 		return "orderSuccess.jsp";

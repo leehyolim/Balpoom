@@ -6,57 +6,37 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>상품리스트</title>
-<link rel="stylesheet" href="./css/productCss.css?ver=5">
+<link rel="stylesheet" href="./css/productCss.css?ver=6">
 </head>
 <body>
 	<div id="wrapper">
 		<jsp:include page="header.jsp"></jsp:include>
 		<div id="title1">
 			<div id="boTitle">
-				<p id="boTitle">OUTER BEST</p>
+				<p id="boTitle">${p_type} BEST</p>
 			</div>
-			<div id="bestOuter">
-				<div id=divImg>
-					<img id="img1" src="./img/outer1.PNG"> <img id="img2"
-						src="./img/outer1_1.PNG">
+			<c:forEach  var="best" items="${best}">
+				<div id="outer">
+					<div id=divImg>
+						<img id="img1" src="./product_img/${best.modify_date }/${best.p_common_name}/${best.modify_date}_${best.p_common_name}0.jpg"> 
+						<img id="img2" src="./product_img/${best.modify_date }/${best.p_common_name}/${best.modify_date}_${best.p_common_name}1.jpg">
+					</div>
+					<div id=divText>
+						<p class="storeName">${best.s_busi_name }</p>
+						<p class="productName">${best.p_name}</p>
+						<p class="price">${best.p_price }원</p>
+					</div>
 				</div>
-				<div id=divText>
-					<p class="storeName">상호명</p>
-					<p class="productName">베이직 더플코트(네이비)</p>
-					<p class="price">99,000원</p>
-				</div>
-			</div>
-			<div id="bestOuter">
-				<div id=divImg>
-					<img id="img1" src="./img/outer2.PNG"> <img id="img2"
-						src="./img/outer2_2.PNG">
-				</div>
-				<div id=divText>
-					<p class="storeName">상호명</p>
-					<p class="productName">베이직 더플코트(네이비)</p>
-					<p class="price">99,000원</p>
-				</div>
-			</div>
-			<div id="bestOuter">
-				<div id=divImg>
-					<img id="img1" src="./img/outer3_1.PNG"> <img id="img2"
-						src="./img/outer3_2.PNG">
-				</div>
-				<div id=divText>
-					<p class="storeName">상호명</p>
-					<p class="productName">베이직 더플코트(네이비)</p>
-					<p class="price">99,000원</p>
-				</div>
-			</div>
+			</c:forEach>
 
 		</div>
 		<div id="title2">
 			<div id="outerMenu">
 				<ul>
 					<li>All</li>
-					<li>Coat</li>
-					<li>Jacket</li>
-					<li>Cardigan</li>
+					<c:forEach items="${smallCategory }" var="category"> 
+						<li><a href="getOverallsDetails.do?p_type=${p_type }&p_type_detail=${category }" style="color:black;">${category }</a></li>
+					</c:forEach>
 				</ul>
 			</div>
 		</div>
@@ -76,8 +56,8 @@
 			<c:forEach  var="over" items="${overall}">
 				<div id="outer">
 					<div id=divImg>
-						<img id="img1" src="./img/outer1.PNG"> <img id="img2"
-							src="./img/outer1_1.PNG">
+						<img id="img1" src="./product_img/${over.modify_date }/${over.p_common_name}/${over.modify_date}_${over.p_common_name}0.jpg"> 
+						<img id="img2" src="./product_img/${over.modify_date }/${over.p_common_name}/${over.modify_date}_${over.p_common_name}1.jpg">
 					</div>
 					<div id=divText>
 						<p class="storeName">${over.s_busi_name }</p>
@@ -86,77 +66,6 @@
 					</div>
 				</div>
 			</c:forEach>
-				<div id="outer">
-					<div id=divImg>
-						<img id="img1" src="./img/outer1.PNG"> <img id="img2"
-							src="./img/outer1_1.PNG">
-					</div>
-					<div id=divText>
-						<p class="storeName">상호명</p>
-						<p class="productName">베이직 더플코트(네이비)</p>
-						<p class="price">99,000원</p>
-					</div>
-				</div>
-				<div id="outer">
-					<div id=divImg>
-						<img id="img1" src="./img/outer1.PNG"> <img id="img2"
-							src="./img/outer1_1.PNG">
-					</div>
-					<div id=divText>
-						<p class="storeName">상호명</p>
-						<p class="productName">베이직 더플코트(네이비)</p>
-						<p class="price">99,000원</p>
-					</div>
-				</div>
-				<div id="outer">
-					<div id=divImg>
-						<img id="img1" src="./img/outer1.PNG"> <img id="img2"
-							src="./img/outer1_1.PNG">
-					</div>
-					<div id=divText>
-						<p class="storeName">상호명</p>
-						<p class="productName">베이직 더플코트(네이비)</p>
-						<p class="price">99,000원</p>
-					</div>
-				</div>
-				<div id="outer">
-					<div id=divImg>
-						<img id="img1" src="./img/outer2.PNG"> <img id="img2"
-							src="./img/outer2_2.PNG">
-					</div>
-					<div id=divText>
-						<p class="storeName">상호명</p>
-						<p class="productName">베이직 더플코트(네이비)</p>
-						<p class="price">99,000원</p>
-					</div>
-				</div>
-				<div id="outer">
-					<div id=divImg>
-						<img id="img1" src="./img/outer2.PNG"> <img id="img2"
-							src="./img/outer2_2.PNG">
-					</div>
-					<div id=divText>
-						<p class="storeName">상호명</p>
-						<p class="productName">베이직 더플코트(네이비)</p>
-						<p class="price">99,000원</p>
-					</div>
-				</div>
-				<div id="outer">
-					<div id=divImg>
-						<img id="img1" src="./img/outer2.PNG"> <img id="img2"
-							src="./img/outer2_2.PNG">
-					</div>
-					<div id=divText>
-						<p class="storeName">상호명</p>
-						<p class="productName">베이직 더플코트(네이비)</p>
-						<p class="price">99,000원</p>
-					</div>
-				</div>
-
-
-
-
-
 
 			</div>
 			<!-- <div id=pagebutton>

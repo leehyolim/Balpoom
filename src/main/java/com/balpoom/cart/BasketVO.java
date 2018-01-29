@@ -53,7 +53,6 @@ public class BasketVO {
 	public void setValidity(int validity) {
 		this.validity = validity;
 	}
-	
 	@Override
 	public String toString() {
 		return "BasketVO [c_no=" + c_no + ", m_no=" + m_no + ", p_name=" + p_name + ", c_cnt=" + c_cnt + ", p_price="

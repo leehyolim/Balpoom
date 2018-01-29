@@ -1,6 +1,12 @@
 package com.balpoom.view;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.xml.bind.ParseConversionEvent;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +15,8 @@ import org.springframework.ui.Model;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.balpoom.inquery.InqueryService;
 import com.balpoom.inquery.InqueryVO;
@@ -23,7 +31,33 @@ public class InqueryController {
 
 	// 글 등록
 	@RequestMapping(value = "/insertInquery.do")
-	public String insertInquery(InqueryVO vo) {
+	public ModelAndView insertInquery(InqueryVO vo, HttpServletRequest request) throws IOException{
+		
+		String fileName_date = request.getParameter("fileName_date");
+		
+		
+		File dir = new File("D:\\SpringSpace\\BalPoom\\src\\main\\webapp\\uploadimg", vo.getM_id());
+		
+		if(!dir.exists()){
+	         dir.mkdir();
+	         System.out.println(dir);
+	      }
+
+		MultipartFile uploadFile = vo.getUploadFile();
+        
+		if(!uploadFile.isEmpty()){
+			String fileName = uploadFile.getOriginalFilename();
+			int idx = fileName.indexOf(".");
+			String fileName2 = fileName.substring(idx);
+
+			
+			uploadFile.transferTo(new File("D:\\SpringSpace\\BalPoom\\src\\main\\webapp\\uploadimg/"+vo.getM_id()+"//" + fileName_date+ ".png"));
+			
+
+
+		}
+		
+		System.out.println(4);
 
 		// System.out.println("글 등록 처리");
 		logger.debug("[LOG] 글 등록 처리");
@@ -31,8 +65,17 @@ public class InqueryController {
 		System.out.println(vo.getM_no());
 		System.out.println(vo.getInqu_content());
 		InqueryService.insertInquery(vo);
+		System.out.println(vo.toString());
 
-		return "getInqueryList.do";
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("getInqueryList.do");
+		if(!uploadFile.isEmpty()){
+			mav.addObject("isEmpty",1);
+		}else{
+			mav.addObject("isEmpty",2);
+		}
+		return mav;
 	}
 
 	// 글 수정
@@ -95,7 +138,5 @@ public class InqueryController {
 																				// 저장
 		return "getInqueryList.jsp";
 	}
-	
 
-	
 }

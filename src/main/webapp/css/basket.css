@@ -352,6 +352,13 @@
 	text-align: right;
 }
 
+.bs_list li dl dd > .number{
+   width:120px;
+   height:160px;
+   right:85px;
+   position: absolute;
+}
+
 .result_list{
 /* 	border: solid 1px; */
 	clear: right;

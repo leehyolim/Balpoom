@@ -5,6 +5,17 @@ public class RegisterVO {
 	private String r_reg;
 	private int r_no;
 	private String p_common_name;
+	private int s_no;
+	
+	
+
+	public int getS_no() {
+		return s_no;
+	}
+
+	public void setS_no(int s_no) {
+		this.s_no = s_no;
+	}
 
 	public String getR_reg() {
 		return r_reg;
@@ -32,15 +43,18 @@ public class RegisterVO {
 
 
 
+
 	@Override
 	public String toString() {
-		return "RegisterVO [r_reg=" + r_reg + ", r_no=" + r_no + ", p_common_name=" + p_common_name + "]";
+		return "RegisterVO [r_reg=" + r_reg + ", r_no=" + r_no + ", p_common_name=" + p_common_name + ", s_no=" + s_no
+				+ "]";
 	}
 
-	public RegisterVO(String r_reg, String p_common_name) {
+	public RegisterVO(String r_reg, String p_common_name, int s_no) {
 		super();
 		this.r_reg = r_reg;
 		this.p_common_name = p_common_name;
+		this.s_no = s_no;
 	}
 	public RegisterVO() {
 		// TODO Auto-generated constructor stub

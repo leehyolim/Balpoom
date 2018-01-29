@@ -17,13 +17,22 @@
 	</select>
 	
 	<select id="getOveralls" resultType="overall">
-		select distinct p_name,p_price,s.s_busi_name,p_type,p_type_detail from product p,  seller s
-		where p.s_no=s.s_no and p_type=#{p_type};
+		select distinct p_name,p_price,s.s_busi_name,p_type,p_type_detail,r.p_common_name,r.r_reg 
+		from register r,product p,  seller s
+		where r.p_common_name=p.p_common_name and s.s_no = r.s_no and p_type=#{p_type}
 	</select>
 	
 	<select id="getOverallsDetails" resultType="overall">
-		select distinct p_name,p_price,s.s_busi_name,p_type,p_type_detail from product p,  seller s
-		where p.s_no=s.s_no and p_type=#{p_type} and p_type_detail=#{p_type_detail};
+		select distinct p_name,p_price,s.s_busi_name,p_type,p_type_detail,r.p_common_name,r.r_reg 
+		from register r,product p,  seller s
+		where r.p_common_name=p.p_common_name and s.s_no = r.s_no and p_type=#{p_type} and p_type_detail=#{p_type_detail}
+	</select>
+	
+	<select id="getBests" resultType="overall">
+		select distinct p_name,p_price,p_type,p_type_detail,s.s_busi_name,r.order_cnt,r.p_common_name,r.r_reg 
+		from register r,product p, seller s
+		where r.p_common_name=p.p_common_name and s.s_no = r.s_no and p_type=#{p_type} 
+		order by r.order_cnt DESC limit 0,3;
 	</select>
 	
 	<insert id="insertProduct">
@@ -42,7 +51,8 @@
 			p_color = #{p_color},
 			p_size = #{p_size},
 			p_common_name = #{p_common_name},
-			p_type_detail = #{p_type_detail}
+			p_type_detail = #{p_type_detail},
+			s_no = #{s_no}
 		
 	</insert>
 

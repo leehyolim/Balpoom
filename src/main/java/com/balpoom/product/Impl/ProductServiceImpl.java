@@ -61,6 +61,11 @@ public class ProductServiceImpl implements ProductService{
 		return productDAO.getRegister(rvo);
 	}
 
+	@Override
+	public List<OverallProductVO> getBests(OverallProductVO vo) {
+		return productDAO.getBests(vo);
+	}
+
 
 
 	

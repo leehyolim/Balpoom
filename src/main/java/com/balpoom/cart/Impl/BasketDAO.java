@@ -40,4 +40,10 @@ public class BasketDAO {
 		System.out.println("---> mybtis로 order_rs_cart_del() 기능 처리");
 		mybatis.update("BasketDAO.order_rs_cart_del", vo);
 	}
+	
+	//주문 후 인기상품 카운트 증가
+	public void best_rs_product_number(BasketVO vo) {
+		System.out.println("---> mybtis로 best_rs_product_number() 기능 처리");
+		mybatis.update("BasketDAO.best_rs_product_number", vo);
+	}
 }

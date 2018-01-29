@@ -84,3 +84,18 @@ tr td:nth-child(2) {
 	border: none;
 	background-color: white;
 }
+.img_wrap{
+    width: 100px;
+    height: 100px;
+    border: 1px solid;
+    margin-top: 10px;
+    
+}
+.img_wrap img{
+    width: 100%;
+    height: 100%;
+    
+}
+#tDate{
+	height:100px;
+}
