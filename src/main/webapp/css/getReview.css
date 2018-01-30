@@ -1,3 +1,4 @@
+@CHARSET "UTF-8";
 *{
     font-family: "맑은고딕";
     width: 100%;
@@ -9,7 +10,7 @@
 	width: 870px;
     height: auto;
     margin: auto;
-   
+   	
 	
 }
 .pibTitle{
@@ -51,7 +52,7 @@ tr td:nth-child(2) {
     height: 150px;
     padding-top: 15px;
     padding-bottom: 15px;
-   
+    border-bottom: none;
 }
 .listbtn{
     width: 55px;
@@ -80,7 +81,9 @@ tr td:nth-child(2) {
 	float: left;
 	margin-left:20px;
 }
-
+input.re_notd{
+	border: none;
+}
 .btnReply{
 	width:10%;
 	background-color: white;

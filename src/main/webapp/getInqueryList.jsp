@@ -50,9 +50,9 @@
 						<tr>
 							<td>${Inquery.inqu_no}</td>
 			
-							<td><a href="getInquery.do?inqu_no=${Inquery.inqu_no}">${Inquery.inqu_title}<img src="./img/lock.png"></a></td>
+							<td><a href="getInquery.do?inqu_no=${Inquery.inqu_no}">${Inquery.inqu_title}</a></td>
 							<td>${Inquery.m_name}</td>
-							<td>${Inquery.inqu_reg}</td>
+							<td>${Inquery.reg_date}</td>
 							<td>${Inquery.inqu_cnt}</td>
 						</tr>
 					</c:forEach>

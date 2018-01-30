@@ -18,6 +18,15 @@ public class InqueryVO {
 	private String m_name;
 	private String m_id;
 	private String fileName_date;
+	private String reg_date;
+
+	public String getReg_date() {
+		return reg_date;
+	}
+
+	public void setReg_date(String reg_date) {
+		this.reg_date = reg_date;
+	}
 
 	private MultipartFile uploadFile;
 
@@ -130,7 +139,12 @@ public class InqueryVO {
 		return "InqueryVO [inqu_no=" + inqu_no + ", inqu_title=" + inqu_title + ", inqu_reg=" + inqu_reg + ", inqu_cnt="
 				+ inqu_cnt + ", inqu_content=" + inqu_content + ", searchCondition=" + searchCondition
 				+ ", searchKeyword=" + searchKeyword + ", m_no=" + m_no + ", p_no=" + p_no + ", m_name=" + m_name
-				+ ", m_id=" + m_id + ", fileName_date=" + fileName_date + ", uploadFile=" + uploadFile + "]";
+				+ ", m_id=" + m_id + ", fileName_date=" + fileName_date + ", reg_date=" + reg_date + ", uploadFile="
+				+ uploadFile + "]";
 	}
+
+	
+
+	
 
 }

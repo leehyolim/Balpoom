@@ -33,20 +33,26 @@ ${authMember.m_name }님의 회원등급은 <font color="#848484"><b>새내기</
             </div>
         </div>
         <div id="mpBoxes">
+        	
+        	<a href="getOrderList.do">
             <div class="mpBox" onMouseOver="this.style.backgroundColor='#FAFAFA'; "onMouseOut="this.style.backgroundColor='#FFFFFF'" style=" cursor: pointer;">
                 <p class="mpBoxTitle">ORDER</p>
                 <p class="mpBoxText">주문 내역 / 배송 현황</p>
             </div>
+            </a>
+            
             <a href="getBasketList.do">
             <div class="mpBox" onMouseOver="this.style.backgroundColor='#FAFAFA'; "onMouseOut="this.style.backgroundColor='#FFFFFF'" style=" cursor: pointer;">
                 <p class="mpBoxTitle">CART</p>
                 <p class="mpBoxText">장바구니 상품 조회</p>
             </div>
             </a>
+            
             <div class="mpBox" onMouseOver="this.style.backgroundColor='#FAFAFA'; "onMouseOut="this.style.backgroundColor='#FFFFFF'" style=" cursor: pointer;">
                 <p class="mpBoxTitle">MY BOARD</p>
                 <p class="mpBoxText">게시물 관리</p>
             </div>
+            
             <a href="mypage_update.jsp">
             <div class="mpBox" onMouseOver="this.style.backgroundColor='#FAFAFA'; "onMouseOut="this.style.backgroundColor='#FFFFFF'" style=" cursor: pointer;">
                 <p class="mpBoxTitle">MY INFO</p>

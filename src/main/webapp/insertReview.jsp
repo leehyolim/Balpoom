@@ -6,8 +6,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>상품문의</title>
-<link rel="stylesheet" href="./css/insertBoard.css?ver=5">
+<title>상품후기</title>
+<link rel="stylesheet" href="./css/insertBoard.css?ver=9">
+<script type="text/javascript" src="./js/jquery-3.3.1.min.js" charset="utf-8"></script>
+
+<script type="text/javascript">
+$(document).ready(function today(){
+	var date = new Date();
+	var output="";
+	output+=date.getFullYear()+''+(date.getMonth()+1)+''+date.getDate()+''+date.getHours()+''+date.getMinutes()+''+date.getSeconds();
+	console.log(output);
+	$("#date").val(output);
+	document.get
+});
+	
+</script>
 </head>
 <body>
 
@@ -17,8 +30,9 @@
 	<br>
 	<div id="insertBoard_wrapper">
 		<p class="insertBoard_Title">상품 후기</p>
-		<form action="insertReview.do" enctype="multipart/form-data"
-			method="post">
+		<form action="insertReview.do" enctype="multipart/form-data" method="post">
+		<input type="hidden" id="date" name="fileName_date">
+		<input type="hidden" id="m_id" name="m_id" value="${authMember.m_id }">
 			<table>
 				<tr>
 					<td class="td1">제목</td>
@@ -37,12 +51,13 @@
 							class="content_inpt" rows="10" cols="30"></textarea></td>
 				</tr>
 				<tr>
-					<td>이미지 첨부</td>
-					<td><input type="file" name="img_upload" class="inputImg"></td>
+					<td style="padding-bottom: 8px; padding-top: 8px;">사진 첨부<br><font style="font-size:12px; color:#F78181">사진은 수정이 불가하니<br>신중히 올려주세요</font></td>
+					<td><input type="file" name="uploadFile" style="padding-top:20px; font-size: 13px;"></td>
 				</tr>
 			</table>
-			<button type="submit" class="submit_btn">작성</button>
-			<a href="getReviewList.do"><button type="button" class="submit_btn">목록</a>
+			<a href="getReviewList.do"><button  type="button" style="cursor: pointer" class="submit_btn1">목록</a>
+			<button type="submit" class="submit_btn2" style="cursor: pointer">작성</button>
+			
 		</form>
 
 	</div>

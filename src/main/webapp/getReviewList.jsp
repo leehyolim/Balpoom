@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>상품후기</title>
-<link rel="stylesheet" href="./css/getBoardList_Inquiry1.css">
+<link rel="stylesheet" href="./css/getReviewList.css?ver=2">
 </head>
 
 <body>
@@ -33,6 +33,7 @@
 						<th>번호</th>
 						<th>제목</th>
 						<th>작성자</th>
+						<th>작성일</th>
 						
 					</tr>
 
@@ -41,8 +42,9 @@
 						<tr>
 							<td>${review.re_no}</td>
 			
-							<td><a href="getReview.do?re_no=${review.re_no}"> ${review.re_title} <img src="./img/lock.png"></a></td>
+							<td><a href="getReview.do?re_no=${review.re_no}"> ${review.re_title}</a></td>
 							<td>${review.m_name}</td>
+							<td>${review.reg_date}</td>
 							
 						</tr>
 					</c:forEach>

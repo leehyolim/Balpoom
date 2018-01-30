@@ -70,3 +70,13 @@ tr td:nth-child(2) {
     margin-top: 20px;
     display:inline-block;
 }
+a:link{
+    color: rgb(61, 61, 61);
+    text-decoration: none;
+}
+a:active{
+   color: rgb(61, 61, 61);
+}
+a:visited{
+    color: rgb(61, 61, 61);
+    }

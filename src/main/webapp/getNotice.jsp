@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>공지사항</title>
-<link rel="stylesheet" href="./css/getNotice.css?ver=1">
+<link rel="stylesheet" href="./css/getNotice.css?ver=2">
 </head>
 <body>
 	<div class="wraper">
@@ -19,12 +19,12 @@
 			<form action="" method="post">
 				<table>
 					<tr>
-						<td>글번호</td>
-						<td>${notice.notice_no }</td>
+						<td>NO.${notice.notice_no }</td><td></td>
+						
 					</tr>
 					<tr>
-						<td class="td1">제목</td>
-						<td class="td1">${notice.notice_title }</td>
+						<td>제목</td>
+						<td>${notice.notice_title }</td>
 					</tr>
 					<tr>
 						<td>작성일</td>

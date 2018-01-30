@@ -11,5 +11,9 @@
 		#{receiver_address_postcode},#{receiver_address_primary},#{receiver_address_detail},#{receiver_name},#{receiver_cellphone1},#{receiver_cellphone2},#{receiver_cellphone3},
 		#{receiver_requirement},#{payment_type},#{total_price})
 	</insert>
+	
+	<select id="getOrderList" resultType="order">
+		select * from orders where m_no = #{m_no};
+	</select>
 
 </mapper>

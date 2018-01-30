@@ -14,11 +14,11 @@ public class OverallProductVO {
 	
 	private String modify_date;
 	
-	private int s1;
-	private int s2;
-	private int s3;
-	private int s4;
-	private int s5;
+	private int p_s1;
+	private int p_s2;
+	private int p_s3;
+	private int p_s4;
+	private int p_s5;
 	
 	
 	
@@ -40,36 +40,7 @@ public class OverallProductVO {
 	public void setR_reg(Date r_reg) {
 		this.r_reg = r_reg;
 	}
-	public int getS1() {
-		return s1;
-	}
-	public void setS1(int s1) {
-		this.s1 = s1;
-	}
-	public int getS2() {
-		return s2;
-	}
-	public void setS2(int s2) {
-		this.s2 = s2;
-	}
-	public int getS3() {
-		return s3;
-	}
-	public void setS3(int s3) {
-		this.s3 = s3;
-	}
-	public int getS4() {
-		return s4;
-	}
-	public void setS4(int s4) {
-		this.s4 = s4;
-	}
-	public int getS5() {
-		return s5;
-	}
-	public void setS5(int s5) {
-		this.s5 = s5;
-	}
+	
 	public String getP_type_detail() {
 		return p_type_detail;
 	}
@@ -100,13 +71,44 @@ public class OverallProductVO {
 	public void setP_type(String p_type) {
 		this.p_type = p_type;
 	}
+	public int getP_s1() {
+		return p_s1;
+	}
+	public void setP_s1(int p_s1) {
+		this.p_s1 = p_s1;
+	}
+	public int getP_s2() {
+		return p_s2;
+	}
+	public void setP_s2(int p_s2) {
+		this.p_s2 = p_s2;
+	}
+	public int getP_s3() {
+		return p_s3;
+	}
+	public void setP_s3(int p_s3) {
+		this.p_s3 = p_s3;
+	}
+	public int getP_s4() {
+		return p_s4;
+	}
+	public void setP_s4(int p_s4) {
+		this.p_s4 = p_s4;
+	}
+	public int getP_s5() {
+		return p_s5;
+	}
+	public void setP_s5(int p_s5) {
+		this.p_s5 = p_s5;
+	}
 	@Override
 	public String toString() {
 		return "OverallProductVO [p_name=" + p_name + ", p_price=" + p_price + ", s_busi_name=" + s_busi_name
 				+ ", p_type=" + p_type + ", p_type_detail=" + p_type_detail + ", p_common_name=" + p_common_name
-				+ ", r_reg=" + r_reg + ", modify_date=" + modify_date + ", s1=" + s1 + ", s2=" + s2 + ", s3=" + s3
-				+ ", s4=" + s4 + ", s5=" + s5 + "]";
+				+ ", r_reg=" + r_reg + ", modify_date=" + modify_date + ", p_s1=" + p_s1 + ", p_s2=" + p_s2 + ", p_s3="
+				+ p_s3 + ", p_s4=" + p_s4 + ", p_s5=" + p_s5 + "]";
 	}
+
 
 
 

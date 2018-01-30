@@ -18,27 +18,28 @@
 		<form action="updateReview.do" method="post">
 			<table>
 				<tr>
-					<td class="td1">제목</td>
-					<td class="td1"><input type="text" name="re_title" class="inpt" value="${review.re_title}">
+					<td class="td1">글번호</td>
+					<td class="td1"><input type="text" name="re_no" class="writerbox" value="${Review.re_no}" readonly="readonly"></td>
+				</tr>
+				<tr>
+					<td >제목</td>
+					<td ><input type="text" name="re_title" class="inpt" value="${Review.re_title}">
 					</td>
 				</tr>
  				<tr>
 					<td>작성자</td>
-					<td><input type="text" name="m_name" class="writerbox" value="${review.m_name}"></td>
+					<td><input type="text" name="m_name" class="writerbox" value="${Review.m_name}" readonly="readonly"></td>
 				</tr>
-				<tr>
-					<td>글번호</td>
-					<td><input type="text" name="re_no" class="writerbox" value="${review.re_no}"></td>
-				</tr>
+				
 
 				<tr>
 					<td colspan="2" class="boardContent"><textarea name="re_content"
-							class="content_inpt" rows="10" cols="30" >${review.re_content}</textarea></td>
+							class="content_inpt" rows="10" cols="30" >${Review.re_content}</textarea></td>
 				</tr>
 				
 			</table>
-			<button type="submit" class="submit_btn" style="cursor: pointer">작성</button>
-			<a href="getReviewList.do">목록</a>
+			<a href="getReviewList.do"><button type="button" class="submit_btn1" style="cursor: pointer">목록</a>
+			<button type="submit" class="submit_btn2" style="cursor: pointer" style="cursor: pointer">작성</button>
 		</form>
 
 	</div>

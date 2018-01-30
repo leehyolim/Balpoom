@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="./css/sellerProductUpload.css">
+    <link rel="stylesheet" href="./css/sellerProductUpload.css?ver=1">
     <title>타이트으으으으을~~</title>
     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
     <script type="text/javascript" src="./js/jquery-3.3.1.min.js" charset="utf-8"></script>
@@ -134,7 +134,7 @@
 <div class="sellerProduct_wrapper">
     <div class="sellerProduct_header">
     <p class="sellerProduct_title1">상품등록_</p>
-    <p class="sellerProduct_titl2">자세한 상품등록 방법은 공지사항에서 확인해주세요${authSeller.s_no }</p>
+   	<p class="sellerProduct_titl2">자세한 상품등록 방법은 공지사항에서 확인해주세요</p>
 </div>
 <div id="clear"></div>
     <form name="options" method="post" action="insertProduct.do" enctype="multipart/form-data">

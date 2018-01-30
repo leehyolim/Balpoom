@@ -10,23 +10,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>상품문의</title>
-<link rel="stylesheet" href="./css/insertBoard.css">
+<link rel="stylesheet" href="./css/insertBoard.css?ver=2">
 <script type="text/javascript" src="./js/jquery-3.3.1.min.js" charset="utf-8"></script>
 
-<script type="text/javascript">
-$(document).ready(function today(){
-	var date = new Date();
-	var output="";
-	output+=date.getFullYear()+''+(date.getMonth()+1)+''+date.getDate()+''+date.getHours()+''+date.getMinutes()+''+date.getSeconds();
-	console.log(output);
-	$("#date").val(output);
-	document.get
-});
-	
 
-
-
-</script>
 </head>
 <body>
 
@@ -59,15 +46,12 @@ $(document).ready(function today(){
 							class="content_inpt" rows="10" cols="30"></textarea></td>
 				</tr>
 				
-				<tr>
-					<td>사진 첨부</td>
-					<td><input type="file" name="uploadFile" style="margin-top:15px;"/>
-					
-					</td>
+				
 				
 			</table>
-			<button type="submit" class="submit_btn" style="cursor: pointer">작성</button>
-			<a href="getInqueryList.do">두두두</a>
+			<a href="getInqueryList.do"><button type="button" class="submit_btn1" style="cursor: pointer">목록</a>
+			<button type="submit" class="submit_btn2" style="cursor: pointer">작성</button>
+			
 		</form>
 
 	</div>

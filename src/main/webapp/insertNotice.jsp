@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>상품문의</title>
-<link rel="stylesheet" href="./css/insertBoard.css?ver=5">
+<link rel="stylesheet" href="./css/insertBoard.css?ver=6">
 </head>
 <body>
 
@@ -39,8 +39,9 @@
 					<td><input type="file" name="img_upload" class="inputImg"></td>
 				</tr>-->
 			</table>
-			<button type="submit" class="submit_btn">작성</button>
-			<a href="getNoticeList.do">목록</a>
+			<a href="getNoticeList.do"><button type="button" class="submit_btn1" style="cursor: pointer">목록</a>
+			<button style="cursor: pointer" type="submit" class="submit_btn2" >작성</button>
+			
 		</form>
 
 	</div>

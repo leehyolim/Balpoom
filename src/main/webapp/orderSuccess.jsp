@@ -22,7 +22,7 @@
         <p class="osMessage2">주문 처리는 근무일 기준으로 1~2일 가량 소요될 수 있습니다.</p>
         <div id="osBtnBox">
             <a href="main.jsp"><div class="osBtn" style=" cursor: pointer;"><p class="osBtnText">메인으로 가기</p></div></a>
-            <a><div class="osBtn" style=" cursor: pointer;"><p class="osBtnText">주문내역</p></div></a>
+            <a href="getOrderList.do"><div class="osBtn" style=" cursor: pointer;"><p class="osBtnText">주문내역</p></div></a>
         </div>
     </div>
 <jsp:include page="footer.jsp"></jsp:include>

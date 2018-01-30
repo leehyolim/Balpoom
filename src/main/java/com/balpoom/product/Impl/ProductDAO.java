@@ -52,6 +52,11 @@ public class ProductDAO {
 		return mybatis.selectList("ProductDAO.getBests",vo);
 	}
 	
+	public List<OverallProductVO> doFitple(OverallProductVO vo){
+		System.out.println(vo.getP_type()+"fitple기능");
+		return mybatis.selectList("ProductDAO.doFitple",vo);
+	}
+	
 	public void insertProduct(ProductVO pvo){
 		mybatis.insert("ProductDAO.insertProduct",pvo);
 	}

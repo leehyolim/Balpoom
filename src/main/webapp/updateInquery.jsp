@@ -19,19 +19,20 @@
 		<p class="insertBoard_Title">상품 문의</p>
 		<form action="updateInquery.do" method="post">
 			<table>
+			<tr>
+					<td class="td1">글번호</td>
+					<td class="td1"><input type="text" name="inqu_no" class="writerbox" value="${Inquery.inqu_no }" readonly="readonly"></td>
+				</tr>
 				<tr>
-					<td class="td1">제목</td>
-					<td class="td1"><input type="text" name="inqu_title" class="inpt" value="${Inquery.inqu_title}">
+					<td >제목</td>
+					<td><input type="text" name="inqu_title" class="inpt" value="${Inquery.inqu_title}">
 					</td>
 				</tr>
  				<tr>
 					<td>작성자</td>
-					<td><input type="text" name="m_no" class="writerbox" value="19"></td>
+					<td><input type="text" name="m_name" class="writerbox" value="${Inquery.m_name}" readonly="readonly"></td>
 				</tr>
-				<tr>
-					<td>글번호</td>
-					<td><input type="text" name="inqu_no" class="writerbox" value="${Inquery.inqu_no }"></td>
-				</tr>
+				
 
 				<tr>
 					<td colspan="2" class="boardContent"><textarea name="inqu_content"
@@ -39,8 +40,9 @@
 				</tr>
 				
 			</table>
-			<button type="submit" class="submit_btn" style="cursor: pointer">작성</button>
-			<a href="getInqueryList.do">두두두</a>
+			
+			<a href="getInqueryList.do"><button  style="cursor: pointer" type="button" class="submit_btn1">목록</a>
+			<button type="submit" class="submit_btn2" style="cursor: pointer">작성</button>
 		</form>
 
 	</div>

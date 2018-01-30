@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>공지사항</title>
-<link rel="stylesheet" href="./css/getNoticeList.css?ver=1">
+<link rel="stylesheet" href="./css/getNoticeList.css?ver=3">
 </head>
 <body>
 	<div class="wraper">
@@ -56,8 +56,7 @@
 
 						<tr>
 							<td>${notice.notice_no}</td>
-							<td><a href="getNotice.do?notice_no=${notice.notice_no}">${notice.notice_title}<img
-									src="./img/lock.png"></a></td>
+							<td><a href="getNotice.do?notice_no=${notice.notice_no}">${notice.notice_title}</a></td>
 							<td>관리자</td>
 							<td>${notice.reg_date}</td>
 							<td>${notice.notice_cnt }</td>

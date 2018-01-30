@@ -1,5 +1,7 @@
 package com.balpoom.order.Impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,5 +18,12 @@ public class OrderServiceImpl implements OrderService{
 	public void addOrder(OrderVO vo) {
 		orderDAO.addOrder(vo);
 	}
+
+	@Override
+	public List<OrderVO> getOrderList(OrderVO vo) {
+		return orderDAO.getOrderList(vo);
+	}
+	
+	
 	
 }

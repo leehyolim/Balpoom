@@ -3,7 +3,9 @@ package com.balpoom.view;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.xml.bind.ParseConversionEvent;
@@ -21,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.balpoom.inquery.InqueryService;
 import com.balpoom.inquery.InqueryVO;
 import com.balpoom.inquery.Impl.InqueryDAO;
+import com.balpoom.review.ReviewVO;
 
 @Controller
 @SessionAttributes("Inquery")
@@ -28,34 +31,14 @@ public class InqueryController {
 	@Autowired
 	private InqueryService InqueryService;
 	Logger logger = Logger.getLogger(this.getClass());
+	private final int size = 10;
+	private final Calendar cal = Calendar.getInstance();
+	private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
 	// 글 등록
 	@RequestMapping(value = "/insertInquery.do")
 	public ModelAndView insertInquery(InqueryVO vo, HttpServletRequest request) throws IOException{
 		
-		String fileName_date = request.getParameter("fileName_date");
-		
-		
-		File dir = new File("D:\\SpringSpace\\BalPoom\\src\\main\\webapp\\uploadimg", vo.getM_id());
-		
-		if(!dir.exists()){
-	         dir.mkdir();
-	         System.out.println(dir);
-	      }
-
-		MultipartFile uploadFile = vo.getUploadFile();
-        
-		if(!uploadFile.isEmpty()){
-			String fileName = uploadFile.getOriginalFilename();
-			int idx = fileName.indexOf(".");
-			String fileName2 = fileName.substring(idx);
-
-			
-			uploadFile.transferTo(new File("D:\\SpringSpace\\BalPoom\\src\\main\\webapp\\uploadimg/"+vo.getM_id()+"//" + fileName_date+ ".png"));
-			
-
-
-		}
 		
 		System.out.println(4);
 
@@ -70,11 +53,7 @@ public class InqueryController {
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("getInqueryList.do");
-		if(!uploadFile.isEmpty()){
-			mav.addObject("isEmpty",1);
-		}else{
-			mav.addObject("isEmpty",2);
-		}
+		
 		return mav;
 	}
 
@@ -115,8 +94,15 @@ public class InqueryController {
 		logger.debug("[LOG] 글 상세 조회 처리");
 		InqueryService.updateCnt(vo);
 
-		model.addAttribute("Inquery", InqueryService.getInquery(vo));
+		InqueryVO timeModify = InqueryService.getInquery(vo);
+		Date date = timeModify.getInqu_reg();
+		cal.setTime(date);
+		cal.add(Calendar.HOUR, 9);
+		timeModify.setReg_date(sdf.format(cal.getTime()));
+		model.addAttribute("Inquery", timeModify);
 		return "getInquery.jsp";
+		
+		
 	}
 
 	// 글 목록 검색
@@ -125,15 +111,25 @@ public class InqueryController {
 	public String getInquiryInqueryList(InqueryVO vo, InqueryDAO InqueryDAO, Model model) {
 
 		logger.debug("[LOG] 글 목록 검색");
-
+		
 		// NULL Check
 		if (vo.getSearchCondition() == null)
 			vo.setSearchCondition("TITLE");
 		if (vo.getSearchKeyword() == null)
 			vo.setSearchKeyword("");
-
+		
+		
+		List<InqueryVO> timeModify = InqueryService.getInqueryList(vo);
+		for(InqueryVO inquery : timeModify){
+			Date date = inquery.getInqu_reg();
+			cal.setTime(date);
+			cal.add(Calendar.HOUR, 9);
+			inquery.setReg_date(sdf.format(cal.getTime()));
+		}
+		
+		model.addAttribute("InqueryList", timeModify);
 		// Model 정보 저장
-		model.addAttribute("InqueryList", InqueryService.getInqueryList(vo)); // Model
+		 // Model
 																				// 정보
 																				// 저장
 		return "getInqueryList.jsp";

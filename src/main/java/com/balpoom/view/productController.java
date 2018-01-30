@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,6 +59,65 @@ public class productController {
 		productService.getProductC(pvo);
 	}
 
+	@RequestMapping("/fitple.do")
+	public ModelAndView doFitple(@RequestParam String p_type,
+			@RequestParam int s1,@RequestParam int s2,@RequestParam int s3,
+			@RequestParam int s4,@RequestParam int s5){
+		List<String> smallCategory = new ArrayList<>();
+		ModelAndView mav = new ModelAndView();
+		OverallProductVO vo = new OverallProductVO();
+		vo.setP_type(p_type);
+		vo.setP_s1(s1);
+		vo.setP_s2(s2);
+		vo.setP_s3(s3);
+		vo.setP_s4(s4);
+		vo.setP_s5(s5);
+		System.out.println(p_type);
+		System.out.println(s1);
+		System.out.println(s2);
+		System.out.println(s3);
+		System.out.println(s4);
+		System.out.println(s5);
+		List<OverallProductVO> fitple = productService.doFitple(vo);
+		List<OverallProductVO> best = productService.getBests(vo);
+		for(OverallProductVO o : fitple){
+			cal.setTime(o.getR_reg());
+			o.setModify_date((sdf.format(cal.getTime())));
+		}
+		for(OverallProductVO b : best){
+			cal.setTime(b.getR_reg());
+			b.setModify_date((sdf.format(cal.getTime())));
+		}
+		p_type = p_type.toUpperCase();
+		mav.addObject("p_type", p_type);
+		if (p_type.equalsIgnoreCase("Outer")) {
+			smallCategory.add("Coat");
+			smallCategory.add("Jacket");
+			smallCategory.add("Bubble");
+			smallCategory.add("AndSoOn");
+		} else if (p_type.equalsIgnoreCase("Top")) {
+			smallCategory.add("TShirt");
+			smallCategory.add("Shirt");
+			smallCategory.add("Hoody");
+			smallCategory.add("AndSoOn");
+		} else if (p_type.equalsIgnoreCase("Bottom")) {
+			smallCategory.add("Jeans");
+			smallCategory.add("Slacks");
+			smallCategory.add("Cotton");
+			smallCategory.add("AndSoOn");
+		} else if (p_type.equalsIgnoreCase("Shoes")) {
+			smallCategory.add("Running");
+			smallCategory.add("Sneakers");
+			smallCategory.add("Sports");
+			smallCategory.add("Classic");
+		}
+		mav.addObject("smallCategory",smallCategory);
+		mav.addObject("overall",fitple);
+		mav.addObject("best", best);
+		mav.setViewName("productList.jsp");
+		return mav;
+	}
+	
 	@RequestMapping("getOveralls.do")
 	public ModelAndView getOveralls(@RequestParam String p_type) {
 		List<String> smallCategory = new ArrayList<>();
@@ -344,5 +402,8 @@ public class productController {
 	public void getRegister(RegisterVO rvo) {
 		productService.getRegister(rvo);
 	}
+	
+	
+
 
 }

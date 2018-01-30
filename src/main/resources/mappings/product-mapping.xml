@@ -35,6 +35,17 @@
 		order by r.order_cnt DESC limit 0,3;
 	</select>
 	
+	<select id="doFitple" resultType="overall">
+		select distinct p_name,p_price,s.s_busi_name,p_type,p_type_detail,r.p_common_name,r.r_reg 
+		from register r,product p,  seller s
+		where r.p_common_name=p.p_common_name and s.s_no = r.s_no and p_type=#{p_type} and
+		p_s1 between #{p_s1}-1 and #{p_s1}+1 and
+		p_s2 between #{p_s2}-1 and #{p_s2}+1 and
+		p_s3 between #{p_s3}-1 and #{p_s3}+1 and
+		p_s4 between #{p_s4}-1 and #{p_s4}+1 and
+		p_s5 between #{p_s5}-1 and #{p_s5}+1
+	</select>
+	
 	<insert id="insertProduct">
 		insert into product set
 			p_identifier = #{p_identifier},

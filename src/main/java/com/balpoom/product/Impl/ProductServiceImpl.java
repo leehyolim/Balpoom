@@ -66,6 +66,11 @@ public class ProductServiceImpl implements ProductService{
 		return productDAO.getBests(vo);
 	}
 
+	@Override
+	public List<OverallProductVO> doFitple(OverallProductVO vo) {
+		return productDAO.doFitple(vo);
+	}
+
 
 
 	

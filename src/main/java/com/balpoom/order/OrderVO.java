@@ -147,6 +147,7 @@ public class OrderVO {
 	public void setTotal_price(int total_price) {
 		this.total_price = total_price;
 	}
+	
 	@Override
 	public String toString() {
 		return "OrderVO [o_no=" + o_no + ", o_date=" + o_date + ", p_total_identifier=" + p_total_identifier + ", m_no=" + m_no
