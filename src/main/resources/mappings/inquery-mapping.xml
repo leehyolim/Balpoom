@@ -26,19 +26,25 @@
 	</delete>
 	
 	<select id="getInquery" resultType="Inquery">
-select * from (select bo.inqu_no, bo.inqu_title, bo.inqu_cnt, bo.inqu_content,bo.inqu_reg,bo.m_no, bo.r_no, me.m_name,m_id,bo.fileName_date from board_inquery bo, member me where bo.m_no = me.m_no) sub where sub.inqu_no = #{inqu_no}
+		select * from (select bo.inqu_no, bo.inqu_title, bo.inqu_cnt, bo.inqu_content,bo.inqu_reg,bo.m_no, bo.r_no, me.m_name,m_id,bo.fileName_date from board_inquery bo, member me where bo.m_no = me.m_no) sub where sub.inqu_no = #{inqu_no}
 	</select>
 	
 	<select id="getInqueryList" resultType="Inquery">
 		SELECT * 
 		FROM (select bo.inqu_no, bo.inqu_title, bo.inqu_cnt, bo.inqu_content, bo.inqu_reg, bo.m_no, bo.r_no, me.m_name,m_id from board_inquery bo, member me where bo.m_no = me.m_no) sub
-		WHERE inqu_title LIKE '%'||#{searchKeyword}||'%' 
+		WHERE inqu_title like CONCAT ('%',#{searchKeyword},'%') or inqu_content like CONCAT ('%',#{searchKeyword},'%')
 		ORDER BY inqu_no DESC
 	</select>
+		
 	
 	<update id="updateCnt"> 
 
 		UPDATE board_inquery set inqu_cnt = inqu_cnt + 1 where inqu_no = #{inqu_no}
 
 	</update>
+	
+	<select id="getInqueryMypageList" resultType="Inquery">
+		select * from board_inquery, register where board_inquery.r_no = register.r_no and board_inquery.m_no = #{m_no}
+	</select>
+	
 </mapper>

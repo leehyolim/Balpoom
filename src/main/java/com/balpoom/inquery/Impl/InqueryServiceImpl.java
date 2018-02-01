@@ -41,7 +41,10 @@ public class InqueryServiceImpl implements InqueryService {
 		InqueryDAO.updateCnt(vo);
 	}
 
-
+	@Override
+	public List<InqueryVO> getMypageInqueryList(InqueryVO vo) {
+		return InqueryDAO.getMypageInqueryList(vo);
+	}
 
 	
 	

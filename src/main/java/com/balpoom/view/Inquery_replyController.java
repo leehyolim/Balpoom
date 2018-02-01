@@ -28,7 +28,7 @@ public class Inquery_replyController {
 	public void insertInquery_reply(Inquery_replyVO vo) {
 		Inquery_replyService.insertInquery_reply(vo);
 
-//		return "getInquery.do";
+		// return "getInquery.do";
 	}
 
 	// 리플 리스트
@@ -41,33 +41,33 @@ public class Inquery_replyController {
 
 	}
 
-	
-	@RequestMapping(value="/deleteInquery_reply.do",method=RequestMethod.GET)
+	@RequestMapping(value = "/deleteInquery_reply.do", method = RequestMethod.GET)
 	public String deleteInquery_reply(HttpServletRequest request) {
 		int no = Integer.parseInt(request.getParameter("inqu_reply_no"));
 		System.out.println(no);
-		 System.out.println("댓글 지우기 기능 시작!");
-		 Inquery_replyVO vo = new Inquery_replyVO();
-		 vo.setInqu_reply_no(no);
-		 Inquery_replyService.deleteInquery_reply(vo);
-		 System.out.println("댓글 지우기 끝");
-		 return "getInquery_replyList.do";
+		System.out.println("댓글 지우기 기능 시작!");
+		Inquery_replyVO vo = new Inquery_replyVO();
+		vo.setInqu_reply_no(no);
+		Inquery_replyService.deleteInquery_reply(vo);
+		System.out.println("댓글 지우기 끝");
+		return "getInquery_replyList.do";
 	}
-	
-	@RequestMapping(value="/updateInquery_reply.do",method=RequestMethod.GET)
+
+	@RequestMapping(value = "/updateInquery_reply.do", method = RequestMethod.GET)
 	public String updateInquery_reply(HttpServletRequest request) {
 		int no = Integer.parseInt(request.getParameter("inqu_reply_no"));
 		String updateReply = request.getParameter("inqu_reply_content");
 		System.out.println(no);
 		System.out.println(updateReply);
-		
+
 		System.out.println("댓글 수정 시작!");
 		Inquery_replyVO vo = new Inquery_replyVO();
 		System.out.println(1);
-		vo.setInqu_reply_no(no);vo.setInqu_reply_content(updateReply);
+		vo.setInqu_reply_no(no);
+		vo.setInqu_reply_content(updateReply);
 		System.out.println(2);
 		Inquery_replyService.updateInquery_reply(vo);
-		System.out.println(3);		
+		System.out.println(3);
 		return "getInquery_replyList.do";
 	}
 

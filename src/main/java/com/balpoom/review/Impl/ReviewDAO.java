@@ -39,4 +39,8 @@ public class ReviewDAO {
 		
 		return mybatis.selectList("ReviewDAO.getReviewList", vo);
 	}
+	
+	public List<ReviewVO> getMypageReviewList(ReviewVO vo){
+		return mybatis.selectList("ReviewDAO.getReviewMypageList",vo);
+	}
 }

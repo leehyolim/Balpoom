@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>공지사항</title>
-<link rel="stylesheet" href="./css/getNoticeList.css?ver=3">
+<link rel="stylesheet" href="./css/getNoticeList.css?ver=4">
 </head>
 <body>
 	<div class="wraper">
@@ -56,7 +56,7 @@
 
 						<tr>
 							<td>${notice.notice_no}</td>
-							<td><a href="getNotice.do?notice_no=${notice.notice_no}">${notice.notice_title}</a></td>
+							<td><a id="notice_title" href="getNotice.do?notice_no=${notice.notice_no}">${notice.notice_title}</a></td>
 							<td>관리자</td>
 							<td>${notice.reg_date}</td>
 							<td>${notice.notice_cnt }</td>
@@ -66,13 +66,13 @@
 						<tr>
 							<td colspan="5">
 								<c:if test="${noticePage.startPage > 5 }">
-									<a href="getNoticeList.do?pNo=${noticePage.startPage -5 }">[이전]</a>
+									<a class="paging"href="getNoticeList.do?pNo=${noticePage.startPage -5 }">[이전]</a>
 								</c:if>
 								<c:forEach var="pNo" begin="${noticePage.startPage }" end="${noticePage.endPage }">
-									<a href="getNoticeList.do?pNo=${pNo }">[${pNo }]</a>
+									<a class="paging"href="getNoticeList.do?pNo=${pNo }">[${pNo }]</a>
 								</c:forEach>
 								<c:if test="${noticePage.endPage < noticePage.totalPages }">
-									<a href="getNoticeList.do?pNo=${noticePage.startPage+5 }">[다음]</a>
+									<a class="paging"href="getNoticeList.do?pNo=${noticePage.startPage+5 }">[다음]</a>
 								</c:if>
 							</td>
 						</tr>

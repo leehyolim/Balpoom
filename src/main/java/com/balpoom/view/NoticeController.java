@@ -63,14 +63,14 @@ public class NoticeController {
 		NoticeVO timeModify = noticeService.getNotice(vo);
 		Date date = timeModify.getNotice_reg();
 		cal.setTime(date);
-		cal.add(Calendar.HOUR, 9);
+
 		timeModify.setReg_date(sdf.format(cal.getTime()));
-		model.addAttribute("notice", timeModify);			
+		model.addAttribute("notice", timeModify);
 		return "getNotice.jsp";
 	}
-	
+
 	@ModelAttribute("conditionMap")
-	public Map<String, String> searchConditionMap(){
+	public Map<String, String> searchConditionMap() {
 		Map<String, String> conditionMap = new HashMap<String, String>();
 		conditionMap.put("제목", "TITLE");
 		conditionMap.put("내용", "CONTENT");
@@ -78,58 +78,55 @@ public class NoticeController {
 	}
 
 	@RequestMapping("/getNoticeList.do")
-	public String getNoticeList(@RequestParam(value="searchCondition",
-	defaultValue="TITLE",required=false) String condition,
-			@RequestParam(value="searchKeyword", defaultValue="", required=false) String keyword,
-			@RequestParam(value="pNo", defaultValue="1", required=false) int pNo,
-			NoticeVO vo, Model model) {
+	public String getNoticeList(
+			@RequestParam(value = "searchCondition", defaultValue = "TITLE", required = false) String condition,
+			@RequestParam(value = "searchKeyword", defaultValue = "", required = false) String keyword,
+			@RequestParam(value = "pNo", defaultValue = "1", required = false) int pNo, NoticeVO vo, Model model) {
 		System.out.println(condition);
 		System.out.println(keyword);
-		vo.setSearchKeyword("%"+keyword+"%");
-		vo.setStartRow((pNo-1)*size);
+		vo.setSearchKeyword("%" + keyword + "%");
+		vo.setStartRow((pNo - 1) * size);
 		vo.setSize(size);
 		System.out.println(vo);
 		int forTotal = noticeService.getCountTotalNotice(vo);
-		if(condition.equals("TITLE") && !keyword.equals("") && keyword != null){
+		if (condition.equals("TITLE") && !keyword.equals("") && keyword != null) {
 			List<NoticeVO> timeModify = noticeService.getNoticeListByTitle(vo);
-			for(NoticeVO notice : timeModify){
+			for (NoticeVO notice : timeModify) {
 				Date date = notice.getNotice_reg();
 				cal.setTime(date);
-				cal.add(Calendar.HOUR, 9);
+
 				notice.setReg_date(sdf.format(cal.getTime()));
 			}
 			NoticePage page = new NoticePage(forTotal, pNo, size, timeModify);
-			model.addAttribute("noticePage",page);
-//			model.addAttribute("noticeList", timeModify);
+			model.addAttribute("noticePage", page);
+			// model.addAttribute("noticeList", timeModify);
 			System.out.println(noticeService.getNoticeList(vo));
-		}else if(condition.equals("CONTENT") && !keyword.equals("") && keyword != null){
+		} else if (condition.equals("CONTENT") && !keyword.equals("") && keyword != null) {
 			List<NoticeVO> timeModify = noticeService.getNoticeListByContent(vo);
-			for(NoticeVO notice : timeModify){
+			for (NoticeVO notice : timeModify) {
 				Date date = notice.getNotice_reg();
 				cal.setTime(date);
-				cal.add(Calendar.HOUR, 9);
+
 				notice.setReg_date(sdf.format(cal.getTime()));
 			}
 			NoticePage page = new NoticePage(forTotal, pNo, size, timeModify);
-			model.addAttribute("noticePage",page);
-//			model.addAttribute("noticeList", timeModify);
+			model.addAttribute("noticePage", page);
+			// model.addAttribute("noticeList", timeModify);
 			System.out.println(noticeService.getNoticeList(vo));
-		}else if(keyword.equals("") || keyword == null || keyword.equals("%%")){
+		} else if (keyword.equals("") || keyword == null || keyword.equals("%%")) {
 			List<NoticeVO> timeModify = noticeService.getNoticeList(vo);
-			for(NoticeVO notice : timeModify){
+			for (NoticeVO notice : timeModify) {
 				Date date = notice.getNotice_reg();
 				cal.setTime(date);
-				cal.add(Calendar.HOUR, 9);
+
 				notice.setReg_date(sdf.format(cal.getTime()));
 			}
 			NoticePage page = new NoticePage(forTotal, pNo, size, timeModify);
-			model.addAttribute("noticePage",page);
-//			model.addAttribute("noticeList", timeModify);
+			model.addAttribute("noticePage", page);
+			// model.addAttribute("noticeList", timeModify);
 			System.out.println(noticeService.getNoticeList(vo));
 		}
 		return "getNoticeList.jsp";
 	}
-	
-		
-	
+
 }

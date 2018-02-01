@@ -16,8 +16,22 @@ public class ReviewVO {
 	private String fileName_date;
 	private Date re_reg;
 	private String reg_date;
+	private String p_common_name;
+	private int s_o;
 	
 	
+	public String getP_common_name() {
+		return p_common_name;
+	}
+	public void setP_common_name(String p_common_name) {
+		this.p_common_name = p_common_name;
+	}
+	public int getS_o() {
+		return s_o;
+	}
+	public void setS_o(int s_o) {
+		this.s_o = s_o;
+	}
 	public String getReg_date() {
 		return reg_date;
 	}
@@ -79,12 +93,15 @@ public class ReviewVO {
 	public void setM_name(String m_name) {
 		this.m_name = m_name;
 	}
-	
 	@Override
 	public String toString() {
-		return "ReviewVO [re_no=" + re_no + ", re_title=" + re_title + ", m_no=" + m_no + ", re_content=" + re_content + ", reg_date=" + reg_date
-				+ ", m_name=" + m_name + ", uploadFile=" + uploadFile +  ", m_id=" + m_id +  ", fileName_date=" + fileName_date + "]";
+		return "ReviewVO [re_no=" + re_no + ", re_title=" + re_title + ", m_no=" + m_no + ", re_content=" + re_content
+				+ ", m_name=" + m_name + ", uploadFile=" + uploadFile + ", m_id=" + m_id + ", fileName_date="
+				+ fileName_date + ", re_reg=" + re_reg + ", reg_date=" + reg_date + ", p_common_name=" + p_common_name
+				+ ", s_o=" + s_o + "]";
 	}
+	
+
 	
 	
 	

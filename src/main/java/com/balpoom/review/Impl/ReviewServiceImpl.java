@@ -38,5 +38,8 @@ public class ReviewServiceImpl implements ReviewService {
 	public List<ReviewVO> getReviewList(ReviewVO vo){
 		return ReviewDAO.getReviewList(vo);
 	}
+	public List<ReviewVO> getMypageReviewList(ReviewVO vo){
+		return ReviewDAO.getMypageReviewList(vo);
+	} 
 	
 }

@@ -8,5 +8,17 @@
 		select * from seller
 		where s_id=#{s_id} and s_password=#{s_password}
 	</select>
+	
+	<select id="getSellerOrderLookup" resultType="sellerOrderList">
+		select distinct o_no,o_date,p_name,p_price,p_size,cart.c_cnt,
+		sender_name,sender_cellphone1,sender_cellphone2,sender_cellphone3,m_address_postcode,m_address_primary,m_address_detail,
+		receiver_name,receiver_address_postcode,receiver_address_primary,receiver_address_detail,
+		receiver_cellphone1,receiver_cellphone2,receiver_cellphone3,receiver_requirement
+		from seller,register,product,cart,orders,member
+		where register.s_no = #{s_no} and register.p_common_name = product.p_common_name
+		and product.p_identifier = cart.p_identifier and cart.m_no = orders.m_no and orders.m_no = member.m_no
+		and cart.validity = 2
+		order by o_no;
+	</select>
 
 </mapper>

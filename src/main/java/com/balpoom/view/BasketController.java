@@ -18,46 +18,47 @@ import com.balpoom.notice.NoticeVO;
 @Controller
 @SessionAttributes("basket")
 public class BasketController {
-	
+
 	@Autowired
 	private BasketService basketService;
-	
-	
+
 	@RequestMapping("/deleteBasket.do")
 	public String deleteNotice(BasketVO vo) {
 		basketService.deleteBasket(vo);
-		
+
 		System.out.println(basketService.getBasketList(vo));
 		return "getBasketList.do";
 	}
-	
+
 	@RequestMapping(value = "/getBasketList.do")
 	public String getBasketList(HttpServletRequest request, Model model) {
-			HttpSession session = request.getSession();
-			MemberVO curLogin = (MemberVO)session.getAttribute("authMember");
-			BasketVO vo = new BasketVO();
-			vo.setM_no(curLogin.getM_no());
-			
-			System.out.println(curLogin.getM_no());
-			
-			model.addAttribute("basketList",basketService.getBasketList(vo));
-			model.addAttribute("basketListsize",basketService.getBasketList(vo).size()); //장바구니 상품 유무
-			System.out.println(basketService.getBasketList(vo));
-			return "basket.jsp";
+		HttpSession session = request.getSession();
+		MemberVO curLogin = (MemberVO) session.getAttribute("authMember");
+		BasketVO vo = new BasketVO();
+		vo.setM_no(curLogin.getM_no());
+
+		System.out.println(curLogin.getM_no());
+
+		model.addAttribute("basketList", basketService.getBasketList(vo));
+		model.addAttribute("basketListsize", basketService.getBasketList(vo).size()); // 장바구니
+																						// 상품
+																						// 유무
+		System.out.println(basketService.getBasketList(vo));
+		return "basket.jsp";
 
 	}
-	
+
 	@RequestMapping("/orderForm.do")
-	   public String order_basket_list(HttpServletRequest request, Model model) {
-	      HttpSession session = request.getSession();
-	      MemberVO curLogin = (MemberVO)session.getAttribute("authMember");
-	      BasketVO vo = new BasketVO();
-	      vo.setM_no(curLogin.getM_no());
-	      
-	      System.out.println(curLogin.getM_no());
-	      
-	      model.addAttribute("basketList",basketService.getBasketList(vo));
-	      
-	      return "orderForm.jsp";
-	   }
+	public String order_basket_list(HttpServletRequest request, Model model) {
+		HttpSession session = request.getSession();
+		MemberVO curLogin = (MemberVO) session.getAttribute("authMember");
+		BasketVO vo = new BasketVO();
+		vo.setM_no(curLogin.getM_no());
+
+		System.out.println(curLogin.getM_no());
+
+		model.addAttribute("basketList", basketService.getBasketList(vo));
+
+		return "orderForm.jsp";
+	}
 }

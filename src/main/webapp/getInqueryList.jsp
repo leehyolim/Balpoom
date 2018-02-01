@@ -14,6 +14,18 @@
 <link rel="stylesheet" href="./css/getBoardList_Inquiry1.css">
 </head>
 
+<script>
+	function check(){
+		if (document.search.searchKeyword.value == '') {
+            alert("검색어를 입력하세요.");
+            document.search.searchKeyword.focus();
+            return;
+        }
+        document.search.submit();
+    }
+	
+</script>
+
 <body>
 	<center>
 		<br>
@@ -24,12 +36,12 @@
 			<form action="getInqueryList.do" method="post">
 				<div class="selectDiv">
 
-					<select id="selectBox" name="searchCondition">
-						<option>제목</option>
-						<option>내용</option>
-					</select> <input id="selectText" name="searchKeyword" type="text"> <input
-						id="selectBtn" type="submit" value="검색" style="cursor: pointer">
-
+					<select id="selectBox" name="searchCondition" size="1">
+						<option value="TITLE" <c:if test="${'TITLE'== searchCondition}">selected</c:if>>제목</option>
+						<option value="CONTENT" <c:if test="${'CONTENT'== searchCondition}">selected</c:if>>내용</option>
+					</select>
+					 <input id="selectText" name="searchKeyword" value = "${searchKeyword }" type="text">
+					 <input	id="selectBtn" type="submit" value="검색" style="cursor: pointer" onclick="check()">
 				</div>
 				<c:if test="${ ! empty authMember }">
 					<a href="insertInquery.jsp"><p class="inquiryBtn"

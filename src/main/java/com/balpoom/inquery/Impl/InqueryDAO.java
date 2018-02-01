@@ -56,4 +56,10 @@ public class InqueryDAO {
 	public void updateCnt(InqueryVO vo){
 		mybatis.update("InqueryDAO.updateCnt", vo);
 	} 
+	
+	//마이페이지 글목록
+	public List<InqueryVO> getMypageInqueryList(InqueryVO vo) {
+		
+		return mybatis.selectList("InqueryDAO.getInqueryMypageList", vo);
+	} 
 }

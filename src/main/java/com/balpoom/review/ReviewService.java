@@ -14,4 +14,6 @@ public interface ReviewService {
 	
 	List<ReviewVO> getReviewList(ReviewVO vo);
 	
+	List<ReviewVO> getMypageReviewList(ReviewVO vo);
+	
 }

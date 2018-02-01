@@ -60,9 +60,8 @@ public class productController {
 	}
 
 	@RequestMapping("/fitple.do")
-	public ModelAndView doFitple(@RequestParam String p_type,
-			@RequestParam int s1,@RequestParam int s2,@RequestParam int s3,
-			@RequestParam int s4,@RequestParam int s5){
+	public ModelAndView doFitple(@RequestParam String p_type, @RequestParam int s1, @RequestParam int s2,
+			@RequestParam int s3, @RequestParam int s4, @RequestParam int s5) {
 		List<String> smallCategory = new ArrayList<>();
 		ModelAndView mav = new ModelAndView();
 		OverallProductVO vo = new OverallProductVO();
@@ -80,11 +79,11 @@ public class productController {
 		System.out.println(s5);
 		List<OverallProductVO> fitple = productService.doFitple(vo);
 		List<OverallProductVO> best = productService.getBests(vo);
-		for(OverallProductVO o : fitple){
+		for (OverallProductVO o : fitple) {
 			cal.setTime(o.getR_reg());
 			o.setModify_date((sdf.format(cal.getTime())));
 		}
-		for(OverallProductVO b : best){
+		for (OverallProductVO b : best) {
 			cal.setTime(b.getR_reg());
 			b.setModify_date((sdf.format(cal.getTime())));
 		}
@@ -111,13 +110,13 @@ public class productController {
 			smallCategory.add("Sports");
 			smallCategory.add("Classic");
 		}
-		mav.addObject("smallCategory",smallCategory);
-		mav.addObject("overall",fitple);
+		mav.addObject("smallCategory", smallCategory);
+		mav.addObject("overall", fitple);
 		mav.addObject("best", best);
 		mav.setViewName("productList.jsp");
 		return mav;
 	}
-	
+
 	@RequestMapping("getOveralls.do")
 	public ModelAndView getOveralls(@RequestParam String p_type) {
 		List<String> smallCategory = new ArrayList<>();
@@ -128,11 +127,11 @@ public class productController {
 		vo2.setP_type(p_type);
 		List<OverallProductVO> overall = productService.getOveralls(vo);
 		List<OverallProductVO> best = productService.getBests(vo2);
-		for(OverallProductVO o : overall){
+		for (OverallProductVO o : overall) {
 			cal.setTime(o.getR_reg());
 			o.setModify_date((sdf.format(cal.getTime())));
 		}
-		for(OverallProductVO b : best){
+		for (OverallProductVO b : best) {
 			cal.setTime(b.getR_reg());
 			b.setModify_date((sdf.format(cal.getTime())));
 		}
@@ -161,7 +160,7 @@ public class productController {
 			smallCategory.add("Sports");
 			smallCategory.add("Classic");
 		}
-		mav.addObject("smallCategory",smallCategory);
+		mav.addObject("smallCategory", smallCategory);
 		mav.setViewName("productList.jsp");
 		return mav;
 	}
@@ -177,11 +176,11 @@ public class productController {
 		vo2.setP_type(p_type);
 		List<OverallProductVO> overall = productService.getOverallsDetails(vo);
 		List<OverallProductVO> best = productService.getBests(vo2);
-		for(OverallProductVO o : overall){
+		for (OverallProductVO o : overall) {
 			cal.setTime(o.getR_reg());
 			o.setModify_date((sdf.format(cal.getTime())));
 		}
-		for(OverallProductVO b : best){
+		for (OverallProductVO b : best) {
 			cal.setTime(b.getR_reg());
 			b.setModify_date((sdf.format(cal.getTime())));
 		}
@@ -210,7 +209,7 @@ public class productController {
 			smallCategory.add("Sports");
 			smallCategory.add("Classic");
 		}
-		mav.addObject("smallCategory",smallCategory);
+		mav.addObject("smallCategory", smallCategory);
 		mav.setViewName("productList.jsp");
 		return mav;
 	}
@@ -402,8 +401,5 @@ public class productController {
 	public void getRegister(RegisterVO rvo) {
 		productService.getRegister(rvo);
 	}
-	
-	
-
 
 }

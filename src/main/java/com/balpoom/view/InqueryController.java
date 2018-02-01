@@ -37,9 +37,8 @@ public class InqueryController {
 
 	// 글 등록
 	@RequestMapping(value = "/insertInquery.do")
-	public ModelAndView insertInquery(InqueryVO vo, HttpServletRequest request) throws IOException{
-		
-		
+	public ModelAndView insertInquery(InqueryVO vo, HttpServletRequest request) throws IOException {
+
 		System.out.println(4);
 
 		// System.out.println("글 등록 처리");
@@ -50,10 +49,9 @@ public class InqueryController {
 		InqueryService.insertInquery(vo);
 		System.out.println(vo.toString());
 
-		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("getInqueryList.do");
-		
+
 		return mav;
 	}
 
@@ -97,12 +95,11 @@ public class InqueryController {
 		InqueryVO timeModify = InqueryService.getInquery(vo);
 		Date date = timeModify.getInqu_reg();
 		cal.setTime(date);
-		cal.add(Calendar.HOUR, 9);
+
 		timeModify.setReg_date(sdf.format(cal.getTime()));
 		model.addAttribute("Inquery", timeModify);
 		return "getInquery.jsp";
-		
-		
+
 	}
 
 	// 글 목록 검색
@@ -111,27 +108,26 @@ public class InqueryController {
 	public String getInquiryInqueryList(InqueryVO vo, InqueryDAO InqueryDAO, Model model) {
 
 		logger.debug("[LOG] 글 목록 검색");
-		
+
 		// NULL Check
 		if (vo.getSearchCondition() == null)
 			vo.setSearchCondition("TITLE");
 		if (vo.getSearchKeyword() == null)
 			vo.setSearchKeyword("");
-		
-		
+
 		List<InqueryVO> timeModify = InqueryService.getInqueryList(vo);
-		for(InqueryVO inquery : timeModify){
+		for (InqueryVO inquery : timeModify) {
 			Date date = inquery.getInqu_reg();
 			cal.setTime(date);
-			cal.add(Calendar.HOUR, 9);
+
 			inquery.setReg_date(sdf.format(cal.getTime()));
 		}
-		
+
 		model.addAttribute("InqueryList", timeModify);
 		// Model 정보 저장
-		 // Model
-																				// 정보
-																				// 저장
+		// Model
+		// 정보
+		// 저장
 		return "getInqueryList.jsp";
 	}
 

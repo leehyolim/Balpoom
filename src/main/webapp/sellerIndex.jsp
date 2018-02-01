@@ -38,12 +38,14 @@
                   <div id="Product" class="tabcontent">
                     
                     <!-- <p>상품등록화면 입니다.</p> -->
+                    <br><br><br><br><br><br>
                     <jsp:include page="sellerProductInsertForm.jsp"></jsp:include> 
                   </div>
                   
                   <div id="Order" class="tabcontent">
                     
-                    <p>주문관리화면 입니다.</p>
+                    <!-- <p>주문관리화면 입니다.</p> -->
+                    <jsp:include page="getSellerOrderLookup.do"></jsp:include> 
                   </div>
                   <div id="Inquiry" class="tabcontent">
                         

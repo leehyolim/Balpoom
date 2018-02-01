@@ -22,4 +22,7 @@
   		update review set re_content = #{re_content}, re_title = #{re_title} where re_no=#{re_no}
   	</select>
   	
+  	<select id="getReviewMypageList" resultType="Review">
+  		select * from review, register where review.r_no = register.r_no and review.m_no = #{m_no}
+  	</select>
   </mapper>

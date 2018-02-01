@@ -48,10 +48,12 @@ ${authMember.m_name }님의 회원등급은 <font color="#848484"><b>새내기</
             </div>
             </a>
             
+            <a href="myPageGetBoardList.do?m_no=${authMember.m_no}">
             <div class="mpBox" onMouseOver="this.style.backgroundColor='#FAFAFA'; "onMouseOut="this.style.backgroundColor='#FFFFFF'" style=" cursor: pointer;">
                 <p class="mpBoxTitle">MY BOARD</p>
                 <p class="mpBoxText">게시물 관리</p>
             </div>
+            </a>
             
             <a href="mypage_update.jsp">
             <div class="mpBox" onMouseOver="this.style.backgroundColor='#FAFAFA'; "onMouseOut="this.style.backgroundColor='#FFFFFF'" style=" cursor: pointer;">

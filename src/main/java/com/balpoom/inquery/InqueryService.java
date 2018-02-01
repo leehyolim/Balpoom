@@ -17,4 +17,6 @@ public interface InqueryService {
 	InqueryVO getInquery(InqueryVO vo);
 	
 	List<InqueryVO> getInqueryList(InqueryVO vo);
+	
+	List<InqueryVO> getMypageInqueryList(InqueryVO vo);
 }

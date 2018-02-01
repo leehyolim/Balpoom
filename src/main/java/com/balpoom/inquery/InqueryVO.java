@@ -19,6 +19,27 @@ public class InqueryVO {
 	private String m_id;
 	private String fileName_date;
 	private String reg_date;
+	
+	private String p_common_name;
+	private int s_o;
+	
+	
+
+	public String getP_common_name() {
+		return p_common_name;
+	}
+
+	public void setP_common_name(String p_common_name) {
+		this.p_common_name = p_common_name;
+	}
+
+	public int getS_o() {
+		return s_o;
+	}
+
+	public void setS_o(int s_o) {
+		this.s_o = s_o;
+	}
 
 	public String getReg_date() {
 		return reg_date;
@@ -139,9 +160,11 @@ public class InqueryVO {
 		return "InqueryVO [inqu_no=" + inqu_no + ", inqu_title=" + inqu_title + ", inqu_reg=" + inqu_reg + ", inqu_cnt="
 				+ inqu_cnt + ", inqu_content=" + inqu_content + ", searchCondition=" + searchCondition
 				+ ", searchKeyword=" + searchKeyword + ", m_no=" + m_no + ", p_no=" + p_no + ", m_name=" + m_name
-				+ ", m_id=" + m_id + ", fileName_date=" + fileName_date + ", reg_date=" + reg_date + ", uploadFile="
-				+ uploadFile + "]";
+				+ ", m_id=" + m_id + ", fileName_date=" + fileName_date + ", reg_date=" + reg_date + ", p_common_name="
+				+ p_common_name + ", s_o=" + s_o + ", uploadFile=" + uploadFile + "]";
 	}
+
+
 
 	
 
