@@ -23,7 +23,4 @@ public class OrderServiceImpl implements OrderService{
 	public List<OrderVO> getOrderList(OrderVO vo) {
 		return orderDAO.getOrderList(vo);
 	}
-	
-	
-	
 }

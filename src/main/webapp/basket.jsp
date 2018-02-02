@@ -23,7 +23,6 @@
 		<hr id="t">
 	</div>
 	
-	
 	<form action="getBasketList.do" method="post">
 	
 	<div class="cart_list_table">

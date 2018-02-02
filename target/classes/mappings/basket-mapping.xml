@@ -4,12 +4,11 @@
 
 <mapper namespace="BasketDAO">
 	<!-- <insert id="addBasket"> </insert> <delete id="deleteBasket"> </delete> -->
-
+	
 	<delete id="deleteBasket">
 		DELETE FROM cart WHERE c_no = #{c_no}
 	</delete>
-
-
+	
 	<select id="getBasketList" resultType="basket">
 		select c_no,m_no,p_name,c_cnt,p_price,cart.p_identifier from cart,product
 		where cart.p_identifier = product.p_identifier
@@ -25,5 +24,10 @@
 		select distinct p_common_name from cart, product 
 		where product.p_identifier = cart.p_identifier and cart.validity = 1)
 	</update>
+	
+	<insert id="addBasket">
+		insert into cart(m_no,c_cnt,p_identifier) 
+		values(#{m_no}, #{c_cnt}, #{p_identifier});
+	</insert>
 	
 </mapper>

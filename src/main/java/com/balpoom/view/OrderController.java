@@ -26,6 +26,18 @@ public class OrderController {
 	@Autowired
 	private BasketService basketService;
 
+	
+	@RequestMapping("/detailaddOrder.do")
+	public String detailaddOrder(HttpServletRequest request, Model model) {
+		HttpSession session = request.getSession();
+		MemberVO curLogin = (MemberVO) session.getAttribute("authMember");
+		OrderVO vo = new OrderVO();
+		vo.setM_no(curLogin.getM_no());	
+		System.out.println(curLogin.getM_no());
+		
+		return "detail_orderForm.jsp";
+	}
+	
 	@RequestMapping("/addOrder.do")
 	public String addOrder(BasketVO vo1, OrderVO vo, Model model) throws IOException {
 		if (vo.getSender_name() == null || vo.getSender_name().equals("")) {

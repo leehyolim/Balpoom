@@ -18,7 +18,7 @@ public class OrderDAO {
 		mybatis.insert("OrderDAO.addOrder",vo);
 	}
 	
-public List<OrderVO> getOrderList(OrderVO vo) {
+	public List<OrderVO> getOrderList(OrderVO vo) {
 		
 		System.out.println("---> mybatis로 getOrderList() 기능 처리");
 		return mybatis.selectList("OrderDAO.getOrderList",vo);

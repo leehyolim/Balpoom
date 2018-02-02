@@ -32,9 +32,9 @@
 					<td align="center" scope="row" style="width: 10%;height: 50px">${sellerlist.p_size}</td>
 					<td align="center" scope="row" style="width: 10%;height: 50px">${sellerlist.c_cnt}</td>
 				</tr>
-			<div class="detailOrder">
+			<%-- <div class="detailOrder">
 				${sellerlist.p_size}
-			</div>
+			</div> --%>
 			</c:forEach>			
 		</tbody>
 	</table>

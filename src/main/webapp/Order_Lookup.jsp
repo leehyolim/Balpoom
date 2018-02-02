@@ -11,7 +11,6 @@
 <body>
 	<div id="order_lookup">
 	<jsp:include page="header.jsp"/>
-		
 		<div class="titleArea">
 			<h2>
 				<img src="./img/order_lookup.gif" alt="주문조회">

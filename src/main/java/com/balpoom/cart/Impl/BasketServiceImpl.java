@@ -16,7 +16,7 @@ public class BasketServiceImpl implements BasketService{
 	
 	@Override
 	public void addBasket(BasketVO vo) {
-		
+		basketDAO.addBasket(vo);
 	}
 
 	@Override
