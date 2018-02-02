@@ -14,13 +14,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.balpoom.notice.NoticeVO;
+import com.balpoom.review.ReviewPage;
 import com.balpoom.review.ReviewService;
 import com.balpoom.review.ReviewVO;
-import com.balpoom.review.Impl.ReviewDAO;
 
 @Controller
 @SessionAttributes("Review")
@@ -102,21 +102,34 @@ public class ReviewController {
 	}
 
 	@RequestMapping("/getReviewList.do")
-	public String getReviewList(ReviewVO vo, ReviewDAO reviewDAO, Model model) {
+	public String getReviewList(ReviewVO vo, Model model,
+			@RequestParam(value = "pNo", defaultValue = "1", required = false) int pNo) {
 		System.out.println(vo.toString());
+		vo.setStartRow((pNo - 1) * size);
+		vo.setSize(size);
 		List<ReviewVO> timeModify = reviewService.getReviewList(vo);
+		int total = reviewService.getTotalReviewCount(vo);
 		for (ReviewVO review : timeModify) {
 			Date date = review.getRe_reg();
 			cal.setTime(date);
 
 			review.setReg_date(sdf.format(cal.getTime()));
 		}
-
-		model.addAttribute("getReviewList", timeModify);
+		ReviewPage page = new ReviewPage(total, pNo, size, timeModify);
+//		model.addAttribute("getReviewList", timeModify);
+		model.addAttribute("ReviewPage", page);
+		model.addAttribute("r_no", vo.getR_no());
 
 		System.out.println(vo.toString());
 
 		return "getReviewList.jsp";
 
+	}
+	
+	@RequestMapping("/getReview_mypage.do")
+	public String getReview_mypage(ReviewVO vo, Model model){
+		model.addAttribute("Review", reviewService.getReview(vo));
+		
+		return "getReviewMypage.jsp";
 	}
 }

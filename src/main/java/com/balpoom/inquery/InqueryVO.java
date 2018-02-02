@@ -21,9 +21,36 @@ public class InqueryVO {
 	private String reg_date;
 	
 	private String p_common_name;
-	private int s_o;
+	private int s_no;
+	private int r_no;
+	
+	private int startRow;
+	private int size;
 	
 	
+	public int getStartRow() {
+		return startRow;
+	}
+
+	public void setStartRow(int startRow) {
+		this.startRow = startRow;
+	}
+
+	public int getSize() {
+		return size;
+	}
+
+	public void setSize(int size) {
+		this.size = size;
+	}
+
+	public int getR_no() {
+		return r_no;
+	}
+
+	public void setR_no(int r_no) {
+		this.r_no = r_no;
+	}
 
 	public String getP_common_name() {
 		return p_common_name;
@@ -33,12 +60,12 @@ public class InqueryVO {
 		this.p_common_name = p_common_name;
 	}
 
-	public int getS_o() {
-		return s_o;
+	public int getS_no() {
+		return s_no;
 	}
 
-	public void setS_o(int s_o) {
-		this.s_o = s_o;
+	public void setS_no(int s_o) {
+		this.s_no = s_no;
 	}
 
 	public String getReg_date() {
@@ -161,8 +188,12 @@ public class InqueryVO {
 				+ inqu_cnt + ", inqu_content=" + inqu_content + ", searchCondition=" + searchCondition
 				+ ", searchKeyword=" + searchKeyword + ", m_no=" + m_no + ", p_no=" + p_no + ", m_name=" + m_name
 				+ ", m_id=" + m_id + ", fileName_date=" + fileName_date + ", reg_date=" + reg_date + ", p_common_name="
-				+ p_common_name + ", s_o=" + s_o + ", uploadFile=" + uploadFile + "]";
+				+ p_common_name + ", s_no=" + s_no + ", r_no=" + r_no + ", startRow=" + startRow + ", size=" + size
+				+ ", uploadFile=" + uploadFile + "]";
 	}
+
+
+
 
 
 

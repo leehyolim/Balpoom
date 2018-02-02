@@ -16,4 +16,6 @@ public interface ReviewService {
 	
 	List<ReviewVO> getMypageReviewList(ReviewVO vo);
 	
+	int getTotalReviewCount(ReviewVO vo);
+	
 }

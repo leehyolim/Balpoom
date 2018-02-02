@@ -20,5 +20,9 @@ public interface ProductService {
 	void insertProduct(ProductVO pvo);	
 	void insertRegister(RegisterVO rvo);
 	RegisterVO getRegister(RegisterVO rvo);
+	
+	void updateSellerProduct(ProductVO pvo); //효림 수량변경
+	List<ProductVO> getSellerProductList(ProductVO pvo); //효림 수량변경
+	int getChangeCnt(ProductVO pvo); //효림 수량변경
 
 }

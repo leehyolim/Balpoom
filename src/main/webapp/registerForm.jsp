@@ -155,7 +155,7 @@ button {
 					<td>아이디</td>
 					<td><input type="text" name="m_id" id="m_id" required>
 						<label>공백 없는 영문, 숫자 포함 6-20자</label></td>
-					<td><a href="duplicate.do" id="checkbtn"><button>중복확인</button></a>
+					<td><a href="" id="checkbtn"><button>중복확인</button></a>
 					</td>
 					<!--<td id="checkMsg">
                     </td>-->

@@ -46,6 +46,11 @@ public class InqueryServiceImpl implements InqueryService {
 		return InqueryDAO.getMypageInqueryList(vo);
 	}
 
+	@Override
+	public int getCountTotalInquery(InqueryVO vo) {
+		return InqueryDAO.getCountTotalInquery(vo);
+	}
+
 	
 	
 }

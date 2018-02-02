@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>상품문의</title>
-<link rel="stylesheet" href="./css/myPageGetBoardList.css">
+<link rel="stylesheet" href="./css/myPageGetBoardList.css?ver=1">
 </head>
 
 <body>
@@ -33,12 +33,13 @@
 
 						<tr>
 							<td>${InqueryList.inqu_no}</td>			
-							<td><a href="getInquery.do?inqu_no=${InqueryList.inqu_no}"><b>${InqueryList.p_common_name }</b><br>&nbsp;&nbsp;&nbsp;&nbsp;- ${InqueryList.inqu_title}</a></td>
+							<td><a href="getInquery_mypage.do?inqu_no=${InqueryList.inqu_no}"><b>${InqueryList.p_common_name }</b><br>&nbsp;&nbsp;&nbsp;&nbsp;- ${InqueryList.inqu_title}</a></td>
 							<td>${InqueryList.inqu_reg}</td>
 						</tr>
 					</c:forEach>
-
 				</table>
+			</form>
+			<form action="getReviewList.do" method="post">
 				<br>
 				<br>				
 				<p class="pibTitle">${authMember.m_name }님의 상품 후기</p>
@@ -51,17 +52,17 @@
 					<c:forEach items="${ReviewList}" var="ReviewList">
 						<tr>
 							<td>${ReviewList.re_no}</td>			
-							<td><a href="getReview.do?re_no=${ReviewList.re_no}"><b>${ReviewList.p_common_name }</b><br>&nbsp;&nbsp;&nbsp;&nbsp;- ${ReviewList.re_title}</a></td>
+							<td><a href="getReview_mypage.do?re_no=${ReviewList.re_no}"><b>${ReviewList.p_common_name }</b><br>&nbsp;&nbsp;&nbsp;&nbsp;- ${ReviewList.re_title}</a></td>
 							<td>${ReviewList.re_reg}</td>
 						</tr>
 					</c:forEach>
-
+				
 				</table>
+			</form>
 		</div>
-		</form>
+		
 	</center>
-
+	
 </body>
-
 
 </html>

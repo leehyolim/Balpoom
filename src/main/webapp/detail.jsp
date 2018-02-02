@@ -8,28 +8,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./css/detail_edit.css" />
+    <link rel="stylesheet" href="./css/detail_edit.css?ver=5" />
     <title>Document</title>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-
 </head>
-
 <body>
     <div class="wrapper">
         <div class="detail_Info">
             <diV class="half_detail_Info_Img">
                 <div class="show_Img">
-                    <img src="">
+	        		<img class="showingImg" src="./product_img/${ProductOne.fileNameDate }/${ProductOne.p_common_name }/${ProductOne.fileNameDate }_${ProductOne.p_common_name }0.jpg">	        
                 </div>
-                <div class="wating_Img">
-
+                <div class="wating_Img_place">                
+					<img class="wating_Img img1" onclick="switchImg(this.src)" src="./product_img/${ProductOne.fileNameDate }/${ProductOne.p_common_name }/${ProductOne.fileNameDate }_${ProductOne.p_common_name }0.jpg">                
+					<img class="wating_Img img2" onclick="switchImg(this.src)" src="./product_img/${ProductOne.fileNameDate }/${ProductOne.p_common_name }/${ProductOne.fileNameDate }_${ProductOne.p_common_name }1.jpg">				
                 </div>
             </diV>
             <div class="half_detail_Info_Text">
                 <form action="#">
                     <div class="info_box1">
                         <p class="product_name">
-                            <h1>상품명이 들어갈공간~~</h1>
+                            <h1>${ProductOne.p_name }</h1>
                         </p>
                     </div>
                     <br>
@@ -37,7 +36,7 @@
                         <tr>
                             <td>가격</td>
                             <td>
-                                <span>5000원</span>
+                                <span>${ProductOne.p_price }원</span>
                             </td>
                         </tr>
                         <tr>
@@ -49,10 +48,9 @@
                             <td>색상을 선택해 주세요
                                 <br>
                                 <select class="option_selecter" id="color_selecter" onchange="color_select(this.value)">
-                                    <option>S</option>
-                                    <option>L</option>
-                                    <option>M</option>
-                                    <option>XL</option>
+									<c:forEach var="ProductListC" items="${ProductListC }">
+										<option>${ProductListC.p_color }</option>
+									</c:forEach>
                                 </select>
                             </td>
                         </tr>
@@ -61,16 +59,15 @@
                             <td>사이즈를 선택해 주세요
                                 <br>
                                 <select class="option_selecter" id="size_selecter" onchange="size_select(this.value)">
-                                    <option>S</option>
-                                    <option>L</option>
-                                    <option>M</option>
-                                    <option>XL</option>
+									<c:forEach var="ProductListS" items="${ProductListS }">
+										<option>${ProductListS.p_size }</option>
+									</c:forEach>
                                 </select>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="2">
-                                옵션은 5개 까지 추가 가능합니다 &nbsp;&nbsp;&nbsp;
+								옵션은 5개 까지 추가 가능합니다 &nbsp;&nbsp;&nbsp;
                                 <button type="button" onclick="valueShow()" class="evtBtn">옵션 추가</button>
                             </td>
                         </tr>
@@ -79,9 +76,9 @@
                             </td>
                         </tr>
                     </table>
-
                     <br>
-                    <input type="hidden" value="5000" id="base_price">
+                    <input type="hidden" value="${ProductOne.p_price }" id="base_price">
+                    <input type="hidden" value="${ProductOne.p_common_name }" id="p_common_name">
                     <button type="submit" class="pageMoveBtn">바로 주문</button>
                 </form>
                 <form action"#" class="cartData">
@@ -89,26 +86,78 @@
                 </form>
             </div>
         </div>
+        <div class="detail_pageBox">
+        	<div class="detail_toolBox">
+        		<a onclick="changeAction_place(this.id)" id="product_info"><div class="tool"><p>상세 설명</p></div></a>
+        		<a href="getReviewList.do?r_no=${ProductOne.r_no }" target="action_place" onclick="changeAction_place(this.id)" id="product_iframe"><div class="tool"><p>상품 후기</p></div></a>
+        		<a href="getInqueryList.do?r_no=${ProductOne.r_no }" target="action_place" onclick="changeAction_place(this.id)" id="product_iframe"><div class="tool"><p>상품 문의</p></div></a>
+        		<a onclick="changeAction_place(this.id)" id="delivery_info"><div class="tool"><p>배송 정보</p></div></a>
+	        </div> 
+	        <br><br><br><br>       
+	        <iframe class="action_place_iframe" name="action_place"></iframe> 
+			<div class="product_img_place">
+	        	<img src="./product_img/${ProductOne.fileNameDate }/${ProductOne.p_common_name }/${ProductOne.fileNameDate }_${ProductOne.p_common_name }2.jpg">
+	        	<img src="./product_img/${ProductOne.fileNameDate }/${ProductOne.p_common_name }/${ProductOne.fileNameDate }_${ProductOne.p_common_name }3.jpg">
+	        	<img src="./product_img/${ProductOne.fileNameDate }/${ProductOne.p_common_name }/${ProductOne.fileNameDate }_${ProductOne.p_common_name }4.jpg">
+	        </div>
+	        <div class="deliveryInfo_img_place">
+	        	<img src="./img/배송정보title.jpg">
+	        	<img src="./img/배송정보.jpg">
+	        </div>
+	         
+        </div>
     </div>
 
     <script>
+    	$(function(){
+    		$('.product_img_place').show();
+			$('.action_place_iframe').hide();
+			$('.deliveryInfo_img_place').hide();
+    	})
+    	
+    	function changeAction_place(id){
+    		var toolboxId = id;
+    		console.log(toolboxId);
+    		if(toolboxId=="product_info"){
+    			$('.product_img_place').show();
+    			$('.action_place_iframe').hide();
+    			$('.action_place_iframe').hide();
+    		}else if(toolboxId=="product_iframe"){
+    			$('.product_img_place').hide();
+    			$('.action_place_iframe').show();
+    			$('.deliveryInfo_img_place').hide();
+    		}else if(toolboxId=="delivery_info"){
+    			$('.product_img_place').hide();
+    			$('.action_place_iframe').hide();
+    			$('.deliveryInfo_img_place').show();
+    		}
+    	}
+    
+    
+    
+    
         var color = $("#color_selecter option:selected").val();
-        var size = $("#size_selecter option:selected").val();;
+        var size = $("#size_selecter option:selected").val();
         var amount = $("#size_selecter option:selected").val();
+        var name = $("#p_common_name").val();
         var price = $("#base_price").val();
-        var index = 5;
+        var index = 1;
         var index_tmp = [0, 0, 0, 0, 0];
 
         function valueShow() {
-            size_select(size);
-            color_select(color);
+	        size_select(size);
+           	color_select(color);
             price_picker(price);
+            common_name_Picker(name);
+            
             console.log(color);
             console.log(size);
             console.log(price);
+            console.log(name);
 
 
             for (var i = 0; i < index; i++) {
+            	console.log(index);
                 if (index_tmp[i] != 1) {
                     var a = '';
                     var b = '';
@@ -121,12 +170,14 @@
                     a += '<p id = "pricexamount' + i + '" class="pricexamount">' + price + '원</p><p id="remove_amount_set' + i + '" class="remove_amount_set" onclick="removeDiv(this.id)">X<p>'
                     a += '</div>';
                     a += '<input type="hidden" name="price' + i + '" value="' + price + '">';
-                    a += '<input type="hidden" name="p_identifier' + i + '" value="p_common_name/' + color + '/' + size + '">';
+                    a += '<input type="hidden" name="p_identifier' + i + '" value="'+name+'/' + color + '/' + size + '">';
                     a += '<input type="hidden" name="c_cnt' + i + '" value="1">';
+                    a+='<input type="hidden" name="index' + i + '" value='+index+'>';
                     index_tmp[i] = 1;
-                    
+                    index++;
+                    console.log(index);
                     b += '<div class="amount_set_clone" id="amount_set_clone'+i+'"><input class="clone" type="hidden" name="p_identifier' + i + '" value="p_common_name/' + color + '/' + size + '">';
-                    b += '<input class="clone" type="hidden" name="c_cnt' + i + '" value="1"></div>';
+                    b += '<input class="clone" type="hidden" name="c_cnt' + i + '" value="1"><input type="hidden" name="index' + i + '" value='+index+'"></div>';
                     $(".amount_set_TR").show();
                     $(".amount_set_TD").append(a);
                     $(".cartData").append(b);
@@ -145,6 +196,9 @@
         }
         function price_picker(value) {
             price = value;
+        }
+        function common_name_Picker(value){
+        name = value;
         }
 
         function plusAmount(id) {
@@ -216,7 +270,7 @@
         }
         function minusAmount(id) {
 
-            if (id == ("increaseQuantity" + 0)) {
+            if (id == ("decreaseQuantity" + 0)) {
                 amount = parseInt($('#numberUpDown' + 0).val());
                 if (amount > 1) {
                     amount -= 1;
@@ -228,7 +282,7 @@
                 } else {
                     alert('최소 구매수량은 1개 입니다.');
                 }
-            } else if (id == ("increaseQuantity" + 1)) {
+            } else if (id == ("decreaseQuantity" + 1)) {
                 amount = parseInt($('#numberUpDown' + 1).val());
                 if (amount > 1) {
                     amount -= 1;
@@ -240,7 +294,7 @@
                 } else {
                     alert('최소 구매수량은 1개 입니다.');
                 }
-            } else if (id == ("increaseQuantity" + 2)) {
+            } else if (id == ("decreaseQuantity" + 2)) {
                 amount = parseInt($('#numberUpDown' + 2).val());
                 if (amount > 1) {
                     amount -= 1;
@@ -252,7 +306,7 @@
                 } else {
                     alert('최소 구매수량은 1개 입니다.');
                 }
-            } else if (id == ("increaseQuantity" + 3)) {
+            } else if (id == ("decreaseQuantity" + 3)) {
                 amount = parseInt($('#numberUpDown' + 3).val());
                 if (amount > 1) {
                     amount -= 1;
@@ -264,7 +318,7 @@
                 } else {
                     alert('최소 구매수량은 1개 입니다.');
                 }
-            } else if (id == ("increaseQuantity" + 4)) {
+            } else if (id == ("decreaseQuantity" + 4)) {
                 amount = parseInt($('#numberUpDown' + 4).val());
                 if (amount > 1) {
                     amount -= 1;
@@ -284,23 +338,37 @@
                 $("#amount_set" + 0).remove();
                 $("#amount_set_clone"+0).remove();
                 index_tmp[0] = 0;
+                index--;
+                console.log(index);
             } else if (id == ("remove_amount_set" + 1)) {
                 $("#amount_set" + 1).remove();
                 $("#amount_set_clone"+1).remove();
                 index_tmp[1] = 0;
+                index--;
+                console.log(index);
             } else if (id == ("remove_amount_set" + 2)) {
                 $("#amount_set" + 2).remove();
                 $("#amount_set_clone"+2).remove();
                 index_tmp[2] = 0;
+                index--;
+                console.log(index);
             } else if (id == ("remove_amount_set" + 3)) {
                 $("#amount_set" + 3).remove();
                 $("#amount_set_clone"+3).remove();
                 index_tmp[3] = 0;
+                index--;
+                console.log(index);
             } else if (id == ("remove_amount_set" + 4)) {
                 $("#amount_set" + 4).remove();
                 $("#amount_set_clone"+4).remove();
                 index_tmp[4] = 0;
+                index--;
+                console.log(index);
             }
+        }
+        
+        function switchImg(src){
+        	$('.showingImg').attr('src',src);
         }
     </script>
 

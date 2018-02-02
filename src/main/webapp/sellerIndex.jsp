@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>판매자센터</title>
-    <link rel="stylesheet" href="./css/sellerIndex1.css?ver=7">
+    <link rel="stylesheet" href="./css/sellerIndex1.css?ver=1">
 
 </head>
 
@@ -20,12 +20,13 @@
             
             <c:if test="${! empty authSeller }">
             <a href="logout.do"><p class="seller_logoutBtn">로그아웃</p></a>
-            <p class="seller_headerText1">${authSeller.s_name }님 환영합니다</p>
+            <p class="seller_headerText1"><font style="font-weight:bold;">${authSeller.s_busi_name }</font>님 환영합니다</p>
             </c:if>
         </div>
         <div class="tab">
                 <p class="tablinks" onclick="openPage(event, 'Home')" id="defaultOpen" style="border-top-left-radius: 4px;">판매자센터 홈</p>
-                <p class="tablinks" onclick="openPage(event, 'Product')">상품등록</p>
+                <p class="tablinks" onclick="openPage(event, 'Product')">상품관리</p>
+                <p class="tablinks" onclick="openPage(event, 'Product2')">상품수량</p>
                 <p class="tablinks" onclick="openPage(event, 'Order')" >주문관리</p>
                 <p class="tablinks" onclick="openPage(event, 'Inquiry')" style="border-top-right-radius: 4px;">문의관리</p>
             </div>
@@ -38,8 +39,12 @@
                   <div id="Product" class="tabcontent">
                     
                     <!-- <p>상품등록화면 입니다.</p> -->
-                    <br><br><br><br><br><br>
                     <jsp:include page="sellerProductInsertForm.jsp"></jsp:include> 
+                  </div>
+                  <div id="Product2" class="tabcontent">
+                  	<jsp:include page="getSellerProductList.do">
+                  		<jsp:param value="${authSeller.s_no }" name="s_no"/>
+                  	</jsp:include>
                   </div>
                   
                   <div id="Order" class="tabcontent">

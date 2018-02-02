@@ -4,6 +4,7 @@ import java.util.List;
 
 
 
+
 public interface InqueryService {
 
 	void insertInquery(InqueryVO vo);
@@ -19,4 +20,6 @@ public interface InqueryService {
 	List<InqueryVO> getInqueryList(InqueryVO vo);
 	
 	List<InqueryVO> getMypageInqueryList(InqueryVO vo);
+	
+	int getCountTotalInquery(InqueryVO vo);
 }

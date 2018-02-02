@@ -7,11 +7,15 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -21,6 +25,8 @@ import com.balpoom.product.OverallProductVO;
 import com.balpoom.product.ProductService;
 import com.balpoom.product.ProductVO;
 import com.balpoom.product.RegisterVO;
+import com.balpoom.product.Impl.ProductDAO;
+import com.balpoom.seller.SellerVO;
 
 @Controller
 @SessionAttributes("Product")
@@ -33,16 +39,12 @@ public class productController {
 
 	@RequestMapping("/getProduct.do")
 	public String getProduct(ProductVO pvo, Model model) {
-
-		model.addAttribute("ProductListGB", productService.getProductGB(pvo));
+		System.out.println(pvo.getR_no());
 		model.addAttribute("ProductList", productService.getProduct(pvo));
+		model.addAttribute("ProductOne", productService.getProduct(pvo).get(0));
+		System.out.println(productService.getProduct(pvo).get(0).toString());
 		model.addAttribute("ProductListS", productService.getProductS(pvo));
 		model.addAttribute("ProductListC", productService.getProductC(pvo));
-		System.out.println(productService.getProductC(pvo));
-		System.out.println(productService.getProductS(pvo));
-		System.out.println(productService.getProduct(pvo));
-		System.out.println("asdf");
-
 		return "detail.jsp";
 
 	}
@@ -248,12 +250,12 @@ public class productController {
 		p_common_name += regdate;
 		p_common_name += p_name;
 		System.out.println(3);
-		RegisterVO rvo = new RegisterVO(regdate, p_common_name, s_no);
+		RegisterVO rvo = new RegisterVO(regdate, p_common_name, s_no ,regdate);
 		System.out.println(4);
 		System.out.println(rvo.toString());
 
 		String productImg_commonName = regdate + "_" + p_common_name;
-		String path = "D:/SpringSpace/BalPoom/src/main/webapp/product_img";
+		String path = "D:\\SpringSpace\\BalPoom/src/main/webapp/product_img";
 		File dir = new File(path, regdate);
 
 		if (!dir.exists()) {
@@ -317,7 +319,7 @@ public class productController {
 
 				System.out.println("첫번째 if절 실행 color" + i + "=NOT NULL");
 
-				p_identifier += "/" + colorOpt[i];
+				p_identifier += "_" + colorOpt[i];
 
 				String tmp = p_identifier;
 				for (int j = 0; j < size.length; j++) {
@@ -331,7 +333,7 @@ public class productController {
 						System.out.println("두번째 if절 실행 size" + j + "=NOT NULL");
 						if (j == 0) {
 							System.out.println("s사이즈 입력시작");
-							p_identifier += "/S";
+							p_identifier += "_S";
 							s_size[0] = Integer.parseInt(req.getParameter("s_size1"));
 							s_size[1] = Integer.parseInt(req.getParameter("s_size2"));
 							s_size[2] = Integer.parseInt(req.getParameter("s_size3"));
@@ -345,7 +347,7 @@ public class productController {
 							System.out.println("s사이즈 입력완료");
 						} else if (j == 1) {
 							System.out.println("m사이즈 입력시작");
-							p_identifier += "/M";
+							p_identifier += "_M";
 							m_size[0] = Integer.parseInt(req.getParameter("m_size1"));
 							m_size[1] = Integer.parseInt(req.getParameter("m_size2"));
 							m_size[2] = Integer.parseInt(req.getParameter("m_size3"));
@@ -358,7 +360,7 @@ public class productController {
 							System.out.println("m사이즈 입력완료");
 						} else if (j == 2) {
 							System.out.println("l사이즈 입력시작");
-							p_identifier += "/L";
+							p_identifier += "_L";
 							l_size[0] = Integer.parseInt(req.getParameter("l_size1"));
 							l_size[1] = Integer.parseInt(req.getParameter("l_size2"));
 							l_size[2] = Integer.parseInt(req.getParameter("l_size3"));
@@ -372,7 +374,7 @@ public class productController {
 
 						} else if (j == 3) {
 							System.out.println("xl사이즈 입력시작");
-							p_identifier += "/XL";
+							p_identifier += "_XL";
 							xl_size[0] = Integer.parseInt(req.getParameter("xl_size1"));
 							xl_size[1] = Integer.parseInt(req.getParameter("xl_size2"));
 							xl_size[2] = Integer.parseInt(req.getParameter("xl_size3"));
@@ -391,7 +393,7 @@ public class productController {
 			}
 
 		}
-		return "result.jsp";
+		return "productInsertCompletePage.jsp";
 	}
 
 	public void insertRegister(RegisterVO rvo) {
@@ -400,6 +402,53 @@ public class productController {
 
 	public void getRegister(RegisterVO rvo) {
 		productService.getRegister(rvo);
+	}
+	
+	
+	@RequestMapping("/getSellerProductList.do")
+	public String getSellerProductList(ProductVO pvo, ProductDAO productDAO, Model model,HttpServletRequest request){
+		System.out.println(1);
+		HttpSession session = request.getSession();
+		System.out.println(session.getAttribute("authSeller"));
+		model.addAttribute("authSeller",session.getAttribute("authSeller"));
+		List<ProductVO> productList = productService.getSellerProductList(pvo);
+		System.out.println(2);
+		model.addAttribute("SellerProductList", productList);
+		System.out.println(3);
+		
+		System.out.println(4);
+		
+		return "getSellerProductList.jsp";
+	}
+	
+	@ResponseBody
+	@RequestMapping("/updateCnt.do")
+	public String updateCnt(HttpServletRequest request){
+		System.out.println(5);
+		HttpSession session = request.getSession();
+		SellerVO loginedSeller = (SellerVO)session.getAttribute("authSeller");
+		
+		String p_identifier = request.getParameter("p_identifier");
+		//String p_cnt = request.getParameter("p_cnt").trim();
+		System.out.println(6);
+		int s_no = loginedSeller.getS_no();
+		int p_cnt = 0;
+		if(request.getParameter("p_cnt")!=null && request.getParameter("p_cnt")!=""){
+			p_cnt = Integer.parseInt(request.getParameter("p_cnt"));
+		}
+		System.out.println(p_identifier);
+		System.out.println(p_cnt);
+		System.out.println(s_no);
+		
+		ProductVO pvo = new ProductVO();
+		pvo.setP_identifier(p_identifier);
+		pvo.setP_cnt(p_cnt);
+		pvo.setS_no(s_no);
+		
+		productService.updateSellerProduct(pvo);
+		int changedCnt = productService.getChangeCnt(pvo);
+		return String.valueOf(changedCnt);
+		
 	}
 
 }

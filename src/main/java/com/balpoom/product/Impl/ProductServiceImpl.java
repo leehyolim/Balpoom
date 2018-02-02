@@ -72,6 +72,19 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 
+	@Override //효림 수량변경
+	public void updateSellerProduct(ProductVO pvo) {
+		productDAO.updateSellerProduct(pvo);
+	}
+	
+	@Override //효림 수량변경
+	public List<ProductVO> getSellerProductList(ProductVO pvo) {
+		return productDAO.getSellerProductList(pvo);
+	}
 
+	@Override //효림 수량변경
+	public int getChangeCnt(ProductVO pvo) {
+		return productDAO.getChangeCnt(pvo);
+	}
 	
 }

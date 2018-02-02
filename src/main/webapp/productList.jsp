@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,20 +13,24 @@
 		<jsp:include page="header.jsp"></jsp:include>
 		<div id="title1">
 			<div id="boTitle">
-				<p id="boTitle">${p_type} BEST</p>
+				<p id="boTitle">${p_type}BEST</p>
 			</div>
-			<c:forEach  var="best" items="${best}">
-				<div id="outer">
-					<div id=divImg>
-						<img id="img1" src="./product_img/${best.modify_date }/${best.p_common_name}/${best.modify_date}_${best.p_common_name}0.jpg"> 
-						<img id="img2" src="./product_img/${best.modify_date }/${best.p_common_name}/${best.modify_date}_${best.p_common_name}1.jpg">
+			<c:forEach var="best" items="${best}">
+				<a href="getProduct.do?r_no=${best.r_no }">
+					<div id="outer">
+						<div id=divImg>
+							<img id="img1"
+								src="./product_img/${best.modify_date }/${best.p_common_name}/${best.modify_date}_${best.p_common_name}0.jpg">
+							<img id="img2"
+								src="./product_img/${best.modify_date }/${best.p_common_name}/${best.modify_date}_${best.p_common_name}1.jpg">
+						</div>
+						<div id=divText>
+							<p class="storeName">${best.s_busi_name }</p>
+							<p class="productName">${best.p_name}</p>
+							<p class="price">${best.p_price }원</p>
+						</div>
 					</div>
-					<div id=divText>
-						<p class="storeName">${best.s_busi_name }</p>
-						<p class="productName">${best.p_name}</p>
-						<p class="price">${best.p_price }원</p>
-					</div>
-				</div>
+				</a>
 			</c:forEach>
 
 		</div>
@@ -34,8 +38,10 @@
 			<div id="outerMenu">
 				<ul>
 					<li>All</li>
-					<c:forEach items="${smallCategory }" var="category"> 
-						<li><a href="getOverallsDetails.do?p_type=${p_type }&p_type_detail=${category }" style="color:black;">${category }</a></li>
+					<c:forEach items="${smallCategory }" var="category">
+						<li><a
+							href="getOverallsDetails.do?p_type=${p_type }&p_type_detail=${category }"
+							style="color: black;">${category }</a></li>
 					</c:forEach>
 				</ul>
 			</div>
@@ -53,19 +59,23 @@
 				</ul>
 			</div>
 			<div id="product">
-			<c:forEach  var="over" items="${overall}">
-				<div id="outer">
-					<div id=divImg>
-						<img id="img1" src="./product_img/${over.modify_date }/${over.p_common_name}/${over.modify_date}_${over.p_common_name}0.jpg"> 
-						<img id="img2" src="./product_img/${over.modify_date }/${over.p_common_name}/${over.modify_date}_${over.p_common_name}1.jpg">
-					</div>
-					<div id=divText>
-						<p class="storeName">${over.s_busi_name }</p>
-						<p class="productName">${over.p_name}</p>
-						<p class="price">${over.p_price }원</p>
-					</div>
-				</div>
-			</c:forEach>
+				<c:forEach var="over" items="${overall}">
+					<a href="getProduct.do?r_no=${over.r_no }">
+						<div id="outer">
+							<div id=divImg>
+								<img id="img1"
+									src="./product_img/${over.modify_date }/${over.p_common_name}/${over.modify_date}_${over.p_common_name}0.jpg">
+								<img id="img2"
+									src="./product_img/${over.modify_date }/${over.p_common_name}/${over.modify_date}_${over.p_common_name}1.jpg">
+							</div>
+							<div id=divText>
+								<p class="storeName">${over.s_busi_name }</p>
+								<p class="productName">${over.p_name}</p>
+								<p class="price">${over.p_price }원</p>
+							</div>
+						</div>
+					</a>
+				</c:forEach>
 
 			</div>
 			<!-- <div id=pagebutton>
@@ -111,7 +121,7 @@
 
 			</div> -->
 		</div>
-				<jsp:include page="footer.jsp"></jsp:include>
+		<jsp:include page="footer.jsp"></jsp:include>
 	</div>
 
 

@@ -7,7 +7,9 @@
   		select * from (select re.re_no, re.re_title, re.re_content, re.m_no, re.re_reg, re.m_name, me.m_id, re.fileName_date from review re, member me where re.m_no = me.m_no) sub where sub.re_no = #{re_no}
   	</select> 
   	<select id="getReviewList" resultType="Review">
-  		select * from review order by re_no desc
+  		select * from review 
+  		where r_no = #{r_no}
+  		order by re_no desc limit #{startRow}, #{size}
   	</select>
   	
   	<select id="insertReview">
@@ -24,5 +26,10 @@
   	
   	<select id="getReviewMypageList" resultType="Review">
   		select * from review, register where review.r_no = register.r_no and review.m_no = #{m_no}
+  	</select>
+  	
+  	<select id="getTotalReviewCount" resultType="Review">
+  		select * from review
+  		where r_no = #{r_no}
   	</select>
   </mapper>

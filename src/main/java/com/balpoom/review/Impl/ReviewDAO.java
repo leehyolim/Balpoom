@@ -43,4 +43,9 @@ public class ReviewDAO {
 	public List<ReviewVO> getMypageReviewList(ReviewVO vo){
 		return mybatis.selectList("ReviewDAO.getReviewMypageList",vo);
 	}
+	
+	public int getTotalReviewCount(ReviewVO vo){
+		List<ReviewVO> total = mybatis.selectList("ReviewDAO.getTotalReviewCount",vo);
+		return total.size();
+	}
 }

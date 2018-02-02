@@ -16,13 +16,11 @@
 
 <body>
 	<center>
-		<br>
-		<br>
-		<br>
+		<br> <br> <br>
 		<div id="productInquiryBoard_wrapper">
 			<p class="pibTitle">상품 후기</p>
 			<form action="getReviewList.do" method="post">
-				
+
 				<c:if test="${ ! empty authMember }">
 					<a href="insertReview.jsp"><p class="inquiryBtn"
 							style="cursor: pointer">등록하기</p></a>
@@ -34,20 +32,37 @@
 						<th>제목</th>
 						<th>작성자</th>
 						<th>작성일</th>
-						
+
 					</tr>
 
-					<c:forEach items="${getReviewList}" var="review">
+					<c:forEach items="${ReviewPage.content}" var="review">
 
 						<tr>
 							<td>${review.re_no}</td>
-			
-							<td><a href="getReview.do?re_no=${review.re_no}"> ${review.re_title}</a></td>
+
+							<td><a href="getReview.do?re_no=${review.re_no}">
+									${review.re_title}</a></td>
 							<td>${review.m_name}</td>
 							<td>${review.reg_date}</td>
-							
+
 						</tr>
 					</c:forEach>
+					<c:if test="${ReviewPage.hasReviews() }">
+						<tr>
+							<td colspan="5"><c:if test="${ReviewPage.startPage > 5 }">
+									<a class="paging"
+										href="getReviewList.do?r_no=${r_no }&pNo=${ReviewPage.startPage -5 }">[이전]</a>
+								</c:if> <c:forEach var="pNo" begin="${ReviewPage.startPage }"
+									end="${ReviewPage.endPage }">
+									<a class="paging"
+										href="getReviewList.do?r_no=${r_no }&pNo=${pNo }">[${pNo }]</a>
+								</c:forEach> <c:if test="${ReviewPage.endPage < ReviewPage.totalPages }">
+									<a class="paging"
+										href="getReviewList.do?r_no=${r_no }&pNo=${ReviewPage.startPage+5 }">[다음]</a>
+								</c:if></td>
+						</tr>
+					</c:if>
+
 
 				</table>
 		</div>

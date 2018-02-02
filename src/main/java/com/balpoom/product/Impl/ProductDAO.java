@@ -68,5 +68,20 @@ public class ProductDAO {
 	public RegisterVO getRegister(RegisterVO rvo){
 		return (RegisterVO)mybatis.selectOne("ProductDAO.getRegister",rvo);
 	}
+	
+	public void updateSellerProduct(ProductVO pvo) {//효림 수량변경
+		System.out.println("---> 상품 수량 업데이트 처리");
+		mybatis.update("ProductDAO.updateSellerProduct", pvo);
+		
+	}
 
+	public int getChangeCnt(ProductVO pvo){//효림 수량변경
+		ProductVO vo = (ProductVO)mybatis.selectOne("ProductDAO.getChangeCnt", pvo);
+		return vo.getP_cnt();
+	}
+	public List<ProductVO> getSellerProductList(ProductVO pvo){//효림 수량변경
+		
+		return mybatis.selectList("ProductDAO.getSellerProductList", pvo);
+		
+	}
 }

@@ -61,5 +61,10 @@ public class InqueryDAO {
 	public List<InqueryVO> getMypageInqueryList(InqueryVO vo) {
 		
 		return mybatis.selectList("InqueryDAO.getInqueryMypageList", vo);
-	} 
+	}
+	
+	public int getCountTotalInquery(InqueryVO vo){
+		List<InqueryVO> total = mybatis.selectList("InqueryDAO.getCountTotalInquery",vo);
+		return total.size();
+	}
 }

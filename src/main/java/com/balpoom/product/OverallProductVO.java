@@ -20,8 +20,15 @@ public class OverallProductVO {
 	private int p_s4;
 	private int p_s5;
 	
+	private int r_no;
 	
 	
+	public int getR_no() {
+		return r_no;
+	}
+	public void setR_no(int r_no) {
+		this.r_no = r_no;
+	}
 	public String getModify_date() {
 		return modify_date;
 	}
@@ -106,7 +113,7 @@ public class OverallProductVO {
 		return "OverallProductVO [p_name=" + p_name + ", p_price=" + p_price + ", s_busi_name=" + s_busi_name
 				+ ", p_type=" + p_type + ", p_type_detail=" + p_type_detail + ", p_common_name=" + p_common_name
 				+ ", r_reg=" + r_reg + ", modify_date=" + modify_date + ", p_s1=" + p_s1 + ", p_s2=" + p_s2 + ", p_s3="
-				+ p_s3 + ", p_s4=" + p_s4 + ", p_s5=" + p_s5 + "]";
+				+ p_s3 + ", p_s4=" + p_s4 + ", p_s5=" + p_s5 + ", r_no=" + r_no + "]";
 	}
 
 

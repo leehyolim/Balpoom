@@ -57,7 +57,7 @@
 						<th>조회수</th>
 					</tr>
 
-					<c:forEach items="${InqueryList}" var="Inquery">
+					<c:forEach items="${InqueryPage.content}" var="Inquery">
 
 						<tr>
 							<td>${Inquery.inqu_no}</td>
@@ -68,6 +68,21 @@
 							<td>${Inquery.inqu_cnt}</td>
 						</tr>
 					</c:forEach>
+					<c:if test="${InqueryPage.hasInqueries() }">
+						<tr>
+							<td colspan="5">
+								<c:if test="${InqueryPage.startPage > 5 }">
+									<a class="paging"href="getInqueryList.do?r_no=${r_no }&pNo=${InqueryPage.startPage -5 }">[이전]</a>
+								</c:if>
+								<c:forEach var="pNo" begin="${InqueryPage.startPage }" end="${InqueryPage.endPage }">
+									<a class="paging"href="getInqueryList.do?r_no=${r_no }&pNo=${pNo }">[${pNo }]</a>
+								</c:forEach>
+								<c:if test="${InqueryPage.endPage < InqueryPage.totalPages }">
+									<a class="paging"href="getInqueryList.do?r_no=${r_no }&pNo=${InqueryPage.startPage+5 }">[다음]</a>
+								</c:if>
+							</td>
+						</tr>
+					</c:if>
 
 				</table>
 		</div>

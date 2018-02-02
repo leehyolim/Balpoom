@@ -1,6 +1,5 @@
 package com.balpoom.view;
 
-import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -8,7 +7,6 @@ import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.xml.bind.ParseConversionEvent;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,14 +14,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.balpoom.inquery.InqueryPage;
 import com.balpoom.inquery.InqueryService;
 import com.balpoom.inquery.InqueryVO;
-import com.balpoom.inquery.Impl.InqueryDAO;
-import com.balpoom.review.ReviewVO;
 
 @Controller
 @SessionAttributes("Inquery")
@@ -104,17 +101,19 @@ public class InqueryController {
 
 	// 글 목록 검색
 	@RequestMapping(value = "/getInqueryList.do")
-
-	public String getInquiryInqueryList(InqueryVO vo, InqueryDAO InqueryDAO, Model model) {
+	public String getInquiryInqueryList(InqueryVO vo, Model model,
+			@RequestParam(value = "pNo", defaultValue = "1", required = false) int pNo) {
 
 		logger.debug("[LOG] 글 목록 검색");
-
 		// NULL Check
+
+		vo.setStartRow((pNo - 1) * size);
+		vo.setSize(size);
 		if (vo.getSearchCondition() == null)
 			vo.setSearchCondition("TITLE");
 		if (vo.getSearchKeyword() == null)
 			vo.setSearchKeyword("");
-
+		int forTotal = InqueryService.getCountTotalInquery(vo);
 		List<InqueryVO> timeModify = InqueryService.getInqueryList(vo);
 		for (InqueryVO inquery : timeModify) {
 			Date date = inquery.getInqu_reg();
@@ -122,13 +121,25 @@ public class InqueryController {
 
 			inquery.setReg_date(sdf.format(cal.getTime()));
 		}
-
-		model.addAttribute("InqueryList", timeModify);
+		InqueryPage page = new InqueryPage(forTotal, pNo, size, timeModify);
+		// model.addAttribute("InqueryList", timeModify);
+		model.addAttribute("InqueryPage", page);
+		model.addAttribute("r_no", vo.getR_no());
 		// Model 정보 저장
 		// Model
 		// 정보
 		// 저장
 		return "getInqueryList.jsp";
+	}
+
+	@RequestMapping(value = "/getInquery_mypage.do")
+	public String getInquiry_mypage(InqueryVO vo, Model model) {
+		// System.out.println("글 상세 조회 처리");
+		logger.debug("[LOG] 글 상세 조회 처리");
+		InqueryService.updateCnt(vo);
+
+		model.addAttribute("Inquery", InqueryService.getInquery(vo));
+		return "getInqueryMypage.jsp";
 	}
 
 }

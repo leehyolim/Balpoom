@@ -20,15 +20,31 @@ public class ProductVO {
 	private String r_date;
 	private String p_common_name;
 	private String p_type_detail;
-	
+	private String s_busi_name; //효림 수량변경
 	private int s_no;
-	
+	private String fileNameDate;
 	private MultipartFile main_img1;
 	private MultipartFile main_img2;
 	private MultipartFile detail_img1;
 	private MultipartFile detail_img2;
 	private MultipartFile detail_img3;
 	private MultipartFile detail_img4;
+
+	public String getFileNameDate() {
+		return fileNameDate;
+	}
+
+	public void setFileNameDate(String fileNameDate) {
+		this.fileNameDate = fileNameDate;
+	}
+
+	public String getS_busi_name() {
+		return s_busi_name;
+	}
+
+	public void setS_busi_name(String s_busi_name) {
+		this.s_busi_name = s_busi_name;
+	}
 
 	public MultipartFile getMain_img1() {
 		return main_img1;
@@ -237,15 +253,17 @@ public class ProductVO {
 	}
 
 
+
 	@Override
 	public String toString() {
 		return "ProductVO [p_identifier=" + p_identifier + ", r_no=" + r_no + ", p_name=" + p_name + ", p_type="
 				+ p_type + ", p_price=" + p_price + ", p_cnt=" + p_cnt + ", p_s1=" + p_s1 + ", p_s2=" + p_s2 + ", p_s3="
 				+ p_s3 + ", p_s4=" + p_s4 + ", p_s5=" + p_s5 + ", p_color=" + p_color + ", p_size=" + p_size
 				+ ", r_date=" + r_date + ", p_common_name=" + p_common_name + ", p_type_detail=" + p_type_detail
-				+ ", s_no=" + s_no + ", main_img1=" + main_img1 + ", main_img2=" + main_img2 + ", detail_img1="
-				+ detail_img1 + ", detail_img2=" + detail_img2 + ", detail_img3=" + detail_img3 + ", detail_img4="
-				+ detail_img4 + ", detail_img5=" + detail_img5 + "]";
+				+ ", s_busi_name=" + s_busi_name + ", s_no=" + s_no + ", fileNameDate=" + fileNameDate + ", main_img1="
+				+ main_img1 + ", main_img2=" + main_img2 + ", detail_img1=" + detail_img1 + ", detail_img2="
+				+ detail_img2 + ", detail_img3=" + detail_img3 + ", detail_img4=" + detail_img4 + ", detail_img5="
+				+ detail_img5 + "]";
 	}
 
 	public ProductVO() {

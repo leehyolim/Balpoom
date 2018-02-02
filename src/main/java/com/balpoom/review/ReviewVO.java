@@ -18,8 +18,30 @@ public class ReviewVO {
 	private String reg_date;
 	private String p_common_name;
 	private int s_o;
+	private int r_no;
+	
+	private int startRow;
+	private int size;
 	
 	
+	public int getR_no() {
+		return r_no;
+	}
+	public void setR_no(int r_no) {
+		this.r_no = r_no;
+	}
+	public int getStartRow() {
+		return startRow;
+	}
+	public void setStartRow(int startRow) {
+		this.startRow = startRow;
+	}
+	public int getSize() {
+		return size;
+	}
+	public void setSize(int size) {
+		this.size = size;
+	}
 	public String getP_common_name() {
 		return p_common_name;
 	}
@@ -98,8 +120,12 @@ public class ReviewVO {
 		return "ReviewVO [re_no=" + re_no + ", re_title=" + re_title + ", m_no=" + m_no + ", re_content=" + re_content
 				+ ", m_name=" + m_name + ", uploadFile=" + uploadFile + ", m_id=" + m_id + ", fileName_date="
 				+ fileName_date + ", re_reg=" + re_reg + ", reg_date=" + reg_date + ", p_common_name=" + p_common_name
-				+ ", s_o=" + s_o + "]";
+				+ ", s_o=" + s_o + ", r_no=" + r_no + ", startRow=" + startRow + ", size=" + size + "]";
 	}
+
+	
+
+	
 	
 
 	

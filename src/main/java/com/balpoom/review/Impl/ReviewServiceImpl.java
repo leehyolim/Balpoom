@@ -40,6 +40,11 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 	public List<ReviewVO> getMypageReviewList(ReviewVO vo){
 		return ReviewDAO.getMypageReviewList(vo);
+	}
+
+	@Override
+	public int getTotalReviewCount(ReviewVO vo) {
+		return ReviewDAO.getTotalReviewCount(vo);
 	} 
 	
 }
