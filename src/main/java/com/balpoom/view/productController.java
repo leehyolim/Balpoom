@@ -21,6 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.balpoom.product.IndexBests;
 import com.balpoom.product.OverallProductVO;
 import com.balpoom.product.ProductService;
 import com.balpoom.product.ProductVO;
@@ -117,6 +118,51 @@ public class productController {
 		mav.addObject("best", best);
 		mav.setViewName("productList.jsp");
 		return mav;
+	}
+	
+	@ResponseBody
+	@RequestMapping("getMainOveralls.do")
+	public IndexBests getMainOveralls(HttpServletRequest request){
+		String outer = request.getParameter("1");
+		String top = request.getParameter("2");
+		String bottom = request.getParameter("3");
+		String shoes = request.getParameter("4");
+		OverallProductVO vo_outer = new OverallProductVO();
+		OverallProductVO vo_top = new OverallProductVO();
+		OverallProductVO vo_bottom = new OverallProductVO();
+		OverallProductVO vo_shoes = new OverallProductVO();
+		vo_outer.setP_type(outer);
+		vo_top.setP_type(top);
+		vo_bottom.setP_type(bottom);
+		vo_shoes.setP_type(shoes);
+		
+		List<OverallProductVO> best_outers = productService.getIndexBests(vo_outer);
+		List<OverallProductVO> best_tops = productService.getIndexBests(vo_top);
+		List<OverallProductVO> best_bottoms = productService.getIndexBests(vo_bottom);
+		List<OverallProductVO> best_shoes = productService.getIndexBests(vo_shoes);
+		
+		for (OverallProductVO b : best_outers) {
+			cal.setTime(b.getR_reg());
+			b.setModify_date((sdf.format(cal.getTime())));
+		}
+		for (OverallProductVO b : best_tops) {
+			cal.setTime(b.getR_reg());
+			b.setModify_date((sdf.format(cal.getTime())));
+		}
+		for (OverallProductVO b : best_bottoms) {
+			cal.setTime(b.getR_reg());
+			b.setModify_date((sdf.format(cal.getTime())));
+		}
+		for (OverallProductVO b : best_shoes) {
+			cal.setTime(b.getR_reg());
+			b.setModify_date((sdf.format(cal.getTime())));
+		}
+		IndexBests indexBests = new IndexBests();
+		indexBests.setOuter_best(best_outers);
+		indexBests.setTop_best(best_tops);
+		indexBests.setBottom_best(best_bottoms);
+		indexBests.setShoes_best(best_shoes);
+		return indexBests;
 	}
 
 	@RequestMapping("getOveralls.do")

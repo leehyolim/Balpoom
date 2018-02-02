@@ -84,4 +84,8 @@ public class ProductDAO {
 		return mybatis.selectList("ProductDAO.getSellerProductList", pvo);
 		
 	}
+	
+	public List<OverallProductVO> getIndexBests(OverallProductVO vo){
+		return mybatis.selectList("ProductDAO.getIndexBests",vo);
+	}
 }

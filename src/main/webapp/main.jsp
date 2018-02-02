@@ -8,6 +8,65 @@
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <script type="text/javascript" src="./js/bestProd.js"></script>
 <title>BalPoom</title>
+<script type="text/javascript">
+	var list = {
+		1 : "Outer",
+		2 : "Top",
+		3 : "Bottom",
+		4 : "Shoes"
+	};
+	var insertHTML = "";
+	$(document).ready(function() {
+		$.ajax({
+			type : 'POST',
+			url : '/biz/getMainOveralls.do',
+			data : list,
+			success : function(data) {
+				for (var i = 0; i < 3; i++) {
+					alert(data.outer_best[i].p_name);
+					insertHTML += '<div class="bestOuter">';
+					insertHTML += '<div id=divImg>';
+					insertHTML +=	'<img class="img1" src="./img/outer2.PNG"> <img';
+					insertHTML +=	'	class="img2" src="./img/outer2_2.PNG">';
+					insertHTML +='</div>';
+					insertHTML +='<div id=divText>';
+					insertHTML +='	<p id="storeName">'+data.outer_best[i].s_busi_name+'</p>';
+					insertHTML +='	<p id="productName">'+data.outer_best[i].p_name+'</p>';
+					insertHTML +='	<p id="price">'+data.outer_best[i].p_price+'</p>';
+					insertHTML +='</div>';
+					insertHTML +='</div>';
+					$("#outer_line1").append(insertHTML);
+					insertHTML = "";
+				}
+				for (var i = 3; i < 6; i++) {
+					alert(data.outer_best[i].p_name);
+					insertHTML += '<div class="bestOuter">';
+					insertHTML += '<div id=divImg>';
+					insertHTML +=	'<img class="img1" src="./img/outer2.PNG"> <img';
+					insertHTML +=	'	class="img2" src="./img/outer2_2.PNG">';
+					insertHTML +='</div>';
+					insertHTML +='<div id=divText>';
+					insertHTML +='	<p id="storeName">'+data.outer_best[i].s_busi_name+'</p>';
+					insertHTML +='	<p id="productName">'+data.outer_best[i].p_name+'</p>';
+					insertHTML +='	<p id="price">'+data.outer_best[i].p_price+'</p>';
+					insertHTML +='</div>';
+					insertHTML +='</div>';
+					$("#outer_line2").append(insertHTML);
+					insertHTML = "";
+				}
+				/*for(var i=0; i<data.top_best.length; i++){
+					alert(data.top_best[i].p_name);
+				}
+				for(var i=0; i<data.bottom_best.length; i++){
+					alert(data.bottom_best[i].p_name);
+				}
+				for(var i=0; i<data.shoes_best.length; i++){
+					alert(data.shoes_best[i].p_name);
+				}*/
+			}
+		});
+	});
+</script>
 </head>
 <body>
 	<div class="wraper">
@@ -43,8 +102,8 @@
 			<div class="frame">
 				<div id="title1">
 					<p id="boTitle">OUTER BEST</p>
-					<div class="line1">
-						<div class="bestOuter">
+					<div class="line1" id="outer_line1">
+						<!-- <div class="bestOuter">
 							<div id=divImg>
 								<img class="img1" src="./img/outer1.PNG"> <img
 									class="img2" src="./img/outer1_1.PNG">
@@ -76,9 +135,9 @@
 								<p id="productName">베이직 더플코트(네이비)</p>
 								<p id="price">99,000원</p>
 							</div>
-						</div>
+						</div> -->
 					</div>
-					<div class="line2">
+					<div class="line2" id="outer_line2">
 						<div class="bestOuter">
 							<div id=divImg>
 								<img class="img1" src="./img/outer1.PNG"> <img
@@ -118,7 +177,7 @@
 			</div>
 			<div class="frame">
 				<div id="title1">
-					<p id="boTitle">OUTER BEST</p>
+					<p id="boTitle">TOP BEST</p>
 					<div class="line1">
 						<div class="bestOuter">
 							<div id=divImg>
@@ -194,7 +253,7 @@
 			</div>
 			<div class="frame">
 				<div id="title1">
-					<p id="boTitle">OUTER BEST</p>
+					<p id="boTitle">BOTTOM BEST</p>
 					<div class="line1">
 						<div class="bestOuter">
 							<div id=divImg>
@@ -270,7 +329,7 @@
 			</div>
 			<div class="frame">
 				<div id="title1">
-					<p id="boTitle">OUTER BEST</p>
+					<p id="boTitle">SHOES BEST</p>
 					<div class="line1">
 						<div class="bestOuter">
 							<div id=divImg>

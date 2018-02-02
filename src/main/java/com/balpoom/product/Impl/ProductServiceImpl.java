@@ -86,5 +86,10 @@ public class ProductServiceImpl implements ProductService{
 	public int getChangeCnt(ProductVO pvo) {
 		return productDAO.getChangeCnt(pvo);
 	}
+
+	@Override
+	public List<OverallProductVO> getIndexBests(OverallProductVO vo) {
+		return productDAO.getIndexBests(vo);
+	}
 	
 }
