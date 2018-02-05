@@ -16,7 +16,7 @@ $(document).ready(function(){
       $("#sizetitle").append(output1);
       
     }else if ($("#select_type > option:selected").val()=='Top') {
-    	output +='<input class="checkbtn" type="checkbox" id="checkboxS" name="size_s" value="S"> S &nbsp;&nbsp;&nbsp;&nbsp;';
+       output +='<input class="checkbtn" type="checkbox" id="checkboxS" name="size_s" value="S"> S &nbsp;&nbsp;&nbsp;&nbsp;';
         output +='<input class="checkbtn" type="checkbox" id="checkboxM" name="size_m" value="M"> M &nbsp;&nbsp;&nbsp;&nbsp;';
         output +='<input class="checkbtn" type="checkbox" id="checkboxL" name="size_l" value="L"> L &nbsp;&nbsp;&nbsp;&nbsp;';
         output +='<input class="checkbtn" type="checkbox" id="checkboxXL" name="size_xl" value="XL"> XL';
@@ -29,7 +29,7 @@ $(document).ready(function(){
       $("#size").append(output);
       $("#sizetitle").append(output1);
     }else if ($("#select_type > option:selected").val()=='Bottom') {
-    	output +='<input class="checkbtn" type="checkbox" id="checkboxS" name="size_s" value="S"> S &nbsp;&nbsp;&nbsp;&nbsp;';
+       output +='<input class="checkbtn" type="checkbox" id="checkboxS" name="size_s" value="S"> S &nbsp;&nbsp;&nbsp;&nbsp;';
         output +='<input class="checkbtn" type="checkbox" id="checkboxM" name="size_m" value="M"> M &nbsp;&nbsp;&nbsp;&nbsp;';
         output +='<input class="checkbtn" type="checkbox" id="checkboxL" name="size_l" value="L"> L &nbsp;&nbsp;&nbsp;&nbsp;';
         output +='<input class="checkbtn" type="checkbox" id="checkboxXL" name="size_xl" value="XL"> XL';
@@ -68,7 +68,7 @@ $(document).ready(function(){
       var output = "";
       var output2 = "";
       if($("#select_type > option:selected").val()=='Outer'){
-    	  output +='<input class="checkbtn" type="checkbox" id="checkboxS" name="size_s" value="S"> S &nbsp;&nbsp;&nbsp;&nbsp;';
+         output +='<input class="checkbtn" type="checkbox" id="checkboxS" name="size_s" value="S"> S &nbsp;&nbsp;&nbsp;&nbsp;';
           output +='<input class="checkbtn" type="checkbox" id="checkboxM" name="size_m" value="M"> M &nbsp;&nbsp;&nbsp;&nbsp;';
           output +='<input class="checkbtn" type="checkbox" id="checkboxL" name="size_l" value="L"> L &nbsp;&nbsp;&nbsp;&nbsp;';
           output +='<input class="checkbtn" type="checkbox" id="checkboxXL" name="size_xl" value="XL"> XL';
@@ -77,10 +77,10 @@ $(document).ready(function(){
           output2 +='<input class="radiobtn" type="radio" name="p_type_detail" value="Jacket">자켓 &nbsp;&nbsp;&nbsp;&nbsp;';
           output2 +='<input class="radiobtn" type="radio" name="p_type_detail" value="Bubble">패딩 &nbsp;&nbsp;&nbsp;&nbsp;';
           output2 +='<input class="radiobtn" type="radio" name="p_type_detail" value="AndSoOn">기타 &nbsp;&nbsp;&nbsp;&nbsp;';
-          output3 ='<td>S</td><td><input type="text" name="s_size1" class="sizeText1" ></td><td><input type="text" name="s_size2" class="sizeText1" ></td><td><input type="text" name="s_size3" class="sizeText1" ></td><td><input type="text" name="s_size4" class="sizeText1" ></td><td><input type="text" name="s_size5" class="sizeText1" ></td>';
-          output4 ='<td>M</td><td><input type="text" name="m_size1" class="sizeText1" ></td><td><input type="text" name="m_size2" class="sizeText1" ></td><td><input type="text" name="m_size3" class="sizeText1" ></td><td><input type="text" name="m_size4" class="sizeText1" ></td><td><input type="text" name="m_size5" class="sizeText1" ></td>';
-          output5 ='<td>L</td><td><input type="text" name="l_size1" class="sizeText1" ></td><td><input type="text" name="l_size2" class="sizeText1" ></td><td><input type="text" name="l_size3" class="sizeText1" ></td><td><input type="text" name="l_size4" class="sizeText1" ></td><td><input type="text" name="l_size5" class="sizeText1" ></td>';
-          output6 ='<td>XL</td><td><input type="text" name="xl_size1" class="sizeText1" ></td><td><input type="text" name="xl_size2" class="sizeText1" ></td><td><input type="text" name="xl_size3" class="sizeText1" ></td><td><input type="text" name="xl_size4" class="sizeText1" ></td><td><input type="text" name="xl_size5" class="sizeText1" ></td>';
+          output3 ='<td>S</td><td><input type="text" name="s_size1" class="sizetext sizeText1" ></td><td><input type="text" name="s_size2" class="sizetext sizeText1" ></td><td><input type="text" name="s_size3" class="sizetext sizeText1" ></td><td><input type="text" name="s_size4" class="sizetext sizeText1" ></td><td><input type="text" name="s_size5" class="sizetext sizeText1" ></td>';
+          output4 ='<td>M</td><td><input type="text" name="m_size1" class="sizetext sizeText1" ></td><td><input type="text" name="m_size2" class="sizetext sizeText1" ></td><td><input type="text" name="m_size3" class="sizetext sizeText1" ></td><td><input type="text" name="m_size4" class="sizetext sizeText1" ></td><td><input type="text" name="m_size5" class="sizetext sizeText1" ></td>';
+          output5 ='<td>L</td><td><input type="text" name="l_size1" class="sizetext sizeText1" ></td><td><input type="text" name="l_size2" class="sizetext sizeText1" ></td><td><input type="text" name="l_size3" class="sizetext sizeText1" ></td><td><input type="text" name="l_size4" class="sizetext sizeText1" ></td><td><input type="text" name="l_size5" class="sizetext sizeText1" ></td>';
+          output6 ='<td>XL</td><td><input type="text" name="xl_size1" class="sizetext sizeText1" ></td><td><input type="text" name="xl_size2" class="sizetext sizeText1" ></td><td><input type="text" name="xl_size3" class="sizetext sizeText1" ></td><td><input type="text" name="xl_size4" class="sizetext sizeText1" ></td><td><input type="text" name="xl_size5" class="sizetext sizeText1" ></td>';
           $("#type_detail").empty();
         $("#type_detail").append(output2);
 
@@ -104,7 +104,7 @@ $(document).ready(function(){
         status = $("#sizeInsertXL").css("display", "none");
         
       }else if ($("#select_type > option:selected").val()=='Top') {
-    	  output +='<input class="checkbtn" type="checkbox" id="checkboxS" name="size_s" value="S"> S &nbsp;&nbsp;&nbsp;&nbsp;';
+         output +='<input class="checkbtn" type="checkbox" id="checkboxS" name="size_s" value="S"> S &nbsp;&nbsp;&nbsp;&nbsp;';
           output +='<input class="checkbtn" type="checkbox" id="checkboxM" name="size_m" value="M"> M &nbsp;&nbsp;&nbsp;&nbsp;';
           output +='<input class="checkbtn" type="checkbox" id="checkboxL" name="size_l" value="L"> L &nbsp;&nbsp;&nbsp;&nbsp;';
           output +='<input class="checkbtn" type="checkbox" id="checkboxXL" name="size_xl" value="XL"> XL';
@@ -113,10 +113,10 @@ $(document).ready(function(){
           output2 +='<input class="radiobtn" type="radio" name="p_type_detail" value="Shirt">셔츠 &nbsp;&nbsp;&nbsp;&nbsp;';
           output2 +='<input class="radiobtn" type="radio" name="p_type_detail" value="Hoody">후드 &nbsp;&nbsp;&nbsp;&nbsp;';
           output2 +='<input class="radiobtn" type="radio" name="p_type_detail" value="AndSoOn">기타 &nbsp;&nbsp;&nbsp;&nbsp;';
-          output3 ='<td>S</td><td><input type="text" name="s_size1" class="sizeText1" ></td><td><input type="text" name="s_size2" class="sizeText1" ></td><td><input type="text" name="s_size3" class="sizeText1" ></td><td><input type="text" name="s_size4" class="sizeText1" ></td><td><input type="text" name="s_size5" class="sizeText1" ></td>';
-          output4 ='<td>M</td><td><input type="text" name="m_size1" class="sizeText1" ></td><td><input type="text" name="m_size2" class="sizeText1" ></td><td><input type="text" name="m_size3" class="sizeText1" ></td><td><input type="text" name="m_size4" class="sizeText1" ></td><td><input type="text" name="m_size5" class="sizeText1" ></td>';
-          output5 ='<td>L</td><td><input type="text" name="l_size1" class="sizeText1" ></td><td><input type="text" name="l_size2" class="sizeText1" ></td><td><input type="text" name="l_size3" class="sizeText1" ></td><td><input type="text" name="l_size4" class="sizeText1" ></td><td><input type="text" name="l_size5" class="sizeText1" ></td>';
-          output6 ='<td>XL</td><td><input type="text" name="xl_size1" class="sizeText1" ></td><td><input type="text" name="xl_size2" class="sizeText1" ></td><td><input type="text" name="xl_size3" class="sizeText1" ></td><td><input type="text" name="xl_size4" class="sizeText1" ></td><td><input type="text" name="xl_size5" class="sizeText1" ></td>';
+          output3 ='<td>S</td><td><input type="text" name="s_size1" class="sizetext sizeText1" ></td><td><input type="text" name="s_size2" class="sizetext sizeText1" ></td><td><input type="text" name="s_size3" class="sizetext sizeText1" ></td><td><input type="text" name="s_size4" class="sizetext sizeText1" ></td><td><input type="text" name="s_size5" class="sizetext sizeText1" ></td>';
+          output4 ='<td>M</td><td><input type="text" name="m_size1" class="sizetext sizeText1" ></td><td><input type="text" name="m_size2" class="sizetext sizeText1" ></td><td><input type="text" name="m_size3" class="sizetext sizeText1" ></td><td><input type="text" name="m_size4" class="sizetext sizeText1" ></td><td><input type="text" name="m_size5" class="sizetext sizeText1" ></td>';
+          output5 ='<td>L</td><td><input type="text" name="l_size1" class="sizetext sizeText1" ></td><td><input type="text" name="l_size2" class="sizetext sizeText1" ></td><td><input type="text" name="l_size3" class="sizetext sizeText1" ></td><td><input type="text" name="l_size4" class="sizetext sizeText1" ></td><td><input type="text" name="l_size5" class="sizetext sizeText1" ></td>';
+          output6 ='<td>XL</td><td><input type="text" name="xl_size1" class="sizetext sizeText1" ></td><td><input type="text" name="xl_size2" class="sizetext sizeText1" ></td><td><input type="text" name="xl_size3" class="sizetext sizeText1" ></td><td><input type="text" name="xl_size4" class="sizetext sizeText1" ></td><td><input type="text" name="xl_size5" class="sizetext sizeText1" ></td>';
           
           $("#type_detail").empty();
         $("#type_detail").append(output2);
@@ -139,7 +139,7 @@ $(document).ready(function(){
         status = $("#sizeInsertL").css("display", "none");
         status = $("#sizeInsertXL").css("display", "none");
       }else if ($("#select_type > option:selected").val()=='Bottom') {
-    	  output +='<input class="checkbtn" type="checkbox" id="checkboxS" name="size_s" value="S"> S &nbsp;&nbsp;&nbsp;&nbsp;';
+         output +='<input class="checkbtn" type="checkbox" id="checkboxS" name="size_s" value="S"> S &nbsp;&nbsp;&nbsp;&nbsp;';
           output +='<input class="checkbtn" type="checkbox" id="checkboxM" name="size_m" value="M"> M &nbsp;&nbsp;&nbsp;&nbsp;';
           output +='<input class="checkbtn" type="checkbox" id="checkboxL" name="size_l" value="L"> L &nbsp;&nbsp;&nbsp;&nbsp;';
           output +='<input class="checkbtn" type="checkbox" id="checkboxXL" name="size_xl" value="XL"> XL';
@@ -148,10 +148,10 @@ $(document).ready(function(){
         output2 +='<input class="radiobtn" type="radio" name="p_type_detail" value="Slacks">슬랙스 &nbsp;&nbsp;&nbsp;&nbsp;';
         output2 +='<input class="radiobtn" type="radio" name="p_type_detail" value="Cotton">면바지 &nbsp;&nbsp;&nbsp;&nbsp;';
         output2 +='<input class="radiobtn" type="radio" name="p_type_detail" value="Training">운동복 &nbsp;&nbsp;&nbsp;&nbsp;';
-        output3 ='<td>S</td><td><input type="text" name="s_size1" class="sizeText1" ></td><td><input type="text" name="s_size2" class="sizeText1" ></td><td><input type="text" name="s_size3" class="sizeText1" ></td><td><input type="text" name="s_size4" class="sizeText1" ></td><td><input type="text" name="s_size5" class="sizeText1" ></td>';
-        output4 ='<td>M</td><td><input type="text" name="m_size1" class="sizeText1" ></td><td><input type="text" name="m_size2" class="sizeText1" ></td><td><input type="text" name="m_size3" class="sizeText1" ></td><td><input type="text" name="m_size4" class="sizeText1" ></td><td><input type="text" name="m_size5" class="sizeText1" ></td>';
-        output5 ='<td>L</td><td><input type="text" name="l_size1" class="sizeText1" ></td><td><input type="text" name="l_size2" class="sizeText1" ></td><td><input type="text" name="l_size3" class="sizeText1" ></td><td><input type="text" name="l_size4" class="sizeText1" ></td><td><input type="text" name="l_size5" class="sizeText1" ></td>';
-        output6 ='<td>XL</td><td><input type="text" name="xl_size1" class="sizeText1" ></td><td><input type="text" name="xl_size2" class="sizeText1" ></td><td><input type="text" name="xl_size3" class="sizeText1" ></td><td><input type="text" name="xl_size4" class="sizeText1" ></td><td><input type="text" name="xl_size5" class="sizeText1" ></td>';
+        output3 ='<td>S</td><td><input type="text" name="s_size1" class="sizetext sizeText1" ></td><td><input type="text" name="s_size2" class="sizetext sizeText1" ></td><td><input type="text" name="s_size3" class="sizetext sizeText1" ></td><td><input type="text" name="s_size4" class="sizetext sizeText1" ></td><td><input type="text" name="s_size5" class="sizetext sizeText1" ></td>';
+        output4 ='<td>M</td><td><input type="text" name="m_size1" class="sizetext sizeText1" ></td><td><input type="text" name="m_size2" class="sizetext sizeText1" ></td><td><input type="text" name="m_size3" class="sizetext sizeText1" ></td><td><input type="text" name="m_size4" class="sizetext sizeText1" ></td><td><input type="text" name="m_size5" class="sizetext sizeText1" ></td>';
+        output5 ='<td>L</td><td><input type="text" name="l_size1" class="sizetext sizeText1" ></td><td><input type="text" name="l_size2" class="sizetext sizeText1" ></td><td><input type="text" name="l_size3" class="sizetext sizeText1" ></td><td><input type="text" name="l_size4" class="sizetext sizeText1" ></td><td><input type="text" name="l_size5" class="sizetext sizeText1" ></td>';
+        output6 ='<td>XL</td><td><input type="text" name="xl_size1" class="sizetext sizeText1" ></td><td><input type="text" name="xl_size2" class="sizetext sizeText1" ></td><td><input type="text" name="xl_size3" class="sizetext sizeText1" ></td><td><input type="text" name="xl_size4" class="sizetext sizeText1" ></td><td><input type="text" name="xl_size5" class="sizetext sizeText1" ></td>';
         
         $("#type_detail").empty();
         $("#type_detail").append(output2);
@@ -185,15 +185,16 @@ $(document).ready(function(){
         output +='<input class="checkbtn" type="checkbox" name="size" value="285"> 285 &nbsp;&nbsp;&nbsp;';
         output +='<input class="checkbtn" type="checkbox" name="size" value="290"> 290';
         
-        output7 +='<input class="radiobtn" type="radio" name="p_type_detail" value="Running">러닝화 &nbsp;&nbsp;&nbsp;&nbsp;';
-        output7 +='<input class="radiobtn" type="radio" name="p_type_detail" value="Sneakers">스니커즈 &nbsp;&nbsp;&nbsp;&nbsp;';
-        output7 +='<input class="radiobtn" type="radio" name="p_type_detail" value="Sports">운동화 &nbsp;&nbsp;&nbsp;&nbsp;';
-        output7 +='<input class="radiobtn" type="radio" name="p_type_detail" value="Classic">구두 &nbsp;&nbsp;&nbsp;&nbsp;';
-        $("#type_detail").empty();
-        $("#type_detail").append(output7);
+        output2 +='<input class="radiobtn" type="radio" name="p_type_detail" value="Running">러닝화 &nbsp;&nbsp;&nbsp;&nbsp;';
+        output2 +='<input class="radiobtn" type="radio" name="p_type_detail" value="Sneakers">스니커즈 &nbsp;&nbsp;&nbsp;&nbsp;';
+        output2 +='<input class="radiobtn" type="radio" name="p_type_detail" value="Sports">운동화 &nbsp;&nbsp;&nbsp;&nbsp;';
+        output2 +='<input class="radiobtn" type="radio" name="p_type_detail" value="Classic">구두 &nbsp;&nbsp;&nbsp;&nbsp;';
+        
         $("#size").empty();
-        $("#sizetitle").empty();
         $("#size").append(output);
+        $("#type_detail").empty();
+        $("#type_detail").append(output2);
+
         status = $("#sizeInsertS").css("display", "none");
         status = $("#sizeInsertM").css("display", "none");
         status = $("#sizeInsertL").css("display", "none");
