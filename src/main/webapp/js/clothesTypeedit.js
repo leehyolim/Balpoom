@@ -42,17 +42,17 @@ $(document).ready(function(){
       $("#size").append(output);
       $("#sizetitle").append(output1);
     }else if ($("#select_type > option:selected").val()=='Shoes') {
-        output +='<input class="checkbtn" type="checkbox" name="size" value="240"> 240 &nbsp;&nbsp;&nbsp;';
-        output +='<input class="checkbtn" type="checkbox" name="size" value="245"> 245 &nbsp;&nbsp;&nbsp;';
-        output +='<input class="checkbtn" type="checkbox" name="size" value="250"> 250 &nbsp;&nbsp;&nbsp;';
-        output +='<input class="checkbtn" type="checkbox" name="size" value="255"> 255 &nbsp;&nbsp;&nbsp;';
-        output +='<input class="checkbtn" type="checkbox" name="size" value="260"> 260 &nbsp;&nbsp;&nbsp;';
-        output +='<input class="checkbtn" type="checkbox" name="size" value="265"> 265 &nbsp;&nbsp;&nbsp;';
-        output +='<input class="checkbtn" type="checkbox" name="size" value="270"> 270 &nbsp;&nbsp;&nbsp;';
-        output +='<input class="checkbtn" type="checkbox" name="size" value="275"> 275 &nbsp;&nbsp;&nbsp;';
-        output +='<input class="checkbtn" type="checkbox" name="size" value="280"> 280 &nbsp;&nbsp;&nbsp;';
-        output +='<input class="checkbtn" type="checkbox" name="size" value="285"> 285 &nbsp;&nbsp;&nbsp;';
-        output +='<input class="checkbtn" type="checkbox" name="size" value="290"> 290';
+        output +='<input class="checkbtn" type="checkbox" name="size0" value="240"> 240 &nbsp;&nbsp;&nbsp;';
+        output +='<input class="checkbtn" type="checkbox" name="size1" value="245"> 245 &nbsp;&nbsp;&nbsp;';
+        output +='<input class="checkbtn" type="checkbox" name="size2" value="250"> 250 &nbsp;&nbsp;&nbsp;';
+        output +='<input class="checkbtn" type="checkbox" name="size3" value="255"> 255 &nbsp;&nbsp;&nbsp;';
+        output +='<input class="checkbtn" type="checkbox" name="size4" value="260"> 260 &nbsp;&nbsp;&nbsp;';
+        output +='<input class="checkbtn" type="checkbox" name="size5" value="265"> 265 &nbsp;&nbsp;&nbsp;';
+        output +='<input class="checkbtn" type="checkbox" name="size6" value="270"> 270 &nbsp;&nbsp;&nbsp;';
+        output +='<input class="checkbtn" type="checkbox" name="size7" value="275"> 275 &nbsp;&nbsp;&nbsp;';
+        output +='<input class="checkbtn" type="checkbox" name="size8" value="280"> 280 &nbsp;&nbsp;&nbsp;';
+        output +='<input class="checkbtn" type="checkbox" name="size9" value="285"> 285 &nbsp;&nbsp;&nbsp;';
+        output +='<input class="checkbtn" type="checkbox" name="size10" value="290"> 290';
         output2 +='<input class="radiobtn" type="radio" name="p_type_detail" value="Running">러닝화 &nbsp;&nbsp;&nbsp;&nbsp;';
         output2 +='<input class="radiobtn" type="radio" name="p_type_detail" value="Sneakers">스니커즈 &nbsp;&nbsp;&nbsp;&nbsp;';
         output2 +='<input class="radiobtn" type="radio" name="p_type_detail" value="Sports">운동화 &nbsp;&nbsp;&nbsp;&nbsp;';
@@ -173,17 +173,17 @@ $(document).ready(function(){
         status = $("#sizeInsertL").css("display", "none");
         status = $("#sizeInsertXL").css("display", "none");
       }else if ($("#select_type > option:selected").val()=='Shoes') {
-        output +='<input class="checkbtn" type="checkbox" name="size" value="240"> 240 &nbsp;&nbsp;&nbsp;';
-        output +='<input class="checkbtn" type="checkbox" name="size" value="245"> 245 &nbsp;&nbsp;&nbsp;';
-        output +='<input class="checkbtn" type="checkbox" name="size" value="250"> 250 &nbsp;&nbsp;&nbsp;';
-        output +='<input class="checkbtn" type="checkbox" name="size" value="255"> 255 &nbsp;&nbsp;&nbsp;';
-        output +='<input class="checkbtn" type="checkbox" name="size" value="260"> 260 &nbsp;&nbsp;&nbsp;';
-        output +='<input class="checkbtn" type="checkbox" name="size" value="265"> 265 &nbsp;&nbsp;&nbsp;';
-        output +='<input class="checkbtn" type="checkbox" name="size" value="270"> 270 &nbsp;&nbsp;&nbsp;';
-        output +='<input class="checkbtn" type="checkbox" name="size" value="275"> 275 &nbsp;&nbsp;&nbsp;';
-        output +='<input class="checkbtn" type="checkbox" name="size" value="280"> 280 &nbsp;&nbsp;&nbsp;';
-        output +='<input class="checkbtn" type="checkbox" name="size" value="285"> 285 &nbsp;&nbsp;&nbsp;';
-        output +='<input class="checkbtn" type="checkbox" name="size" value="290"> 290';
+        output +='<input class="checkbtn" type="checkbox" name="size0" value="240"> 240 &nbsp;&nbsp;&nbsp;';
+        output +='<input class="checkbtn" type="checkbox" name="size1" value="245"> 245 &nbsp;&nbsp;&nbsp;';
+        output +='<input class="checkbtn" type="checkbox" name="size2" value="250"> 250 &nbsp;&nbsp;&nbsp;';
+        output +='<input class="checkbtn" type="checkbox" name="size3" value="255"> 255 &nbsp;&nbsp;&nbsp;';
+        output +='<input class="checkbtn" type="checkbox" name="size4" value="260"> 260 &nbsp;&nbsp;&nbsp;';
+        output +='<input class="checkbtn" type="checkbox" name="size5" value="265"> 265 &nbsp;&nbsp;&nbsp;';
+        output +='<input class="checkbtn" type="checkbox" name="size6" value="270"> 270 &nbsp;&nbsp;&nbsp;';
+        output +='<input class="checkbtn" type="checkbox" name="size7" value="275"> 275 &nbsp;&nbsp;&nbsp;';
+        output +='<input class="checkbtn" type="checkbox" name="size8" value="280"> 280 &nbsp;&nbsp;&nbsp;';
+        output +='<input class="checkbtn" type="checkbox" name="size9" value="285"> 285 &nbsp;&nbsp;&nbsp;';
+        output +='<input class="checkbtn" type="checkbox" name="size10" value="290"> 290';
         
         output2 +='<input class="radiobtn" type="radio" name="p_type_detail" value="Running">러닝화 &nbsp;&nbsp;&nbsp;&nbsp;';
         output2 +='<input class="radiobtn" type="radio" name="p_type_detail" value="Sneakers">스니커즈 &nbsp;&nbsp;&nbsp;&nbsp;';

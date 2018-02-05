@@ -6,11 +6,10 @@
 	font-family: '맑은고딕';
 }
 .wraper {
-	min-height: 3000px;
+	min-height: 2800px;
 	width: 1200px;
 	position: relative;
 	margin: auto;
-	border: 1px solid;
 	padding:0, 10px, 0px, 10px;
 }
 #slide_container{
@@ -73,19 +72,20 @@
 }
 #best_pro_div{
 	width:1200px;
-	height:1000px;
+	height:1150px;
 	overflow-x: hidden;
   	white-space: nowrap;
 }
 .frame{
 	width:1200px;
-	height:1000px;
+	height:1150px;
 	display: inline-block;
 }
 
 #title1{
+	border:1px solid green;
 	width:1200px;
-	height:1000px;
+	height:1150px;
 }
 .line1{
 	width: 1200px;
@@ -110,12 +110,14 @@
    #divImg{
      /* border: 2px solid blue; */
      width: 350px;
-     height: auto;
+     height:auto;
+     max-height:400px;
      position: relative;
    }
    #divImg img {
      width: 350px;
-     height: auto;
+     height:ahto;
+     max-height:400px;
       }
 #divImg:hover > .img1{
     opacity: 0;
@@ -156,7 +158,7 @@
    #btn_group{
   position: absolute;
   display: inline-block;
-  top: 70%;
+  top: 78%;
   left: 44%;
   width: 95px;
   height: 20px;

@@ -5,12 +5,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="./css/master_header.css?ver=5">
+<link rel="stylesheet" href="./css/master_header.css?ver=1">
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 
 <title>BalPoom</title>
 
-<script type="text/javascript" src="./js/fitple_header.js?ver=4"></script>
+<script type="text/javascript" src="./js/fitple_header.js?ver=1"></script>
 </head>
 <body>
 	<div class="header_wraper">

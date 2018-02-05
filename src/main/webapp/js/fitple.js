@@ -11,16 +11,16 @@ $(document).ready(function(){
     $("#fitple-form").append(output);
   }else if ($("#choice > option:selected").val()=='Outer') {
     output +='<label>어&nbsp;&nbsp;&nbsp;&nbsp; 깨 : </label> <input type="text" name="shoulder" placeholder="Enter Your Cm"/><br>';
-    output +='<label>암&nbsp;&nbsp;&nbsp;&nbsp; 홀 : </label> <input type="text" name="armhole" placeholder="Enter Your Cm"/><br>';
-    output +='<label>가슴단면 : </label><input type="text" name="chest" placeholder="Enter Your Cm"/><br>';
+    output +='<label>가슴단면 : </label> <input type="text" name="armhole" placeholder="Enter Your Cm"/><br>';
+    output +='<label>암&nbsp;&nbsp;&nbsp;&nbsp; 홀 : </label><input type="text" name="chest" placeholder="Enter Your Cm"/><br>';
     output +='<label>소매길이 : </label> <input type="text" name="sleeve" placeholder="Enter Your Cm"/><br>';
     output +='<label>총 기 장 : </label><input type="text" name="length" placeholder="Enter Your Cm"/><br>';
     output +='<input type="submit" value="Search" />';
     $("#fitple-form").append(output);
   }else if ($("#choice > option:selected").val()=='Top') {
     output +='<label>어&nbsp;&nbsp;&nbsp;&nbsp; 깨 : </label> <input type="text" name="shoulder" placeholder="Enter Your Cm"/><br>';
-    output +='<label>암&nbsp;&nbsp;&nbsp;&nbsp; 홀 : </label> <input type="text" name="armhole" placeholder="Enter Your Cm"/><br>';
-    output +='<label>가슴단면 : </label><input type="text" name="chest" placeholder="Enter Your Cm"/><br>';
+    output +='<label>가슴단면 : </label> <input type="text" name="armhole" placeholder="Enter Your Cm"/><br>';
+    output +='<label>암&nbsp;&nbsp;&nbsp;&nbsp; 홀 : </label><input type="text" name="chest" placeholder="Enter Your Cm"/><br>';
     output +='<label>소매길이 : </label> <input type="text" name="sleeve" placeholder="Enter Your Cm"/><br>';
     output +='<label>총 기 장 : </label><input type="text" name="length" placeholder="Enter Your Cm"/><br>';
     output +='<input type="submit" value="Search" />';
@@ -40,8 +40,8 @@ $(document).ready(function(){
       $("#fitple-form").append(output);
     }else if ($("#choice > option:selected").val()=='Outer') {
       output +='<label>어&nbsp;&nbsp;&nbsp;&nbsp; 깨 : </label> <input type="text" name="shoulder" placeholder="Enter Your Cm"/><br>';
-      output +='<label>암&nbsp;&nbsp;&nbsp;&nbsp; 홀 : </label> <input type="text" name="armhole" placeholder="Enter Your Cm"/><br>';
-      output +='<label>가슴단면 : </label><input type="text" name="chest" placeholder="Enter Your Cm"/><br>';
+      output +='<label>가슴단면 : </label> <input type="text" name="armhole" placeholder="Enter Your Cm"/><br>';
+      output +='<label>암&nbsp;&nbsp;&nbsp;&nbsp; 홀 : </label><input type="text" name="chest" placeholder="Enter Your Cm"/><br>';
       output +='<label>소매길이 : </label> <input type="text" name="sleeve" placeholder="Enter Your Cm"/><br>';
       output +='<label>총 기 장 : </label><input type="text" name="length" placeholder="Enter Your Cm"/><br>';
       output +='<input type="submit" value="Search" />';
@@ -49,8 +49,8 @@ $(document).ready(function(){
       $("#fitple-form").append(output);
     }else if ($("#choice > option:selected").val()=='Top') {
       output +='<label>어&nbsp;&nbsp;&nbsp;&nbsp; 깨 : </label> <input type="text" name="shoulder" placeholder="Enter Your Cm"/><br>';
-      output +='<label>암&nbsp;&nbsp;&nbsp;&nbsp; 홀 : </label> <input type="text" name="armhole" placeholder="Enter Your Cm"/><br>';
-      output +='<label>가슴단면 : </label><input type="text" name="chest" placeholder="Enter Your Cm"/><br>';
+      output +='<label>가슴단면 : </label> <input type="text" name="armhole" placeholder="Enter Your Cm"/><br>';
+      output +='<label>암&nbsp;&nbsp;&nbsp;&nbsp; 홀 : </label><input type="text" name="chest" placeholder="Enter Your Cm"/><br>';
       output +='<label>소매길이 : </label> <input type="text" name="sleeve" placeholder="Enter Your Cm"/><br>';
       output +='<label>총 기 장 : </label><input type="text" name="length" placeholder="Enter Your Cm"/><br>';
       output +='<input type="submit" value="Search" />';

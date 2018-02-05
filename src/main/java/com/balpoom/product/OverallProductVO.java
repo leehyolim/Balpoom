@@ -22,7 +22,23 @@ public class OverallProductVO {
 	
 	private int r_no;
 	
+	private int startRow;
+	private int size;
 	
+	
+	
+	public int getStartRow() {
+		return startRow;
+	}
+	public void setStartRow(int startRow) {
+		this.startRow = startRow;
+	}
+	public int getSize() {
+		return size;
+	}
+	public void setSize(int size) {
+		this.size = size;
+	}
 	public int getR_no() {
 		return r_no;
 	}
@@ -113,8 +129,10 @@ public class OverallProductVO {
 		return "OverallProductVO [p_name=" + p_name + ", p_price=" + p_price + ", s_busi_name=" + s_busi_name
 				+ ", p_type=" + p_type + ", p_type_detail=" + p_type_detail + ", p_common_name=" + p_common_name
 				+ ", r_reg=" + r_reg + ", modify_date=" + modify_date + ", p_s1=" + p_s1 + ", p_s2=" + p_s2 + ", p_s3="
-				+ p_s3 + ", p_s4=" + p_s4 + ", p_s5=" + p_s5 + ", r_no=" + r_no + "]";
+				+ p_s3 + ", p_s4=" + p_s4 + ", p_s5=" + p_s5 + ", r_no=" + r_no + ", startRow=" + startRow + ", size="
+				+ size + "]";
 	}
+
 
 
 

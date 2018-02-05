@@ -13,8 +13,8 @@ $(document).ready(function(){
   }else if ($("#header_choice > option:selected").val()=='Outer') {
 	output +='<input type="text" name="p_type" value="Outer" hidden/>'
     output +='<label>어&nbsp;&nbsp;&nbsp;&nbsp; 깨 : </label> <input type="text" name="s1" placeholder="Enter Your Cm" maxlength="4"/><br>';
-    output +='<label>암&nbsp;&nbsp;&nbsp;&nbsp; 홀 : </label> <input type="text" name="s2" placeholder="Enter Your Cm" maxlength="4"/><br>';
-    output +='<label>가슴단면 : </label><input type="text" name="s3" placeholder="Enter Your Cm" maxlength="4"/><br>';
+    output +='<label>가슴단면 : </label> <input type="text" name="s2" placeholder="Enter Your Cm" maxlength="4"/><br>';
+    output +='<label>암&nbsp;&nbsp;&nbsp;&nbsp; 홀 : </label><input type="text" name="s3" placeholder="Enter Your Cm" maxlength="4"/><br>';
     output +='<label>소매길이 : </label> <input type="text" name="s4" placeholder="Enter Your Cm" maxlength="4"/><br>';
     output +='<label>총 기 장 : </label><input type="text" name="s5" placeholder="Enter Your Cm" maxlength="4"/><br>';
     output +='<input type="submit" value="Search" />';
@@ -22,8 +22,8 @@ $(document).ready(function(){
   }else if ($("#header_choice > option:selected").val()=='Top') {
 	output +='<input type="text" name="p_type" value="Top" hidden/>'
     output +='<label>어&nbsp;&nbsp;&nbsp;&nbsp; 깨 : </label> <input type="text" name="s1" placeholder="Enter Your Cm" maxlength="4"/><br>';
-    output +='<label>암&nbsp;&nbsp;&nbsp;&nbsp; 홀 : </label> <input type="text" name="s2" placeholder="Enter Your Cm" maxlength="4"/><br>';
-    output +='<label>가슴단면 : </label><input type="text" name="s3" placeholder="Enter Your Cm" maxlength="4"/><br>';
+    output +='<label>가슴단면 : </label> <input type="text" name="s2" placeholder="Enter Your Cm" maxlength="4"/><br>';
+    output +='<label>암&nbsp;&nbsp;&nbsp;&nbsp; 홀 : </label><input type="text" name="s3" placeholder="Enter Your Cm" maxlength="4"/><br>';
     output +='<label>소매길이 : </label> <input type="text" name="s4" placeholder="Enter Your Cm" maxlength="4"/><br>';
     output +='<label>총 기 장 : </label><input type="text" name="s5" placeholder="Enter Your Cm" maxlength="4"/><br>';
     output +='<input type="submit" value="Search" />';
@@ -45,8 +45,8 @@ $(document).ready(function(){
     }else if ($("#header_choice > option:selected").val()=='Outer') {
       output +='<input type="text" name="p_type" value="Outer" hidden/>'
       output +='<label>어&nbsp;&nbsp;&nbsp;&nbsp; 깨 : </label> <input type="text" name="s1" placeholder="Enter Your Cm" maxlength="4"/><br>';
-      output +='<label>암&nbsp;&nbsp;&nbsp;&nbsp; 홀 : </label> <input type="text" name="s2" placeholder="Enter Your Cm" maxlength="4"/><br>';
-      output +='<label>가슴단면 : </label><input type="text" name="s3" placeholder="Enter Your Cm" maxlength="4"/><br>';
+      output +='<label>가슴단면 : </label> <input type="text" name="s2" placeholder="Enter Your Cm" maxlength="4"/><br>';
+      output +='<label>암&nbsp;&nbsp;&nbsp;&nbsp; 홀 : </label><input type="text" name="s3" placeholder="Enter Your Cm" maxlength="4"/><br>';
       output +='<label>소매길이 : </label> <input type="text" name="s4" placeholder="Enter Your Cm" maxlength="4"/><br>';
       output +='<label>총 기 장 : </label><input type="text" name="s5" placeholder="Enter Your Cm" maxlength="4"/><br>';
       output +='<input type="submit" value="Search" />';
@@ -55,8 +55,8 @@ $(document).ready(function(){
     }else if ($("#header_choice > option:selected").val()=='Top') {
       output +='<input type="text" name="p_type" value="Top" hidden/>'
       output +='<label>어&nbsp;&nbsp;&nbsp;&nbsp; 깨 : </label> <input type="text" name="s1" placeholder="Enter Your Cm" maxlength="4"/><br>';
-      output +='<label>암&nbsp;&nbsp;&nbsp;&nbsp; 홀 : </label> <input type="text" name="s2" placeholder="Enter Your Cm" maxlength="4"/><br>';
-      output +='<label>가슴단면 : </label><input type="text" name="s3" placeholder="Enter Your Cm" maxlength="4"/><br>';
+      output +='<label>가슴단면 : </label> <input type="text" name="s2" placeholder="Enter Your Cm" maxlength="4"/><br>';
+      output +='<label>암&nbsp;&nbsp;&nbsp;&nbsp; 홀 : </label><input type="text" name="s3" placeholder="Enter Your Cm" maxlength="4"/><br>';
       output +='<label>소매길이 : </label> <input type="text" name="s4" placeholder="Enter Your Cm" maxlength="4"/><br>';
       output +='<label>총 기 장 : </label><input type="text" name="s5" placeholder="Enter Your Cm" maxlength="4"/><br>';
       output +='<input type="submit" value="Search" />';

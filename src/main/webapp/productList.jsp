@@ -6,11 +6,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>상품리스트</title>
-<link rel="stylesheet" href="./css/productCss.css?ver=6">
+<link rel="stylesheet" href="./css/productCss.css?ver=1">
 </head>
 <body>
 	<div id="wrapper">
 		<jsp:include page="header.jsp"></jsp:include>
+		<br>
+		<br>
+		<br>
+		<br>
 		<div id="title1">
 			<div id="boTitle">
 				<p id="boTitle">${p_type}BEST</p>
@@ -59,7 +63,7 @@
 				</ul>
 			</div>
 			<div id="product">
-				<c:forEach var="over" items="${overall}">
+				<c:forEach var="over" items="${overall.content}">
 					<a href="getProduct.do?r_no=${over.r_no }">
 						<div id="outer">
 							<div id=divImg>
@@ -76,7 +80,7 @@
 						</div>
 					</a>
 				</c:forEach>
-
+				
 			</div>
 			<!-- <div id=pagebutton>
 				<div id=btimg>
@@ -121,6 +125,22 @@
 
 			</div> -->
 		</div>
+		<c:if test="${overall.hasOveralls() }">
+					<center>
+					<c:if test="${overall.startPage > 5 }">
+						<a class="paging"
+							href="getOveralls.do?p_type=${p_type}&pNo=${overall.startPage -5 }">[이전]</a>
+					</c:if>
+					<c:forEach var="pNo" begin="${overall.startPage }"
+						end="${overall.endPage }">
+						<a class="paging" href="getOveralls.do?p_type=${p_type}&pNo=${pNo }">[${pNo }]</a>
+					</c:forEach>
+					<c:if test="${overall.endPage < overall.totalPages }">
+						<a class="paging"
+							href="getOveralls.do?p_type=${p_type}&pNo=${overall.startPage+5 }">[다음]</a>
+					</c:if>
+					</center>
+				</c:if>
 		<jsp:include page="footer.jsp"></jsp:include>
 	</div>
 

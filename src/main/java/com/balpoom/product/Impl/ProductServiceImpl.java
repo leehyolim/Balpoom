@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.balpoom.product.OverallProductPage;
 import com.balpoom.product.OverallProductVO;
 import com.balpoom.product.ProductService;
 import com.balpoom.product.ProductVO;
@@ -90,6 +91,21 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public List<OverallProductVO> getIndexBests(OverallProductVO vo) {
 		return productDAO.getIndexBests(vo);
+	}
+
+	@Override
+	public int getTotalOveralls(OverallProductVO vo) {
+		return productDAO.getTotalOveralls(vo);
+	}
+
+	@Override
+	public int getTotalOverallDetails(OverallProductVO vo) {
+		return productDAO.getTotalOverallDetails(vo);
+	}
+
+	@Override
+	public int getTotalFitple(OverallProductVO vo) {
+		return productDAO.getTotalFitple(vo);
 	}
 	
 }

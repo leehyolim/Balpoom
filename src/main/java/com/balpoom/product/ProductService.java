@@ -18,6 +18,9 @@ public interface ProductService {
 	List<OverallProductVO> doFitple(OverallProductVO vo);
 	
 	List<OverallProductVO> getIndexBests(OverallProductVO vo);
+	int getTotalOveralls(OverallProductVO vo);
+	int getTotalOverallDetails(OverallProductVO vo);
+	int getTotalFitple(OverallProductVO vo);
 	
 	void insertProduct(ProductVO pvo);	
 	void insertRegister(RegisterVO rvo);

@@ -88,4 +88,19 @@ public class ProductDAO {
 	public List<OverallProductVO> getIndexBests(OverallProductVO vo){
 		return mybatis.selectList("ProductDAO.getIndexBests",vo);
 	}
+	
+	public int getTotalOveralls(OverallProductVO vo){
+		List<OverallProductVO> total = mybatis.selectList("ProductDAO.getTotalOveralls", vo);
+		return total.size();
+	}
+	
+	public int getTotalOverallDetails(OverallProductVO vo){
+		List<OverallProductVO> total = mybatis.selectList("ProductDAO.getTotalOverallDetails",vo);
+		return total.size();
+	}
+	
+	public int getTotalFitple(OverallProductVO vo){
+		List<OverallProductVO> total = mybatis.selectList("ProductDAO.getTotalFitple",vo);
+		return total.size();
+	}
 }

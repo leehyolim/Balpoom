@@ -10,7 +10,7 @@
     <title>타이트으으으으을~~</title>
     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
     <script type="text/javascript" src="./js/jquery-3.3.1.min.js" charset="utf-8"></script>
-    <script type="text/javascript" src="./js/clothesTypeedit.js?ver=4"></script>
+    <script type="text/javascript" src="./js/clothesTypeedit.js?ver=1"></script>
     <script type="text/javascript" src="./js/sizeInfoedit.js?ver=5"></script>
     <script type="text/javascript" src="./js/fileupload.js"></script>
     <script language="javascript">  

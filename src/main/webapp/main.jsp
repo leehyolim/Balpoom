@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="./css/master.css?ver=7">
+<link rel="stylesheet" href="./css/master.css?ver=2">
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-<script type="text/javascript" src="./js/bestProd.js"></script>
+<script type="text/javascript" src="./js/bestProd.js?ver=2"></script>
 <title>BalPoom</title>
 <script type="text/javascript">
 	var list = {
@@ -16,56 +16,197 @@
 		4 : "Shoes"
 	};
 	var insertHTML = "";
-	$(document).ready(function() {
-		$.ajax({
-			type : 'POST',
-			url : '/biz/getMainOveralls.do',
-			data : list,
-			success : function(data) {
-				for (var i = 0; i < 3; i++) {
-					alert(data.outer_best[i].p_name);
-					insertHTML += '<div class="bestOuter">';
-					insertHTML += '<div id=divImg>';
-					insertHTML +=	'<img class="img1" src="./img/outer2.PNG"> <img';
-					insertHTML +=	'	class="img2" src="./img/outer2_2.PNG">';
-					insertHTML +='</div>';
-					insertHTML +='<div id=divText>';
-					insertHTML +='	<p id="storeName">'+data.outer_best[i].s_busi_name+'</p>';
-					insertHTML +='	<p id="productName">'+data.outer_best[i].p_name+'</p>';
-					insertHTML +='	<p id="price">'+data.outer_best[i].p_price+'</p>';
-					insertHTML +='</div>';
-					insertHTML +='</div>';
-					$("#outer_line1").append(insertHTML);
-					insertHTML = "";
-				}
-				for (var i = 3; i < 6; i++) {
-					alert(data.outer_best[i].p_name);
-					insertHTML += '<div class="bestOuter">';
-					insertHTML += '<div id=divImg>';
-					insertHTML +=	'<img class="img1" src="./img/outer2.PNG"> <img';
-					insertHTML +=	'	class="img2" src="./img/outer2_2.PNG">';
-					insertHTML +='</div>';
-					insertHTML +='<div id=divText>';
-					insertHTML +='	<p id="storeName">'+data.outer_best[i].s_busi_name+'</p>';
-					insertHTML +='	<p id="productName">'+data.outer_best[i].p_name+'</p>';
-					insertHTML +='	<p id="price">'+data.outer_best[i].p_price+'</p>';
-					insertHTML +='</div>';
-					insertHTML +='</div>';
-					$("#outer_line2").append(insertHTML);
-					insertHTML = "";
-				}
-				/*for(var i=0; i<data.top_best.length; i++){
-					alert(data.top_best[i].p_name);
-				}
-				for(var i=0; i<data.bottom_best.length; i++){
-					alert(data.bottom_best[i].p_name);
-				}
-				for(var i=0; i<data.shoes_best.length; i++){
-					alert(data.shoes_best[i].p_name);
-				}*/
-			}
-		});
-	});
+	$(document)
+			.ready(
+					function() {
+						$
+								.ajax({
+									type : 'POST',
+									url : '/biz/getMainOveralls.do',
+									data : list,
+									success : function(data) {
+										for (var i = 0; i < 3; i++) {
+											insertHTML += '<div class="bestOuter">';
+											insertHTML += '<div id=divImg>';
+											insertHTML += '<img class="img1" src="./product_img/'+data.outer_best[i].modify_date+'/'+data.outer_best[i].p_common_name+'/'+data.outer_best[i].modify_date+'_'+data.outer_best[i].p_common_name+'0.jpg"> <img';
+					insertHTML +=	'	class="img2" src="./product_img/'+data.outer_best[i].modify_date+'/'+data.outer_best[i].p_common_name+'/'+data.outer_best[i].modify_date+'_'+data.outer_best[i].p_common_name+'1.jpg">';
+											insertHTML += '</div>';
+											insertHTML += '<div id=divText>';
+											insertHTML += '	<p id="storeName">'
+													+ data.outer_best[i].s_busi_name
+													+ '</p>';
+											insertHTML += '	<p id="productName">'
+													+ data.outer_best[i].p_name
+													+ '</p>';
+											insertHTML += '	<p id="price">'
+													+ data.outer_best[i].p_price
+													+ '</p>';
+											insertHTML += '</div>';
+											insertHTML += '</div>';
+											$("#outer_line1")
+													.append(insertHTML);
+											insertHTML = "";
+										}
+										for (var i = 3; i < 6; i++) {
+											insertHTML += '<div class="bestOuter">';
+											insertHTML += '<div id=divImg>';
+											insertHTML += '<img class="img1" src="./product_img/'+data.outer_best[i].modify_date+'/'+data.outer_best[i].p_common_name+'/'+data.outer_best[i].modify_date+'_'+data.outer_best[i].p_common_name+'0.jpg"> <img';
+					insertHTML +=	'	class="img2" src="./product_img/'+data.outer_best[i].modify_date+'/'+data.outer_best[i].p_common_name+'/'+data.outer_best[i].modify_date+'_'+data.outer_best[i].p_common_name+'1.jpg">';
+											insertHTML += '</div>';
+											insertHTML += '<div id=divText>';
+											insertHTML += '	<p id="storeName">'
+													+ data.outer_best[i].s_busi_name
+													+ '</p>';
+											insertHTML += '	<p id="productName">'
+													+ data.outer_best[i].p_name
+													+ '</p>';
+											insertHTML += '	<p id="price">'
+													+ data.outer_best[i].p_price
+													+ '</p>';
+											insertHTML += '</div>';
+											insertHTML += '</div>';
+											$("#outer_line2")
+													.append(insertHTML);
+											insertHTML = "";
+										}
+										//outer
+										for (var i = 0; i < 3; i++) {
+											insertHTML += '<div class="bestOuter">';
+											insertHTML += '<div id=divImg>';
+											insertHTML += '<img class="img1" src="./product_img/'+data.top_best[i].modify_date+'/'+data.top_best[i].p_common_name+'/'+data.top_best[i].modify_date+'_'+data.top_best[i].p_common_name+'0.jpg"> <img';
+					insertHTML +=	'	class="img2" src="./product_img/'+data.top_best[i].modify_date+'/'+data.top_best[i].p_common_name+'/'+data.top_best[i].modify_date+'_'+data.top_best[i].p_common_name+'1.jpg">';
+											insertHTML += '</div>';
+											insertHTML += '<div id=divText>';
+											insertHTML += '	<p id="storeName">'
+													+ data.top_best[i].s_busi_name
+													+ '</p>';
+											insertHTML += '	<p id="productName">'
+													+ data.top_best[i].p_name
+													+ '</p>';
+											insertHTML += '	<p id="price">'
+													+ data.top_best[i].p_price
+													+ '</p>';
+											insertHTML += '</div>';
+											insertHTML += '</div>';
+											$("#outer_line3")
+													.append(insertHTML);
+											insertHTML = "";
+										}
+										for (var i = 3; i < 6; i++) {
+											insertHTML += '<div class="bestOuter">';
+											insertHTML += '<div id=divImg>';
+											insertHTML += '<img class="img1" src="./product_img/'+data.top_best[i].modify_date+'/'+data.top_best[i].p_common_name+'/'+data.top_best[i].modify_date+'_'+data.top_best[i].p_common_name+'0.jpg"> <img';
+					insertHTML +=	'	class="img2" src="./product_img/'+data.top_best[i].modify_date+'/'+data.top_best[i].p_common_name+'/'+data.top_best[i].modify_date+'_'+data.top_best[i].p_common_name+'1.jpg">';
+											insertHTML += '</div>';
+											insertHTML += '<div id=divText>';
+											insertHTML += '	<p id="storeName">'
+													+ data.top_best[i].s_busi_name
+													+ '</p>';
+											insertHTML += '	<p id="productName">'
+													+ data.top_best[i].p_name
+													+ '</p>';
+											insertHTML += '	<p id="price">'
+													+ data.top_best[i].p_price
+													+ '</p>';
+											insertHTML += '</div>';
+											insertHTML += '</div>';
+											$("#outer_line4")
+													.append(insertHTML);
+											insertHTML = "";
+										}
+										//top
+										for (var i = 0; i < 3; i++) {
+											insertHTML += '<div class="bestOuter">';
+											insertHTML += '<div id=divImg>';
+											insertHTML += '<img class="img1" src="./product_img/'+data.bottom_best[i].modify_date+'/'+data.bottom_best[i].p_common_name+'/'+data.bottom_best[i].modify_date+'_'+data.bottom_best[i].p_common_name+'0.jpg"> <img';
+					insertHTML +=	'	class="img2" src="./product_img/'+data.bottom_best[i].modify_date+'/'+data.bottom_best[i].p_common_name+'/'+data.bottom_best[i].modify_date+'_'+data.bottom_best[i].p_common_name+'1.jpg">';
+											insertHTML += '</div>';
+											insertHTML += '<div id=divText>';
+											insertHTML += '	<p id="storeName">'
+													+ data.bottom_best[i].s_busi_name
+													+ '</p>';
+											insertHTML += '	<p id="productName">'
+													+ data.bottom_best[i].p_name
+													+ '</p>';
+											insertHTML += '	<p id="price">'
+													+ data.bottom_best[i].p_price
+													+ '</p>';
+											insertHTML += '</div>';
+											insertHTML += '</div>';
+											$("#outer_line5")
+													.append(insertHTML);
+											insertHTML = "";
+										}
+										for (var i = 3; i < 6; i++) {
+											insertHTML += '<div class="bestOuter">';
+											insertHTML += '<div id=divImg>';
+											insertHTML += '<img class="img1" src="./product_img/'+data.bottom_best[i].modify_date+'/'+data.bottom_best[i].p_common_name+'/'+data.bottom_best[i].modify_date+'_'+data.bottom_best[i].p_common_name+'0.jpg"> <img';
+					insertHTML +=	'	class="img2" src="./product_img/'+data.bottom_best[i].modify_date+'/'+data.bottom_best[i].p_common_name+'/'+data.bottom_best[i].modify_date+'_'+data.bottom_best[i].p_common_name+'1.jpg">';
+											insertHTML += '</div>';
+											insertHTML += '<div id=divText>';
+											insertHTML += '	<p id="storeName">'
+													+ data.bottom_best[i].s_busi_name
+													+ '</p>';
+											insertHTML += '	<p id="productName">'
+													+ data.bottom_best[i].p_name
+													+ '</p>';
+											insertHTML += '	<p id="price">'
+													+ data.bottom_best[i].p_price
+													+ '</p>';
+											insertHTML += '</div>';
+											insertHTML += '</div>';
+											$("#outer_line6")
+													.append(insertHTML);
+											insertHTML = "";
+										}
+										//bottom
+										for (var i = 0; i < 3; i++) {
+											insertHTML += '<div class="bestOuter">';
+											insertHTML += '<div id=divImg>';
+											insertHTML += '<img class="img1" src="./product_img/'+data.shoes_best[i].modify_date+'/'+data.shoes_best[i].p_common_name+'/'+data.shoes_best[i].modify_date+'_'+data.shoes_best[i].p_common_name+'0.jpg"> <img';
+					insertHTML +=	'	class="img2" src="./product_img/'+data.shoes_best[i].modify_date+'/'+data.shoes_best[i].p_common_name+'/'+data.shoes_best[i].modify_date+'_'+data.shoes_best[i].p_common_name+'1.jpg">';
+											insertHTML += '</div>';
+											insertHTML += '<div id=divText>';
+											insertHTML += '	<p id="storeName">'
+													+ data.shoes_best[i].s_busi_name
+													+ '</p>';
+											insertHTML += '	<p id="productName">'
+													+ data.shoes_best[i].p_name
+													+ '</p>';
+											insertHTML += '	<p id="price">'
+													+ data.shoes_best[i].p_price
+													+ '</p>';
+											insertHTML += '</div>';
+											insertHTML += '</div>';
+											$("#outer_line7")
+													.append(insertHTML);
+											insertHTML = "";
+										}
+										for (var i = 3; i < 6; i++) {
+											insertHTML += '<div class="bestOuter">';
+											insertHTML += '<div id=divImg>';
+											insertHTML += '<img class="img1" src="./product_img/'+data.shoes_best[i].modify_date+'/'+data.shoes_best[i].p_common_name+'/'+data.shoes_best[i].modify_date+'_'+data.shoes_best[i].p_common_name+'0.jpg"> <img';
+					insertHTML +=	'	class="img2" src="./product_img/'+data.shoes_best[i].modify_date+'/'+data.shoes_best[i].p_common_name+'/'+data.shoes_best[i].modify_date+'_'+data.shoes_best[i].p_common_name+'1.jpg">';
+											insertHTML += '</div>';
+											insertHTML += '<div id=divText>';
+											insertHTML += '	<p id="storeName">'
+													+ data.shoes_best[i].s_busi_name
+													+ '</p>';
+											insertHTML += '	<p id="productName">'
+													+ data.shoes_best[i].p_name
+													+ '</p>';
+											insertHTML += '	<p id="price">'
+													+ data.shoes_best[i].p_price
+													+ '</p>';
+											insertHTML += '</div>';
+											insertHTML += '</div>';
+											$("#outer_line8")
+													.append(insertHTML);
+											insertHTML = "";
+										}
+									}
+								});
+					});
 </script>
 </head>
 <body>
@@ -100,307 +241,31 @@
 		</div>
 		<div id="best_pro_div">
 			<div class="frame">
-				<div id="title1">
 					<p id="boTitle">OUTER BEST</p>
-					<div class="line1" id="outer_line1">
-						<!-- <div class="bestOuter">
-							<div id=divImg>
-								<img class="img1" src="./img/outer1.PNG"> <img
-									class="img2" src="./img/outer1_1.PNG">
-							</div>
-							<div id=divText>
-								<p id="storeName">상호명</p>
-								<a href="getProduct.do?r_no=3"><p id="productName">베이직 더플코트(네이비)</p></a>
-								<p id="price">99,000원</p>
-							</div>
-						</div>
-						<div class="bestOuter">
-							<div id=divImg>
-								<img class="img1" src="./img/outer2.PNG"> <img
-									class="img2" src="./img/outer2_2.PNG">
-							</div>
-							<div id=divText>
-								<p id="storeName">상호명</p>
-								<a href="getProduct.do?p_identifier=exname0레드0"><p id="productName">베이직 더플코트(블루)</p></a>
-								<p id="price">89,000원</p>
-							</div>
-						</div>
-						<div class="bestOuter">
-							<div id=divImg>
-								<img class="img1" src="./img/outer3_1.PNG"> <img
-									class="img2" src="./img/outer3_2.PNG">
-							</div>
-							<div id=divText>
-								<p id="storeName">상호명</p>
-								<p id="productName">베이직 더플코트(네이비)</p>
-								<p id="price">99,000원</p>
-							</div>
-						</div> -->
-					</div>
-					<div class="line2" id="outer_line2">
-						<div class="bestOuter">
-							<div id=divImg>
-								<img class="img1" src="./img/outer1.PNG"> <img
-									class="img2" src="./img/outer1_1.PNG">
-							</div>
-							<div id=divText>
-								<p id="storeName">상호명</p>
-								<p id="productName">베이직 더플코트(네이비)</p>
-								<p id="price">99,000원</p>
-							</div>
-						</div>
-						<div class="bestOuter">
-							<div id=divImg>
-								<img class="img1" src="./img/outer2.PNG"> <img
-									class="img2" src="./img/outer2_2.PNG">
-							</div>
-							<div id=divText>
-								<p id="storeName">상호명</p>
-								<p id="productName">베이직 더플코트(네이비)</p>
-								<p id="price">99,000원</p>
-							</div>
-						</div>
-						<div class="bestOuter">
-							<div id=divImg>
-								<img class="img1" src="./img/outer3_1.PNG"> <img
-									class="img2" src="./img/outer3_2.PNG">
-							</div>
-							<div id=divText>
-								<p id="storeName">상호명</p>
-								<p id="productName">베이직 더플코트(네이비)</p>
-								<p id="price">99,000원</p>
-							</div>
-						</div>
-					</div>
-				</div>
+					<div class="line1" id="outer_line1"></div>
+					<br><br>
+					<div class="line2" id="outer_line2"></div>
 
 			</div>
 			<div class="frame">
-				<div id="title1">
 					<p id="boTitle">TOP BEST</p>
-					<div class="line1">
-						<div class="bestOuter">
-							<div id=divImg>
-								<img class="img1" src="./img/outer1.PNG"> <img
-									class="img2" src="./img/outer1_1.PNG">
-							</div>
-							<div id=divText>
-								<p id="storeName">상호명</p>
-								<p id="productName">베이직 더플코트(네이비)</p>
-								<p id="price">99,000원</p>
-							</div>
-						</div>
-						<div class="bestOuter">
-							<div id=divImg>
-								<img class="img1" src="./img/outer2.PNG"> <img
-									class="img2" src="./img/outer2_2.PNG">
-							</div>
-							<div id=divText>
-								<p id="storeName">상호명</p>
-								<p id="productName">베이직 더플코트(네이비)</p>
-								<p id="price">99,000원</p>
-							</div>
-						</div>
-						<div class="bestOuter">
-							<div id=divImg>
-								<img class="img1" src="./img/outer3_1.PNG"> <img
-									class="img2" src="./img/outer3_2.PNG">
-							</div>
-							<div id=divText>
-								<p id="storeName">상호명</p>
-								<p id="productName">베이직 더플코트(네이비)</p>
-								<p id="price">99,000원</p>
-							</div>
-						</div>
-					</div>
-					<div class="line2">
-						<div class="bestOuter">
-							<div id=divImg>
-								<img class="img1" src="./img/outer1.PNG"> <img
-									class="img2" src="./img/outer1_1.PNG">
-							</div>
-							<div id=divText>
-								<p id="storeName">상호명</p>
-								<p id="productName">베이직 더플코트(네이비)</p>
-								<p id="price">99,000원</p>
-							</div>
-						</div>
-						<div class="bestOuter">
-							<div id=divImg>
-								<img class="img1" src="./img/outer2.PNG"> <img
-									class="img2" src="./img/outer2_2.PNG">
-							</div>
-							<div id=divText>
-								<p id="storeName">상호명</p>
-								<p id="productName">베이직 더플코트(네이비)</p>
-								<p id="price">99,000원</p>
-							</div>
-						</div>
-						<div class="bestOuter">
-							<div id=divImg>
-								<img class="img1" src="./img/outer3_1.PNG"> <img
-									class="img2" src="./img/outer3_2.PNG">
-							</div>
-							<div id=divText>
-								<p id="storeName">상호명</p>
-								<p id="productName">베이직 더플코트(네이비)</p>
-								<p id="price">99,000원</p>
-							</div>
-						</div>
-					</div>
-				</div>
+					<div class="line1" id="outer_line3"></div>
+					<br><br>
+					<div class="line2" id="outer_line4"></div>
 
 			</div>
 			<div class="frame">
-				<div id="title1">
 					<p id="boTitle">BOTTOM BEST</p>
-					<div class="line1">
-						<div class="bestOuter">
-							<div id=divImg>
-								<img class="img1" src="./img/outer1.PNG"> <img
-									class="img2" src="./img/outer1_1.PNG">
-							</div>
-							<div id=divText>
-								<p id="storeName">상호명</p>
-								<p id="productName">베이직 더플코트(네이비)</p>
-								<p id="price">99,000원</p>
-							</div>
-						</div>
-						<div class="bestOuter">
-							<div id=divImg>
-								<img class="img1" src="./img/outer2.PNG"> <img
-									class="img2" src="./img/outer2_2.PNG">
-							</div>
-							<div id=divText>
-								<p id="storeName">상호명</p>
-								<p id="productName">베이직 더플코트(네이비)</p>
-								<p id="price">99,000원</p>
-							</div>
-						</div>
-						<div class="bestOuter">
-							<div id=divImg>
-								<img class="img1" src="./img/outer3_1.PNG"> <img
-									class="img2" src="./img/outer3_2.PNG">
-							</div>
-							<div id=divText>
-								<p id="storeName">상호명</p>
-								<p id="productName">베이직 더플코트(네이비)</p>
-								<p id="price">99,000원</p>
-							</div>
-						</div>
-					</div>
-					<div class="line2">
-						<div class="bestOuter">
-							<div id=divImg>
-								<img class="img1" src="./img/outer1.PNG"> <img
-									class="img2" src="./img/outer1_1.PNG">
-							</div>
-							<div id=divText>
-								<p id="storeName">상호명</p>
-								<p id="productName">베이직 더플코트(네이비)</p>
-								<p id="price">99,000원</p>
-							</div>
-						</div>
-						<div class="bestOuter">
-							<div id=divImg>
-								<img class="img1" src="./img/outer2.PNG"> <img
-									class="img2" src="./img/outer2_2.PNG">
-							</div>
-							<div id=divText>
-								<p id="storeName">상호명</p>
-								<p id="productName">베이직 더플코트(네이비)</p>
-								<p id="price">99,000원</p>
-							</div>
-						</div>
-						<div class="bestOuter">
-							<div id=divImg>
-								<img class="img1" src="./img/outer3_1.PNG"> <img
-									class="img2" src="./img/outer3_2.PNG">
-							</div>
-							<div id=divText>
-								<p id="storeName">상호명</p>
-								<p id="productName">베이직 더플코트(네이비)</p>
-								<p id="price">99,000원</p>
-							</div>
-						</div>
-					</div>
-				</div>
+					<div class="line1" id="outer_line5"></div>
+					<br><br>
+					<div class="line2" id="outer_line6"></div>
 
 			</div>
 			<div class="frame">
-				<div id="title1">
 					<p id="boTitle">SHOES BEST</p>
-					<div class="line1">
-						<div class="bestOuter">
-							<div id=divImg>
-								<img class="img1" src="./img/outer1.PNG"> <img
-									class="img2" src="./img/outer1_1.PNG">
-							</div>
-							<div id=divText>
-								<p id="storeName">상호명</p>
-								<p id="productName">베이직 더플코트(네이비)</p>
-								<p id="price">99,000원</p>
-							</div>
-						</div>
-						<div class="bestOuter">
-							<div id=divImg>
-								<img class="img1" src="./img/outer2.PNG"> <img
-									class="img2" src="./img/outer2_2.PNG">
-							</div>
-							<div id=divText>
-								<p id="storeName">상호명</p>
-								<p id="productName">베이직 더플코트(네이비)</p>
-								<p id="price">99,000원</p>
-							</div>
-						</div>
-						<div class="bestOuter">
-							<div id=divImg>
-								<img class="img1" src="./img/outer3_1.PNG"> <img
-									class="img2" src="./img/outer3_2.PNG">
-							</div>
-							<div id=divText>
-								<p id="storeName">상호명</p>
-								<p id="productName">베이직 더플코트(네이비)</p>
-								<p id="price">99,000원</p>
-							</div>
-						</div>
-					</div>
-					<div class="line2">
-						<div class="bestOuter">
-							<div id=divImg>
-								<img class="img1" src="./img/outer1.PNG"> <img
-									class="img2" src="./img/outer1_1.PNG">
-							</div>
-							<div id=divText>
-								<p id="storeName">상호명</p>
-								<p id="productName">베이직 더플코트(네이비)</p>
-								<p id="price">99,000원</p>
-							</div>
-						</div>
-						<div class="bestOuter">
-							<div id=divImg>
-								<img class="img1" src="./img/outer2.PNG"> <img
-									class="img2" src="./img/outer2_2.PNG">
-							</div>
-							<div id=divText>
-								<p id="storeName">상호명</p>
-								<p id="productName">베이직 더플코트(네이비)</p>
-								<p id="price">99,000원</p>
-							</div>
-						</div>
-						<div class="bestOuter">
-							<div id=divImg>
-								<img class="img1" src="./img/outer3_1.PNG"> <img
-									class="img2" src="./img/outer3_2.PNG">
-							</div>
-							<div id=divText>
-								<p id="storeName">상호명</p>
-								<p id="productName">베이직 더플코트(네이비)</p>
-								<p id="price">99,000원</p>
-							</div>
-						</div>
-					</div>
-				</div>
+					<div class="line1" id="outer_line7"></div>
+					<br><br>
+					<div class="line2" id="outer_line8"></div>
 
 			</div>
 			<div id="btn_group">

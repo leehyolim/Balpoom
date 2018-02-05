@@ -33,21 +33,21 @@ function fnMove(seq){
     $('#btn_move4').css('background','#f9f9f9');
     curPosition = 1;
   }else if(seq==2){
-    position = 1205;
+    position = 1208;
     $('#btn_move1').css('background','#f9f9f9');
     $('#btn_move2').css('background','#6f6f6f');
     $('#btn_move3').css('background','#f9f9f9');
     $('#btn_move4').css('background','#f9f9f9');
     curPosition = 2;
   }else if(seq==3){
-    position = 2411;
+    position = 2416;
     $('#btn_move1').css('background','#f9f9f9');
     $('#btn_move2').css('background','#f9f9f9');
     $('#btn_move3').css('background','#6f6f6f');
     $('#btn_move4').css('background','#f9f9f9');
     curPosition = 3;
   }else if(seq==4){
-    position = 3616;
+    position = 3624;
     $('#btn_move1').css('background','#f9f9f9');
     $('#btn_move2').css('background','#f9f9f9');
     $('#btn_move3').css('background','#f9f9f9');

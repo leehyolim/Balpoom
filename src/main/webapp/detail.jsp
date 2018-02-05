@@ -28,7 +28,7 @@
                 <form action="detailaddOrder.do">
                     <div class="info_box1">
                         <p class="product_name">
-                            <h1>${ProductOne.p_name }</h1>
+                            <h3>${ProductOne.p_name }</h3>
                         </p>
                     </div>
                     <br>
