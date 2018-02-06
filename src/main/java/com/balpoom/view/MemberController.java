@@ -37,7 +37,7 @@ public class MemberController {
 		MailHandler sendMail = new MailHandler(mailSender);
 		sendMail.setSubject("[이메일 인증]");
 		sendMail.setText(new StringBuffer().append("<h1>메일인증</h1>")
-				.append("<a href='http://localhost:8080/biz/verify.do?m_email_id=" + vo.getM_email_id()
+				.append("발품에 가입해주셔서 감사합니다.<br><a href='http://localhost:8080/biz/verify.do?m_email_id=" + vo.getM_email_id()
 						+ "&m_email_domain=" + vo.getM_email_domain())
 				.append("' target='_blenk'>이메일 인증 확인</a>").toString());
 		sendMail.setFrom("balpoom@balpoom.com", "발품");
