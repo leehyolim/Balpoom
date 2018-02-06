@@ -10,7 +10,7 @@
 	</select>
 	
 	<select id="getSellerOrderLookup" resultType="sellerOrderList">
-		select distinct product.p_identifier,p_price,p_size,cart.c_cnt,
+		select distinct orders.p_total_identifier,p_price,p_size,cart.c_cnt,
 		sender_name,sender_cellphone1,sender_cellphone2,sender_cellphone3,m_address_postcode,m_address_primary,m_address_detail,
 		receiver_name,receiver_address_postcode,receiver_address_primary,receiver_address_detail,
 		receiver_cellphone1,receiver_cellphone2,receiver_cellphone3,receiver_requirement
