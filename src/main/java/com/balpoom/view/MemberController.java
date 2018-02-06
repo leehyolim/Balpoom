@@ -104,11 +104,20 @@ public class MemberController {
 	public String checkDuplicate(HttpServletRequest request) {
 		System.out.println("---> mybatis로 checkDuplicate() 기능 처리");
 		String m_id = request.getParameter("m_id");
-		MemberVO vo = new MemberVO();
-		vo.setM_id(m_id);
-		int rowcount = memberService.checkDuplicate(vo);
-		System.out.println(rowcount);
-		return String.valueOf(rowcount);
+		System.out.println(m_id);
+		if(m_id.contains("@")){
+			return "@";
+		}else if(m_id.trim().length()== 0){
+			return "blank";
+		}
+		else{
+			MemberVO vo = new MemberVO();
+			vo.setM_id(m_id);
+			int rowcount = memberService.checkDuplicate(vo);
+			System.out.println(rowcount);
+			return String.valueOf(rowcount);
+		}
+
 	}
 
 	@RequestMapping("/mypage.do")

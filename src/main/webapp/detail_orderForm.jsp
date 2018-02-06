@@ -265,15 +265,23 @@
 						p_total_identifier = p_total_identifier + " " + p_identifier[i];
 					}
 				%>
+
+				<input type="hidden" name="p_total_identifier" value="<%=p_total_identifier%>"> 
+				<input type="hidden" name="total_price" value="<%=rs_price%>">
+				<input type="hidden"name="index" value="<%=request.getParameter("index")%>">
 				
-				<input type="hidden" name="p_total_identifier" value="<%=p_total_identifier%>">
-				<input type="hidden" name="total_price" value="<%=rs_price  %>">
+				<%
+					for(int i = 0; i < Integer.parseInt(request.getParameter("index")); i++){	
+				%>
+					<input type="hidden" name="c_cnt" value="<%=request.getParameter("c_cnt"+i)%>">
+				<%} %>
 				
-					<div class="last_Payment">
-						<button type="submit"class="img_btn" onclick="pre_order_check()">주문결제
-						</button>
-					</div>
-		</form>
+				<div class="last_Payment">
+					<button type="submit" class="img_btn" onclick="pre_order_check()">
+						주문결제
+					</button>
+				</div>
+				</form>
 		</div>
 		
 		<jsp:include page="footer.jsp"></jsp:include>

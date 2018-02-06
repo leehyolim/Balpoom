@@ -4,10 +4,10 @@
 
 <mapper namespace="InqueryDAO">
 	
-	<insert id="insertInquery">
-		INSERT INTO board_inquery(inqu_title,m_no, inqu_content, fileName_date) 
-		VALUES (#{inqu_title},#{m_no}, #{inqu_content}, #{fileName_date})
-	</insert>
+   <insert id="insertInquery">
+      INSERT INTO board_inquery(inqu_title,m_no, inqu_content, fileName_date, r_no) 
+      VALUES (#{inqu_title},#{m_no}, #{inqu_content}, #{fileName_date}, #{r_no})
+   </insert>
 	
 	<update id="updateInquery">
 		<![CDATA[

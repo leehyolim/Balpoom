@@ -38,4 +38,10 @@ public class BasketServiceImpl implements BasketService{
 	public void best_rs_product_number(BasketVO vo) {
 		basketDAO.best_rs_product_number(vo);
 	}
+
+	@Override
+	public void order_after_delete(BasketVO vo) {
+		basketDAO.order_after_delete(vo);
+	}
+	
 }

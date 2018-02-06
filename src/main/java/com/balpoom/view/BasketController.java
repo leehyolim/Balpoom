@@ -17,7 +17,7 @@ import com.balpoom.member.MemberVO;
 @Controller
 @SessionAttributes("basket")
 public class BasketController {
-
+	
 	@Autowired
 	private BasketService basketService;
 	
@@ -44,15 +44,15 @@ public class BasketController {
 		////////////////////////////////////////////////////////////////////////////////////
 		return "getBasketList.do";
 	}
-
+	
 	@RequestMapping("/deleteBasket.do")
 	public String deleteNotice(BasketVO vo) {
 		basketService.deleteBasket(vo);
-
+		
 		System.out.println(basketService.getBasketList(vo));
 		return "getBasketList.do";
 	}
-
+	
 	@RequestMapping(value = "/getBasketList.do")
 	public String getBasketList(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();

@@ -22,10 +22,10 @@
 			<form action="getReviewList.do" method="post">
 
 				<c:if test="${ ! empty authMember }">
-					<a href="insertReview.jsp"><p class="inquiryBtn"
+					<a href="callInsertReviewForm.do?r_no=${r_no}"><p class="inquiryBtn"
 							style="cursor: pointer">등록하기</p></a>
 				</c:if>
-
+				<input type="hidden" value="${r_no }" name="r_no">
 				<table>
 					<tr>
 						<th>번호</th>

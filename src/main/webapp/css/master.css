@@ -5,6 +5,9 @@
 	padding: 0;
 	font-family: '맑은고딕';
 }
+.frame a:link {  text-decoration: none;}
+.frame a:visited { text-decoration: none;}
+.frame a:hover { text-decoration: underline;}
 .wraper {
 	min-height: 2800px;
 	width: 1200px;
@@ -116,7 +119,7 @@
    }
    #divImg img {
      width: 350px;
-     height:ahto;
+     height:auto;
      max-height:400px;
       }
 #divImg:hover > .img1{

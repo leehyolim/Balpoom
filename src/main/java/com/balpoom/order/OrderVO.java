@@ -23,6 +23,7 @@ public class OrderVO {
 	private String receiver_requirement;
 	private String payment_type;
 	private int total_price;
+	private int o_cnt;
 	
 	
 	public int getO_no() {
@@ -147,17 +148,24 @@ public class OrderVO {
 	public void setTotal_price(int total_price) {
 		this.total_price = total_price;
 	}
+	public int getO_cnt() {
+		return o_cnt;
+	}
+	public void setO_cnt(int o_cnt) {
+		this.o_cnt = o_cnt;
+	}
 	
 	@Override
 	public String toString() {
-		return "OrderVO [o_no=" + o_no + ", o_date=" + o_date + ", p_total_identifier=" + p_total_identifier + ", m_no=" + m_no
-				+ ", sender_name=" + sender_name + ", sender_email_id=" + sender_email_id + ", sender_email_domain="
-				+ sender_email_domain + ", sender_cellphone1=" + sender_cellphone1 + ", sender_cellphone2="
-				+ sender_cellphone2 + ", sender_cellphone3=" + sender_cellphone3 + ", receiver_address_postcode="
-				+ receiver_address_postcode + ", receiver_address_primary=" + receiver_address_primary
-				+ ", receiver_address_detail=" + receiver_address_detail + ", receiver_name=" + receiver_name
-				+ ", receiver_cellphone1=" + receiver_cellphone1 + ", receiver_cellphone2=" + receiver_cellphone2
-				+ ", receiver_cellphone3=" + receiver_cellphone3 + ", receiver_requirement=" + receiver_requirement
-				+ ", payment_type=" + payment_type + "]";
+		return "OrderVO [o_no=" + o_no + ", o_date=" + o_date + ", p_total_identifier=" + p_total_identifier + ", m_no="
+				+ m_no + ", sender_name=" + sender_name + ", sender_email_id=" + sender_email_id
+				+ ", sender_email_domain=" + sender_email_domain + ", sender_cellphone1=" + sender_cellphone1
+				+ ", sender_cellphone2=" + sender_cellphone2 + ", sender_cellphone3=" + sender_cellphone3
+				+ ", receiver_address_postcode=" + receiver_address_postcode + ", receiver_address_primary="
+				+ receiver_address_primary + ", receiver_address_detail=" + receiver_address_detail + ", receiver_name="
+				+ receiver_name + ", receiver_cellphone1=" + receiver_cellphone1 + ", receiver_cellphone2="
+				+ receiver_cellphone2 + ", receiver_cellphone3=" + receiver_cellphone3 + ", receiver_requirement="
+				+ receiver_requirement + ", payment_type=" + payment_type + ", total_price=" + total_price + ", o_cnt="
+				+ o_cnt + "]";
 	}
 }

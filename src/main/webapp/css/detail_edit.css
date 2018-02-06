@@ -5,7 +5,12 @@
     height:100%;
     width:100%;
 }
-
+.outwrapper{
+	margin:auto;
+	width:1200px;
+	height:auto;
+	position: relative;
+}
 .wrapper{
     width:1100px;
     padding:30px;   
@@ -151,10 +156,7 @@ span{
     height:25px;
     float: left;
 }
-b{
-    width:20%;
-    float: right;
-}
+
 .pageMoveBtn{
     width:260px;
     height:80px;
@@ -217,4 +219,8 @@ form{
 .action_place_iframe{
 	height:800px;	
 	border:0;
+}
+.footerwrapper{
+	width:1200px;
+	height:400px;
 }

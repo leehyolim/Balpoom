@@ -217,11 +217,12 @@
             
             <c:forEach items="${basketList}" var="basket">
                <c:set var="p_total_identifier" value="${p_total_identifier} ${basket.p_identifier}"/>
+               <input type="hidden" name="c_cnt" value="${basket.c_cnt}">
             </c:forEach>
             
             <input type="hidden" name="p_total_identifier" value="${p_total_identifier}">
             <input type="hidden" name="total_price" value="<%= request.getParameter("rs_price") %>">
-            
+            <input type="hidden" name="index" value="-1">
                <div class="last_Payment">
                   <button type="submit"class="img_btn" onclick="pre_order_check()">주문결제
                   </button>

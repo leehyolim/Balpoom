@@ -18,8 +18,8 @@
         <div class="ssTextBox">
         <p class="ssText">발품 <font color=gray>홈페이지 회원가입이 완료되었습니다.</font></p>
         <div id="ssBtnBox">
-                <a><div class="ssBtn" style=" cursor: pointer;"><p class="ssBtnText">메인으로 이동</p></div></a>
-                <a><div class="ssBtn" style=" cursor: pointer;"><p class="ssBtnText">로그인하기</p></div></a>
+                <a href="index.jsp"><div class="ssBtn" style=" cursor: pointer;"><p class="ssBtnText">메인으로 이동</p></div></a>
+                <a href="login.jsp"><div class="ssBtn" style=" cursor: pointer;"><p class="ssBtnText">로그인하기</p></div></a>
             </div>
     </div>
 

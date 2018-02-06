@@ -8,11 +8,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./css/detail_edit.css?ver=5" />
+    <link rel="stylesheet" href="./css/detail_edit.css?ver=2" />
     <title>Document</title>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
+<div class="outwrapper">
+    <jsp:include page="header.jsp"></jsp:include>
+
     <div class="wrapper">
         <div class="detail_Info">
             <diV class="half_detail_Info_Img">
@@ -80,6 +83,7 @@
                     <input type="hidden" name="index">
                     <input type="hidden" value="${ProductOne.p_price }" id="base_price">
                     <input type="hidden" value="${ProductOne.p_common_name }" id="p_common_name">
+                    <input type="hidden" value="${ProductOne.r_no }" name="r_no">
                     <button type="submit" class="pageMoveBtn">바로 주문</button>
                 </form>
                 <form action="addBasket.do" class="cartData">
@@ -96,11 +100,13 @@
         		<a onclick="changeAction_place(this.id)" id="delivery_info"><div class="tool"><p>배송 정보</p></div></a>
 	        </div> 
 	        <br><br><br><br>       
-	        <iframe class="action_place_iframe" name="action_place"></iframe> 
+	        <iframe class="action_place_iframe" name="action_place" scrolling="no"></iframe> 
 			<div class="product_img_place">
 	        	<img src="./product_img/${ProductOne.fileNameDate }/${ProductOne.p_common_name }/${ProductOne.fileNameDate }_${ProductOne.p_common_name }2.jpg">
 	        	<img src="./product_img/${ProductOne.fileNameDate }/${ProductOne.p_common_name }/${ProductOne.fileNameDate }_${ProductOne.p_common_name }3.jpg">
 	        	<img src="./product_img/${ProductOne.fileNameDate }/${ProductOne.p_common_name }/${ProductOne.fileNameDate }_${ProductOne.p_common_name }4.jpg">
+	        	<img src="./product_img/${ProductOne.fileNameDate }/${ProductOne.p_common_name }/${ProductOne.fileNameDate }_${ProductOne.p_common_name }5.jpg">
+	        	<img src="./product_img/${ProductOne.fileNameDate }/${ProductOne.p_common_name }/${ProductOne.fileNameDate }_${ProductOne.p_common_name }6.jpg">
 	        </div>
 	        <div class="deliveryInfo_img_place">
 	        	<img src="./img/배송정보title.jpg">
@@ -108,6 +114,10 @@
 	        </div>
 	         
         </div>
+    </div>
+    <div class="footerwrapper">
+            <jsp:include page="footer.jsp"></jsp:include>
+            </div>
     </div>
 
     <script>

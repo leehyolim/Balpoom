@@ -6,7 +6,7 @@ public class SellerLookupVO {
 	private int s_no;
 	private int o_no;
 	private Date o_date;
-	private String p_name;
+	private String p_identifier;
 	private int p_price;
 	private String p_size;
 	private int c_cnt;
@@ -45,11 +45,12 @@ public class SellerLookupVO {
 	public void setO_date(Date o_date) {
 		this.o_date = o_date;
 	}
-	public String getP_name() {
-		return p_name;
+	
+	public String getP_identifier() {
+		return p_identifier;
 	}
-	public void setP_name(String p_name) {
-		this.p_name = p_name;
+	public void setP_identifier(String p_identifier) {
+		this.p_identifier = p_identifier;
 	}
 	public int getP_price() {
 		return p_price;
@@ -159,18 +160,17 @@ public class SellerLookupVO {
 	public void setReceiver_requirement(String receiver_requirement) {
 		this.receiver_requirement = receiver_requirement;
 	}
-	
 	@Override
 	public String toString() {
-		return "SellerLookupVO [o_no=" + o_no + ", o_date=" + o_date + ", p_name=" + p_name + ", p_price=" + p_price
-				+ ", p_size=" + p_size + ", c_cnt=" + c_cnt + ", sender_name=" + sender_name + ", sender_cellphone1="
-				+ sender_cellphone1 + ", sender_cellphone2=" + sender_cellphone2 + ", sender_cellphone3="
-				+ sender_cellphone3 + ", m_address_postcode=" + m_address_postcode + ", m_address_primary="
-				+ m_address_primary + ", m_address_detail=" + m_address_detail + ", receiver_name=" + receiver_name
-				+ ", receiver_address_postcode=" + receiver_address_postcode + ", receiver_address_primary="
-				+ receiver_address_primary + ", receiver_address_detail=" + receiver_address_detail
-				+ ", receiver_cellphone1=" + receiver_cellphone1 + ", receiver_cellphone2=" + receiver_cellphone2
-				+ ", receiver_cellphone3=" + receiver_cellphone3 + ", receiver_requirement=" + receiver_requirement
-				+ "]";
+		return "SellerLookupVO [s_no=" + s_no + ", o_no=" + o_no + ", o_date=" + o_date + ", p_identifier="
+				+ p_identifier + ", p_price=" + p_price + ", p_size=" + p_size + ", c_cnt=" + c_cnt + ", sender_name="
+				+ sender_name + ", sender_cellphone1=" + sender_cellphone1 + ", sender_cellphone2=" + sender_cellphone2
+				+ ", sender_cellphone3=" + sender_cellphone3 + ", m_address_postcode=" + m_address_postcode
+				+ ", m_address_primary=" + m_address_primary + ", m_address_detail=" + m_address_detail
+				+ ", receiver_name=" + receiver_name + ", receiver_address_postcode=" + receiver_address_postcode
+				+ ", receiver_address_primary=" + receiver_address_primary + ", receiver_address_detail="
+				+ receiver_address_detail + ", receiver_cellphone1=" + receiver_cellphone1 + ", receiver_cellphone2="
+				+ receiver_cellphone2 + ", receiver_cellphone3=" + receiver_cellphone3 + ", receiver_requirement="
+				+ receiver_requirement + "]";
 	}
 }

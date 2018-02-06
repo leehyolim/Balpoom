@@ -54,10 +54,10 @@ function doImgPop(img){
                     <tr><td colspan="2" class="boardContent">${Review.re_content}</td></tr>
                     <tr><td colspan="2" class="boardImg"><img src="/biz/uploadimg/${Review.m_id }/${Review.fileName_date}.png" style="cursor:pointer" onerror="this.style.display='none'" onclick="doImgPop(this.src)"></td></tr>
                 </table>
-            <a href="getReviewList.do"><p class="listbtn" style="cursor: pointer">목록</p></a>
+            <a href="getReviewList.do?r_no=${Review.r_no }"><p class="listbtn" style="cursor: pointer">목록</p></a>
             <c:if test="${authMember.m_no ==Review.m_no }">
             <a href="updateReview.jsp?re_no=${Review.re_no}"><p class="listbtn"  style="cursor: pointer">수정</p></a>
-            <a href="deleteReview.do?re_no=${Review.re_no}"><p class="listbtn" style="cursor: pointer">삭제</p></a>
+            <a href="deleteReview.do?re_no=${Review.re_no}&r_no=${Review.r_no}"><p class="listbtn" style="cursor: pointer">삭제</p></a>
             </c:if>
 			<br>          
                       

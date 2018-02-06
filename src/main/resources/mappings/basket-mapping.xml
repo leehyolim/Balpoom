@@ -9,6 +9,11 @@
 		DELETE FROM cart WHERE c_no = #{c_no}
 	</delete>
 	
+	<!-- 주문 후 삭제 -->
+	<delete id="order_after_delete">
+		delete from cart where validity = 2
+	</delete>
+	
 	<select id="getBasketList" resultType="basket">
 		select c_no,m_no,p_name,c_cnt,p_price,cart.p_identifier from cart,product
 		where cart.p_identifier = product.p_identifier

@@ -38,7 +38,7 @@ public class SellerController {
 			return mav;
 		}
 	}
-
+	
 	@RequestMapping("/getSellerOrderLookup.do")
 	public String getSellerOrderLookup(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();

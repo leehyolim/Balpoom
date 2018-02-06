@@ -4,7 +4,7 @@
   
   <mapper namespace="ReviewDAO">
   	<select id="getReview" resultType="Review">
-  		select * from (select re.re_no, re.re_title, re.re_content, re.m_no, re.re_reg, re.m_name, me.m_id, re.fileName_date from review re, member me where re.m_no = me.m_no) sub where sub.re_no = #{re_no}
+  		select * from (select re.r_no,re.re_no, re.re_title, re.re_content, re.m_no, re.re_reg, re.m_name, me.m_id, re.fileName_date from review re, member me where re.m_no = me.m_no) sub where sub.re_no = #{re_no}
   	</select> 
   	<select id="getReviewList" resultType="Review">
   		select * from review 
@@ -13,7 +13,7 @@
   	</select>
   	
   	<select id="insertReview">
-  		insert into review(m_name, re_content, re_title,m_no, fileName_date) values (#{m_name}, #{re_content}, #{re_title},#{m_no}, #{fileName_date})
+  		insert into review(m_name, re_content, re_title,m_no, fileName_date,r_no) values (#{m_name}, #{re_content}, #{re_title},#{m_no}, #{fileName_date},#{r_no})
   	</select>
   	
   	<select id="deleteReview">

@@ -32,17 +32,29 @@ public class InqueryController {
 	private final Calendar cal = Calendar.getInstance();
 	private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-	// 글 등록
+	// 글 등록페이지 불러오기
+	@RequestMapping(value = "/callInsertForm.do")
+	public String callInsertForm(HttpServletRequest request, Model model) {
+		int r_no = Integer.parseInt(request.getParameter("r_no"));
+		model.addAttribute("r_no", r_no);
+
+		return "insertInquery.jsp";
+	}
+
 	@RequestMapping(value = "/insertInquery.do")
 	public ModelAndView insertInquery(InqueryVO vo, HttpServletRequest request) throws IOException {
 
 		System.out.println(4);
-
+		int r_no = Integer.parseInt(request.getParameter("r_no"));
+		System.out.println(r_no);
 		// System.out.println("글 등록 처리");
 		logger.debug("[LOG] 글 등록 처리");
 		System.out.println(vo.getInqu_title());
 		System.out.println(vo.getM_no());
 		System.out.println(vo.getInqu_content());
+
+		vo.setR_no(r_no);
+
 		InqueryService.insertInquery(vo);
 		System.out.println(vo.toString());
 
@@ -72,13 +84,13 @@ public class InqueryController {
 
 	// 글 삭제
 	@RequestMapping(value = "/deleteInquery.do")
-	public String deleteInquery(InqueryVO vo) {
+	public String deleteInquery(InqueryVO vo,@RequestParam String inqu_no,@RequestParam String r_no) {
 
 		// System.out.println("글 삭제 처리");
 		logger.debug("[LOG] 글 삭제  처리");
 		InqueryService.deleteInquery(vo);
 
-		return "getInqueryList.do";
+		return "getInqueryList.do?r_no="+r_no;
 	}
 
 	// 글 상세 조회

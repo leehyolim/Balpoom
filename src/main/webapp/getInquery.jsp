@@ -60,10 +60,10 @@ function doImgPop(img){
                     
                     
                 </table>
-            <a href="getInqueryList.do"><p class="listbtn" style="cursor: pointer">목록</p></a>
+            <a href="getInqueryList.do?r_no=${Inquery.r_no}"><p class="listbtn" style="cursor: pointer">목록</p></a>
             <c:if test="${authMember.m_no ==Inquery.m_no }">
             <a href="updateInquery.jsp?inqu_no=${Inquery.inqu_no}"><p class="listbtn" style="cursor: pointer">수정</p></a>
-            <a href="deleteInquery.do?inqu_no=${Inquery.inqu_no}"><p class="listbtn" style="cursor: pointer">삭제</p></a>
+            <a href="deleteInquery.do?inqu_no=${Inquery.inqu_no}&r_no=${Inquery.r_no}"><p class="listbtn" style="cursor: pointer">삭제</p></a>
             </c:if>
 			<br>          
             <c:if test="${ empty authMember }">

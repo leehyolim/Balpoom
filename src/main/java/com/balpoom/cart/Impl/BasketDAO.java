@@ -41,6 +41,12 @@ public class BasketDAO {
 		mybatis.update("BasketDAO.order_rs_cart_del", vo);
 	}
 	
+	//주문 후 장바구니 DB 삭제
+	public void order_after_delete(BasketVO vo) {
+		System.out.println("---> mybtis로 order_after_delete() 기능 처리");
+		mybatis.delete("BasketDAO.order_after_delete");
+	}
+	
 	//주문 후 인기상품 카운트 증가
 	public void best_rs_product_number(BasketVO vo) {
 		System.out.println("---> mybtis로 best_rs_product_number() 기능 처리");

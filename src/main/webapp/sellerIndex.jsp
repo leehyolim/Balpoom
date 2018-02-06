@@ -25,10 +25,10 @@
         </div>
         <div class="tab">
                 <p class="tablinks" onclick="openPage(event, 'Home')" id="defaultOpen" style="border-top-left-radius: 4px;">판매자센터 홈</p>
-                <p class="tablinks" onclick="openPage(event, 'Product')">상품관리</p>
+                <p class="tablinks" onclick="openPage(event, 'Product')">상품등록</p>
                 <p class="tablinks" onclick="openPage(event, 'Product2')">상품수량</p>
                 <p class="tablinks" onclick="openPage(event, 'Order')" >주문관리</p>
-                <p class="tablinks" onclick="openPage(event, 'Inquiry')" style="border-top-right-radius: 4px;">문의관리</p>
+                <!-- <p class="tablinks" onclick="openPage(event, 'Inquiry')" style="border-top-right-radius: 4px;">문의관리</p> -->
             </div>
             <div id="Home" class="tabcontent">
                     

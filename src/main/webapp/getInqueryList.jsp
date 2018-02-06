@@ -28,25 +28,28 @@
 
 <body>
 	<center>
-		<br>
-		<br>
-		<br>
+		<br> <br> <br>
 		<div id="productInquiryBoard_wrapper">
 			<p class="pibTitle">상품 문의하기</p>
 			<form action="getInqueryList.do" method="post">
 				<div class="selectDiv">
 
 					<select id="selectBox" name="searchCondition" size="1">
-						<option value="TITLE" <c:if test="${'TITLE'== searchCondition}">selected</c:if>>제목</option>
-						<option value="CONTENT" <c:if test="${'CONTENT'== searchCondition}">selected</c:if>>내용</option>
-					</select>
-					 <input id="selectText" name="searchKeyword" value = "${searchKeyword }" type="text">
-					 <input	id="selectBtn" type="submit" value="검색" style="cursor: pointer" onclick="check()">
+						<option value="TITLE"
+							<c:if test="${'TITLE'== searchCondition}">selected</c:if>>제목</option>
+						<option value="CONTENT"
+							<c:if test="${'CONTENT'== searchCondition}">selected</c:if>>내용</option>
+					</select> <input id="selectText" name="searchKeyword"
+						value="${searchKeyword }" type="text"> <input
+						id="selectBtn" type="submit" value="검색" style="cursor: pointer"
+						onclick="check()">
 				</div>
+
 				<c:if test="${ ! empty authMember }">
-					<a href="insertInquery.jsp"><p class="inquiryBtn"
+					<a href="callInsertForm.do?r_no=${r_no }"><p class="inquiryBtn"
 							style="cursor: pointer">문의하기</p></a>
 				</c:if>
+				<input type="hidden" value="${r_no }" name="r_no">
 
 				<table>
 					<tr>
@@ -61,7 +64,7 @@
 
 						<tr>
 							<td>${Inquery.inqu_no}</td>
-			
+
 							<td><a href="getInquery.do?inqu_no=${Inquery.inqu_no}">${Inquery.inqu_title}</a></td>
 							<td>${Inquery.m_name}</td>
 							<td>${Inquery.reg_date}</td>
@@ -70,17 +73,17 @@
 					</c:forEach>
 					<c:if test="${InqueryPage.hasInqueries() }">
 						<tr>
-							<td colspan="5">
-								<c:if test="${InqueryPage.startPage > 5 }">
-									<a class="paging"href="getInqueryList.do?r_no=${r_no }&pNo=${InqueryPage.startPage -5 }">[이전]</a>
-								</c:if>
-								<c:forEach var="pNo" begin="${InqueryPage.startPage }" end="${InqueryPage.endPage }">
-									<a class="paging"href="getInqueryList.do?r_no=${r_no }&pNo=${pNo }">[${pNo }]</a>
-								</c:forEach>
-								<c:if test="${InqueryPage.endPage < InqueryPage.totalPages }">
-									<a class="paging"href="getInqueryList.do?r_no=${r_no }&pNo=${InqueryPage.startPage+5 }">[다음]</a>
-								</c:if>
-							</td>
+							<td colspan="5"><c:if test="${InqueryPage.startPage > 5 }">
+									<a class="paging"
+										href="getInqueryList.do?r_no=${r_no }&pNo=${InqueryPage.startPage -5 }">[이전]</a>
+								</c:if> <c:forEach var="pNo" begin="${InqueryPage.startPage }"
+									end="${InqueryPage.endPage }">
+									<a class="paging"
+										href="getInqueryList.do?r_no=${r_no }&pNo=${pNo }">[${pNo }]</a>
+								</c:forEach> <c:if test="${InqueryPage.endPage < InqueryPage.totalPages }">
+									<a class="paging"
+										href="getInqueryList.do?r_no=${r_no }&pNo=${InqueryPage.startPage+5 }">[다음]</a>
+								</c:if></td>
 						</tr>
 					</c:if>
 

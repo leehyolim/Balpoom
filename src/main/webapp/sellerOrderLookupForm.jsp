@@ -13,8 +13,8 @@
 	<table width="100%" border="1" cellpadding="0" cellspacing="0">
 		<thead style="height: 150px;">
 			<tr>
-				<th scope="col" style="width: 13%">주문번호</th>
-				<th scope="col" style="width: 14%">주문날짜</th>
+				<!-- <th scope="col" style="width: 13%">주문번호</th>
+				<th scope="col" style="width: 14%">주문날짜</th> -->
 				<th scope="col" style="width: 40%">상품이름</th>
 				<th scope="col" style="width: 14%">가격</th>
 				<th scope="col" style="width: 10%">사이즈</th>
@@ -25,9 +25,9 @@
 		<tbody>
 			<c:forEach items="${sellerOrderLookup}" var="sellerlist">
 				<tr>
-					<td class="orderLookup" align="center" scope="row" style="width: 13%;height: 50px" onmouseover="view(true)" onmouseout="view(false)">${sellerlist.o_no}</td>
-					<td align="center" scope="row" style="width: 14%;height: 50px">${sellerlist.o_date}</td>
-					<td align="center" scope="row" style="width: 40%;height: 50px">${sellerlist.p_name}</td>
+					<%-- <td class="orderLookup" align="center" scope="row" style="width: 13%;height: 50px" onmouseover="view(true)" onmouseout="view(false)">${sellerlist.o_no}</td>
+					<td align="center" scope="row" style="width: 14%;height: 50px">${sellerlist.o_date}</td> --%>
+					<td align="center" scope="row" style="width: 40%;height: 50px">${sellerlist.p_identifier}</td>
 					<td align="center" scope="row" style="width: 14%;height: 50px">${sellerlist.p_price}</td>
 					<td align="center" scope="row" style="width: 10%;height: 50px">${sellerlist.p_size}</td>
 					<td align="center" scope="row" style="width: 10%;height: 50px">${sellerlist.c_cnt}</td>

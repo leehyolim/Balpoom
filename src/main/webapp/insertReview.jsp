@@ -31,6 +31,7 @@ $(document).ready(function today(){
 	<div id="insertBoard_wrapper">
 		<p class="insertBoard_Title">상품 후기</p>
 		<form action="insertReview.do" enctype="multipart/form-data" method="post">
+		<input type="hidden" name="r_no" value="${r_no}" id ="r_no">
 		<input type="hidden" id="date" name="fileName_date">
 		<input type="hidden" id="m_id" name="m_id" value="${authMember.m_id }">
 			<table>
@@ -55,7 +56,7 @@ $(document).ready(function today(){
 					<td><input type="file" name="uploadFile" style="padding-top:20px; font-size: 13px;"></td>
 				</tr>
 			</table>
-			<a href="getReviewList.do"><button  type="button" style="cursor: pointer" class="submit_btn1">목록</a>
+			<a href="getReviewList.do?r_no=${r_no }"><button  type="button" style="cursor: pointer" class="submit_btn1">목록</a>
 			<button type="submit" class="submit_btn2" style="cursor: pointer">작성</button>
 			
 		</form>

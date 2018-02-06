@@ -4,10 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="./css/master.css?ver=2">
+<link rel="stylesheet" href="./css/master.css?ver=3">
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-<script type="text/javascript" src="./js/bestProd.js?ver=2"></script>
+<script type="text/javascript" src="./js/bestProd.js?ver=1"></script>
 <title>BalPoom</title>
+
 <script type="text/javascript">
 	var list = {
 		1 : "Outer",
@@ -26,7 +27,7 @@
 									data : list,
 									success : function(data) {
 										for (var i = 0; i < 3; i++) {
-											insertHTML += '<div class="bestOuter">';
+											insertHTML += '<a href="getProduct.do?r_no='+data.outer_best[i].r_no+'"><div class="bestOuter">';
 											insertHTML += '<div id=divImg>';
 											insertHTML += '<img class="img1" src="./product_img/'+data.outer_best[i].modify_date+'/'+data.outer_best[i].p_common_name+'/'+data.outer_best[i].modify_date+'_'+data.outer_best[i].p_common_name+'0.jpg"> <img';
 					insertHTML +=	'	class="img2" src="./product_img/'+data.outer_best[i].modify_date+'/'+data.outer_best[i].p_common_name+'/'+data.outer_best[i].modify_date+'_'+data.outer_best[i].p_common_name+'1.jpg">';
@@ -42,13 +43,13 @@
 													+ data.outer_best[i].p_price
 													+ '</p>';
 											insertHTML += '</div>';
-											insertHTML += '</div>';
+											insertHTML += '</div></a>';
 											$("#outer_line1")
 													.append(insertHTML);
 											insertHTML = "";
 										}
 										for (var i = 3; i < 6; i++) {
-											insertHTML += '<div class="bestOuter">';
+											insertHTML += '<a href="getProduct.do?r_no='+data.outer_best[i].r_no+'"><div class="bestOuter">';
 											insertHTML += '<div id=divImg>';
 											insertHTML += '<img class="img1" src="./product_img/'+data.outer_best[i].modify_date+'/'+data.outer_best[i].p_common_name+'/'+data.outer_best[i].modify_date+'_'+data.outer_best[i].p_common_name+'0.jpg"> <img';
 					insertHTML +=	'	class="img2" src="./product_img/'+data.outer_best[i].modify_date+'/'+data.outer_best[i].p_common_name+'/'+data.outer_best[i].modify_date+'_'+data.outer_best[i].p_common_name+'1.jpg">';
@@ -64,14 +65,14 @@
 													+ data.outer_best[i].p_price
 													+ '</p>';
 											insertHTML += '</div>';
-											insertHTML += '</div>';
+											insertHTML += '</div></a>';
 											$("#outer_line2")
 													.append(insertHTML);
 											insertHTML = "";
 										}
 										//outer
 										for (var i = 0; i < 3; i++) {
-											insertHTML += '<div class="bestOuter">';
+											insertHTML += '<a href="getProduct.do?r_no='+data.top_best[i].r_no+'"><div class="bestOuter">';
 											insertHTML += '<div id=divImg>';
 											insertHTML += '<img class="img1" src="./product_img/'+data.top_best[i].modify_date+'/'+data.top_best[i].p_common_name+'/'+data.top_best[i].modify_date+'_'+data.top_best[i].p_common_name+'0.jpg"> <img';
 					insertHTML +=	'	class="img2" src="./product_img/'+data.top_best[i].modify_date+'/'+data.top_best[i].p_common_name+'/'+data.top_best[i].modify_date+'_'+data.top_best[i].p_common_name+'1.jpg">';
@@ -87,13 +88,13 @@
 													+ data.top_best[i].p_price
 													+ '</p>';
 											insertHTML += '</div>';
-											insertHTML += '</div>';
+											insertHTML += '</div></a>';
 											$("#outer_line3")
 													.append(insertHTML);
 											insertHTML = "";
 										}
 										for (var i = 3; i < 6; i++) {
-											insertHTML += '<div class="bestOuter">';
+											insertHTML += '<a href="getProduct.do?r_no='+data.top_best[i].r_no+'"><div class="bestOuter">';
 											insertHTML += '<div id=divImg>';
 											insertHTML += '<img class="img1" src="./product_img/'+data.top_best[i].modify_date+'/'+data.top_best[i].p_common_name+'/'+data.top_best[i].modify_date+'_'+data.top_best[i].p_common_name+'0.jpg"> <img';
 					insertHTML +=	'	class="img2" src="./product_img/'+data.top_best[i].modify_date+'/'+data.top_best[i].p_common_name+'/'+data.top_best[i].modify_date+'_'+data.top_best[i].p_common_name+'1.jpg">';
@@ -109,14 +110,14 @@
 													+ data.top_best[i].p_price
 													+ '</p>';
 											insertHTML += '</div>';
-											insertHTML += '</div>';
+											insertHTML += '</div></a>';
 											$("#outer_line4")
 													.append(insertHTML);
 											insertHTML = "";
 										}
 										//top
 										for (var i = 0; i < 3; i++) {
-											insertHTML += '<div class="bestOuter">';
+											insertHTML += '<a href="getProduct.do?r_no='+data.bottom_best[i].r_no+'"><div class="bestOuter">';
 											insertHTML += '<div id=divImg>';
 											insertHTML += '<img class="img1" src="./product_img/'+data.bottom_best[i].modify_date+'/'+data.bottom_best[i].p_common_name+'/'+data.bottom_best[i].modify_date+'_'+data.bottom_best[i].p_common_name+'0.jpg"> <img';
 					insertHTML +=	'	class="img2" src="./product_img/'+data.bottom_best[i].modify_date+'/'+data.bottom_best[i].p_common_name+'/'+data.bottom_best[i].modify_date+'_'+data.bottom_best[i].p_common_name+'1.jpg">';
@@ -132,13 +133,13 @@
 													+ data.bottom_best[i].p_price
 													+ '</p>';
 											insertHTML += '</div>';
-											insertHTML += '</div>';
+											insertHTML += '</div></a>';
 											$("#outer_line5")
 													.append(insertHTML);
 											insertHTML = "";
 										}
 										for (var i = 3; i < 6; i++) {
-											insertHTML += '<div class="bestOuter">';
+											insertHTML += '<a href="getProduct.do?r_no='+data.bottom_best[i].r_no+'"><div class="bestOuter">';
 											insertHTML += '<div id=divImg>';
 											insertHTML += '<img class="img1" src="./product_img/'+data.bottom_best[i].modify_date+'/'+data.bottom_best[i].p_common_name+'/'+data.bottom_best[i].modify_date+'_'+data.bottom_best[i].p_common_name+'0.jpg"> <img';
 					insertHTML +=	'	class="img2" src="./product_img/'+data.bottom_best[i].modify_date+'/'+data.bottom_best[i].p_common_name+'/'+data.bottom_best[i].modify_date+'_'+data.bottom_best[i].p_common_name+'1.jpg">';
@@ -154,14 +155,14 @@
 													+ data.bottom_best[i].p_price
 													+ '</p>';
 											insertHTML += '</div>';
-											insertHTML += '</div>';
+											insertHTML += '</div></a>';
 											$("#outer_line6")
 													.append(insertHTML);
 											insertHTML = "";
 										}
 										//bottom
 										for (var i = 0; i < 3; i++) {
-											insertHTML += '<div class="bestOuter">';
+											insertHTML += '<a href="getProduct.do?r_no='+data.shoes_best[i].r_no+'"><div class="bestOuter">';
 											insertHTML += '<div id=divImg>';
 											insertHTML += '<img class="img1" src="./product_img/'+data.shoes_best[i].modify_date+'/'+data.shoes_best[i].p_common_name+'/'+data.shoes_best[i].modify_date+'_'+data.shoes_best[i].p_common_name+'0.jpg"> <img';
 					insertHTML +=	'	class="img2" src="./product_img/'+data.shoes_best[i].modify_date+'/'+data.shoes_best[i].p_common_name+'/'+data.shoes_best[i].modify_date+'_'+data.shoes_best[i].p_common_name+'1.jpg">';
@@ -177,13 +178,13 @@
 													+ data.shoes_best[i].p_price
 													+ '</p>';
 											insertHTML += '</div>';
-											insertHTML += '</div>';
+											insertHTML += '</div></a>';
 											$("#outer_line7")
 													.append(insertHTML);
 											insertHTML = "";
 										}
 										for (var i = 3; i < 6; i++) {
-											insertHTML += '<div class="bestOuter">';
+											insertHTML += '<a href="getProduct.do?r_no='+data.shoes_best[i].r_no+'"><div class="bestOuter">';
 											insertHTML += '<div id=divImg>';
 											insertHTML += '<img class="img1" src="./product_img/'+data.shoes_best[i].modify_date+'/'+data.shoes_best[i].p_common_name+'/'+data.shoes_best[i].modify_date+'_'+data.shoes_best[i].p_common_name+'0.jpg"> <img';
 					insertHTML +=	'	class="img2" src="./product_img/'+data.shoes_best[i].modify_date+'/'+data.shoes_best[i].p_common_name+'/'+data.shoes_best[i].modify_date+'_'+data.shoes_best[i].p_common_name+'1.jpg">';
@@ -199,7 +200,7 @@
 													+ data.shoes_best[i].p_price
 													+ '</p>';
 											insertHTML += '</div>';
-											insertHTML += '</div>';
+											insertHTML += '</div></a>';
 											$("#outer_line8")
 													.append(insertHTML);
 											insertHTML = "";

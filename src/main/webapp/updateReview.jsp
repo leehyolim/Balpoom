@@ -38,7 +38,7 @@
 				</tr>
 				
 			</table>
-			<a href="getReviewList.do"><button type="button" class="submit_btn1" style="cursor: pointer">목록</a>
+			<a href="getReviewList.do?r_no=${Review.r_no }"><button type="button" class="submit_btn1" style="cursor: pointer">목록</a>
 			<button type="submit" class="submit_btn2" style="cursor: pointer" style="cursor: pointer">작성</button>
 		</form>
 

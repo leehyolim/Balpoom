@@ -37,7 +37,7 @@
 						<input type="text" name="m_name" class="writerbox" value="${authMember.m_name }" readOnly>
 						<input type="hidden" name="m_no" value="${authMember.m_no }"> 
 						<input type="hidden" name="m_id" value="${authMember.m_id }">
-						
+						<input type="hidden" name="r_no" value="${r_no}" id ="r_no">
 					</td>
 				</tr>
 
@@ -49,7 +49,7 @@
 				
 				
 			</table>
-			<a href="getInqueryList.do"><button type="button" class="submit_btn1" style="cursor: pointer">목록</a>
+			<a href="getInqueryList.do?r_no=${r_no}"><button type="button" class="submit_btn1" style="cursor: pointer">목록</a>
 			<button type="submit" class="submit_btn2" style="cursor: pointer">작성</button>
 			
 		</form>

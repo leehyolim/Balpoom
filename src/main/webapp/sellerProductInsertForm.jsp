@@ -309,7 +309,7 @@
                 </td>
             </tr>
         </table>
-        <button type="button" onclick="valueShow()">valueShow</button>
+        <!-- <button type="button" onclick="valueShow()">valueShow</button> -->
         <center><input type="submit" class="submitBtn" style="cursor:pointer" value="등록"></center>
         <input name="regdate" type="hidden" id="tDate"><input id="s_no" type="hidden" name="s_no" value="${authSeller.s_no }">
     </form>

@@ -41,7 +41,7 @@
 				
 			</table>
 			
-			<a href="getInqueryList.do"><button  style="cursor: pointer" type="button" class="submit_btn1">목록</a>
+			<a href="getInqueryList.do?r_no=${Inquery.r_no }"><button  style="cursor: pointer" type="button" class="submit_btn1">목록</a>
 			<button type="submit" class="submit_btn2" style="cursor: pointer">작성</button>
 		</form>
 

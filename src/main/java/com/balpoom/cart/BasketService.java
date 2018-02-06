@@ -19,4 +19,6 @@ public interface BasketService {
 	
 	void best_rs_product_number(BasketVO vo);
 	
+	void  order_after_delete(BasketVO vo);
+	
 }

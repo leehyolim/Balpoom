@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.balpoom.review.ReviewPage;
 import com.balpoom.review.ReviewService;
@@ -34,13 +35,13 @@ public class ReviewController {
 	Logger logger = Logger.getLogger(this.getClass());
 
 	@RequestMapping("/deleteReview.do")
-	public String deleteReview(ReviewVO vo) {
+	public String deleteReview(ReviewVO vo,@RequestParam String re_no,@RequestParam String r_no) {
 
 		reviewService.deleteReview(vo);
 
 		System.out.println(vo.toString());
 
-		return "getReviewList.do";
+		return "getReviewList.do?r_no="+r_no;
 	}
 
 	@RequestMapping("/updateReview.do")
@@ -51,10 +52,19 @@ public class ReviewController {
 		return "getReview.do";
 	}
 
-	@RequestMapping("/insertReview.do")
-	public String insertReview(ReviewVO vo, HttpServletRequest request) throws IOException {
-		System.out.println(1);
+	// 글 등록페이지 불러오기
+	@RequestMapping(value = "/callInsertReviewForm.do")
+	public String callInsertForm(HttpServletRequest request, Model model) {
+		int r_no = Integer.parseInt(request.getParameter("r_no"));
+		model.addAttribute("r_no", r_no);
 
+		return "insertReview.jsp";
+	}
+
+	@RequestMapping("/insertReview.do")
+	public ModelAndView insertReview(ReviewVO vo, HttpServletRequest request) throws IOException {
+		System.out.println(1);
+		ModelAndView mav = new ModelAndView();
 		String fileName_date = request.getParameter("fileName_date");
 
 		System.out.println(2);
@@ -83,10 +93,12 @@ public class ReviewController {
 		System.out.println(vo.getM_no());
 		System.out.println(vo.getRe_content());
 		System.out.println(vo.toString());
-
+		int r_no = Integer.parseInt(request.getParameter("r_no"));
+		vo.setR_no(r_no);
 		reviewService.insertReview(vo);
-
-		return "getReviewList.do";
+		mav.setViewName("getReviewList.do");
+		
+		return mav;
 	}
 
 	@RequestMapping("/getReview.do")
@@ -116,7 +128,7 @@ public class ReviewController {
 			review.setReg_date(sdf.format(cal.getTime()));
 		}
 		ReviewPage page = new ReviewPage(total, pNo, size, timeModify);
-//		model.addAttribute("getReviewList", timeModify);
+		// model.addAttribute("getReviewList", timeModify);
 		model.addAttribute("ReviewPage", page);
 		model.addAttribute("r_no", vo.getR_no());
 
@@ -125,11 +137,11 @@ public class ReviewController {
 		return "getReviewList.jsp";
 
 	}
-	
+
 	@RequestMapping("/getReview_mypage.do")
-	public String getReview_mypage(ReviewVO vo, Model model){
+	public String getReview_mypage(ReviewVO vo, Model model) {
 		model.addAttribute("Review", reviewService.getReview(vo));
-		
+
 		return "getReviewMypage.jsp";
 	}
 }
